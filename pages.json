@@ -6,7 +6,7 @@
         {
             "path" : "pages/views/tabBar/home",
             "style" : {
-                "navigationBarTitleText" : "技术纯干货",
+                "navigationBarTitleText" : "办公效能助手TG",
                 "app-plus" : {
                     "titleNView" : false,
 					"bounce":"none"
@@ -101,6 +101,15 @@
                 "navigationBarTitleText" : "选择位置",
 				"navigationBarBackgroundColor":"#F8F8F8"
             }
+        }
+        ,{
+            "path" : "test/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
         }
     ],
     "style" : "v2",
