@@ -10,7 +10,8 @@
     "pages/views/setting/index",
     "pages/views/user/extension",
     "pages/views/home/search",
-    "pages/views/home/h5map"
+    "pages/views/home/h5map",
+    "test/test"
   ],
   "subPackages": [],
   "window": {
@@ -56,6 +57,5 @@
   ],
   "usingComponents": {
     "nodata": "/pages/commponent/public/nodata"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }
