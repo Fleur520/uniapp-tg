@@ -1,10 +1,29 @@
+
+var text = "";
+text += "<h4>GROW模型是一种设定目标和寻找解决方案的工具。</h4>";
+text += "";
+text += "<blockquote><p>GROW模型包含G(Goal Setting)、R(Reality Check)、O(Options)和W(Way Forward)四个部分。</p></blockquote>";
+text += "";
+text += "<ul><li><p>G(Goal setting)代表明确目标：教练和被指导者经过交流后找到自己重要的目标；</p></li><li><p>R(Reality Check)代表现状：围绕着找到的目标来搜寻元素和资源，找到更多的可能性；</p></li><li><p>O(Options)代表方案的选择：从找到的资源中，制定可达成的目标方案；</p></li><li><p>W(Way Forward)代表意愿：教练通过多种方式激发被指导者的热情，使得被指导者完成目标。GROW模型的目的就是通过帮助和启示，自行找到答案并确定行动方案。</p></li></ul>";
+text += "";
+text += "<h4>GROW模型常见用途</h4>";
+text += "";
+text += "<blockquote><p>GROW模型是教练和团队领导用来加强成员能力的工具。教练使用GROW模型辅导被指导者完成自己的目标，团队领导使用GROW模型促进员工成长。</p></blockquote>";
+text += "";
+text += "<ol><li>教练使用GROW模型";
+text += "教练通过与被指导者有效的交流，帮助被指导者设定目标方案和建立自信</li><li>团队领导使用GROW模型";
+text += "指导员工做出决定，帮助他们解决困难，提醒员工学习新技能，促进员工成长。</li></ol>";
+text += "";
+text += "<p><img alt=\"grow\" src=\"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/mind/grow.png\"/></p>";
+
+
 export const details = {
     "err_no": 0,
     "err_msg": "success",
     "data": {
         "article_id": "6961323610631831560",
         "article_info": {
-      "mark_content": "http://mp.weixin.qq.com/s?__biz=MzkyNDE2NDU3Ng==&mid=2247484879&idx=1&sn=0689068dc7a603fe0825f83f891deabe&chksm=c1db4d40f6acc45646bada941e1450e22725770d0a55b40da027c242b46f72eb1f48ba0f295d&scene=21#wechat_redirect"
+        "mark_content": text
              },
         "author_user_info": {
             "user_id": "4459274891961112",
@@ -86,6 +105,8 @@ export const details = {
         }
     }
 }
+
+
 
 export default {
     details: details

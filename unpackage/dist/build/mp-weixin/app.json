@@ -57,5 +57,6 @@
   ],
   "usingComponents": {
     "nodata": "/pages/commponent/public/nodata"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

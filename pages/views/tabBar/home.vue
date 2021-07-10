@@ -48,7 +48,7 @@ export default {
 	data() {
 		return {
 			list: [
-				{ name: '导航', cate_id: "1", tags:[], list: [], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
+				{ name: '推荐', cate_id: "1", tags:[], list: [], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
 				{ name: '思维模型', cate_id: "6809637769959178254", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
 				{ name: '项目管理', cate_id: "6809637767543259144", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
 				{ name: '成长路线', cate_id: "6809635626879549454", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0"},
@@ -67,7 +67,7 @@ export default {
 	},
 	onShareAppMessage(){
 		return {
-		  title: '开发技术干货分享',
+		  title: '办公效能助手TG',
 		  path: '/pages/views/tabBar/home'
 		}
 	},
