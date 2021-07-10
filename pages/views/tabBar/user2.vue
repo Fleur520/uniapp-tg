@@ -10,6 +10,7 @@
         <text>{{userdata.nickName || '登录'}}</text>
       </view>
   </view>
+  
   <view class="vip">
         <image src="/static/images/user/vip-card.png" class="vip_bg"></image>
         <view class="vipname">
@@ -19,9 +20,9 @@
           </text>
           <text class="vip_level">钻石会员</text>
         </view>
-        <!-- <view class="banquan">
+        <view class="banquan">
           绿缘版权所有©
-        </view>  -->
+        </view>
    </view>
 </view>
 <!-- 中间菜单栏 -->
@@ -74,10 +75,10 @@ export default {
       //元素的移动
       coverTransition: '0s',
       logList: [{ //足迹的数据应该由后台进行存储
-        name: '真巧 巧克力涂层甜甜圈 早餐蛋糕手撕面包休闲小零食办公室小吃零嘴下午茶点心 500g甜甜圈（拉花款）',
+        name: '',
         img: "/static/images/goods/one.jpg"
       }, {
-        name: '巧妈妈 鸡蛋布甸 下午茶休闲零食儿童果冻布丁125g双层果酱味smzdm 4杯鸡蛋布甸（双层）',
+        name: '',
         img: "/static/images/goods/four.jpg"
       }],
       serverList: [/* {
@@ -110,13 +111,13 @@ export default {
         url: '',
         id: 8,
         elseUrl: ''
-      }, {
+      }/* , {
         name: '设置',
         icon: 'icon-shezhi2',
         url: '../setting/index',
         id: 9,
         elseUrl: ''
-      }],
+      } */],
       oldcolor: '',
       userdata: {}
     };

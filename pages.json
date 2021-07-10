@@ -122,8 +122,8 @@
         "list" : [
             {
                 "pagePath" : "pages/views/tabBar/home",
-                "iconPath" : "/static/images/tabBar/breath_default.png",
-                "selectedIconPath" : "/static/images/tabBar/breath_selected.png",
+				 "iconPath" : "/static/images/tabBar/home.png",
+				 "selectedIconPath" : "/static/images/tabBar/home.png",
                 "text" : "首页"
             },
 			{
@@ -132,12 +132,24 @@
 			    "selectedIconPath" : "/static/images/tabBar/theme_selected.png",
 			    "text" : "分类"
 			},
+			{
+			    "pagePath" : "pages/views/tabBar/navgation",
+				"iconPath" : "/static/images/tabBar/breath_default.png",
+				"selectedIconPath" : "/static/images/tabBar/breath_selected.png",
+			    "text" : "跳转"
+			},
             {
                 "pagePath" : "pages/views/tabBar/user",
                 "iconPath" : "/static/images/tabBar/my_default.png",
                 "selectedIconPath" : "/static/images/tabBar/my_selected.png",
                 "text" : "我的"
-            }
+            },
+			{
+			    "pagePath" : "pages/views/tabBar/user2",
+			    "iconPath" : "/static/images/tabBar/my_default.png",
+			    "selectedIconPath" : "/static/images/tabBar/my_selected.png",
+			    "text" : "我的2"
+			}
         ]
     },
     "permission" : {
