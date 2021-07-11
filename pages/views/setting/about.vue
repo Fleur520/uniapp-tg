@@ -1,6 +1,6 @@
 <template>
 <view class="setting">
-	<view>[闪速查]是基于微信云开发的一款信息查询程序,已开放IP地址查询、手机号查询、银行卡查询、身份证查询、生辰查询功能。目前功能还在不断完善,希望大家多提意见,让应用不断强大!	</view>
+	<view>【办公助手TG】是基于微信云开发的一款效能工具程序.宣言：只做工具，做好工具人。目前功能还在不断完善,希望大家多提意见,让应用不断强大!	</view>
 	<view class="card">
 		<view class="title">分享</view>
 		<view>如果你喜欢这个小程序。可以分享给你的朋友。您可以在首页及详情页使用转发功能,也可以直接点击下放分享按钮!</view>
@@ -8,7 +8,7 @@
 	<view class="card">
 		<view class="title">反馈或建议</view>
 		<view>如果您有好的功能建议或者发现程序存在BUG,均可以联系管理员进行代化更正。</view>
-		<view>邮箱地址: fexcoin@sina.com</view>
+		<view>邮箱地址: zhangmin_0820@163.com</view>
 	</view>
 	<view class="menu">
 		

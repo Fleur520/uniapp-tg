@@ -87,6 +87,7 @@
         },
         "devServer" : {
             "https" : false
-        }
+        },
+        "domain" : "static-817c5f2b-52dc-4a02-9b9d-1d6aa691cf5e.bspapp.com"
     }
 }
