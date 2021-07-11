@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       currentSwiper: 0,
-      city: '北京',
+      city: '我的位置',
       weatherData: [{
         type: '阴',
         img: "/static/images/weather/yin.png"

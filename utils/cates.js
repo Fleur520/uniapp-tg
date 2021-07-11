@@ -7,7 +7,7 @@ export const cates = {
             "tag": {
                 "id": 2546526,
                 "tag_id": "6809640407484334093",
-                "tag_name": "前端",
+                "tag_name": "通用工具",
                 "color": "#60ADFF",
                 "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
                 "back_ground": "",
@@ -33,7 +33,7 @@ export const cates = {
             "tag": {
                 "id": 2546527,
                 "tag_id": "6809640408797167623",
-                "tag_name": "后端",
+                "tag_name": "程序员专区",
                 "color": "#C679FF",
                 "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
                 "back_ground": "",
@@ -59,7 +59,7 @@ export const cates = {
             "tag": {
                 "id": 2546519,
                 "tag_id": "6809640398105870343",
-                "tag_name": "JavaScript",
+                "tag_name": "设计师专区",
                 "color": "#616161",
                 "icon": "https://lc-gold-cdn.xitu.io/5d70fd6af940df373834.png",
                 "back_ground": "",
@@ -85,7 +85,7 @@ export const cates = {
             "tag": {
                 "id": 2546563,
                 "tag_id": "6809640458684203021",
-                "tag_name": "全栈",
+                "tag_name": "互联网专区",
                 "color": "#F56868",
                 "icon": "https://lc-gold-cdn.xitu.io/993d9815412ebf9bc888.png",
                 "back_ground": "",

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "工具",
+  "usingComponents": {
+    "headers": "/pages/commponent/home/header",
+    "class-list": "/pages/commponent/home/classList",
+    "notice": "/pages/commponent/home/notice",
+    "column": "/pages/commponent/home/column",
+    "banner": "/pages/commponent/home/banner"
+  }
+}

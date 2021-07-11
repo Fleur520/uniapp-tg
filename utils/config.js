@@ -71,4 +71,6 @@ export default {
     color: '#333333',
     tabList: ["/static/images/tabBar/tab-home-black.png", "/static/images/tabBar/tab-cate-black.png", "/static/images/tabBar/tab-cart-black.png", "/static/images/tabBar/tab-user-black.png"]
   }]
+  
+  
 };

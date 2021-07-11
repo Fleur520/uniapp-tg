@@ -149,24 +149,12 @@
 		methods: {
 			getNotice(){
 				this.request('/v1/notice/list', {limit: 5}, 'GET').then(res=>{
-					let rows = res.rows;
+					let rows = res.rows;			   
 					this.setData({
-					  noticeList: rows
+					 noticeList: rows
 					});
 				})
 			}
-			
-			// onPageScroll: function(e) {
-			// 	if (e.scrollTop >= 500) {
-			// 		this.setData({
-			// 			scrollShow: true
-			// 		});
-			// 	} else {
-			// 		this.setData({
-			// 			scrollShow: false
-			// 		});
-			// 	}
-			// }
 		}
 	};
 </script>

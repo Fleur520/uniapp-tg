@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "简繁转换",
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "u-input": "/uview-ui/components/u-input/u-input"
+  }
+}
