@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "文档办公",
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section"
+  }
+}

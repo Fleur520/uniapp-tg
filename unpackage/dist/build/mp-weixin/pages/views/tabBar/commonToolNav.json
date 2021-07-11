@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "工具",
+  "navigationBarTitleText": "通用",
   "usingComponents": {
     "headers": "/pages/commponent/home/header",
     "class-list": "/pages/commponent/home/classList",

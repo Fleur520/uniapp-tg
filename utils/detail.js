@@ -14,7 +14,7 @@ text += "<ol><li>教练使用GROW模型";
 text += "教练通过与被指导者有效的交流，帮助被指导者设定目标方案和建立自信</li><li>团队领导使用GROW模型";
 text += "指导员工做出决定，帮助他们解决困难，提醒员工学习新技能，促进员工成长。</li></ol>";
 text += "";
-text += "<p><img alt=\"grow\" src=\"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/mind/grow.png\"/></p>";
+text += "<p><img alt=\"grow\" src=\"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/grow.png\"/></p>";
 
 
 export const details = {

@@ -12,14 +12,17 @@
     "pages/views/home/search",
     "pages/views/home/h5map",
     "test/test",
-    "pages/views/tabBar/navgation",
+    "pages/views/tabBar/commonToolNav",
     "pages/views/tools/ip",
     "pages/views/tools/electric",
     "pages/views/tools/font",
     "pages/views/tools/mobile",
     "pages/views/tools/idcard",
     "pages/views/tools/house",
-    "pages/views/tools/bank"
+    "pages/views/tools/bank",
+    "pages/views/tabBar/zoneIndex",
+    "pages/views/zone/card/card",
+    "pages/views/zone/grid/grid"
   ],
   "subPackages": [],
   "window": {
@@ -41,16 +44,16 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/views/tabBar/cate",
+        "pagePath": "pages/views/tabBar/zoneIndex",
         "iconPath": "/static/images/tabBar/theme_default.png",
         "selectedIconPath": "/static/images/tabBar/theme_selected.png",
-        "text": "分类"
+        "text": "专区"
       },
       {
-        "pagePath": "pages/views/tabBar/navgation",
+        "pagePath": "pages/views/tabBar/commonToolNav",
         "iconPath": "/static/images/tabBar/breath_default.png",
         "selectedIconPath": "/static/images/tabBar/breath_selected.png",
-        "text": "工具"
+        "text": "通用"
       },
       {
         "pagePath": "pages/views/tabBar/user",

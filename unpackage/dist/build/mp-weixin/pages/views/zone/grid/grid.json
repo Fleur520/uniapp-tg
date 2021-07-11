@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "视频图片",
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section",
+    "uni-grid": "/uni_modules/uni-grid/components/uni-grid/uni-grid",
+    "uni-grid-item": "/uni_modules/uni-grid/components/uni-grid-item/uni-grid-item"
+  }
+}

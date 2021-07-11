@@ -3,6 +3,7 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
     "pages" : [
+		// 首页 start 
         {
             "path" : "pages/views/tabBar/home",
             "style" : {
@@ -43,6 +44,9 @@
 		        }
 		    }
 		},
+		// 首页 end 
+		
+		// 我的 start 
         {
             "path" : "pages/login/login",
             "style" : {
@@ -111,10 +115,13 @@
             }
             
         },
+		// 我的 end 
+		
+		// 通用 start 
 		{
-		    "path" : "pages/views/tabBar/navgation",
+		    "path" : "pages/views/tabBar/commonToolNav",
 		    "style" : {
-		        "navigationBarTitleText" : "工具",
+		        "navigationBarTitleText" : "通用",
 		        "app-plus" : {
 		            "titleNView" : false,
 					"bounce":"none"
@@ -169,7 +176,43 @@
 		        "navigationBarTitleText" : "银行卡查询",
 				"navigationBarBackgroundColor":"#F8F8F8"
 		    }
+		},
+		
+		// 通用 end
+		
+		// 专区 start
+		
+		{
+		    "path" : "pages/views/tabBar/zoneIndex",
+		    "style" : {
+		        "navigationBarTitleText" : "专区",
+		        "app-plus" : {
+		            "titleNView" : false,
+					"bounce":"none"
+		        }
+		    }
+		},
+		
+		{
+		    "path" : "pages/views/zone/card/card",
+		    "style" : {
+		        "navigationBarTitleText" : "文档办公",
+				"navigationBarBackgroundColor":"#F8F8F8"
+		    }
+		},
+		
+		{
+		    "path" : "pages/views/zone/grid/grid",
+		    "style" : {
+		        "navigationBarTitleText" : "视频图片",
+				"navigationBarBackgroundColor":"#F8F8F8"
+		    }
 		}
+		
+		
+		// 专区 end 
+		
+		
 		
     ],
     "style" : "v2",
@@ -187,16 +230,16 @@
                 "text" : "首页"
             },
 			{
-			    "pagePath" : "pages/views/tabBar/cate",
+			    "pagePath" : "pages/views/tabBar/zoneIndex",
 			    "iconPath" : "/static/images/tabBar/theme_default.png",
 			    "selectedIconPath" : "/static/images/tabBar/theme_selected.png",
-			    "text" : "分类"
+			    "text" : "专区"
 			},
 			{
-			    "pagePath" : "pages/views/tabBar/navgation",
+			    "pagePath" : "pages/views/tabBar/commonToolNav",
 				"iconPath" : "/static/images/tabBar/breath_default.png",
 				"selectedIconPath" : "/static/images/tabBar/breath_selected.png",
-			    "text" : "工具"
+			    "text" : "通用"
 			},
             {
                 "pagePath" : "pages/views/tabBar/user",

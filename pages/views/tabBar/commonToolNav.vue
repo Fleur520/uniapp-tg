@@ -35,7 +35,7 @@
 					id: 1,
 					name: 'IP查询',
 					img: "https://fexcoin.oss-cn-shenzhen.aliyuncs.com/appbox/images/menu/icon-ip.jpg",
-					link: "/pages/views/tools/ip"
+					link: "https://www.baidu.com/"
 				}, {
 					id: 2,
 					name: '手机号查询',
@@ -155,6 +155,9 @@
 					});
 				})
 			}
+			
+			
+			
 		}
 	};
 </script>
