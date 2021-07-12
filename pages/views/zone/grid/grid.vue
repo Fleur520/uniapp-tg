@@ -69,11 +69,11 @@
 					index
 				} = e.detail
 				this.list[index].badge && this.list[index].badge++
-
-				uni.showToast({
-					title: `点击第${index+1}个宫格`,
-					icon: 'none'
-				})
+                window.location.href = "https://www.baidu.com"
+				//uni.showToast({
+				//	title: `点击第${index+1}个宫格`,
+				//	icon: 'none'
+				//})
 			},
 			add() {
 				if (this.dynamicList.length < 9) {

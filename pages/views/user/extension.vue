@@ -105,7 +105,7 @@
 				ctx.fillStyle = '#FFFFFF'
 				ctx.fillRect(0, 0, this.windowWidth - 30, 560)
 				//绘制背景图片
-				ctx.drawImage('https://fexcoin.oss-cn-shenzhen.aliyuncs.com/food/images/foog-share.jpg', 0, 0, this.windowWidth - 30, 560)
+				ctx.drawImage('/static/uni.png', 0, 0, this.windowWidth - 30, 560)
 				ctx.save()
 				// 绘制圆角二维码
 				let avatar_width = 60; //头像宽度

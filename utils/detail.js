@@ -1,4 +1,8 @@
 
+	
+const config = require('utils/globalConfig.js');
+var baseStaticUrl = config.BASE_STATICP_URL;
+
 var text = "";
 text += "<h4>GROW模型是一种设定目标和寻找解决方案的工具。</h4>";
 text += "";
@@ -14,7 +18,7 @@ text += "<ol><li>教练使用GROW模型";
 text += "教练通过与被指导者有效的交流，帮助被指导者设定目标方案和建立自信</li><li>团队领导使用GROW模型";
 text += "指导员工做出决定，帮助他们解决困难，提醒员工学习新技能，促进员工成长。</li></ol>";
 text += "";
-text += "<p><img alt=\"grow\" src=\"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/grow.png\"/></p>";
+text += "<p><img alt=\"grow\" src=  \"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/mind/grow.png\"/></p>";
 
 
 export const details = {
