@@ -1,0 +1,78 @@
+{
+	"bsonType": "object",
+	"required": ["name"],
+	"permission": {
+		"read": true,
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"id": {
+			"bsonType": "int",
+			"defaultValue": 0,
+			"description": "id"
+		},
+		"tag_id": {
+			"bsonType": "string",
+			"description": " ID（tag ID）"
+		},
+		"tag_name": {
+			"bsonType": "string",
+			"description": "tag_name"
+		},
+		"color": {
+			"bsonType": "string",
+			"description": "color"
+		},
+		"icon": {
+			"bsonType": "string",
+			"description": "icon"
+		},
+		"back_ground": {
+			"bsonType": "string",
+			"defaultValue": "",
+			"description": "back_ground"
+		},
+		"show_navi": {
+			"bsonType": "int",
+			"description": "show_navi"
+		},
+		"ctime": {
+			"bsonType": "timestamp",
+			"defaultValue": {
+				"$env": "now"
+			},
+			"description": "创建时间"
+		},
+		"mtime": {
+			"bsonType": "timestamp",
+			"defaultValue": {
+				"$env": "now"
+			},
+			"description": "修改时间"
+		},
+		"id_type": {
+			"bsonType": "int",
+			"defaultValue": "0",
+			"description": "id_type"
+		},
+		"tag_alias": {
+			"bsonType": "string",
+			"description": "tag_alias"
+		},
+		"post_article_count": {
+			"bsonType": "int",
+			"defaultValue": "0",
+			"description": "post_article_count"
+		},
+		"concern_user_count": {
+			"bsonType": "int",
+			"defaultValue": "0",
+			"description": "concern_user_count"
+		}
+	}
+}
