@@ -48,11 +48,11 @@ export default {
 	data() {
 		return {
 			list: [
-				{ name: '推荐', cate_id: "1", tags:[], list: [], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
-				{ name: '思维模型', cate_id: "6809637769959178254", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
-				{ name: '项目管理', cate_id: "6809637767543259144", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
-				{ name: '成长路线', cate_id: "6809635626879549454", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0"},
-				{ name: '其他', cate_id: "6809635626661445640", tags:[], list: [], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" }
+				// { name: '推荐', cate_id: "1", tags:[], list: [], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
+				// { name: '思维模型', cate_id: "6809637769959178254", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
+				// { name: '项目管理', cate_id: "6809637767543259144", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" },
+				// { name: '成长路线', cate_id: "6809635626879549454", list: [], tags:[], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0"},
+				// { name: '其他', cate_id: "6809635626661445640", tags:[], list: [], current: 0, isInitTag: false, loadStatus: 'loadmore', "cursor":"0" }
 
 			],
 			current: 0,
@@ -63,7 +63,8 @@ export default {
 		};
 	},
 	onLoad() {
-		this.getList();
+		// this.getList();
+		this.getCateByDb();
 	},
 	onShareAppMessage(){
 		return {
@@ -72,6 +73,30 @@ export default {
 		}
 	},
 	methods: {
+		async getCateByDb() {
+			uni.showLoading({
+				title: '处理中...'
+			})
+			return await uniCloud.callFunction({
+				name: 'util'
+			}).then((res) => {
+				uni.hideLoading()
+				// uni.showModal({
+				// 	content: `查询成功，获取数据列表为：${JSON.stringify(res.result.data)}`,
+				// 	showCancel: false
+				// })
+				this.list = res.result.data;
+				this.getList();
+				return res.result.data
+			}).catch((err) => {
+				uni.hideLoading()
+				uni.showModal({
+					content: `查询失败，错误信息为：${err.message}`,
+					showCancel: false
+				})
+				console.error(err)
+			})
+		},
 		goSearch(item){
 			uni.navigateTo({
 				url: '/pages/views/home/search?keyword='+item
