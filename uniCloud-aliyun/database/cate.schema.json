@@ -1,0 +1,59 @@
+{
+	"bsonType": "object",
+	"required": ["name"],
+	"permission": {
+		"read": true,
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"cate_id": {
+			"description": " ID（类别 ID）"
+		},
+		"name": {
+			"bsonType": "string",
+			"description": "类别名称",
+			"title": "类别名称",
+			"trim": "both"
+		},
+		"tags": {
+			"bsonType": "array",
+			"description": "tags"
+		},
+		"list": {
+			"bsonType": "array",
+			"description": "list"
+		},
+		"current": {
+			"bsonType": "int",
+			"defaultValue": 0,
+			"description": "current"
+		},
+		"isInitTag": {
+			"bsonType": "bool",
+			"defaultValue": false,
+			"description": "isInitTag"
+		},
+		"loadStatus": {
+			"bsonType": "string",
+			"defaultValue": "loadmore",
+			"description": "loadStatus"
+		},
+		"cursor": {
+			"bsonType": "string",
+			"defaultValue": "0",
+			"description": "cursor"
+		},
+		"create_date": {
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		}
+	}
+}
