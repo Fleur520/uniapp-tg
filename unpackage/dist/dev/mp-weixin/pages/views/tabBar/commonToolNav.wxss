@@ -1,0 +1,13 @@
+.home.data-v-64952fae {
+  margin-bottom: 40rpx;
+}
+.loading.data-v-64952fae {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #ccc;
+  font-size: 24rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+

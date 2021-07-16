@@ -3,49 +3,47 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
     "pages" : [
-		// 首页 start 
-        {
-            "path" : "pages/views/tabBar/home",
-            "style" : {
-                "navigationBarTitleText" : "办公效能助手TG",
-                "app-plus" : {
-                    "titleNView" : false,
-					"bounce":"none"
-                }
-            }
-        },
-		{
-		    "path" : "pages/views/tabBar/detail",
-		    "style" : {
-		        "navigationBarTitleText" : "",
-		        "app-plus" : {
-		            "titleNView" : false,
-					"bounce":"none"
-		        }
-		    }
-		},
-		{
-		    "path" : "pages/views/tabBar/cate",
-		    "style" : {
-		        "navigationBarTitleText" : "全部标签",
-		        "app-plus" : {
-		            "titleNView" : false,
-					"bounce":"none"
-		        }
-		    }
-		},
-		{
-		    "path" : "pages/views/home/tags",
-		    "style" : {
-		        "navigationBarTitleText" : "",
-		        "app-plus" : {
-		            "titleNView" : false,
-					"bounce":"none"
-		        }
-		    }
-		},
-		// 首页 end 
-		
+	
+	
+	// doctor 导航 start
+	{
+	    "path" : "pages/views/tabBar/doctorPageIndex",
+	    "style" : {
+	        "navigationBarTitleText" : "DOC导航",
+	        "app-plus" : {
+	            "titleNView" : false,
+				"bounce":"none"
+	        }
+	    }
+	},
+	{
+	    "path": "pages/std-menus/list",
+	    "style": {
+	        "navigationBarTitleText": "列表"
+	    }
+	},
+	
+	
+	{
+	    "path": "pages/std-menus/detail",
+	    "style": {
+	        "navigationBarTitleText": "详情"
+	    }
+	},
+	{
+	    "path": "pages/std-menus/add",
+	    "style": {
+	        "navigationBarTitleText": "新增"
+	    }
+	}
+	,{
+	    "path": "pages/std-menus/edit",
+	    "style": {
+	        "navigationBarTitleText": "编辑"
+	    }
+	},
+	
+	
 		// 我的 start 
         {
             "path" : "pages/login/login",
@@ -207,10 +205,25 @@
 		        "navigationBarTitleText" : "视频图片",
 				"navigationBarBackgroundColor":"#F8F8F8"
 		    }
+		},
+		
+		// 专区 end 
+		
+		// doctor 导航 start
+
+		{
+		    "path" : "pages/views/doctorPage/detail",
+		    "style" : {
+		        "navigationBarTitleText" : "文档办公",
+				"navigationBarBackgroundColor":"#F8F8F8"
+		    }
 		}
 		
 		
-		// 专区 end 
+		// doctor 导航 end
+		
+		
+		
 		
 		
 		
@@ -223,23 +236,23 @@
         "selectedColor" : "#3B7A86",
         "color" : "#666666",
         "list" : [
-            {
-                "pagePath" : "pages/views/tabBar/home",
-				 "iconPath" : "/static/images/tabBar/home.png",
-				 "selectedIconPath" : "/static/images/tabBar/home.png",
-                "text" : "首页"
-            },
+         {
+             "pagePath" : "pages/views/tabBar/doctorPageIndex",
+         	"iconPath" : "/static/images/tabBar/home.png",
+         	"selectedIconPath" : "/static/images/tabBar/home.png",
+             "text" : "首页"
+         },
 			{
 			    "pagePath" : "pages/views/tabBar/zoneIndex",
 			    "iconPath" : "/static/images/tabBar/theme_default.png",
 			    "selectedIconPath" : "/static/images/tabBar/theme_selected.png",
-			    "text" : "专区"
+			    "text" : "问医"
 			},
 			{
 			    "pagePath" : "pages/views/tabBar/commonToolNav",
 				"iconPath" : "/static/images/tabBar/breath_default.png",
 				"selectedIconPath" : "/static/images/tabBar/breath_selected.png",
-			    "text" : "通用"
+			    "text" : "活动专区"
 			},
             {
                 "pagePath" : "pages/views/tabBar/user",
@@ -260,5 +273,15 @@
         "navigationBarTitleText" : "Weixin",
         "navigationBarTextStyle" : "black"
     },
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	},
     "subPackages" : []
 }

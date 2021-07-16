@@ -1,0 +1,1 @@
+<block wx:if="{{error}}"><view>{{error.message}}</view></block><block wx:else><block wx:if="{{loading}}"><view><uni-load-more vue-id="3f830637-2" contentText="{{loadMore}}" status="loading" bind:__l="__l"></uni-load-more></view></block><block wx:else><block wx:if="{{data}}"><view></view></block></block></block>

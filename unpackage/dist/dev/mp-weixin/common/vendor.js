@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 1:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -872,7 +872,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"unapp-tg","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"星星医学助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1920,7 +1920,1612 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 10:
+/*!************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/utils/request.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 11));
+
+
+
+
+
+var _auth = __webpack_require__(/*! ./auth */ 8);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function
+request(_x, _x2, _x3, _x4, _x5) {return _request.apply(this, arguments);}function _request() {_request = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(mehtod, params, type, headers, callBack) {var header, http, promise;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+            //创建一个名为request请求的方法函数
+            if (!type) {
+              type = 'GET';
+            }
+            header = {
+              "Accept": "application/json",
+              "Content-Type": "application/json; charset=UTF-8" };
+
+
+            http = {
+              url: mehtod,
+              data: params,
+              method: type,
+              header: Object.assign(header, headers) };
+
+            promise = new Promise(function (resolve, reject) {
+              uni.request(http).then(function (res) {
+                console.log(res);
+                resolve(res[1].data);
+              }).catch(function (err) {
+                reject(err);
+                console.log(err);
+              });
+            });return _context.abrupt("return",
+            promise);case 5:case "end":return _context.stop();}}}, _callee);}));return _request.apply(this, arguments);}function
+
+
+requestJson(_x6, _x7, _x8, _x9, _x10) {return _requestJson.apply(this, arguments);}function _requestJson() {_requestJson = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(mehtod, params, type, headerParams, callBack) {var header, http, promise;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+            //创建一个名为request请求的方法函数
+            header = {
+              //设置请求头信息
+              'X-Requested-With': 'XMLHttpRequest',
+              "Accept": "application/json",
+              "Content-Type": "application/json; charset=UTF-8" };
+
+            if (headerParams) {
+              header = Object.assign(header, headerParams);
+            }
+            http = {
+              url: mehtod,
+              data: params,
+              method: type,
+              header: header };
+
+            promise = new Promise(function (resolve, reject) {
+              uni.request(http).then(function (res) {
+                resolve(res);
+              }).catch(function (err) {
+                reject(err);
+                console.log(err);
+              });
+            });return _context2.abrupt("return",
+            promise);case 5:case "end":return _context2.stop();}}}, _callee2);}));return _requestJson.apply(this, arguments);}function
+
+
+requestForm(_x11, _x12, _x13, _x14) {return _requestForm.apply(this, arguments);}function _requestForm() {_requestForm = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(mehtod, params, type, callBack) {var header, http, promise;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+            //创建一个名为request请求的方法函数
+            header = {
+              //设置请求头信息
+              'X-Requested-With': 'XMLHttpRequest',
+              "Accept": "application/json",
+              "Content-Type": "application/x-www-form-urlencoded" };
+
+            http = {
+              url: mehtod,
+              data: params,
+              method: type,
+              header: header };
+
+            promise = new Promise(function (resolve, reject) {
+              uni.request(http).then(function (res) {
+                resolve(res);
+              }).catch(function (err) {
+                reject(err);
+                console.log(err);
+              });
+            });return _context3.abrupt("return",
+            promise);case 4:case "end":return _context3.stop();}}}, _callee3);}));return _requestForm.apply(this, arguments);}var _default =
+
+{
+  request: request,
+  requestJson: requestJson,
+  requestForm: requestForm };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 11:
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ 12);
+
+/***/ }),
+
+/***/ 12:
+/*!************************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() {
+  return this || (typeof self === "object" && self);
+})() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__(/*! ./runtime */ 13);
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
+
+/***/ }),
+
+/***/ 13:
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+!(function(global) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  var inModule = typeof module === "object";
+  var runtime = global.regeneratorRuntime;
+  if (runtime) {
+    if (inModule) {
+      // If regeneratorRuntime is defined globally and we're in a module,
+      // make the exports object identical to regeneratorRuntime.
+      module.exports = runtime;
+    }
+    // Don't bother evaluating the rest of this file if the runtime was
+    // already defined globally.
+    return;
+  }
+
+  // Define the runtime globally (as expected by generated code) as either
+  // module.exports (if we're in a module) or a new, empty object.
+  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  runtime.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  runtime.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  runtime.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  runtime.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  runtime.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return runtime.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        if (delegate.iterator.return) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  runtime.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  runtime.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+})(
+  // In sloppy mode, unbound `this` refers to the global object, fallback to
+  // Function constructor if we're in global strict mode. That is sadly a form
+  // of indirect eval which violates Content Security Policy.
+  (function() {
+    return this || (typeof self === "object" && self);
+  })() || Function("return this")()
+);
+
+
+/***/ }),
+
+/***/ 140:
+/*!***********************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/utils/search.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.search = void 0;var search = {
+  "err_no": 0,
+  "err_msg": "success",
+  "data": [
+  {
+    "result_type": 9,
+    "result_model": {
+      "tag_id": "6809640445233070094",
+      "tag": {
+        "id": 2546553,
+        "tag_id": "6809640445233070094",
+        "tag_name": "Java",
+        "color": "#DD2C2A",
+        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
+        "back_ground": "",
+        "show_navi": 0,
+        "ctime": 1436156295,
+        "mtime": 1620965050,
+        "id_type": 9,
+        "tag_alias": "",
+        "post_article_count": 65148,
+        "concern_user_count": 283705 },
+
+      "user_interact": {
+        "id": 6809640445233070094,
+        "omitempty": 9,
+        "user_id": 0,
+        "is_digg": false,
+        "is_follow": false,
+        "is_collect": false } },
+
+
+    "search_attached_info": "1019330523781862056:0:0" },
+
+  {
+    "result_type": 2,
+    "result_model": {
+      "article_id": "6961574923227955230",
+      "article_info": {
+        "article_id": "6961574923227955230",
+        "user_id": "3289387412501624",
+        "category_id": "6809637769959178254",
+        "tag_ids": [
+        6809640445233070094],
+
+        "visible_level": 0,
+        "link_url": "",
+        "cover_image": "",
+        "is_gfw": 0,
+        "title": "您能说说序列化和反序列化吗？是怎么实现的？什么场景下需要它? | Java Debug 笔记",
+        "brief_content": "序列化和反序列化是Java中最基础的知识点，也是很容易被大家遗忘的，虽然天天使用它，但并不一定都能清楚的说明白。",
+        "is_english": 0,
+        "is_original": 1,
+        "user_index": 5.080173433177302,
+        "original_type": 0,
+        "original_author": "",
+        "content": "",
+        "ctime": "1620868035",
+        "mtime": "1620891458",
+        "rtime": "1620875324",
+        "draft_id": "6961538343888764941",
+        "view_count": 148,
+        "collect_count": 2,
+        "digg_count": 3,
+        "comment_count": 0,
+        "hot_index": 10,
+        "is_hot": 0,
+        "rank_index": 0.11743178,
+        "status": 2,
+        "verify_status": 1,
+        "audit_status": 2,
+        "mark_content": "" },
+
+      "author_user_info": {
+        "user_id": "3289387412501624",
+        "user_name": "xcbeyond",
+        "company": "程序猿技术大咖",
+        "job_title": "架构师",
+        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/55024cc237dfc23b1c88540e18f707e5~300x300.image",
+        "level": 2,
+        "description": "现任架构师，拥有8年+研发经验，多年互联网金融行业背景，乐于技术输出、分享。对于Java、微服务、数据库、Docker有深入研究，并有大量的调优经验。",
+        "followee_count": 7,
+        "follower_count": 131,
+        "post_article_count": 106,
+        "digg_article_count": 103,
+        "got_digg_count": 518,
+        "got_view_count": 30874,
+        "post_shortmsg_count": 50,
+        "digg_shortmsg_count": 45,
+        "isfollowed": false,
+        "favorable_author": 0,
+        "power": 826,
+        "study_point": 0,
+        "university": {
+          "university_id": "0",
+          "name": "",
+          "logo": "" },
+
+        "major": {
+          "major_id": "0",
+          "parent_id": "0",
+          "name": "" },
+
+        "student_status": 0,
+        "select_event_count": 0,
+        "select_online_course_count": 0,
+        "identity": 0,
+        "is_select_annual": false,
+        "select_annual_rank": 0,
+        "annual_list_type": 0,
+        "extraMap": {} },
+
+      "category": {
+        "category_id": "6809637769959178254",
+        "category_name": "后端",
+        "category_url": "backend",
+        "rank": 1,
+        "ctime": 1457483880,
+        "mtime": 1432503193,
+        "show_type": 3 },
+
+      "tags": [
+      {
+        "id": 2546553,
+        "tag_id": "6809640445233070094",
+        "tag_name": "Java",
+        "color": "#DD2C2A",
+        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
+        "back_ground": "",
+        "show_navi": 0,
+        "ctime": 1436156295,
+        "mtime": 1620965050,
+        "id_type": 9,
+        "tag_alias": "",
+        "post_article_count": 65148,
+        "concern_user_count": 283705 }],
+
+
+      "user_interact": {
+        "id": 6961574923227955230,
+        "omitempty": 2,
+        "user_id": 0,
+        "is_digg": false,
+        "is_follow": false,
+        "is_collect": false },
+
+      "org": {
+        "org_info": null,
+        "org_user": null,
+        "is_followed": false } },
+
+
+    "search_attached_info": "1019330523781862056:1:0" }],
+
+
+
+  "cursor": "20_2021051412072901020405513529002510",
+  "count": 0,
+  "has_more": true };exports.search = search;var _default =
+
+
+{
+  search: search };exports.default = _default;
+
+/***/ }),
+
+/***/ 16:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 17:
+/*!*************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/index.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 18));
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 19));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 23));
+
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 24));
+
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 25));
+
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 26));
+
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 27));
+
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 28));
+
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 29));
+
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 30));
+
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 31));
+
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 21));
+
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 20));
+
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 32));
+
+
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 22));
+
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 33));
+
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 34));
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 35));
+
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 36));
+
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 37));
+
+
+
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 38);
+
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 39));
+
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 40));
+
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 41));
+
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 42));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
+// 引入关于是否mixin集成小程序分享的配置
+// import wxshare from './libs/mixin/mpShare.js'
+// 全局挂载引入http相关请求拦截插件
+function wranning(str) {// 开发环境进行信息输出,主要是一些报错信息
+  // 这个环境的来由是在程序编写时候,点击hx编辑器运行调试代码的时候,详见:
+  // 	https://uniapp.dcloud.io/frame?id=%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%92%8c%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83
+  if (true) {console.warn(str);}} // 尝试判断在根目录的/store中是否有$u.mixin.js，此文件uView默认为需要挂在到全局的vuex的state变量
+// HX2.6.11版本,放到try中,控制台依然会警告,暂时不用此方式，
+// let vuexStore = {};
+// try {
+// 	vuexStore = require("@/store/$u.mixin.js");
+// } catch (e) {
+// 	//TODO handle the exception
+// }
+// post类型对象参数转为get类型url参数
+var $u = { queryParams: _queryParams.default, route: _route.default, timeFormat: _timeFormat.default, date: _timeFormat.default, // 另名date
+  timeFrom: _timeFrom.default, colorGradient: _colorGradient.default.colorGradient, colorToRgba: _colorGradient.default.colorToRgba, guid: _guid.default, color: _color.default, sys: _sys.sys, os: _sys.os, type2icon: _type2icon.default, randomArray: _randomArray.default, wranning: wranning, get: _request.default.get,
+  post: _request.default.post,
+  put: _request.default.put,
+  'delete': _request.default.delete,
+  hexToRgb: _colorGradient.default.hexToRgb,
+  rgbToHex: _colorGradient.default.rgbToHex,
+  test: _test.default,
+  random: _random.default,
+  deepClone: _deepClone.default,
+  deepMerge: _deepMerge.default,
+  getParent: _getParent.default,
+  $parent: _$parent.default,
+  addUnit: _addUnit.default,
+  trim: _trim.default,
+  type: ['primary', 'success', 'error', 'warning', 'info'],
+  http: _request.default,
+  toast: _toast.default,
+  config: _config.default, // uView配置信息相关，比如版本号
+  zIndex: _zIndex.default,
+  debounce: _debounce.default,
+  throttle: _throttle.default };
+
+
+// $u挂载到uni对象上
+uni.$u = $u;
+
+var install = function install(Vue) {
+  Vue.mixin(_mixin.default);
+  if (Vue.prototype.openShare) {
+    Vue.mixin(mpShare);
+  }
+  // Vue.mixin(vuexStore);
+  // 时间格式化，同时两个名称，date和timeFormat
+  Vue.filter('timeFormat', function (timestamp, format) {
+    return (0, _timeFormat.default)(timestamp, format);
+  });
+  Vue.filter('date', function (timestamp, format) {
+    return (0, _timeFormat.default)(timestamp, format);
+  });
+  // 将多久以前的方法，注入到全局过滤器
+  Vue.filter('timeFrom', function (timestamp, format) {
+    return (0, _timeFrom.default)(timestamp, format);
+  });
+  Vue.prototype.$u = $u;
+};var _default =
+
+{
+  install: install };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 18:
+/*!************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/mixin/mixin.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
+  data: function data() {
+    return {};
+  },
+  onLoad: function onLoad() {
+    // getRect挂载到$u上，因为这方法需要使用in(this)，所以无法把它独立成一个单独的文件导出
+    this.$u.getRect = this.$uGetRect;
+  },
+  methods: {
+    // 查询节点信息
+    // 目前此方法在支付宝小程序中无法获取组件跟接点的尺寸，为支付宝的bug(2020-07-21)
+    // 解决办法为在组件根部再套一个没有任何作用的view元素
+    $uGetRect: function $uGetRect(selector, all) {var _this = this;
+      return new Promise(function (resolve) {
+        uni.createSelectorQuery().
+        in(_this)[all ? 'selectAll' : 'select'](selector).
+        boundingClientRect(function (rect) {
+          if (all && Array.isArray(rect) && rect.length) {
+            resolve(rect);
+          }
+          if (!all && rect) {
+            resolve(rect);
+          }
+        }).
+        exec();
+      });
+    },
+    getParentData: function getParentData() {var _this2 = this;var parentName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      // 避免在created中去定义parent变量
+      if (!this.parent) this.parent = false;
+      // 这里的本质原理是，通过获取父组件实例(也即u-radio-group的this)
+      // 将父组件this中对应的参数，赋值给本组件(u-radio的this)的parentData对象中对应的属性
+      // 之所以需要这么做，是因为所有端中，头条小程序不支持通过this.parent.xxx去监听父组件参数的变化
+      this.parent = this.$u.$parent.call(this, parentName);
+      if (this.parent) {
+        // 历遍parentData中的属性，将parent中的同名属性赋值给parentData
+        Object.keys(this.parentData).map(function (key) {
+          _this2.parentData[key] = _this2.parent[key];
+        });
+      }
+    },
+    // 阻止事件冒泡
+    preventEvent: function preventEvent(e) {
+      e && e.stopPropagation && e.stopPropagation();
+    } },
+
+  onReachBottom: function onReachBottom() {
+    uni.$emit('uOnReachBottom');
+  },
+  beforeDestroy: function beforeDestroy() {var _this3 = this;
+    // 判断当前页面是否存在parent和chldren，一般在checkbox和checkbox-group父子联动的场景会有此情况
+    // 组件销毁时，移除子组件在父组件children数组中的实例，释放资源，避免数据混乱
+    if (this.parent && uni.$u.test.array(this.parent.children)) {
+      // 组件销毁时，移除父组件中的children数组中对应的实例
+      var childrenList = this.parent.children;
+      childrenList.map(function (child, index) {
+        // 如果相等，则移除
+        if (child === _this3) {
+          childrenList.splice(index, 1);
+        }
+      });
+    }
+  } };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 19:
+/*!**************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/request/index.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 20));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
+    // 设置全局默认配置
+    value: function setConfig(customConfig) {
+      // 深度合并对象，否则会造成对象深层属性丢失
+      this.config = (0, _deepMerge.default)(this.config, customConfig);
+    }
+
+    // 主要请求部分
+  }, { key: "request", value: function request() {var _this = this;var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      // 检查请求拦截
+      if (this.interceptor.request && typeof this.interceptor.request === 'function') {
+        var tmpConfig = {};
+        var interceptorRequest = this.interceptor.request(options);
+        if (interceptorRequest === false) {
+          // 返回一个处于pending状态中的Promise，来取消原promise，避免进入then()回调
+          return new Promise(function () {});
+        }
+        this.options = interceptorRequest;
+      }
+      options.dataType = options.dataType || this.config.dataType;
+      options.responseType = options.responseType || this.config.responseType;
+      options.url = options.url || '';
+      options.params = options.params || {};
+      options.header = Object.assign({}, this.config.header, options.header);
+      options.method = options.method || this.config.method;
+
+      return new Promise(function (resolve, reject) {
+        options.complete = function (response) {
+          // 请求返回后，隐藏loading(如果请求返回快的话，可能会没有loading)
+          uni.hideLoading();
+          // 清除定时器，如果请求回来了，就无需loading
+          clearTimeout(_this.config.timer);
+          _this.config.timer = null;
+          // 判断用户对拦截返回数据的要求，如果originalData为true，返回所有的数据(response)到拦截器，否则只返回response.data
+          if (_this.config.originalData) {
+            // 判断是否存在拦截器
+            if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
+              var resInterceptors = _this.interceptor.response(response);
+              // 如果拦截器不返回false，就将拦截器返回的内容给this.$u.post的then回调
+              if (resInterceptors !== false) {
+                resolve(resInterceptors);
+              } else {
+                // 如果拦截器返回false，意味着拦截器定义者认为返回有问题，直接接入catch回调
+                reject(response);
+              }
+            } else {
+              // 如果要求返回原始数据，就算没有拦截器，也返回最原始的数据
+              resolve(response);
+            }
+          } else {
+            if (response.statusCode == 200) {
+              if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
+                var _resInterceptors = _this.interceptor.response(response.data);
+                if (_resInterceptors !== false) {
+                  resolve(_resInterceptors);
+                } else {
+                  reject(response.data);
+                }
+              } else {
+                // 如果不是返回原始数据(originalData=false)，且没有拦截器的情况下，返回纯数据给then回调
+                resolve(response.data);
+              }
+            } else {
+              // 不返回原始数据的情况下，服务器状态码不为200，modal弹框提示
+              // if(response.errMsg) {
+              // 	uni.showModal({
+              // 		title: response.errMsg
+              // 	});
+              // }
+              reject(response);
+            }
+          }
+        };
+
+        // 判断用户传递的URL是否/开头,如果不是,加上/，这里使用了uView的test.js验证库的url()方法
+        options.url = _test.default.url(options.url) ? options.url : _this.config.baseUrl + (options.url.indexOf('/') == 0 ?
+        options.url : '/' + options.url);
+
+        // 是否显示loading
+        // 加一个是否已有timer定时器的判断，否则有两个同时请求的时候，后者会清除前者的定时器id
+        // 而没有清除前者的定时器，导致前者超时，一直显示loading
+        if (_this.config.showLoading && !_this.config.timer) {
+          _this.config.timer = setTimeout(function () {
+            uni.showLoading({
+              title: _this.config.loadingText,
+              mask: _this.config.loadingMask });
+
+            _this.config.timer = null;
+          }, _this.config.loadingTime);
+        }
+        uni.request(options);
+      });
+      // .catch(res => {
+      // 	// 如果返回reject()，不让其进入this.$u.post().then().catch()后面的catct()
+      // 	// 因为很多人都会忘了写后面的catch()，导致报错捕获不到catch
+      // 	return new Promise(()=>{});
+      // })
+    } }]);
+
+  function Request() {var _this2 = this;_classCallCheck(this, Request);
+    this.config = {
+      baseUrl: '', // 请求的根域名
+      // 默认的请求头
+      header: {},
+      method: 'POST',
+      // 设置为json，返回后uni.request会对数据进行一次JSON.parse
+      dataType: 'json',
+      // 此参数无需处理，因为5+和支付宝小程序不支持，默认为text即可
+      responseType: 'text',
+      showLoading: true, // 是否显示请求中的loading
+      loadingText: '请求中...',
+      loadingTime: 800, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
+      timer: null, // 定时器
+      originalData: false, // 是否在拦截器中返回服务端的原始数据，见文档说明
+      loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
+    };
+
+    // 拦截器
+    this.interceptor = {
+      // 请求前的拦截
+      request: null,
+      // 请求后的拦截
+      response: null };
+
+
+    // get请求
+    this.get = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        method: 'GET',
+        url: url,
+        header: header,
+        data: data });
+
+    };
+
+    // post请求
+    this.post = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        url: url,
+        method: 'POST',
+        header: header,
+        data: data });
+
+    };
+
+    // put请求，不支持支付宝小程序(HX2.6.15)
+    this.put = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        url: url,
+        method: 'PUT',
+        header: header,
+        data: data });
+
+    };
+
+    // delete请求，不支持支付宝和头条小程序(HX2.6.15)
+    this.delete = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      return _this2.request({
+        url: url,
+        method: 'DELETE',
+        header: header,
+        data: data });
+
+    };
+  }return Request;}();var _default =
+
+new Request();exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -7446,7 +9051,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"unapp-tg","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"星星医学助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7467,14 +9072,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"unapp-tg","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"星星医学助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"unapp-tg","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"星星医学助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7560,7 +9165,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"unapp-tg","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"星星医学助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7967,1763 +9572,11 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/*!**********************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/pages.json ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
-/*!*************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/auth.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.setToken = setToken;exports.getToken = getToken;exports.removeToken = removeToken;exports.setUserInfo = setUserInfo;exports.getUserInfo = getUserInfo;exports.removeUserInfo = removeUserInfo;exports.setConfig = setConfig;exports.getConfig = getConfig;exports.setRecommend = setRecommend;exports.getRecommend = getRecommend;exports.setGoodsData = setGoodsData;exports.getGoodsData = getGoodsData;exports.setAddress = setAddress;exports.getAddress = getAddress;exports.removeAddress = removeAddress;exports.setTbIndex = setTbIndex;exports.getTbIndex = getTbIndex;exports.removeTbIndex = removeTbIndex;exports.setlocation = setlocation;exports.getlocation = getlocation;exports.setCart = setCart;exports.getCart = getCart;exports.removeCart = removeCart;exports.setPickaddress = setPickaddress;exports.getPickaddress = getPickaddress;exports.removePickaddress = removePickaddress;exports.setToaddress = setToaddress;exports.getToaddress = getToaddress;exports.removeToaddress = removeToaddress; // 该文件用来存储localStorage 本地缓存的方法
-/**
- * 操作用户token
- */
-function setToken(value) {
-  uni.setStorageSync('token', value);
-  console.log('存储用户信息成功');
-}
-function getToken() {
-  var token = uni.getStorageSync('token');
-  return token;
-}
-function removeToken() {
-  uni.removeStorageSync('token');
-}
-/**
-   * 操作用户信息
-   */
-
-function setUserInfo(value) {
-  try {
-    var newValue = JSON.stringify(value);
-    uni.setStorageSync('userinfo', newValue);
-    console.log('存储用户信息成功');
-  } catch (e) {
-    return;
-  }
-}
-function getUserInfo() {
-  var userinfo = uni.getStorageSync('userinfo');
-  console.log('userinfo', userinfo);
-  if (userinfo) {
-    return JSON.parse(userinfo);
-  }
-}
-function removeUserInfo() {
-  uni.removeStorageSync('userinfo');
-}
-/**
-   * 项目主题颜色
-   */
-
-function setConfig(value) {
-  try {
-    var config = JSON.stringify(value);
-    uni.setStorageSync('config', config);
-    console.log('存储主题成功');
-  } catch (e) {
-    return;
-  }
-}
-function getConfig() {
-  var config = uni.getStorageSync('config');
-
-  if (config) {
-    return JSON.parse(config);
-  }
-}
-/**
-   * 获取推荐人id
-   */
-
-function setRecommend(value) {
-  uni.setStorageSync('recommend', value);
-  console.log('recommend', value);
-}
-function getRecommend() {
-  var recommend = uni.getStorageSync('recommend');
-  return recommend;
-}
-/**
-   * 存储商品信息
-   */
-
-function setGoodsData(value) {
-  try {
-    var newValue = JSON.stringify(value);
-    uni.setStorageSync('goodsdata', newValue);
-    console.log('存储商品信息成功');
-  } catch (e) {
-    return;
-  }
-}
-function getGoodsData() {
-  var goodsdata = uni.getStorageSync('goodsdata');
-
-  if (goodsdata) {
-    return JSON.parse(goodsdata);
-  }
-}
-// 存储用户地址
-function setAddress(value) {
-  try {
-    var newValue = JSON.stringify(value);
-    uni.setStorageSync('address', newValue);
-    console.log('存储地址信息成功', newValue);
-  } catch (e) {
-    return;
-  }
-}
-function getAddress() {
-  var address = uni.getStorageSync('address');
-
-  if (address) {
-    return JSON.parse(address);
-  }
-}
-function removeAddress() {
-  uni.removeStorageSync('address');
-} // 设置分类跳转
-
-function setTbIndex(value) {//设置菜单栏选项
-  uni.setStorageSync('tabIndex', value);
-  console.log('tabIndex', value);
-}
-function getTbIndex() {//获取菜单栏选项
-  var tabIndex = uni.getStorageSync('tabIndex');
-  return tabIndex;
-}
-function removeTbIndex() {//移除菜单栏选项
-  uni.removeStorageSync('tabIndex');
-}
-function setlocation(value) {//存储位置信息
-  try {
-    var newValue = JSON.stringify(value);
-    uni.setStorageSync('location', newValue);
-    console.log('存储地址信息成功', newValue);
-  } catch (e) {
-    return;
-  }
-}
-function getlocation() {//获取位置信息
-  var location = uni.getStorageSync('location');
-  if (location) {
-    return JSON.parse(location);
-  }
-}
-function setCart(value) {//模拟存储购物车数据
-  try {
-    var data = getCart() || [];
-    data.push(value);
-    var newValue = JSON.stringify(data);
-    uni.setStorageSync('cart', newValue);
-    console.log('存储购物车数据成功', newValue);
-  } catch (e) {
-    return;
-  }
-}
-function getCart() {//模拟获取购物车数据
-  var cart = uni.getStorageSync('cart');
-  if (cart) {
-    return JSON.parse(cart);
-  }
-}
-function removeCart() {//模拟删除购物车数据
-  uni.removeStorageSync('cart');
-}
-function setPickaddress(value) {//存储收件地址
-  try {
-    var newValue = JSON.stringify(value);
-    uni.setStorageSync('pickaddress', newValue);
-    console.log('存储收件地址信息成功', newValue);
-  } catch (e) {
-    return;
-  }
-}
-function getPickaddress() {//获取收件地址
-  var location = uni.getStorageSync('pickaddress');
-  if (location) {
-    return JSON.parse(location);
-  }
-}
-function removePickaddress() {//删除收件地址
-  uni.removeStorageSync('pickaddress');
-}
-function setToaddress(value) {//存储取件地址
-  try {
-    var newValue = JSON.stringify(value);
-    uni.setStorageSync('toaddress', newValue);
-    console.log('存储取件地址信息成功', newValue);
-  } catch (e) {
-    return;
-  }
-}
-function getToaddress() {//获取取件地址
-  var location = uni.getStorageSync('toaddress');
-  if (location) {
-    return JSON.parse(location);
-  }
-}
-function removeToaddress() {//删除取件地址
-  uni.removeStorageSync('toaddress');
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 9 */
-/*!***************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/config.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 本js用来存储项目样式和主题颜色
-var _default = {
-  themeList: [{
-    title: '官方',
-    name: 'default',
-    color: '#fa436a',
-    tabList: ["/static/images/tabBar/home-default.png", "/static/images/tabBar/class-default.png", "/static/images/tabBar/cart-default.png", "/static/images/tabBar/user-default.png"] },
-  {
-    title: '嫣红',
-    name: 'red',
-    color: '#e54d42',
-    tabList: ["/static/images/tabBar/tab-home-red.png", "/static/images/tabBar/tab-cate-red.png", "/static/images/tabBar/tab-cart-red.png", "/static/images/tabBar/tab-user-red.png"] },
-  {
-    title: '桔橙',
-    name: 'orange',
-    color: '#f37b1d',
-    tabList: ["/static/images/tabBar/tab-home-orange.png", "/static/images/tabBar/tab-cate-orange.png", "/static/images/tabBar/tab-cart-orange.png", "/static/images/tabBar/tab-user-orange.png"] },
-  {
-    title: '明黄',
-    name: 'yellow',
-    color: '#fbbd08',
-    tabList: ["/static/images/tabBar/tab-home-yellow.png", "/static/images/tabBar/tab-cate-yellow.png", "/static/images/tabBar/tab-cart-yellow.png", "/static/images/tabBar/tab-user-yellow.png"] },
-  {
-    title: '橄榄',
-    name: 'olive',
-    color: '#8dc63f',
-    tabList: ["/static/images/tabBar/tab-home-olive.png", "/static/images/tabBar/tab-cate-olive.png", "/static/images/tabBar/tab-cart-olive.png", "/static/images/tabBar/tab-user-olive.png"] },
-  {
-    title: '森绿',
-    name: 'green',
-    color: '#39b54a',
-    tabList: ["/static/images/tabBar/tab-home-green.png", "/static/images/tabBar/tab-cate-green.png", "/static/images/tabBar/tab-cart-green.png", "/static/images/tabBar/tab-user-green.png"] },
-  {
-    title: '天青',
-    name: 'cyan',
-    color: '#1cbbb4',
-    tabList: ["/static/images/tabBar/tab-home-cyan.png", "/static/images/tabBar/tab-cate-cyan.png", "/static/images/tabBar/tab-cart-cyan.png", "/static/images/tabBar/tab-user-cyan.png"] },
-  {
-    title: '海蓝',
-    name: 'blue',
-    color: '#0081ff',
-    tabList: ["/static/images/tabBar/tab-home-blue.png", "/static/images/tabBar/tab-cate-blue.png", "/static/images/tabBar/tab-cart-blue.png", "/static/images/tabBar/tab-user-blue.png"] },
-  {
-    title: '姹紫',
-    name: 'purple',
-    color: '#6739b6',
-    tabList: ["/static/images/tabBar/tab-home-purple.png", "/static/images/tabBar/tab-cate-purple.png", "/static/images/tabBar/tab-cart-purple.png", "/static/images/tabBar/tab-user-purple.png"] },
-  {
-    title: '木槿',
-    name: 'mauve',
-    color: '#9c26b0',
-    tabList: ["/static/images/tabBar/tab-home-mauve.png", "/static/images/tabBar/tab-cate-mauve.png", "/static/images/tabBar/tab-cart-mauve.png", "/static/images/tabBar/tab-user-mauve.png"] },
-  {
-    title: '桃粉',
-    name: 'pink',
-    color: '#e03997',
-    tabList: ["/static/images/tabBar/tab-home-pink.png", "/static/images/tabBar/tab-cate-pink.png", "/static/images/tabBar/tab-cart-pink.png", "/static/images/tabBar/tab-user-pink.png"] },
-  {
-    title: '棕褐',
-    name: 'brown',
-    color: '#a5673f',
-    tabList: ["/static/images/tabBar/tab-home-brown.png", "/static/images/tabBar/tab-cate-brown.png", "/static/images/tabBar/tab-cart-brown.png", "/static/images/tabBar/tab-user-brown.png"] },
-  {
-    title: '玄灰',
-    name: 'grey',
-    color: '#8799a3',
-    tabList: ["/static/images/tabBar/tab-home-grey.png", "/static/images/tabBar/tab-cate-grey.png", "/static/images/tabBar/tab-cart-grey.png", "/static/images/tabBar/tab-user-grey.png"] },
-  {
-    title: '墨黑',
-    name: 'black',
-    color: '#333333',
-    tabList: ["/static/images/tabBar/tab-home-black.png", "/static/images/tabBar/tab-cate-black.png", "/static/images/tabBar/tab-cart-black.png", "/static/images/tabBar/tab-user-black.png"] }] };exports.default = _default;
-
-/***/ }),
-/* 10 */
-/*!****************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/request.js ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 11));
-
-
-
-
-
-var _auth = __webpack_require__(/*! ./auth */ 8);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function
-request(_x, _x2, _x3, _x4, _x5) {return _request.apply(this, arguments);}function _request() {_request = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(mehtod, params, type, headers, callBack) {var header, http, promise;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-            //创建一个名为request请求的方法函数
-            if (!type) {
-              type = 'GET';
-            }
-            header = {
-              "Accept": "application/json",
-              "Content-Type": "application/json; charset=UTF-8" };
-
-
-            http = {
-              url: mehtod,
-              data: params,
-              method: type,
-              header: Object.assign(header, headers) };
-
-            promise = new Promise(function (resolve, reject) {
-              uni.request(http).then(function (res) {
-                console.log(res);
-                resolve(res[1].data);
-              }).catch(function (err) {
-                reject(err);
-                console.log(err);
-              });
-            });return _context.abrupt("return",
-            promise);case 5:case "end":return _context.stop();}}}, _callee);}));return _request.apply(this, arguments);}function
-
-
-requestJson(_x6, _x7, _x8, _x9, _x10) {return _requestJson.apply(this, arguments);}function _requestJson() {_requestJson = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(mehtod, params, type, headerParams, callBack) {var header, http, promise;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-            //创建一个名为request请求的方法函数
-            header = {
-              //设置请求头信息
-              'X-Requested-With': 'XMLHttpRequest',
-              "Accept": "application/json",
-              "Content-Type": "application/json; charset=UTF-8" };
-
-            if (headerParams) {
-              header = Object.assign(header, headerParams);
-            }
-            http = {
-              url: mehtod,
-              data: params,
-              method: type,
-              header: header };
-
-            promise = new Promise(function (resolve, reject) {
-              uni.request(http).then(function (res) {
-                resolve(res);
-              }).catch(function (err) {
-                reject(err);
-                console.log(err);
-              });
-            });return _context2.abrupt("return",
-            promise);case 5:case "end":return _context2.stop();}}}, _callee2);}));return _requestJson.apply(this, arguments);}function
-
-
-requestForm(_x11, _x12, _x13, _x14) {return _requestForm.apply(this, arguments);}function _requestForm() {_requestForm = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(mehtod, params, type, callBack) {var header, http, promise;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-            //创建一个名为request请求的方法函数
-            header = {
-              //设置请求头信息
-              'X-Requested-With': 'XMLHttpRequest',
-              "Accept": "application/json",
-              "Content-Type": "application/x-www-form-urlencoded" };
-
-            http = {
-              url: mehtod,
-              data: params,
-              method: type,
-              header: header };
-
-            promise = new Promise(function (resolve, reject) {
-              uni.request(http).then(function (res) {
-                resolve(res);
-              }).catch(function (err) {
-                reject(err);
-                console.log(err);
-              });
-            });return _context3.abrupt("return",
-            promise);case 4:case "end":return _context3.stop();}}}, _callee3);}));return _requestForm.apply(this, arguments);}var _default =
-
-{
-  request: request,
-  requestJson: requestJson,
-  requestForm: requestForm };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 11 */
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ 12);
-
-/***/ }),
-/* 12 */
-/*!************************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() {
-  return this || (typeof self === "object" && self);
-})() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = __webpack_require__(/*! ./runtime */ 13);
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
-
-/***/ }),
-/* 13 */
-/*!*****************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-!(function(global) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  var inModule = typeof module === "object";
-  var runtime = global.regeneratorRuntime;
-  if (runtime) {
-    if (inModule) {
-      // If regeneratorRuntime is defined globally and we're in a module,
-      // make the exports object identical to regeneratorRuntime.
-      module.exports = runtime;
-    }
-    // Don't bother evaluating the rest of this file if the runtime was
-    // already defined globally.
-    return;
-  }
-
-  // Define the runtime globally (as expected by generated code) as either
-  // module.exports (if we're in a module) or a new, empty object.
-  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  runtime.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
-        return this._invoke(method, arg);
-      };
-    });
-  }
-
-  runtime.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  runtime.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  runtime.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return Promise.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  runtime.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
-    );
-
-    return runtime.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        if (delegate.iterator.return) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  Gp[toStringTagSymbol] = "Generator";
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  runtime.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  runtime.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-})(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() {
-    return this || (typeof self === "object" && self);
-  })() || Function("return this")()
-);
-
-
-/***/ }),
-/* 14 */,
-/* 15 */,
-/* 16 */
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 17 */
-/*!*****************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/index.js ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 18));
-
-
-
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 19));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 23));
-
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 24));
-
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 25));
-
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 26));
-
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 27));
-
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 28));
-
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 29));
-
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 30));
-
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 31));
-
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 21));
-
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 20));
-
-var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 32));
-
-
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 22));
-
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 33));
-
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 34));
-
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 35));
-
-var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 36));
-
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 37));
-
-
-
-var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 38);
-
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 39));
-
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 40));
-
-
-
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 41));
-
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 42));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
-// 引入关于是否mixin集成小程序分享的配置
-// import wxshare from './libs/mixin/mpShare.js'
-// 全局挂载引入http相关请求拦截插件
-function wranning(str) {// 开发环境进行信息输出,主要是一些报错信息
-  // 这个环境的来由是在程序编写时候,点击hx编辑器运行调试代码的时候,详见:
-  // 	https://uniapp.dcloud.io/frame?id=%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%92%8c%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83
-  if (true) {console.warn(str);}} // 尝试判断在根目录的/store中是否有$u.mixin.js，此文件uView默认为需要挂在到全局的vuex的state变量
-// HX2.6.11版本,放到try中,控制台依然会警告,暂时不用此方式，
-// let vuexStore = {};
-// try {
-// 	vuexStore = require("@/store/$u.mixin.js");
-// } catch (e) {
-// 	//TODO handle the exception
-// }
-// post类型对象参数转为get类型url参数
-var $u = { queryParams: _queryParams.default, route: _route.default, timeFormat: _timeFormat.default, date: _timeFormat.default, // 另名date
-  timeFrom: _timeFrom.default, colorGradient: _colorGradient.default.colorGradient, colorToRgba: _colorGradient.default.colorToRgba, guid: _guid.default, color: _color.default, sys: _sys.sys, os: _sys.os, type2icon: _type2icon.default, randomArray: _randomArray.default, wranning: wranning, get: _request.default.get,
-  post: _request.default.post,
-  put: _request.default.put,
-  'delete': _request.default.delete,
-  hexToRgb: _colorGradient.default.hexToRgb,
-  rgbToHex: _colorGradient.default.rgbToHex,
-  test: _test.default,
-  random: _random.default,
-  deepClone: _deepClone.default,
-  deepMerge: _deepMerge.default,
-  getParent: _getParent.default,
-  $parent: _$parent.default,
-  addUnit: _addUnit.default,
-  trim: _trim.default,
-  type: ['primary', 'success', 'error', 'warning', 'info'],
-  http: _request.default,
-  toast: _toast.default,
-  config: _config.default, // uView配置信息相关，比如版本号
-  zIndex: _zIndex.default,
-  debounce: _debounce.default,
-  throttle: _throttle.default };
-
-
-// $u挂载到uni对象上
-uni.$u = $u;
-
-var install = function install(Vue) {
-  Vue.mixin(_mixin.default);
-  if (Vue.prototype.openShare) {
-    Vue.mixin(mpShare);
-  }
-  // Vue.mixin(vuexStore);
-  // 时间格式化，同时两个名称，date和timeFormat
-  Vue.filter('timeFormat', function (timestamp, format) {
-    return (0, _timeFormat.default)(timestamp, format);
-  });
-  Vue.filter('date', function (timestamp, format) {
-    return (0, _timeFormat.default)(timestamp, format);
-  });
-  // 将多久以前的方法，注入到全局过滤器
-  Vue.filter('timeFrom', function (timestamp, format) {
-    return (0, _timeFrom.default)(timestamp, format);
-  });
-  Vue.prototype.$u = $u;
-};var _default =
-
-{
-  install: install };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 18 */
-/*!****************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/mixin/mixin.js ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
-  data: function data() {
-    return {};
-  },
-  onLoad: function onLoad() {
-    // getRect挂载到$u上，因为这方法需要使用in(this)，所以无法把它独立成一个单独的文件导出
-    this.$u.getRect = this.$uGetRect;
-  },
-  methods: {
-    // 查询节点信息
-    // 目前此方法在支付宝小程序中无法获取组件跟接点的尺寸，为支付宝的bug(2020-07-21)
-    // 解决办法为在组件根部再套一个没有任何作用的view元素
-    $uGetRect: function $uGetRect(selector, all) {var _this = this;
-      return new Promise(function (resolve) {
-        uni.createSelectorQuery().
-        in(_this)[all ? 'selectAll' : 'select'](selector).
-        boundingClientRect(function (rect) {
-          if (all && Array.isArray(rect) && rect.length) {
-            resolve(rect);
-          }
-          if (!all && rect) {
-            resolve(rect);
-          }
-        }).
-        exec();
-      });
-    },
-    getParentData: function getParentData() {var _this2 = this;var parentName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      // 避免在created中去定义parent变量
-      if (!this.parent) this.parent = false;
-      // 这里的本质原理是，通过获取父组件实例(也即u-radio-group的this)
-      // 将父组件this中对应的参数，赋值给本组件(u-radio的this)的parentData对象中对应的属性
-      // 之所以需要这么做，是因为所有端中，头条小程序不支持通过this.parent.xxx去监听父组件参数的变化
-      this.parent = this.$u.$parent.call(this, parentName);
-      if (this.parent) {
-        // 历遍parentData中的属性，将parent中的同名属性赋值给parentData
-        Object.keys(this.parentData).map(function (key) {
-          _this2.parentData[key] = _this2.parent[key];
-        });
-      }
-    },
-    // 阻止事件冒泡
-    preventEvent: function preventEvent(e) {
-      e && e.stopPropagation && e.stopPropagation();
-    } },
-
-  onReachBottom: function onReachBottom() {
-    uni.$emit('uOnReachBottom');
-  },
-  beforeDestroy: function beforeDestroy() {var _this3 = this;
-    // 判断当前页面是否存在parent和chldren，一般在checkbox和checkbox-group父子联动的场景会有此情况
-    // 组件销毁时，移除子组件在父组件children数组中的实例，释放资源，避免数据混乱
-    if (this.parent && uni.$u.test.array(this.parent.children)) {
-      // 组件销毁时，移除父组件中的children数组中对应的实例
-      var childrenList = this.parent.children;
-      childrenList.map(function (child, index) {
-        // 如果相等，则移除
-        if (child === _this3) {
-          childrenList.splice(index, 1);
-        }
-      });
-    }
-  } };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 19 */
-/*!******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/request/index.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 20));
-var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
-Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
-    // 设置全局默认配置
-    value: function setConfig(customConfig) {
-      // 深度合并对象，否则会造成对象深层属性丢失
-      this.config = (0, _deepMerge.default)(this.config, customConfig);
-    }
-
-    // 主要请求部分
-  }, { key: "request", value: function request() {var _this = this;var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      // 检查请求拦截
-      if (this.interceptor.request && typeof this.interceptor.request === 'function') {
-        var tmpConfig = {};
-        var interceptorRequest = this.interceptor.request(options);
-        if (interceptorRequest === false) {
-          // 返回一个处于pending状态中的Promise，来取消原promise，避免进入then()回调
-          return new Promise(function () {});
-        }
-        this.options = interceptorRequest;
-      }
-      options.dataType = options.dataType || this.config.dataType;
-      options.responseType = options.responseType || this.config.responseType;
-      options.url = options.url || '';
-      options.params = options.params || {};
-      options.header = Object.assign({}, this.config.header, options.header);
-      options.method = options.method || this.config.method;
-
-      return new Promise(function (resolve, reject) {
-        options.complete = function (response) {
-          // 请求返回后，隐藏loading(如果请求返回快的话，可能会没有loading)
-          uni.hideLoading();
-          // 清除定时器，如果请求回来了，就无需loading
-          clearTimeout(_this.config.timer);
-          _this.config.timer = null;
-          // 判断用户对拦截返回数据的要求，如果originalData为true，返回所有的数据(response)到拦截器，否则只返回response.data
-          if (_this.config.originalData) {
-            // 判断是否存在拦截器
-            if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
-              var resInterceptors = _this.interceptor.response(response);
-              // 如果拦截器不返回false，就将拦截器返回的内容给this.$u.post的then回调
-              if (resInterceptors !== false) {
-                resolve(resInterceptors);
-              } else {
-                // 如果拦截器返回false，意味着拦截器定义者认为返回有问题，直接接入catch回调
-                reject(response);
-              }
-            } else {
-              // 如果要求返回原始数据，就算没有拦截器，也返回最原始的数据
-              resolve(response);
-            }
-          } else {
-            if (response.statusCode == 200) {
-              if (_this.interceptor.response && typeof _this.interceptor.response === 'function') {
-                var _resInterceptors = _this.interceptor.response(response.data);
-                if (_resInterceptors !== false) {
-                  resolve(_resInterceptors);
-                } else {
-                  reject(response.data);
-                }
-              } else {
-                // 如果不是返回原始数据(originalData=false)，且没有拦截器的情况下，返回纯数据给then回调
-                resolve(response.data);
-              }
-            } else {
-              // 不返回原始数据的情况下，服务器状态码不为200，modal弹框提示
-              // if(response.errMsg) {
-              // 	uni.showModal({
-              // 		title: response.errMsg
-              // 	});
-              // }
-              reject(response);
-            }
-          }
-        };
-
-        // 判断用户传递的URL是否/开头,如果不是,加上/，这里使用了uView的test.js验证库的url()方法
-        options.url = _test.default.url(options.url) ? options.url : _this.config.baseUrl + (options.url.indexOf('/') == 0 ?
-        options.url : '/' + options.url);
-
-        // 是否显示loading
-        // 加一个是否已有timer定时器的判断，否则有两个同时请求的时候，后者会清除前者的定时器id
-        // 而没有清除前者的定时器，导致前者超时，一直显示loading
-        if (_this.config.showLoading && !_this.config.timer) {
-          _this.config.timer = setTimeout(function () {
-            uni.showLoading({
-              title: _this.config.loadingText,
-              mask: _this.config.loadingMask });
-
-            _this.config.timer = null;
-          }, _this.config.loadingTime);
-        }
-        uni.request(options);
-      });
-      // .catch(res => {
-      // 	// 如果返回reject()，不让其进入this.$u.post().then().catch()后面的catct()
-      // 	// 因为很多人都会忘了写后面的catch()，导致报错捕获不到catch
-      // 	return new Promise(()=>{});
-      // })
-    } }]);
-
-  function Request() {var _this2 = this;_classCallCheck(this, Request);
-    this.config = {
-      baseUrl: '', // 请求的根域名
-      // 默认的请求头
-      header: {},
-      method: 'POST',
-      // 设置为json，返回后uni.request会对数据进行一次JSON.parse
-      dataType: 'json',
-      // 此参数无需处理，因为5+和支付宝小程序不支持，默认为text即可
-      responseType: 'text',
-      showLoading: true, // 是否显示请求中的loading
-      loadingText: '请求中...',
-      loadingTime: 800, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
-      timer: null, // 定时器
-      originalData: false, // 是否在拦截器中返回服务端的原始数据，见文档说明
-      loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
-    };
-
-    // 拦截器
-    this.interceptor = {
-      // 请求前的拦截
-      request: null,
-      // 请求后的拦截
-      response: null };
-
-
-    // get请求
-    this.get = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        method: 'GET',
-        url: url,
-        header: header,
-        data: data });
-
-    };
-
-    // post请求
-    this.post = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        url: url,
-        method: 'POST',
-        header: header,
-        data: data });
-
-    };
-
-    // put请求，不支持支付宝小程序(HX2.6.15)
-    this.put = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        url: url,
-        method: 'PUT',
-        header: header,
-        data: data });
-
-    };
-
-    // delete请求，不支持支付宝和头条小程序(HX2.6.15)
-    this.delete = function (url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      return _this2.request({
-        url: url,
-        method: 'DELETE',
-        header: header,
-        data: data });
-
-    };
-  }return Request;}();var _default =
-
-new Request();exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 20 */
-/*!***********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/deepMerge.js ***!
-  \***********************************************************************************************/
+/***/ 20:
+/*!*******************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/deepMerge.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9760,10 +9613,11 @@ function deepMerge() {var target = arguments.length > 0 && arguments[0] !== unde
 deepMerge;exports.default = _default;
 
 /***/ }),
-/* 21 */
-/*!***********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/deepClone.js ***!
-  \***********************************************************************************************/
+
+/***/ 21:
+/*!*******************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/deepClone.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9793,10 +9647,11 @@ function deepClone(obj) {
 deepClone;exports.default = _default;
 
 /***/ }),
-/* 22 */
-/*!******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/test.js ***!
-  \******************************************************************************************/
+
+/***/ 22:
+/*!**************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/test.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10034,10 +9889,11 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
   code: code };exports.default = _default;
 
 /***/ }),
-/* 23 */
-/*!*************************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/queryParams.js ***!
-  \*************************************************************************************************/
+
+/***/ 23:
+/*!*********************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/queryParams.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10102,10 +9958,30 @@ function queryParams() {var data = arguments.length > 0 && arguments[0] !== unde
 queryParams;exports.default = _default;
 
 /***/ }),
-/* 24 */
-/*!*******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/route.js ***!
-  \*******************************************************************************************/
+
+/***/ 235:
+/*!*****************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/utils/globalConfig.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// 本js用来存储项目样式和主题颜色
+
+
+
+
+module.exports = {
+  /* 静态路径 */
+  BASE_STATICP_URL: 'https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg' };
+
+/***/ }),
+
+/***/ 24:
+/*!***************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/route.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10235,10 +10111,11 @@ new Router().route;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 25 */
-/*!************************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/timeFormat.js ***!
-  \************************************************************************************************/
+
+/***/ 25:
+/*!********************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/timeFormat.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10296,10 +10173,11 @@ function timeFormat() {var dateTime = arguments.length > 0 && arguments[0] !== u
 timeFormat;exports.default = _default;
 
 /***/ }),
-/* 26 */
-/*!**********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/timeFrom.js ***!
-  \**********************************************************************************************/
+
+/***/ 26:
+/*!******************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/timeFrom.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10353,10 +10231,11 @@ function timeFrom() {var dateTime = arguments.length > 0 && arguments[0] !== und
 timeFrom;exports.default = _default;
 
 /***/ }),
-/* 27 */
-/*!***************************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/colorGradient.js ***!
-  \***************************************************************************************************/
+
+/***/ 27:
+/*!***********************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/colorGradient.js ***!
+  \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10496,10 +10375,101 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
   colorToRgba: colorToRgba };exports.default = _default;
 
 /***/ }),
-/* 28 */
-/*!******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/guid.js ***!
-  \******************************************************************************************/
+
+/***/ 274:
+/*!************************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/index.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _en_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./en.json */ 275);
+var _en_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./en.json */ 275, 1);
+/* harmony import */ var _es_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./es.json */ 276);
+var _es_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./es.json */ 276, 1);
+/* harmony import */ var _fr_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fr.json */ 277);
+var _fr_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./fr.json */ 277, 1);
+/* harmony import */ var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./zh-Hans.json */ 278);
+var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hans.json */ 278, 1);
+/* harmony import */ var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zh-Hant.json */ 279);
+var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hant.json */ 279, 1);
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  en: _en_json__WEBPACK_IMPORTED_MODULE_0__,
+  es: _es_json__WEBPACK_IMPORTED_MODULE_1__,
+  fr: _fr_json__WEBPACK_IMPORTED_MODULE_2__,
+  'zh-Hans': _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__,
+  'zh-Hant': _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__
+});
+
+
+/***/ }),
+
+/***/ 275:
+/*!***********************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/en.json ***!
+  \***********************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"Success\",\"uniCloud.component.update.success\":\"Success\",\"uniCloud.component.remove.showModal.title\":\"Tips\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
+/***/ 276:
+/*!***********************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/es.json ***!
+  \***********************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
+/***/ 277:
+/*!***********************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/fr.json ***!
+  \***********************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
+/***/ 278:
+/*!****************************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hans.json ***!
+  \****************************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
+/***/ 279:
+/*!****************************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hant.json ***!
+  \****************************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否刪除數據\"}");
+
+/***/ }),
+
+/***/ 28:
+/*!**************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/guid.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10547,10 +10517,11 @@ function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? 
 guid;exports.default = _default;
 
 /***/ }),
-/* 29 */
-/*!*******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/color.js ***!
-  \*******************************************************************************************/
+
+/***/ 29:
+/*!***************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/color.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10594,10 +10565,42 @@ var color = {
 color;exports.default = _default;
 
 /***/ }),
-/* 30 */
-/*!***********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/type2icon.js ***!
-  \***********************************************************************************************/
+
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 30:
+/*!*******************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/type2icon.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10639,10 +10642,11 @@ function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefi
 type2icon;exports.default = _default;
 
 /***/ }),
-/* 31 */
-/*!*************************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/randomArray.js ***!
-  \*************************************************************************************************/
+
+/***/ 31:
+/*!*********************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/randomArray.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10656,10 +10660,11 @@ function randomArray() {var array = arguments.length > 0 && arguments[0] !== und
 randomArray;exports.default = _default;
 
 /***/ }),
-/* 32 */
-/*!*********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/addUnit.js ***!
-  \*********************************************************************************************/
+
+/***/ 32:
+/*!*****************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/addUnit.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10674,10 +10679,11 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 }
 
 /***/ }),
-/* 33 */
-/*!********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/random.js ***!
-  \********************************************************************************************/
+
+/***/ 33:
+/*!****************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/random.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10694,10 +10700,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 random;exports.default = _default;
 
 /***/ }),
-/* 34 */
-/*!******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/trim.js ***!
-  \******************************************************************************************/
+
+/***/ 34:
+/*!**************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/trim.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10719,10 +10726,1103 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 trim;exports.default = _default;
 
 /***/ }),
-/* 35 */
-/*!*******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/toast.js ***!
-  \*******************************************************************************************/
+
+/***/ 348:
+/*!***********************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/utils/qqmap-wx-jssdk.min.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * 腾讯地图三方API
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+var ERROR_CONF = {
+  KEY_ERR: 311,
+  KEY_ERR_MSG: 'key格式错误',
+  PARAM_ERR: 310,
+  PARAM_ERR_MSG: '请求参数信息有误',
+  SYSTEM_ERR: 600,
+  SYSTEM_ERR_MSG: '系统错误',
+  WX_ERR_CODE: 1000,
+  WX_OK_CODE: 200 };
+
+var BASE_URL = 'https://apis.map.qq.com/ws/';
+var URL_SEARCH = BASE_URL + 'place/v1/search';
+var URL_SUGGESTION = BASE_URL + 'place/v1/suggestion';
+var URL_GET_GEOCODER = BASE_URL + 'geocoder/v1/';
+var URL_CITY_LIST = BASE_URL + 'district/v1/list';
+var URL_AREA_LIST = BASE_URL + 'district/v1/getchildren';
+var URL_DISTANCE = BASE_URL + 'distance/v1/';
+var URL_DIRECTION = BASE_URL + 'direction/v1/';
+var MODE = {
+  driving: 'driving',
+  transit: 'transit' };
+
+var EARTH_RADIUS = 6378136.49;
+var Utils = {
+  safeAdd: function safeAdd(x, y) {
+    var lsw = (x & 0xffff) + (y & 0xffff);
+    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+    return msw << 16 | lsw & 0xffff;
+  },
+
+  bitRotateLeft: function bitRotateLeft(num, cnt) {
+    return num << cnt | num >>> 32 - cnt;
+  },
+
+  md5cmn: function md5cmn(q, a, b, x, s, t) {
+    return this.safeAdd(this.bitRotateLeft(this.safeAdd(this.safeAdd(a, q), this.safeAdd(x, t)), s), b);
+  },
+
+  md5ff: function md5ff(a, b, c, d, x, s, t) {
+    return this.md5cmn(b & c | ~b & d, a, b, x, s, t);
+  },
+
+  md5gg: function md5gg(a, b, c, d, x, s, t) {
+    return this.md5cmn(b & d | c & ~d, a, b, x, s, t);
+  },
+
+  md5hh: function md5hh(a, b, c, d, x, s, t) {
+    return this.md5cmn(b ^ c ^ d, a, b, x, s, t);
+  },
+
+  md5ii: function md5ii(a, b, c, d, x, s, t) {
+    return this.md5cmn(c ^ (b | ~d), a, b, x, s, t);
+  },
+
+  binlMD5: function binlMD5(x, len) {
+    x[len >> 5] |= 0x80 << len % 32;
+    x[(len + 64 >>> 9 << 4) + 14] = len;
+    var i;
+    var olda;
+    var oldb;
+    var oldc;
+    var oldd;
+    var a = 1732584193;
+    var b = -271733879;
+    var c = -1732584194;
+    var d = 271733878;
+
+    for (i = 0; i < x.length; i += 16) {
+      olda = a;
+      oldb = b;
+      oldc = c;
+      oldd = d;
+      a = this.md5ff(a, b, c, d, x[i], 7, -680876936);
+      d = this.md5ff(d, a, b, c, x[i + 1], 12, -389564586);
+      c = this.md5ff(c, d, a, b, x[i + 2], 17, 606105819);
+      b = this.md5ff(b, c, d, a, x[i + 3], 22, -1044525330);
+      a = this.md5ff(a, b, c, d, x[i + 4], 7, -176418897);
+      d = this.md5ff(d, a, b, c, x[i + 5], 12, 1200080426);
+      c = this.md5ff(c, d, a, b, x[i + 6], 17, -1473231341);
+      b = this.md5ff(b, c, d, a, x[i + 7], 22, -45705983);
+      a = this.md5ff(a, b, c, d, x[i + 8], 7, 1770035416);
+      d = this.md5ff(d, a, b, c, x[i + 9], 12, -1958414417);
+      c = this.md5ff(c, d, a, b, x[i + 10], 17, -42063);
+      b = this.md5ff(b, c, d, a, x[i + 11], 22, -1990404162);
+      a = this.md5ff(a, b, c, d, x[i + 12], 7, 1804603682);
+      d = this.md5ff(d, a, b, c, x[i + 13], 12, -40341101);
+      c = this.md5ff(c, d, a, b, x[i + 14], 17, -1502002290);
+      b = this.md5ff(b, c, d, a, x[i + 15], 22, 1236535329);
+      a = this.md5gg(a, b, c, d, x[i + 1], 5, -165796510);
+      d = this.md5gg(d, a, b, c, x[i + 6], 9, -1069501632);
+      c = this.md5gg(c, d, a, b, x[i + 11], 14, 643717713);
+      b = this.md5gg(b, c, d, a, x[i], 20, -373897302);
+      a = this.md5gg(a, b, c, d, x[i + 5], 5, -701558691);
+      d = this.md5gg(d, a, b, c, x[i + 10], 9, 38016083);
+      c = this.md5gg(c, d, a, b, x[i + 15], 14, -660478335);
+      b = this.md5gg(b, c, d, a, x[i + 4], 20, -405537848);
+      a = this.md5gg(a, b, c, d, x[i + 9], 5, 568446438);
+      d = this.md5gg(d, a, b, c, x[i + 14], 9, -1019803690);
+      c = this.md5gg(c, d, a, b, x[i + 3], 14, -187363961);
+      b = this.md5gg(b, c, d, a, x[i + 8], 20, 1163531501);
+      a = this.md5gg(a, b, c, d, x[i + 13], 5, -1444681467);
+      d = this.md5gg(d, a, b, c, x[i + 2], 9, -51403784);
+      c = this.md5gg(c, d, a, b, x[i + 7], 14, 1735328473);
+      b = this.md5gg(b, c, d, a, x[i + 12], 20, -1926607734);
+      a = this.md5hh(a, b, c, d, x[i + 5], 4, -378558);
+      d = this.md5hh(d, a, b, c, x[i + 8], 11, -2022574463);
+      c = this.md5hh(c, d, a, b, x[i + 11], 16, 1839030562);
+      b = this.md5hh(b, c, d, a, x[i + 14], 23, -35309556);
+      a = this.md5hh(a, b, c, d, x[i + 1], 4, -1530992060);
+      d = this.md5hh(d, a, b, c, x[i + 4], 11, 1272893353);
+      c = this.md5hh(c, d, a, b, x[i + 7], 16, -155497632);
+      b = this.md5hh(b, c, d, a, x[i + 10], 23, -1094730640);
+      a = this.md5hh(a, b, c, d, x[i + 13], 4, 681279174);
+      d = this.md5hh(d, a, b, c, x[i], 11, -358537222);
+      c = this.md5hh(c, d, a, b, x[i + 3], 16, -722521979);
+      b = this.md5hh(b, c, d, a, x[i + 6], 23, 76029189);
+      a = this.md5hh(a, b, c, d, x[i + 9], 4, -640364487);
+      d = this.md5hh(d, a, b, c, x[i + 12], 11, -421815835);
+      c = this.md5hh(c, d, a, b, x[i + 15], 16, 530742520);
+      b = this.md5hh(b, c, d, a, x[i + 2], 23, -995338651);
+      a = this.md5ii(a, b, c, d, x[i], 6, -198630844);
+      d = this.md5ii(d, a, b, c, x[i + 7], 10, 1126891415);
+      c = this.md5ii(c, d, a, b, x[i + 14], 15, -1416354905);
+      b = this.md5ii(b, c, d, a, x[i + 5], 21, -57434055);
+      a = this.md5ii(a, b, c, d, x[i + 12], 6, 1700485571);
+      d = this.md5ii(d, a, b, c, x[i + 3], 10, -1894986606);
+      c = this.md5ii(c, d, a, b, x[i + 10], 15, -1051523);
+      b = this.md5ii(b, c, d, a, x[i + 1], 21, -2054922799);
+      a = this.md5ii(a, b, c, d, x[i + 8], 6, 1873313359);
+      d = this.md5ii(d, a, b, c, x[i + 15], 10, -30611744);
+      c = this.md5ii(c, d, a, b, x[i + 6], 15, -1560198380);
+      b = this.md5ii(b, c, d, a, x[i + 13], 21, 1309151649);
+      a = this.md5ii(a, b, c, d, x[i + 4], 6, -145523070);
+      d = this.md5ii(d, a, b, c, x[i + 11], 10, -1120210379);
+      c = this.md5ii(c, d, a, b, x[i + 2], 15, 718787259);
+      b = this.md5ii(b, c, d, a, x[i + 9], 21, -343485551);
+      a = this.safeAdd(a, olda);
+      b = this.safeAdd(b, oldb);
+      c = this.safeAdd(c, oldc);
+      d = this.safeAdd(d, oldd);
+    }
+
+    return [a, b, c, d];
+  },
+
+  binl2rstr: function binl2rstr(input) {
+    var i;
+    var output = '';
+    var length32 = input.length * 32;
+
+    for (i = 0; i < length32; i += 8) {
+      output += String.fromCharCode(input[i >> 5] >>> i % 32 & 0xff);
+    }
+
+    return output;
+  },
+
+  rstr2binl: function rstr2binl(input) {
+    var i;
+    var output = [];
+    output[(input.length >> 2) - 1] = undefined;
+
+    for (i = 0; i < output.length; i += 1) {
+      output[i] = 0;
+    }
+
+    var length8 = input.length * 8;
+
+    for (i = 0; i < length8; i += 8) {
+      output[i >> 5] |= (input.charCodeAt(i / 8) & 0xff) << i % 32;
+    }
+
+    return output;
+  },
+
+  rstrMD5: function rstrMD5(s) {
+    return this.binl2rstr(this.binlMD5(this.rstr2binl(s), s.length * 8));
+  },
+
+  rstrHMACMD5: function rstrHMACMD5(key, data) {
+    var i;
+    var bkey = this.rstr2binl(key);
+    var ipad = [];
+    var opad = [];
+    var hash;
+    ipad[15] = opad[15] = undefined;
+
+    if (bkey.length > 16) {
+      bkey = this.binlMD5(bkey, key.length * 8);
+    }
+
+    for (i = 0; i < 16; i += 1) {
+      ipad[i] = bkey[i] ^ 0x36363636;
+      opad[i] = bkey[i] ^ 0x5c5c5c5c;
+    }
+
+    hash = this.binlMD5(ipad.concat(this.rstr2binl(data)), 512 + data.length * 8);
+    return this.binl2rstr(this.binlMD5(opad.concat(hash), 512 + 128));
+  },
+
+  rstr2hex: function rstr2hex(input) {
+    var hexTab = '0123456789abcdef';
+    var output = '';
+    var x;
+    var i;
+
+    for (i = 0; i < input.length; i += 1) {
+      x = input.charCodeAt(i);
+      output += hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f);
+    }
+
+    return output;
+  },
+
+  str2rstrUTF8: function str2rstrUTF8(input) {
+    return unescape(encodeURIComponent(input));
+  },
+
+  rawMD5: function rawMD5(s) {
+    return this.rstrMD5(this.str2rstrUTF8(s));
+  },
+
+  hexMD5: function hexMD5(s) {
+    return this.rstr2hex(this.rawMD5(s));
+  },
+
+  rawHMACMD5: function rawHMACMD5(k, d) {
+    return this.rstrHMACMD5(this.str2rstrUTF8(k), str2rstrUTF8(d));
+  },
+
+  hexHMACMD5: function hexHMACMD5(k, d) {
+    return this.rstr2hex(this.rawHMACMD5(k, d));
+  },
+
+  md5: function md5(string, key, raw) {
+    if (!key) {
+      if (!raw) {
+        return this.hexMD5(string);
+      }
+
+      return this.rawMD5(string);
+    }
+
+    if (!raw) {
+      return this.hexHMACMD5(key, string);
+    }
+
+    return this.rawHMACMD5(key, string);
+  },
+
+  getSig: function getSig(requestParam, sk, feature, mode) {
+    var sig = null;
+    var requestArr = [];
+    Object.keys(requestParam).sort().forEach(function (key) {
+      requestArr.push(key + '=' + requestParam[key]);
+    });
+
+    if (feature == 'search') {
+      sig = '/ws/place/v1/search?' + requestArr.join('&') + sk;
+    }
+
+    if (feature == 'suggest') {
+      sig = '/ws/place/v1/suggestion?' + requestArr.join('&') + sk;
+    }
+
+    if (feature == 'reverseGeocoder') {
+      sig = '/ws/geocoder/v1/?' + requestArr.join('&') + sk;
+    }
+
+    if (feature == 'geocoder') {
+      sig = '/ws/geocoder/v1/?' + requestArr.join('&') + sk;
+    }
+
+    if (feature == 'getCityList') {
+      sig = '/ws/district/v1/list?' + requestArr.join('&') + sk;
+    }
+
+    if (feature == 'getDistrictByCityId') {
+      sig = '/ws/district/v1/getchildren?' + requestArr.join('&') + sk;
+    }
+
+    if (feature == 'calculateDistance') {
+      sig = '/ws/distance/v1/?' + requestArr.join('&') + sk;
+    }
+
+    if (feature == 'direction') {
+      sig = '/ws/direction/v1/' + mode + '?' + requestArr.join('&') + sk;
+    }
+
+    sig = this.md5(sig);
+    return sig;
+  },
+
+  location2query: function location2query(data) {
+    if (typeof data == 'string') {
+      return data;
+    }
+
+    var query = '';
+
+    for (var i = 0; i < data.length; i++) {
+      var d = data[i];
+
+      if (!!query) {
+        query += ';';
+      }
+
+      if (d.location) {
+        query = query + d.location.lat + ',' + d.location.lng;
+      }
+
+      if (d.latitude && d.longitude) {
+        query = query + d.latitude + ',' + d.longitude;
+      }
+    }
+
+    return query;
+  },
+
+  rad: function rad(d) {
+    return d * Math.PI / 180.0;
+  },
+
+  getEndLocation: function getEndLocation(location) {
+    var to = location.split(';');
+    var endLocation = [];
+
+    for (var i = 0; i < to.length; i++) {
+      endLocation.push({
+        lat: parseFloat(to[i].split(',')[0]),
+        lng: parseFloat(to[i].split(',')[1]) });
+
+    }
+
+    return endLocation;
+  },
+
+  getDistance: function getDistance(latFrom, lngFrom, latTo, lngTo) {
+    var radLatFrom = this.rad(latFrom);
+    var radLatTo = this.rad(latTo);
+    var a = radLatFrom - radLatTo;
+    var b = this.rad(lngFrom) - this.rad(lngTo);
+    var distance = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLatFrom) * Math.cos(radLatTo) * Math.pow(Math.sin(b / 2), 2)));
+    distance = distance * EARTH_RADIUS;
+    distance = Math.round(distance * 10000) / 10000;
+    return parseFloat(distance.toFixed(0));
+  },
+
+  getWXLocation: function getWXLocation(success, fail, complete) {
+    uni.getLocation({
+      type: 'gcj02',
+      success: success,
+      fail: fail,
+      complete: complete });
+
+  },
+
+  getLocationParam: function getLocationParam(location) {
+    if (typeof location == 'string') {
+      var locationArr = location.split(',');
+
+      if (locationArr.length === 2) {
+        location = {
+          latitude: location.split(',')[0],
+          longitude: location.split(',')[1] };
+
+      } else {
+        location = {};
+      }
+    }
+
+    return location;
+  },
+
+  polyfillParam: function polyfillParam(param) {
+    param.success = param.success || function () {};
+
+    param.fail = param.fail || function () {};
+
+    param.complete = param.complete || function () {};
+  },
+
+  checkParamKeyEmpty: function checkParamKeyEmpty(param, key) {
+    if (!param[key]) {
+      var errconf = this.buildErrorConfig(ERROR_CONF.PARAM_ERR, ERROR_CONF.PARAM_ERR_MSG + key + '参数格式有误');
+      param.fail(errconf);
+      param.complete(errconf);
+      return true;
+    }
+
+    return false;
+  },
+
+  checkKeyword: function checkKeyword(param) {
+    return !this.checkParamKeyEmpty(param, 'keyword');
+  },
+
+  checkLocation: function checkLocation(param) {
+    var location = this.getLocationParam(param.location);
+
+    if (!location || !location.latitude || !location.longitude) {
+      var errconf = this.buildErrorConfig(ERROR_CONF.PARAM_ERR, ERROR_CONF.PARAM_ERR_MSG + ' location参数格式有误');
+      param.fail(errconf);
+      param.complete(errconf);
+      return false;
+    }
+
+    return true;
+  },
+
+  buildErrorConfig: function buildErrorConfig(errCode, errMsg) {
+    return {
+      status: errCode,
+      message: errMsg };
+
+  },
+
+  handleData: function handleData(param, data, feature) {
+    if (feature == 'search') {
+      var searchResult = data.data;
+      var searchSimplify = [];
+
+      for (var i = 0; i < searchResult.length; i++) {
+        searchSimplify.push({
+          id: searchResult[i].id || null,
+          title: searchResult[i].title || null,
+          latitude: searchResult[i].location && searchResult[i].location.lat || null,
+          longitude: searchResult[i].location && searchResult[i].location.lng || null,
+          address: searchResult[i].address || null,
+          category: searchResult[i].category || null,
+          tel: searchResult[i].tel || null,
+          adcode: searchResult[i].ad_info && searchResult[i].ad_info.adcode || null,
+          city: searchResult[i].ad_info && searchResult[i].ad_info.city || null,
+          district: searchResult[i].ad_info && searchResult[i].ad_info.district || null,
+          province: searchResult[i].ad_info && searchResult[i].ad_info.province || null });
+
+      }
+
+      param.success(data, {
+        searchResult: searchResult,
+        searchSimplify: searchSimplify });
+
+    } else if (feature == 'suggest') {
+      var suggestResult = data.data;
+      var suggestSimplify = [];
+
+      for (var i = 0; i < suggestResult.length; i++) {
+        suggestSimplify.push({
+          adcode: suggestResult[i].adcode || null,
+          address: suggestResult[i].address || null,
+          category: suggestResult[i].category || null,
+          city: suggestResult[i].city || null,
+          district: suggestResult[i].district || null,
+          id: suggestResult[i].id || null,
+          latitude: suggestResult[i].location && suggestResult[i].location.lat || null,
+          longitude: suggestResult[i].location && suggestResult[i].location.lng || null,
+          province: suggestResult[i].province || null,
+          title: suggestResult[i].title || null,
+          type: suggestResult[i].type || null });
+
+      }
+
+      param.success(data, {
+        suggestResult: suggestResult,
+        suggestSimplify: suggestSimplify });
+
+    } else if (feature == 'reverseGeocoder') {
+      var reverseGeocoderResult = data.result;
+      var reverseGeocoderSimplify = {
+        address: reverseGeocoderResult.address || null,
+        latitude: reverseGeocoderResult.location && reverseGeocoderResult.location.lat || null,
+        longitude: reverseGeocoderResult.location && reverseGeocoderResult.location.lng || null,
+        adcode: reverseGeocoderResult.ad_info && reverseGeocoderResult.ad_info.adcode || null,
+        city: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.city || null,
+        district: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.district || null,
+        nation: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.nation || null,
+        province: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.province || null,
+        street: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.street || null,
+        street_number: reverseGeocoderResult.address_component && reverseGeocoderResult.address_component.street_number || null,
+        recommend: reverseGeocoderResult.formatted_addresses && reverseGeocoderResult.formatted_addresses.recommend || null,
+        rough: reverseGeocoderResult.formatted_addresses && reverseGeocoderResult.formatted_addresses.rough || null };
+
+
+      if (reverseGeocoderResult.pois) {
+        var pois = reverseGeocoderResult.pois;
+        var poisSimplify = [];
+
+        for (var i = 0; i < pois.length; i++) {
+          poisSimplify.push({
+            id: pois[i].id || null,
+            title: pois[i].title || null,
+            latitude: pois[i].location && pois[i].location.lat || null,
+            longitude: pois[i].location && pois[i].location.lng || null,
+            address: pois[i].address || null,
+            category: pois[i].category || null,
+            adcode: pois[i].ad_info && pois[i].ad_info.adcode || null,
+            city: pois[i].ad_info && pois[i].ad_info.city || null,
+            district: pois[i].ad_info && pois[i].ad_info.district || null,
+            province: pois[i].ad_info && pois[i].ad_info.province || null });
+
+        }
+
+        param.success(data, {
+          reverseGeocoderResult: reverseGeocoderResult,
+          reverseGeocoderSimplify: reverseGeocoderSimplify,
+          pois: pois,
+          poisSimplify: poisSimplify });
+
+      } else {
+        param.success(data, {
+          reverseGeocoderResult: reverseGeocoderResult,
+          reverseGeocoderSimplify: reverseGeocoderSimplify });
+
+      }
+    } else if (feature == 'geocoder') {
+      var geocoderResult = data.result;
+      var geocoderSimplify = {
+        title: geocoderResult.title || null,
+        latitude: geocoderResult.location && geocoderResult.location.lat || null,
+        longitude: geocoderResult.location && geocoderResult.location.lng || null,
+        adcode: geocoderResult.ad_info && geocoderResult.ad_info.adcode || null,
+        province: geocoderResult.address_components && geocoderResult.address_components.province || null,
+        city: geocoderResult.address_components && geocoderResult.address_components.city || null,
+        district: geocoderResult.address_components && geocoderResult.address_components.district || null,
+        street: geocoderResult.address_components && geocoderResult.address_components.street || null,
+        street_number: geocoderResult.address_components && geocoderResult.address_components.street_number || null,
+        level: geocoderResult.level || null };
+
+      param.success(data, {
+        geocoderResult: geocoderResult,
+        geocoderSimplify: geocoderSimplify });
+
+    } else if (feature == 'getCityList') {
+      var provinceResult = data.result[0];
+      var cityResult = data.result[1];
+      var districtResult = data.result[2];
+      param.success(data, {
+        provinceResult: provinceResult,
+        cityResult: cityResult,
+        districtResult: districtResult });
+
+    } else if (feature == 'getDistrictByCityId') {
+      var districtByCity = data.result[0];
+      param.success(data, districtByCity);
+    } else if (feature == 'calculateDistance') {
+      var calculateDistanceResult = data.result.elements;
+      var distance = [];
+
+      for (var i = 0; i < calculateDistanceResult.length; i++) {
+        distance.push(calculateDistanceResult[i].distance);
+      }
+
+      param.success(data, {
+        calculateDistanceResult: calculateDistanceResult,
+        distance: distance });
+
+    } else if (feature == 'direction') {
+      var direction = data.result.routes;
+      param.success(data, direction);
+    } else {
+      param.success(data);
+    }
+  },
+
+  buildWxRequestConfig: function buildWxRequestConfig(param, options, feature) {
+    var that = this;
+    options.header = {
+      "content-type": "application/json" };
+
+    options.method = 'GET';
+
+    options.success = function (res) {
+      var data = res.data;
+
+      if (data.status === 0) {
+        that.handleData(param, data, feature);
+      } else {
+        param.fail(data);
+      }
+    };
+
+    options.fail = function (res) {
+      res.statusCode = ERROR_CONF.WX_ERR_CODE;
+      param.fail(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+    };
+
+    options.complete = function (res) {
+      var statusCode = +res.statusCode;
+
+      switch (statusCode) {
+        case ERROR_CONF.WX_ERR_CODE:
+          {
+            param.complete(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+            break;
+          }
+
+        case ERROR_CONF.WX_OK_CODE:
+          {
+            var data = res.data;
+
+            if (data.status === 0) {
+              param.complete(data);
+            } else {
+              param.complete(that.buildErrorConfig(data.status, data.message));
+            }
+
+            break;
+          }
+
+        default:
+          {
+            param.complete(that.buildErrorConfig(ERROR_CONF.SYSTEM_ERR, ERROR_CONF.SYSTEM_ERR_MSG));
+          }}
+
+    };
+
+    return options;
+  },
+
+  locationProcess: function locationProcess(param, locationsuccess, locationfail, locationcomplete) {
+    var that = this;
+
+    locationfail = locationfail || function (res) {
+      res.statusCode = ERROR_CONF.WX_ERR_CODE;
+      param.fail(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+    };
+
+    locationcomplete = locationcomplete || function (res) {
+      if (res.statusCode == ERROR_CONF.WX_ERR_CODE) {
+        param.complete(that.buildErrorConfig(ERROR_CONF.WX_ERR_CODE, res.errMsg));
+      }
+    };
+
+    if (!param.location) {
+      that.getWXLocation(locationsuccess, locationfail, locationcomplete);
+    } else if (that.checkLocation(param)) {
+      var location = Utils.getLocationParam(param.location);
+      locationsuccess(location);
+    }
+  } };var
+
+
+
+QQMapWX = /*#__PURE__*/function () {"use strict";
+  function QQMapWX(options) {_classCallCheck(this, QQMapWX);
+    if (!options.key) {
+      throw Error('key值不能为空');
+    }
+
+    this.key = options.key;
+  }_createClass(QQMapWX, [{ key: "search", value: function search(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (!Utils.checkKeyword(options)) {
+        return;
+      }
+
+      var requestParam = {
+        keyword: options.keyword,
+        orderby: options.orderby || '_distance',
+        page_size: options.page_size || 10,
+        page_index: options.page_index || 1,
+        output: 'json',
+        key: that.key };
+
+
+      if (options.address_format) {
+        requestParam.address_format = options.address_format;
+      }
+
+      if (options.filter) {
+        requestParam.filter = options.filter;
+      }
+
+      var distance = options.distance || "1000";
+      var auto_extend = options.auto_extend || 1;
+      var region = null;
+      var rectangle = null;
+
+      if (options.region) {
+        region = options.region;
+      }
+
+      if (options.rectangle) {
+        rectangle = options.rectangle;
+      }
+
+      var locationsuccess = function locationsuccess(result) {
+        if (region && !rectangle) {
+          requestParam.boundary = "region(" + region + "," + auto_extend + "," + result.latitude + "," + result.longitude + ")";
+
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
+          }
+        } else if (rectangle && !region) {
+          requestParam.boundary = "rectangle(" + rectangle + ")";
+
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
+          }
+        } else {
+          requestParam.boundary = "nearby(" + result.latitude + "," + result.longitude + "," + distance + "," + auto_extend + ")";
+
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'search');
+          }
+        }
+
+        uni.request(Utils.buildWxRequestConfig(options, {
+          url: URL_SEARCH,
+          data: requestParam },
+        'search'));
+      };
+
+      Utils.locationProcess(options, locationsuccess);
+    } }, { key: "getSuggestion", value: function getSuggestion(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (!Utils.checkKeyword(options)) {
+        return;
+      }
+
+      var requestParam = {
+        keyword: options.keyword,
+        region: options.region || '全国',
+        region_fix: options.region_fix || 0,
+        policy: options.policy || 0,
+        page_size: options.page_size || 10,
+        page_index: options.page_index || 1,
+        get_subpois: options.get_subpois || 0,
+        output: 'json',
+        key: that.key };
+
+
+      if (options.address_format) {
+        requestParam.address_format = options.address_format;
+      }
+
+      if (options.filter) {
+        requestParam.filter = options.filter;
+      }
+
+      if (options.location) {
+        var locationsuccess = function locationsuccess(result) {
+          requestParam.location = result.latitude + ',' + result.longitude;
+
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'suggest');
+          }
+
+          uni.request(Utils.buildWxRequestConfig(options, {
+            url: URL_SUGGESTION,
+            data: requestParam },
+          "suggest"));
+        };
+
+        Utils.locationProcess(options, locationsuccess);
+      } else {
+        if (options.sig) {
+          requestParam.sig = Utils.getSig(requestParam, options.sig, 'suggest');
+        }
+
+        uni.request(Utils.buildWxRequestConfig(options, {
+          url: URL_SUGGESTION,
+          data: requestParam },
+        "suggest"));
+      }
+    } }, { key: "reverseGeocoder", value: function reverseGeocoder(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+      var requestParam = {
+        coord_type: options.coord_type || 5,
+        get_poi: options.get_poi || 0,
+        output: 'json',
+        key: that.key };
+
+
+      if (options.poi_options) {
+        requestParam.poi_options = options.poi_options;
+      }
+
+      var locationsuccess = function locationsuccess(result) {
+        requestParam.location = result.latitude + ',' + result.longitude;
+
+        if (options.sig) {
+          requestParam.sig = Utils.getSig(requestParam, options.sig, 'reverseGeocoder');
+        }
+
+        uni.request(Utils.buildWxRequestConfig(options, {
+          url: URL_GET_GEOCODER,
+          data: requestParam },
+        'reverseGeocoder'));
+      };
+
+      Utils.locationProcess(options, locationsuccess);
+    } }, { key: "geocoder", value: function geocoder(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'address')) {
+        return;
+      }
+
+      var requestParam = {
+        address: options.address,
+        output: 'json',
+        key: that.key };
+
+
+      if (options.region) {
+        requestParam.region = options.region;
+      }
+
+      if (options.sig) {
+        requestParam.sig = Utils.getSig(requestParam, options.sig, 'geocoder');
+      }
+
+      uni.request(Utils.buildWxRequestConfig(options, {
+        url: URL_GET_GEOCODER,
+        data: requestParam },
+      'geocoder'));
+    } }, { key: "getCityList", value: function getCityList(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+      var requestParam = {
+        output: 'json',
+        key: that.key };
+
+
+      if (options.sig) {
+        requestParam.sig = Utils.getSig(requestParam, options.sig, 'getCityList');
+      }
+
+      uni.request(Utils.buildWxRequestConfig(options, {
+        url: URL_CITY_LIST,
+        data: requestParam },
+      'getCityList'));
+    } }, { key: "getDistrictByCityId", value: function getDistrictByCityId(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'id')) {
+        return;
+      }
+
+      var requestParam = {
+        id: options.id || '',
+        output: 'json',
+        key: that.key };
+
+
+      if (options.sig) {
+        requestParam.sig = Utils.getSig(requestParam, options.sig, 'getDistrictByCityId');
+      }
+
+      uni.request(Utils.buildWxRequestConfig(options, {
+        url: URL_AREA_LIST,
+        data: requestParam },
+      'getDistrictByCityId'));
+    } }, { key: "calculateDistance", value: function calculateDistance(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'to')) {
+        return;
+      }
+
+      var requestParam = {
+        mode: options.mode || 'walking',
+        to: Utils.location2query(options.to),
+        output: 'json',
+        key: that.key };
+
+
+      if (options.from) {
+        options.location = options.from;
+      }
+
+      if (requestParam.mode == 'straight') {
+        var locationsuccess = function locationsuccess(result) {
+          var locationTo = Utils.getEndLocation(requestParam.to);
+          var data = {
+            message: "query ok",
+            result: {
+              elements: [] },
+
+            status: 0 };
+
+
+          for (var i = 0; i < locationTo.length; i++) {
+            data.result.elements.push({
+              distance: Utils.getDistance(result.latitude, result.longitude, locationTo[i].lat, locationTo[i].lng),
+              duration: 0,
+              from: {
+                lat: result.latitude,
+                lng: result.longitude },
+
+              to: {
+                lat: locationTo[i].lat,
+                lng: locationTo[i].lng } });
+
+
+          }
+
+          var calculateResult = data.result.elements;
+          var distanceResult = [];
+
+          for (var i = 0; i < calculateResult.length; i++) {
+            distanceResult.push(calculateResult[i].distance);
+          }
+
+          return options.success(data, {
+            calculateResult: calculateResult,
+            distanceResult: distanceResult });
+
+        };
+
+        Utils.locationProcess(options, locationsuccess);
+      } else {
+        var locationsuccess = function locationsuccess(result) {
+          requestParam.from = result.latitude + ',' + result.longitude;
+
+          if (options.sig) {
+            requestParam.sig = Utils.getSig(requestParam, options.sig, 'calculateDistance');
+          }
+
+          uni.request(Utils.buildWxRequestConfig(options, {
+            url: URL_DISTANCE,
+            data: requestParam },
+          'calculateDistance'));
+        };
+
+        Utils.locationProcess(options, locationsuccess);
+      }
+    } }, { key: "direction", value: function direction(
+
+    options) {
+      var that = this;
+      options = options || {};
+      Utils.polyfillParam(options);
+
+      if (Utils.checkParamKeyEmpty(options, 'to')) {
+        return;
+      }
+
+      var requestParam = {
+        output: 'json',
+        key: that.key };
+
+
+      if (typeof options.to == 'string') {
+        requestParam.to = options.to;
+      } else {
+        requestParam.to = options.to.latitude + ',' + options.to.longitude;
+      }
+
+      var SET_URL_DIRECTION = null;
+      options.mode = options.mode || MODE.driving;
+      SET_URL_DIRECTION = URL_DIRECTION + options.mode;
+
+      if (options.from) {
+        options.location = options.from;
+      }
+
+      if (options.mode == MODE.driving) {
+        if (options.from_poi) {
+          requestParam.from_poi = options.from_poi;
+        }
+
+        if (options.heading) {
+          requestParam.heading = options.heading;
+        }
+
+        if (options.speed) {
+          requestParam.speed = options.speed;
+        }
+
+        if (options.accuracy) {
+          requestParam.accuracy = options.accuracy;
+        }
+
+        if (options.road_type) {
+          requestParam.road_type = options.road_type;
+        }
+
+        if (options.to_poi) {
+          requestParam.to_poi = options.to_poi;
+        }
+
+        if (options.from_track) {
+          requestParam.from_track = options.from_track;
+        }
+
+        if (options.waypoints) {
+          requestParam.waypoints = options.waypoints;
+        }
+
+        if (options.policy) {
+          requestParam.policy = options.policy;
+        }
+
+        if (options.plate_number) {
+          requestParam.plate_number = options.plate_number;
+        }
+      }
+
+      if (options.mode == MODE.transit) {
+        if (options.departure_time) {
+          requestParam.departure_time = options.departure_time;
+        }
+
+        if (options.policy) {
+          requestParam.policy = options.policy;
+        }
+      }
+
+      var locationsuccess = function locationsuccess(result) {
+        requestParam.from = result.latitude + ',' + result.longitude;
+
+        if (options.sig) {
+          requestParam.sig = Utils.getSig(requestParam, options.sig, 'direction', options.mode);
+        }
+
+        uni.request(Utils.buildWxRequestConfig(options, {
+          url: SET_URL_DIRECTION,
+          data: requestParam },
+        'direction'));
+      };
+
+      Utils.locationProcess(options, locationsuccess);
+    } }]);return QQMapWX;}();
+
+
+
+;
+module.exports = QQMapWX;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 349:
+/*!*********************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/utils/keys.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.txMapKey = exports.hfKey = void 0; /**
+                                                                                                                       * 本文件用来存储项目内使用的三方API key
+                                                                                                                       */
+//和风天气的key 需要的用户去申请
+var hfKey = 'b2286b8feae44d1c926ca9033e5bf123';
+
+//腾讯地图  需要用户自己去申请key
+exports.hfKey = hfKey;var txMapKey = 'BIUBZ-UWKW3-FK53E-YIPVT-R4KG5-3DBA3';exports.txMapKey = txMapKey;
+
+/***/ }),
+
+/***/ 35:
+/*!***************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/toast.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10739,10 +11839,11 @@ toast;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 36 */
-/*!***********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/getParent.js ***!
-  \***********************************************************************************************/
+
+/***/ 36:
+/*!*******************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/getParent.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10796,10 +11897,11 @@ function getParent(name, keys) {
 }
 
 /***/ }),
-/* 37 */
-/*!*********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/$parent.js ***!
-  \*********************************************************************************************/
+
+/***/ 37:
+/*!*****************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/$parent.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10824,10 +11926,11 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 }
 
 /***/ }),
-/* 38 */
-/*!*****************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/sys.js ***!
-  \*****************************************************************************************/
+
+/***/ 38:
+/*!*************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/sys.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10842,10 +11945,11 @@ function sys() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 39 */
-/*!**********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/debounce.js ***!
-  \**********************************************************************************************/
+
+/***/ 39:
+/*!******************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/debounce.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10881,10 +11985,1449 @@ function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== und
 debounce;exports.default = _default;
 
 /***/ }),
-/* 40 */
-/*!**********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/throttle.js ***!
-  \**********************************************************************************************/
+
+/***/ 392:
+/*!*************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/util/emitter.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 递归使用 call 方式this指向
+                                                                                                      * @param componentName // 需要找的组件的名称
+                                                                                                      * @param eventName // 事件名称
+                                                                                                      * @param params // 需要传递的参数
+                                                                                                      */
+function _broadcast(componentName, eventName, params) {
+  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
+  this.$children.map(function (child) {
+    if (componentName === child.$options.name) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}var _default =
+{
+  methods: {
+    /**
+              * 派发 (向上查找) (一个)
+              * @param componentName // 需要找的组件的名称
+              * @param eventName // 事件名称
+              * @param params // 需要传递的参数
+              */
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
+      var name = parent.$options.name; // 获取当前组件实例的name
+      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
+      // 循环出当前名称的一样的组件实例
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+      // 有节点表示当前找到了name一样的实例
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    /**
+        * 广播 (向下查找) (广播多个)
+        * @param componentName // 需要找的组件的名称
+        * @param eventName // 事件名称
+        * @param params // 需要传递的参数
+        */
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    } } };exports.default = _default;
+
+/***/ }),
+
+/***/ 393:
+/*!*********************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/util/async-validator.js ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+/* eslint no-console:0 */
+var formatRegExp = /%[sdj%]/g;
+var warning = function warning() {}; // don't print warning message when in production env or node runtime
+
+if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","VUE_APP_NAME":"星星医学助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}) && "development" !== 'production' && typeof window !==
+'undefined' && typeof document !== 'undefined') {
+  warning = function warning(type, errors) {
+    if (typeof console !== 'undefined' && console.warn) {
+      if (errors.every(function (e) {
+        return typeof e === 'string';
+      })) {
+        console.warn(type, errors);
+      }
+    }
+  };
+}
+
+function convertFieldsError(errors) {
+  if (!errors || !errors.length) return null;
+  var fields = {};
+  errors.forEach(function (error) {
+    var field = error.field;
+    fields[field] = fields[field] || [];
+    fields[field].push(error);
+  });
+  return fields;
+}
+
+function format() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  var i = 1;
+  var f = args[0];
+  var len = args.length;
+
+  if (typeof f === 'function') {
+    return f.apply(null, args.slice(1));
+  }
+
+  if (typeof f === 'string') {
+    var str = String(f).replace(formatRegExp, function (x) {
+      if (x === '%%') {
+        return '%';
+      }
+
+      if (i >= len) {
+        return x;
+      }
+
+      switch (x) {
+        case '%s':
+          return String(args[i++]);
+
+        case '%d':
+          return Number(args[i++]);
+
+        case '%j':
+          try {
+            return JSON.stringify(args[i++]);
+          } catch (_) {
+            return '[Circular]';
+          }
+
+          break;
+
+        default:
+          return x;}
+
+    });
+
+    for (var arg = args[i]; i < len; arg = args[++i]) {
+      str += " " + arg;
+    }
+
+    return str;
+  }
+
+  return f;
+}
+
+function isNativeStringType(type) {
+  return type === 'string' || type === 'url' || type === 'hex' || type === 'email' || type === 'pattern';
+}
+
+function isEmptyValue(value, type) {
+  if (value === undefined || value === null) {
+    return true;
+  }
+
+  if (type === 'array' && Array.isArray(value) && !value.length) {
+    return true;
+  }
+
+  if (isNativeStringType(type) && typeof value === 'string' && !value) {
+    return true;
+  }
+
+  return false;
+}
+
+function asyncParallelArray(arr, func, callback) {
+  var results = [];
+  var total = 0;
+  var arrLength = arr.length;
+
+  function count(errors) {
+    results.push.apply(results, errors);
+    total++;
+
+    if (total === arrLength) {
+      callback(results);
+    }
+  }
+
+  arr.forEach(function (a) {
+    func(a, count);
+  });
+}
+
+function asyncSerialArray(arr, func, callback) {
+  var index = 0;
+  var arrLength = arr.length;
+
+  function next(errors) {
+    if (errors && errors.length) {
+      callback(errors);
+      return;
+    }
+
+    var original = index;
+    index = index + 1;
+
+    if (original < arrLength) {
+      func(arr[original], next);
+    } else {
+      callback([]);
+    }
+  }
+
+  next([]);
+}
+
+function flattenObjArr(objArr) {
+  var ret = [];
+  Object.keys(objArr).forEach(function (k) {
+    ret.push.apply(ret, objArr[k]);
+  });
+  return ret;
+}
+
+function asyncMap(objArr, option, func, callback) {
+  if (option.first) {
+    var _pending = new Promise(function (resolve, reject) {
+      var next = function next(errors) {
+        callback(errors);
+        return errors.length ? reject({
+          errors: errors,
+          fields: convertFieldsError(errors) }) :
+        resolve();
+      };
+
+      var flattenArr = flattenObjArr(objArr);
+      asyncSerialArray(flattenArr, func, next);
+    });
+
+    _pending["catch"](function (e) {
+      return e;
+    });
+
+    return _pending;
+  }
+
+  var firstFields = option.firstFields || [];
+
+  if (firstFields === true) {
+    firstFields = Object.keys(objArr);
+  }
+
+  var objArrKeys = Object.keys(objArr);
+  var objArrLength = objArrKeys.length;
+  var total = 0;
+  var results = [];
+  var pending = new Promise(function (resolve, reject) {
+    var next = function next(errors) {
+      results.push.apply(results, errors);
+      total++;
+
+      if (total === objArrLength) {
+        callback(results);
+        return results.length ? reject({
+          errors: results,
+          fields: convertFieldsError(results) }) :
+        resolve();
+      }
+    };
+
+    if (!objArrKeys.length) {
+      callback(results);
+      resolve();
+    }
+
+    objArrKeys.forEach(function (key) {
+      var arr = objArr[key];
+
+      if (firstFields.indexOf(key) !== -1) {
+        asyncSerialArray(arr, func, next);
+      } else {
+        asyncParallelArray(arr, func, next);
+      }
+    });
+  });
+  pending["catch"](function (e) {
+    return e;
+  });
+  return pending;
+}
+
+function complementError(rule) {
+  return function (oe) {
+    if (oe && oe.message) {
+      oe.field = oe.field || rule.fullField;
+      return oe;
+    }
+
+    return {
+      message: typeof oe === 'function' ? oe() : oe,
+      field: oe.field || rule.fullField };
+
+  };
+}
+
+function deepMerge(target, source) {
+  if (source) {
+    for (var s in source) {
+      if (source.hasOwnProperty(s)) {
+        var value = source[s];
+
+        if (typeof value === 'object' && typeof target[s] === 'object') {
+          target[s] = _extends({}, target[s], {}, value);
+        } else {
+          target[s] = value;
+        }
+      }
+    }
+  }
+
+  return target;
+}
+
+/**
+   *  Rule for validating required fields.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param source The source object being validated.
+   *  @param errors An array of errors that this rule may add
+   *  validation errors to.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function required(rule, value, source, errors, options, type) {
+  if (rule.required && (!source.hasOwnProperty(rule.field) || isEmptyValue(value, type || rule.type))) {
+    errors.push(format(options.messages.required, rule.fullField));
+  }
+}
+
+/**
+   *  Rule for validating whitespace.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param source The source object being validated.
+   *  @param errors An array of errors that this rule may add
+   *  validation errors to.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function whitespace(rule, value, source, errors, options) {
+  if (/^\s+$/.test(value) || value === '') {
+    errors.push(format(options.messages.whitespace, rule.fullField));
+  }
+}
+
+/* eslint max-len:0 */
+
+var pattern = {
+  // http://emailregex.com/
+  email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  url: new RegExp(
+  "^(?!mailto:)(?:(?:http|https|ftp)://|//)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-*)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-*)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$",
+  'i'),
+  hex: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/i };
+
+var types = {
+  integer: function integer(value) {
+    return types.number(value) && parseInt(value, 10) === value;
+  },
+  "float": function _float(value) {
+    return types.number(value) && !types.integer(value);
+  },
+  array: function array(value) {
+    return Array.isArray(value);
+  },
+  regexp: function regexp(value) {
+    if (value instanceof RegExp) {
+      return true;
+    }
+
+    try {
+      return !!new RegExp(value);
+    } catch (e) {
+      return false;
+    }
+  },
+  date: function date(value) {
+    return typeof value.getTime === 'function' && typeof value.getMonth === 'function' && typeof value.getYear ===
+    'function';
+  },
+  number: function number(value) {
+    if (isNaN(value)) {
+      return false;
+    }
+
+    // 修改源码，将字符串数值先转为数值
+    return typeof +value === 'number';
+  },
+  object: function object(value) {
+    return typeof value === 'object' && !types.array(value);
+  },
+  method: function method(value) {
+    return typeof value === 'function';
+  },
+  email: function email(value) {
+    return typeof value === 'string' && !!value.match(pattern.email) && value.length < 255;
+  },
+  url: function url(value) {
+    return typeof value === 'string' && !!value.match(pattern.url);
+  },
+  hex: function hex(value) {
+    return typeof value === 'string' && !!value.match(pattern.hex);
+  } };
+
+/**
+        *  Rule for validating the type of a value.
+        *
+        *  @param rule The validation rule.
+        *  @param value The value of the field on the source object.
+        *  @param source The source object being validated.
+        *  @param errors An array of errors that this rule may add
+        *  validation errors to.
+        *  @param options The validation options.
+        *  @param options.messages The validation messages.
+        */
+
+function type(rule, value, source, errors, options) {
+  if (rule.required && value === undefined) {
+    required(rule, value, source, errors, options);
+    return;
+  }
+
+  var custom = ['integer', 'float', 'array', 'regexp', 'object', 'method', 'email', 'number', 'date', 'url', 'hex'];
+  var ruleType = rule.type;
+
+  if (custom.indexOf(ruleType) > -1) {
+    if (!types[ruleType](value)) {
+      errors.push(format(options.messages.types[ruleType], rule.fullField, rule.type));
+    } // straight typeof check
+
+  } else if (ruleType && typeof value !== rule.type) {
+    errors.push(format(options.messages.types[ruleType], rule.fullField, rule.type));
+  }
+}
+
+/**
+   *  Rule for validating minimum and maximum allowed values.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param source The source object being validated.
+   *  @param errors An array of errors that this rule may add
+   *  validation errors to.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function range(rule, value, source, errors, options) {
+  var len = typeof rule.len === 'number';
+  var min = typeof rule.min === 'number';
+  var max = typeof rule.max === 'number'; // 正则匹配码点范围从U+010000一直到U+10FFFF的文字（补充平面Supplementary Plane）
+
+  var spRegexp = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+  var val = value;
+  var key = null;
+  var num = typeof value === 'number';
+  var str = typeof value === 'string';
+  var arr = Array.isArray(value);
+
+  if (num) {
+    key = 'number';
+  } else if (str) {
+    key = 'string';
+  } else if (arr) {
+    key = 'array';
+  } // if the value is not of a supported type for range validation
+  // the validation rule rule should use the
+  // type property to also test for a particular type
+
+
+  if (!key) {
+    return false;
+  }
+
+  if (arr) {
+    val = value.length;
+  }
+
+  if (str) {
+    // 处理码点大于U+010000的文字length属性不准确的bug，如"𠮷𠮷𠮷".lenght !== 3
+    val = value.replace(spRegexp, '_').length;
+  }
+
+  if (len) {
+    if (val !== rule.len) {
+      errors.push(format(options.messages[key].len, rule.fullField, rule.len));
+    }
+  } else if (min && !max && val < rule.min) {
+    errors.push(format(options.messages[key].min, rule.fullField, rule.min));
+  } else if (max && !min && val > rule.max) {
+    errors.push(format(options.messages[key].max, rule.fullField, rule.max));
+  } else if (min && max && (val < rule.min || val > rule.max)) {
+    errors.push(format(options.messages[key].range, rule.fullField, rule.min, rule.max));
+  }
+}
+
+var ENUM = 'enum';
+/**
+                    *  Rule for validating a value exists in an enumerable list.
+                    *
+                    *  @param rule The validation rule.
+                    *  @param value The value of the field on the source object.
+                    *  @param source The source object being validated.
+                    *  @param errors An array of errors that this rule may add
+                    *  validation errors to.
+                    *  @param options The validation options.
+                    *  @param options.messages The validation messages.
+                    */
+
+function enumerable(rule, value, source, errors, options) {
+  rule[ENUM] = Array.isArray(rule[ENUM]) ? rule[ENUM] : [];
+
+  if (rule[ENUM].indexOf(value) === -1) {
+    errors.push(format(options.messages[ENUM], rule.fullField, rule[ENUM].join(', ')));
+  }
+}
+
+/**
+   *  Rule for validating a regular expression pattern.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param source The source object being validated.
+   *  @param errors An array of errors that this rule may add
+   *  validation errors to.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function pattern$1(rule, value, source, errors, options) {
+  if (rule.pattern) {
+    if (rule.pattern instanceof RegExp) {
+      // if a RegExp instance is passed, reset `lastIndex` in case its `global`
+      // flag is accidentally set to `true`, which in a validation scenario
+      // is not necessary and the result might be misleading
+      rule.pattern.lastIndex = 0;
+
+      if (!rule.pattern.test(value)) {
+        errors.push(format(options.messages.pattern.mismatch, rule.fullField, value, rule.pattern));
+      }
+    } else if (typeof rule.pattern === 'string') {
+      var _pattern = new RegExp(rule.pattern);
+
+      if (!_pattern.test(value)) {
+        errors.push(format(options.messages.pattern.mismatch, rule.fullField, value, rule.pattern));
+      }
+    }
+  }
+}
+
+var rules = {
+  required: required,
+  whitespace: whitespace,
+  type: type,
+  range: range,
+  "enum": enumerable,
+  pattern: pattern$1 };
+
+
+/**
+                         *  Performs validation for string types.
+                         *
+                         *  @param rule The validation rule.
+                         *  @param value The value of the field on the source object.
+                         *  @param callback The callback function.
+                         *  @param source The source object being validated.
+                         *  @param options The validation options.
+                         *  @param options.messages The validation messages.
+                         */
+
+function string(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value, 'string') && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options, 'string');
+
+    if (!isEmptyValue(value, 'string')) {
+      rules.type(rule, value, source, errors, options);
+      rules.range(rule, value, source, errors, options);
+      rules.pattern(rule, value, source, errors, options);
+
+      if (rule.whitespace === true) {
+        rules.whitespace(rule, value, source, errors, options);
+      }
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates a function.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function method(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (value !== undefined) {
+      rules.type(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates a number.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function number(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (value === '') {
+      value = undefined;
+    }
+
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (value !== undefined) {
+      rules.type(rule, value, source, errors, options);
+      rules.range(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates a boolean.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function _boolean(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (value !== undefined) {
+      rules.type(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates the regular expression type.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function regexp(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (!isEmptyValue(value)) {
+      rules.type(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates a number is an integer.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function integer(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (value !== undefined) {
+      rules.type(rule, value, source, errors, options);
+      rules.range(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates a number is a floating point number.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function floatFn(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (value !== undefined) {
+      rules.type(rule, value, source, errors, options);
+      rules.range(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates an array.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function array(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value, 'array') && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options, 'array');
+
+    if (!isEmptyValue(value, 'array')) {
+      rules.type(rule, value, source, errors, options);
+      rules.range(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates an object.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function object(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (value !== undefined) {
+      rules.type(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+var ENUM$1 = 'enum';
+/**
+                      *  Validates an enumerable list.
+                      *
+                      *  @param rule The validation rule.
+                      *  @param value The value of the field on the source object.
+                      *  @param callback The callback function.
+                      *  @param source The source object being validated.
+                      *  @param options The validation options.
+                      *  @param options.messages The validation messages.
+                      */
+
+function enumerable$1(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (value !== undefined) {
+      rules[ENUM$1](rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Validates a regular expression pattern.
+   *
+   *  Performs validation when a rule only contains
+   *  a pattern property but is not declared as a string type.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function pattern$2(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value, 'string') && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (!isEmptyValue(value, 'string')) {
+      rules.pattern(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+function date(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+
+    if (!isEmptyValue(value)) {
+      var dateObject;
+
+      if (typeof value === 'number') {
+        dateObject = new Date(value);
+      } else {
+        dateObject = value;
+      }
+
+      rules.type(rule, dateObject, source, errors, options);
+
+      if (dateObject) {
+        rules.range(rule, dateObject.getTime(), source, errors, options);
+      }
+    }
+  }
+
+  callback(errors);
+}
+
+function required$1(rule, value, callback, source, options) {
+  var errors = [];
+  var type = Array.isArray(value) ? 'array' : typeof value;
+  rules.required(rule, value, source, errors, options, type);
+  callback(errors);
+}
+
+function type$1(rule, value, callback, source, options) {
+  var ruleType = rule.type;
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value, ruleType) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options, ruleType);
+
+    if (!isEmptyValue(value, ruleType)) {
+      rules.type(rule, value, source, errors, options);
+    }
+  }
+
+  callback(errors);
+}
+
+/**
+   *  Performs validation for any type.
+   *
+   *  @param rule The validation rule.
+   *  @param value The value of the field on the source object.
+   *  @param callback The callback function.
+   *  @param source The source object being validated.
+   *  @param options The validation options.
+   *  @param options.messages The validation messages.
+   */
+
+function any(rule, value, callback, source, options) {
+  var errors = [];
+  var validate = rule.required || !rule.required && source.hasOwnProperty(rule.field);
+
+  if (validate) {
+    if (isEmptyValue(value) && !rule.required) {
+      return callback();
+    }
+
+    rules.required(rule, value, source, errors, options);
+  }
+
+  callback(errors);
+}
+
+var validators = {
+  string: string,
+  method: method,
+  number: number,
+  "boolean": _boolean,
+  regexp: regexp,
+  integer: integer,
+  "float": floatFn,
+  array: array,
+  object: object,
+  "enum": enumerable$1,
+  pattern: pattern$2,
+  date: date,
+  url: type$1,
+  hex: type$1,
+  email: type$1,
+  required: required$1,
+  any: any };
+
+
+function newMessages() {
+  return {
+    "default": 'Validation error on field %s',
+    required: '%s is required',
+    "enum": '%s must be one of %s',
+    whitespace: '%s cannot be empty',
+    date: {
+      format: '%s date %s is invalid for format %s',
+      parse: '%s date could not be parsed, %s is invalid ',
+      invalid: '%s date %s is invalid' },
+
+    types: {
+      string: '%s is not a %s',
+      method: '%s is not a %s (function)',
+      array: '%s is not an %s',
+      object: '%s is not an %s',
+      number: '%s is not a %s',
+      date: '%s is not a %s',
+      "boolean": '%s is not a %s',
+      integer: '%s is not an %s',
+      "float": '%s is not a %s',
+      regexp: '%s is not a valid %s',
+      email: '%s is not a valid %s',
+      url: '%s is not a valid %s',
+      hex: '%s is not a valid %s' },
+
+    string: {
+      len: '%s must be exactly %s characters',
+      min: '%s must be at least %s characters',
+      max: '%s cannot be longer than %s characters',
+      range: '%s must be between %s and %s characters' },
+
+    number: {
+      len: '%s must equal %s',
+      min: '%s cannot be less than %s',
+      max: '%s cannot be greater than %s',
+      range: '%s must be between %s and %s' },
+
+    array: {
+      len: '%s must be exactly %s in length',
+      min: '%s cannot be less than %s in length',
+      max: '%s cannot be greater than %s in length',
+      range: '%s must be between %s and %s in length' },
+
+    pattern: {
+      mismatch: '%s value %s does not match pattern %s' },
+
+    clone: function clone() {
+      var cloned = JSON.parse(JSON.stringify(this));
+      cloned.clone = this.clone;
+      return cloned;
+    } };
+
+}
+var messages = newMessages();
+
+/**
+                               *  Encapsulates a validation schema.
+                               *
+                               *  @param descriptor An object declaring validation rules
+                               *  for this schema.
+                               */
+
+function Schema(descriptor) {
+  this.rules = null;
+  this._messages = messages;
+  this.define(descriptor);
+}
+
+Schema.prototype = {
+  messages: function messages(_messages) {
+    if (_messages) {
+      this._messages = deepMerge(newMessages(), _messages);
+    }
+
+    return this._messages;
+  },
+  define: function define(rules) {
+    if (!rules) {
+      throw new Error('Cannot configure a schema with no rules');
+    }
+
+    if (typeof rules !== 'object' || Array.isArray(rules)) {
+      throw new Error('Rules must be an object');
+    }
+
+    this.rules = {};
+    var z;
+    var item;
+
+    for (z in rules) {
+      if (rules.hasOwnProperty(z)) {
+        item = rules[z];
+        this.rules[z] = Array.isArray(item) ? item : [item];
+      }
+    }
+  },
+  validate: function validate(source_, o, oc) {
+    var _this = this;
+
+    if (o === void 0) {
+      o = {};
+    }
+
+    if (oc === void 0) {
+      oc = function oc() {};
+    }
+
+    var source = source_;
+    var options = o;
+    var callback = oc;
+
+    if (typeof options === 'function') {
+      callback = options;
+      options = {};
+    }
+
+    if (!this.rules || Object.keys(this.rules).length === 0) {
+      if (callback) {
+        callback();
+      }
+
+      return Promise.resolve();
+    }
+
+    function complete(results) {
+      var i;
+      var errors = [];
+      var fields = {};
+
+      function add(e) {
+        if (Array.isArray(e)) {
+          var _errors;
+
+          errors = (_errors = errors).concat.apply(_errors, e);
+        } else {
+          errors.push(e);
+        }
+      }
+
+      for (i = 0; i < results.length; i++) {
+        add(results[i]);
+      }
+
+      if (!errors.length) {
+        errors = null;
+        fields = null;
+      } else {
+        fields = convertFieldsError(errors);
+      }
+
+      callback(errors, fields);
+    }
+
+    if (options.messages) {
+      var messages$1 = this.messages();
+
+      if (messages$1 === messages) {
+        messages$1 = newMessages();
+      }
+
+      deepMerge(messages$1, options.messages);
+      options.messages = messages$1;
+    } else {
+      options.messages = this.messages();
+    }
+
+    var arr;
+    var value;
+    var series = {};
+    var keys = options.keys || Object.keys(this.rules);
+    keys.forEach(function (z) {
+      arr = _this.rules[z];
+      value = source[z];
+      arr.forEach(function (r) {
+        var rule = r;
+
+        if (typeof rule.transform === 'function') {
+          if (source === source_) {
+            source = _extends({}, source);
+          }
+
+          value = source[z] = rule.transform(value);
+        }
+
+        if (typeof rule === 'function') {
+          rule = {
+            validator: rule };
+
+        } else {
+          rule = _extends({}, rule);
+        }
+
+        rule.validator = _this.getValidationMethod(rule);
+        rule.field = z;
+        rule.fullField = rule.fullField || z;
+        rule.type = _this.getType(rule);
+
+        if (!rule.validator) {
+          return;
+        }
+
+        series[z] = series[z] || [];
+        series[z].push({
+          rule: rule,
+          value: value,
+          source: source,
+          field: z });
+
+      });
+    });
+    var errorFields = {};
+    return asyncMap(series, options, function (data, doIt) {
+      var rule = data.rule;
+      var deep = (rule.type === 'object' || rule.type === 'array') && (typeof rule.fields === 'object' || typeof rule.defaultField ===
+      'object');
+      deep = deep && (rule.required || !rule.required && data.value);
+      rule.field = data.field;
+
+      function addFullfield(key, schema) {
+        return _extends({}, schema, {
+          fullField: rule.fullField + "." + key });
+
+      }
+
+      function cb(e) {
+        if (e === void 0) {
+          e = [];
+        }
+
+        var errors = e;
+
+        if (!Array.isArray(errors)) {
+          errors = [errors];
+        }
+
+        if (!options.suppressWarning && errors.length) {
+          Schema.warning('async-validator:', errors);
+        }
+
+        if (errors.length && rule.message) {
+          errors = [].concat(rule.message);
+        }
+
+        errors = errors.map(complementError(rule));
+
+        if (options.first && errors.length) {
+          errorFields[rule.field] = 1;
+          return doIt(errors);
+        }
+
+        if (!deep) {
+          doIt(errors);
+        } else {
+          // if rule is required but the target object
+          // does not exist fail at the rule level and don't
+          // go deeper
+          if (rule.required && !data.value) {
+            if (rule.message) {
+              errors = [].concat(rule.message).map(complementError(rule));
+            } else if (options.error) {
+              errors = [options.error(rule, format(options.messages.required, rule.field))];
+            } else {
+              errors = [];
+            }
+
+            return doIt(errors);
+          }
+
+          var fieldsSchema = {};
+
+          if (rule.defaultField) {
+            for (var k in data.value) {
+              if (data.value.hasOwnProperty(k)) {
+                fieldsSchema[k] = rule.defaultField;
+              }
+            }
+          }
+
+          fieldsSchema = _extends({}, fieldsSchema, {}, data.rule.fields);
+
+          for (var f in fieldsSchema) {
+            if (fieldsSchema.hasOwnProperty(f)) {
+              var fieldSchema = Array.isArray(fieldsSchema[f]) ? fieldsSchema[f] : [fieldsSchema[f]];
+              fieldsSchema[f] = fieldSchema.map(addFullfield.bind(null, f));
+            }
+          }
+
+          var schema = new Schema(fieldsSchema);
+          schema.messages(options.messages);
+
+          if (data.rule.options) {
+            data.rule.options.messages = options.messages;
+            data.rule.options.error = options.error;
+          }
+
+          schema.validate(data.value, data.rule.options || options, function (errs) {
+            var finalErrors = [];
+
+            if (errors && errors.length) {
+              finalErrors.push.apply(finalErrors, errors);
+            }
+
+            if (errs && errs.length) {
+              finalErrors.push.apply(finalErrors, errs);
+            }
+
+            doIt(finalErrors.length ? finalErrors : null);
+          });
+        }
+      }
+
+      var res;
+
+      if (rule.asyncValidator) {
+        res = rule.asyncValidator(rule, data.value, cb, data.source, options);
+      } else if (rule.validator) {
+        res = rule.validator(rule, data.value, cb, data.source, options);
+
+        if (res === true) {
+          cb();
+        } else if (res === false) {
+          cb(rule.message || rule.field + " fails");
+        } else if (res instanceof Array) {
+          cb(res);
+        } else if (res instanceof Error) {
+          cb(res.message);
+        }
+      }
+
+      if (res && res.then) {
+        res.then(function () {
+          return cb();
+        }, function (e) {
+          return cb(e);
+        });
+      }
+    }, function (results) {
+      complete(results);
+    });
+  },
+  getType: function getType(rule) {
+    if (rule.type === undefined && rule.pattern instanceof RegExp) {
+      rule.type = 'pattern';
+    }
+
+    if (typeof rule.validator !== 'function' && rule.type && !validators.hasOwnProperty(rule.type)) {
+      throw new Error(format('Unknown rule type %s', rule.type));
+    }
+
+    return rule.type || 'string';
+  },
+  getValidationMethod: function getValidationMethod(rule) {
+    if (typeof rule.validator === 'function') {
+      return rule.validator;
+    }
+
+    var keys = Object.keys(rule);
+    var messageIndex = keys.indexOf('message');
+
+    if (messageIndex !== -1) {
+      keys.splice(messageIndex, 1);
+    }
+
+    if (keys.length === 1 && keys[0] === 'required') {
+      return validators.required;
+    }
+
+    return validators[this.getType(rule)] || false;
+  } };
+
+
+Schema.register = function register(type, validator) {
+  if (typeof validator !== 'function') {
+    throw new Error('Cannot register a validator by type, validator is not a function');
+  }
+
+  validators[type] = validator;
+};
+
+Schema.warning = warning;
+Schema.messages = messages;var _default =
+
+Schema;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../../../Applications/HBuilderX 2.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 76)))
+
+/***/ }),
+
+/***/ 4:
+/*!******************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/pages.json ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 40:
+/*!******************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/throttle.js ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10923,10 +13466,11 @@ function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== und
 throttle;exports.default = _default;
 
 /***/ }),
-/* 41 */
-/*!******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/config/config.js ***!
-  \******************************************************************************************/
+
+/***/ 41:
+/*!**************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/config/config.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10946,10 +13490,11 @@ var version = '1.8.3';var _default =
   'warning'] };exports.default = _default;
 
 /***/ }),
-/* 42 */
-/*!******************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/config/zIndex.js ***!
-  \******************************************************************************************/
+
+/***/ 42:
+/*!**************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/config/zIndex.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10975,10 +13520,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   indexListSticky: 965 };exports.default = _default;
 
 /***/ }),
-/* 43 */
-/*!*****************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/libs/function/md5.js ***!
-  \*****************************************************************************************/
+
+/***/ 43:
+/*!*************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uview-ui/libs/function/md5.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11368,11245 +13914,1175 @@ module.exports = {
   } };
 
 /***/ }),
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */
-/*!*************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/tags.js ***!
-  \*************************************************************************/
+
+/***/ 492:
+/*!***********************************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.articles = exports.recomments = exports.tags = void 0;var tags = {
-  "err_no": 0,
-  "err_msg": "success",
-  "data": [
-  {
-    "id": 2546527,
-    "tag_id": "6809640408797167623",
-    "tag_name": "后端",
-    "color": "#C679FF",
-    "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-    "back_ground": "",
-    "show_navi": 1,
-    "ctime": 1435971556,
-    "mtime": 1620962698,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 44008,
-    "concern_user_count": 409486 },
-
-  {
-    "id": 2546553,
-    "tag_id": "6809640445233070094",
-    "tag_name": "Java",
-    "color": "#DD2C2A",
-    "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1436156295,
-    "mtime": 1620962624,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 65143,
-    "concern_user_count": 283698 },
-
-  {
-    "id": 2546494,
-    "tag_id": "6809640364677267469",
-    "tag_name": "Go",
-    "color": "#64D7E3",
-    "icon": "https://lc-gold-cdn.xitu.io/1aae38ab22d12b654cfa.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1432234497,
-    "mtime": 1620952912,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 8253,
-    "concern_user_count": 81923 },
-
-  {
-    "id": 2546496,
-    "tag_id": "6809640366896054286",
-    "tag_name": "MySQL",
-    "color": "#026088",
-    "icon": "https://lc-gold-cdn.xitu.io/b2fbb06dce13eeb3bb9b.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1432234510,
-    "mtime": 1620962431,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 8630,
-    "concern_user_count": 182616 },
-
-  {
-    "id": 2546556,
-    "tag_id": "6809640448827588622",
-    "tag_name": "Python",
-    "color": "#356E9C",
-    "icon": "https://lc-gold-cdn.xitu.io/b51a1dacf9bb7883defe.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1436156327,
-    "mtime": 1620962430,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 20946,
-    "concern_user_count": 208820 },
-
-  {
-    "id": 2546740,
-    "tag_id": "6809640703325372423",
-    "tag_name": "Spring",
-    "color": "#000000",
-    "icon": "https://lc-gold-cdn.xitu.io/279e631b065a5a31289f.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1481070886,
-    "mtime": 1620962408,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 7457,
-    "concern_user_count": 87594 },
-
-  {
-    "id": 2546982,
-    "tag_id": "6809641037787561992",
-    "tag_name": "Spring Boot",
-    "color": "#000000",
-    "icon": "https://lc-gold-cdn.xitu.io/f77e4a02edb8b963a2c5.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1489517587,
-    "mtime": 1620960004,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 6606,
-    "concern_user_count": 31773 },
-
-  {
-    "id": 2546592,
-    "tag_id": "6809640499062767624",
-    "tag_name": "算法",
-    "color": "#60ADFF",
-    "icon": "https://lc-gold-cdn.xitu.io/68a1097944c7fa1d7961.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1439503293,
-    "mtime": 1620962317,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 18048,
-    "concern_user_count": 300171 },
-
-  {
-    "id": 2546666,
-    "tag_id": "6809640600502009863",
-    "tag_name": "数据库",
-    "color": "#000000",
-    "icon": "https://lc-gold-cdn.xitu.io/c57a5426c2a8ab565881.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1446683560,
-    "mtime": 1620962555,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 9860,
-    "concern_user_count": 270481 },
-
-  {
-    "id": 2546499,
-    "tag_id": "6809640371019055111",
-    "tag_name": "Redis",
-    "color": "#A51912",
-    "icon": "https://lc-gold-cdn.xitu.io/4045af43b278afc7229b.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1432234546,
-    "mtime": 1620962572,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 5601,
-    "concern_user_count": 140771 },
-
-  {
-    "id": 2546735,
-    "tag_id": "6809640696455102472",
-    "tag_name": "JVM",
-    "color": "#3b0a4c",
-    "icon": "https://lc-gold-cdn.xitu.io/796f607b1e45a38c61f9.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1480964168,
-    "mtime": 1620960014,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 4311,
-    "concern_user_count": 29742 },
-
-  {
-    "id": 2546720,
-    "tag_id": "6809640675944955918",
-    "tag_name": "Kubernetes",
-    "color": "#000000",
-    "icon": "https://lc-gold-cdn.xitu.io/f3388aa0b59e4d864cc2.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1480286730,
-    "mtime": 1620959770,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 2830,
-    "concern_user_count": 17352 },
-
-  {
-    "id": 2546510,
-    "tag_id": "6809640385980137480",
-    "tag_name": "Linux",
-    "color": "#616161",
-    "icon": "https://lc-gold-cdn.xitu.io/b49dc843907aa7843a77.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1432234608,
-    "mtime": 1620962425,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 8379,
-    "concern_user_count": 219892 },
-
-  {
-    "id": 2546518,
-    "tag_id": "6809640396788858887",
-    "tag_name": "Docker",
-    "color": "#344D56",
-    "icon": "https://lc-gold-cdn.xitu.io/1265c034d36735225ac5.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1432604595,
-    "mtime": 1620962575,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 4923,
-    "concern_user_count": 130765 },
-
-  {
-    "id": 2546495,
-    "tag_id": "6809640365574848526",
-    "tag_name": "PHP",
-    "color": "#777AB6",
-    "icon": "https://lc-gold-cdn.xitu.io/7699e23cbe687eed8c38.png",
-    "back_ground": "",
-    "show_navi": 0,
-    "ctime": 1432234501,
-    "mtime": 1620959933,
-    "id_type": 9,
-    "tag_alias": "",
-    "post_article_count": 5974,
-    "concern_user_count": 90796 }] };exports.tags = tags;
-
-
-
-
-var recomments = {
-  "err_no": 0,
-  "err_msg": "success",
-  "data": [
-  {
-    "item_type": 14,
-    "item_info": {
-      "id": 797,
-      "advert_id": "6960543424311197709",
-      "user_id": "940837680722589",
-      "item_id": "0",
-      "item_type": 14,
-      "platform": 2608,
-      "layout": 1,
-      "position": 1,
-      "advert_type": 2,
-      "station_type": 0,
-      "author_name": "稀土君",
-      "author_id": 940837680722589,
-      "title": "掘金App端创作者中心上线啦！超多福利等你拿！",
-      "brief": "奔走相告！掘金创作者中心上线啦！更多超多礼品等你来拿，快来体验一下吧！",
-      "url": "https://juejin.cn/post/6960542835032457246?utm_campaign=writercenter_2021&utm_medium=article_click&utm_source=feed_first",
-      "picture": "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bedd13a832741ecb564a76e0e857bac~tplv-k3u1fbpfcp-watermark.image",
-      "avatar": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/46218f0e66a164ea7d3b554b8e411dbd~300x300.image",
-      "start_time": "0",
-      "end_time": "0",
-      "ctime": "1620628426",
-      "mtime": "1620804280",
-      "sale_count": 0,
-      "sale_price": 0,
-      "discount_rate": 0,
-      "digg_count": 0,
-      "comment_count": 0,
-      "topic": "",
-      "topic_id": "0",
-      "status": 1,
-      "item_user_info": {
-        "user_id": "940837680722589",
-        "user_name": "稀土君",
-        "company": "稀土",
-        "job_title": "最酷的",
-        "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/46218f0e66a164ea7d3b554b8e411dbd~300x300.image",
-        "level": 6,
-        "description": "挖掘最优质的互联网技术 https://juejin.cn ，经常搞活动搞抽奖，快关注快关注",
-        "followee_count": 158,
-        "follower_count": 82228,
-        "post_article_count": 2535,
-        "digg_article_count": 1755,
-        "got_digg_count": 40992,
-        "got_view_count": 2629042,
-        "post_shortmsg_count": 114,
-        "digg_shortmsg_count": 446,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 23755,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961790494514872333",
-      "article_info": {
-        "article_id": "6961790494514872333",
-        "user_id": "2788017216685118",
-        "category_id": "6809637767543259144",
-        "tag_ids": [
-        6809640407484334093,
-        6809640398105870343],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ac32a3c3b5e4fd1862a4c1b31b16719~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "JavaScript Debugger 原理揭秘",
-        "brief_content": "debugger 的实现原理。ide 和 chrome devtools 如何实现调试功能的。本文带你深入探索 debugger 的原理。",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 13.96181691505657,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620918367",
-        "mtime": "1620963891",
-        "rtime": "1620963891",
-        "draft_id": "6961763941789728782",
-        "view_count": 1601,
-        "collect_count": 31,
-        "digg_count": 37,
-        "comment_count": 5,
-        "hot_index": 120,
-        "is_hot": 0,
-        "rank_index": 129.18929969,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "2788017216685118",
-        "user_name": "zxg_神说要有光",
-        "company": "阿里巴巴",
-        "job_title": "前端",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/553525665fce924274a5fea3e42d289b~300x300.image",
-        "level": 3,
-        "description": "《babel插件通关秘籍》即将上线，公众号「神光的编程秘籍」",
-        "followee_count": 169,
-        "follower_count": 1185,
-        "post_article_count": 10,
-        "digg_article_count": 221,
-        "got_digg_count": 2092,
-        "got_view_count": 59495,
-        "post_shortmsg_count": 7,
-        "digg_shortmsg_count": 4,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 2686,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637767543259144",
-        "category_name": "前端",
-        "category_url": "frontend",
-        "rank": 2,
-        "ctime": 1457483942,
-        "mtime": 1432503190,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546526,
-        "tag_id": "6809640407484334093",
-        "tag_name": "前端",
-        "color": "#60ADFF",
-        "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971546,
-        "mtime": 1620963960,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 55412,
-        "concern_user_count": 512117 },
-
-      {
-        "id": 2546519,
-        "tag_id": "6809640398105870343",
-        "tag_name": "JavaScript",
-        "color": "#616161",
-        "icon": "https://lc-gold-cdn.xitu.io/5d70fd6af940df373834.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1435884803,
-        "mtime": 1620963962,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 56905,
-        "concern_user_count": 386881 }],
-
-
-      "user_interact": {
-        "id": 6961790494514872333,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961961165656326152",
-      "article_info": {
-        "article_id": "6961961165656326152",
-        "user_id": "1978776660216136",
-        "category_id": "6809637767543259144",
-        "tag_ids": [
-        6809640407484334093,
-        6809640528267706382],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "做了一夜动画，让大家十分钟搞懂Webpack",
-        "brief_content": "做了一夜动画，让大家十分钟搞懂Webpack 一、什么是webpack webpack是一个打包工具，他的宗旨是一切静态资源皆可打包。 二、原理分析 首先我们通过一个制作一个打包文件的原型。 假设有两",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620957986",
-        "mtime": "1620958179",
-        "rtime": "1620958013",
-        "draft_id": "6960124692996816904",
-        "view_count": 1635,
-        "collect_count": 50,
-        "digg_count": 53,
-        "comment_count": 6,
-        "hot_index": 131,
-        "is_hot": 0,
-        "rank_index": 30.24295314,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1978776660216136",
-        "user_name": "全栈然叔",
-        "company": "@花果山",
-        "job_title": "",
-        "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/406cea3f24e05b9522a65c9b9cf124c2~300x300.image",
-        "level": 4,
-        "description": "刻意学习者、IT老兵",
-        "followee_count": 52,
-        "follower_count": 4860,
-        "post_article_count": 48,
-        "digg_article_count": 320,
-        "got_digg_count": 6056,
-        "got_view_count": 257683,
-        "post_shortmsg_count": 35,
-        "digg_shortmsg_count": 7,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 8640,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637767543259144",
-        "category_name": "前端",
-        "category_url": "frontend",
-        "rank": 2,
-        "ctime": 1457483942,
-        "mtime": 1432503190,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546526,
-        "tag_id": "6809640407484334093",
-        "tag_name": "前端",
-        "color": "#60ADFF",
-        "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971546,
-        "mtime": 1620963960,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 55412,
-        "concern_user_count": 512117 },
-
-      {
-        "id": 2546614,
-        "tag_id": "6809640528267706382",
-        "tag_name": "Webpack",
-        "color": "#6F94DB",
-        "icon": "https://lc-gold-cdn.xitu.io/73e856b07f83b4231c1e.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1440920866,
-        "mtime": 1620963981,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 5966,
-        "concern_user_count": 199274 }],
-
-
-      "user_interact": {
-        "id": 6961961165656326152,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961759251203096583",
-      "article_info": {
-        "article_id": "6961759251203096583",
-        "user_id": "1302266894100174",
-        "category_id": "6809637767543259144",
-        "tag_ids": [
-        6809640398105870343],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "想当年，我手持栈、堆两个原理，从 简单赋值 杀到 闭包 ",
-        "brief_content": "本文是编者学习栈、堆的内存原理后对 闭包 等实际应用的深刻理解。希望能对各位有所帮助！ 哈哈哈哈，标题心血来潮想玩个梗，各位一笑而过便是。",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620910912",
-        "mtime": "1620962586",
-        "rtime": "1620961027",
-        "draft_id": "6961224708477943839",
-        "view_count": 378,
-        "collect_count": 4,
-        "digg_count": 25,
-        "comment_count": 3,
-        "hot_index": 45,
-        "is_hot": 0,
-        "rank_index": 18.3265762,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1302266894100174",
-        "user_name": "小王犯困了",
-        "company": "",
-        "job_title": "大二学生 @东华理工大学",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/0d39f5dda645c75b52269aa9e7b8cc92~300x300.image",
-        "level": 2,
-        "description": "",
-        "followee_count": 20,
-        "follower_count": 24,
-        "post_article_count": 4,
-        "digg_article_count": 55,
-        "got_digg_count": 122,
-        "got_view_count": 3868,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 160,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637767543259144",
-        "category_name": "前端",
-        "category_url": "frontend",
-        "rank": 2,
-        "ctime": 1457483942,
-        "mtime": 1432503190,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546519,
-        "tag_id": "6809640398105870343",
-        "tag_name": "JavaScript",
-        "color": "#616161",
-        "icon": "https://lc-gold-cdn.xitu.io/5d70fd6af940df373834.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1435884803,
-        "mtime": 1620963962,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 56905,
-        "concern_user_count": 386881 }],
-
-
-      "user_interact": {
-        "id": 6961759251203096583,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 14,
-    "item_info": {
-      "id": 806,
-      "advert_id": "6961233965999095841",
-      "user_id": "2638458197397144",
-      "item_id": "0",
-      "item_type": 14,
-      "platform": 2608,
-      "layout": 1,
-      "position": 5,
-      "advert_type": 1,
-      "station_type": 0,
-      "author_name": "来自格兰芬多的邦妮",
-      "author_id": 2638458197397144,
-      "title": "⁣身体健康计划预热｜评论就有机会拿周边！",
-      "brief": "活动将在5月17日正式开始，现在点进去评论，就有机会拿奖品，还有这种好事！",
-      "url": "https://juejin.cn/pin/6961607718926811167",
-      "picture": "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52c7726343844b408f1702774ba22681~tplv-k3u1fbpfcp-watermark.image",
-      "avatar": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/d2e36b26cc51113c7f8451e1d4500e35~300x300.image",
-      "start_time": "0",
-      "end_time": "0",
-      "ctime": "1620876247",
-      "mtime": "1620876247",
-      "sale_count": 0,
-      "sale_price": 0,
-      "discount_rate": 0,
-      "digg_count": 0,
-      "comment_count": 0,
-      "topic": "",
-      "topic_id": "0",
-      "status": 1,
-      "item_user_info": {
-        "user_id": "2638458197397144",
-        "user_name": "来自格兰芬多的邦妮",
-        "company": "掘金",
-        "job_title": "沸点主理人｜首席小秘书",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/d2e36b26cc51113c7f8451e1d4500e35~300x300.image",
-        "level": 1,
-        "description": "别惹我，我很凶的！",
-        "followee_count": 35,
-        "follower_count": 412,
-        "post_article_count": 3,
-        "digg_article_count": 888,
-        "got_digg_count": 33,
-        "got_view_count": 5019,
-        "post_shortmsg_count": 157,
-        "digg_shortmsg_count": 1471,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 83,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961668123405582349",
-      "article_info": {
-        "article_id": "6961668123405582349",
-        "user_id": "2392970477967453",
-        "category_id": "6809635626879549454",
-        "tag_ids": [
-        6809641090145058824,
-        6809640400832167949],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "MobX流程分析与最佳实践",
-        "brief_content": "我们在大力辅导APP中大量使用了Flutter技术，开发过程中我们采用Mobx框架做为统一的编程范式，本文是对Mobx框架做了一个详细的解析，方便读者加深对Mobx框架的理解。",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620889755",
-        "mtime": "1620960547",
-        "rtime": "1620960547",
-        "draft_id": "6961663882343481381",
-        "view_count": 503,
-        "collect_count": 1,
-        "digg_count": 13,
-        "comment_count": 2,
-        "hot_index": 39,
-        "is_hot": 0,
-        "rank_index": 14.28461957,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "2392970477967453",
-        "user_name": "大力智能技术",
-        "company": "字节跳动",
-        "job_title": "研发",
-        "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/a4631a05152f7af99c39ae1ac0e229eb~300x300.image",
-        "level": 2,
-        "description": "",
-        "followee_count": 2,
-        "follower_count": 221,
-        "post_article_count": 8,
-        "digg_article_count": 0,
-        "got_digg_count": 442,
-        "got_view_count": 17308,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 615,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809635626879549454",
-        "category_name": "Android",
-        "category_url": "android",
-        "rank": 3,
-        "ctime": 1461266353,
-        "mtime": 1432503184,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2547019,
-        "tag_id": "6809641090145058824",
-        "tag_name": "Flutter",
-        "color": "",
-        "icon": "https://user-gold-cdn.xitu.io/1519790365175e2d3ba2174d5c8f3fdc4687a8bbf5768.jpg",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1519761568,
-        "mtime": 1620963775,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 8186,
-        "concern_user_count": 40609 },
-
-      {
-        "id": 2546521,
-        "tag_id": "6809640400832167949",
-        "tag_name": "Android",
-        "color": "#A3CC28",
-        "icon": "https://lc-gold-cdn.xitu.io/7bab0e1e66ea386e6f94.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435964175,
-        "mtime": 1620963331,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 37584,
-        "concern_user_count": 251101 }],
-
-
-      "user_interact": {
-        "id": 6961668123405582349,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961961476047568932",
-      "article_info": {
-        "article_id": "6961961476047568932",
-        "user_id": "1838039172387262",
-        "category_id": "6809635626879549454",
-        "tag_ids": [
-        6809640400832167949],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/592c5b0910f74f8495bd5a7d1782a862~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "今日头条 ANR 优化实践系列 - 告别 SharedPreference 等待",
-        "brief_content": "本文从源码层面分析在加载和写入过程中，导致 ANR 问题的原因以及相关的优化解决方案。通过在字节系多个产品的验证，方案稳定有效，相应堆栈导致的 ANR 问题消灭殆尽，ANR 收益明显，相应的界面跳转等",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 11.102108474089881,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620958078",
-        "mtime": "1620963857",
-        "rtime": "1620963857",
-        "draft_id": "6961956551301005343",
-        "view_count": 38,
-        "collect_count": 0,
-        "digg_count": 4,
-        "comment_count": 0,
-        "hot_index": 5,
-        "is_hot": 0,
-        "rank_index": 15.31547937,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1838039172387262",
-        "user_name": "字节跳动技术团队",
-        "company": "字节跳动",
-        "job_title": "",
-        "avatar_large": "https://user-gold-cdn.xitu.io/2018/7/16/164a1386a8b82dbd?w=720&h=720&f=png&s=41993",
-        "level": 4,
-        "description": "字节跳动的技术实践分享",
-        "followee_count": 1,
-        "follower_count": 15816,
-        "post_article_count": 92,
-        "digg_article_count": 0,
-        "got_digg_count": 4460,
-        "got_view_count": 375055,
-        "post_shortmsg_count": 12,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": -1,
-        "power": 8209,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809635626879549454",
-        "category_name": "Android",
-        "category_url": "android",
-        "rank": 3,
-        "ctime": 1461266353,
-        "mtime": 1432503184,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546521,
-        "tag_id": "6809640400832167949",
-        "tag_name": "Android",
-        "color": "#A3CC28",
-        "icon": "https://lc-gold-cdn.xitu.io/7bab0e1e66ea386e6f94.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435964175,
-        "mtime": 1620963331,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 37584,
-        "concern_user_count": 251101 }],
-
-
-      "user_interact": {
-        "id": 6961961476047568932,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961957755573764132",
-      "article_info": {
-        "article_id": "6961957755573764132",
-        "user_id": "2242659450112455",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640385980137480,
-        6809640488954494983],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af1a66fb474646aeafa8482aa81193e9~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "面对突发流量：系统、软件层限流手段",
-        "brief_content": "简介 在信息时代，什么最值钱？信息和流量，内容产出方式形式不尽相同不是本文的内容，所以我们来说下流量。 网站、媒体都在追逐热点追逐流量，但有时候流量增加不一定是好事。 网站流量暴增大致为以下几种情况 ",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 11.124351165786747,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620957155",
-        "mtime": "1620957160",
-        "rtime": "1620957160",
-        "draft_id": "6961954106231504927",
-        "view_count": 367,
-        "collect_count": 3,
-        "digg_count": 12,
-        "comment_count": 2,
-        "hot_index": 32,
-        "is_hot": 0,
-        "rank_index": 8.75821093,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "2242659450112455",
-        "user_name": "锐玩道",
-        "company": "",
-        "job_title": "攻城狮 @ 微信搜 「锐玩道」",
-        "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/1b5f5e4d55a0e45833f15f4ebff03625~300x300.image",
-        "level": 4,
-        "description": "玩,玩出自己的特色来",
-        "followee_count": 29,
-        "follower_count": 5945,
-        "post_article_count": 69,
-        "digg_article_count": 112,
-        "got_digg_count": 4261,
-        "got_view_count": 203064,
-        "post_shortmsg_count": 65,
-        "digg_shortmsg_count": 30,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 6205,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546510,
-        "tag_id": "6809640385980137480",
-        "tag_name": "Linux",
-        "color": "#616161",
-        "icon": "https://lc-gold-cdn.xitu.io/b49dc843907aa7843a77.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1432234608,
-        "mtime": 1620963978,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 8379,
-        "concern_user_count": 219893 },
-
-      {
-        "id": 2546585,
-        "tag_id": "6809640488954494983",
-        "tag_name": "Nginx",
-        "color": "#009733",
-        "icon": "https://lc-gold-cdn.xitu.io/3cfd907394313acbedff.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1438735979,
-        "mtime": 1620963988,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 2602,
-        "concern_user_count": 146493 }],
-
-
-      "user_interact": {
-        "id": 6961957755573764132,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961978484298088456",
-      "article_info": {
-        "article_id": "6961978484298088456",
-        "user_id": "958429870690413",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640408797167623,
-        6809640375880253447],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4318f0c853e04f2caa209b8ba228cd23~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "GitHub 星标 7K 的计算机科学速成课！",
-        "brief_content": "记得之前有个读者留言说，“二哥，你把你妹也带到计算机这个行业，不觉得无趣吗？况且现在编程卷的飞起。” 说实话，如今这个快节奏的时代，哪个行业都很容易卷，尤其是顶着高薪帽子的计算机行业。但算不上无趣吧？",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 9.723979226757681,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620961984",
-        "mtime": "1620962343",
-        "rtime": "1620962343",
-        "draft_id": "6961974836239269919",
-        "view_count": 117,
-        "collect_count": 2,
-        "digg_count": 1,
-        "comment_count": 0,
-        "hot_index": 6,
-        "is_hot": 0,
-        "rank_index": 8.96329197,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "958429870690413",
-        "user_name": "沉默王二",
-        "company": "沉默王二",
-        "job_title": "微信搜",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/46a16721efab0a0f50a4347c690a875a~300x300.image",
-        "level": 5,
-        "description": "一枚有趣的程序员",
-        "followee_count": 37,
-        "follower_count": 16087,
-        "post_article_count": 262,
-        "digg_article_count": 234,
-        "got_digg_count": 7259,
-        "got_view_count": 615576,
-        "post_shortmsg_count": 2,
-        "digg_shortmsg_count": 90,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 13459,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546527,
-        "tag_id": "6809640408797167623",
-        "tag_name": "后端",
-        "color": "#C679FF",
-        "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971556,
-        "mtime": 1620963727,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 44008,
-        "concern_user_count": 409488 },
-
-      {
-        "id": 2546502,
-        "tag_id": "6809640375880253447",
-        "tag_name": "GitHub",
-        "color": "#616161",
-        "icon": "https://lc-gold-cdn.xitu.io/0d614af263aa63aa6a77.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1432234558,
-        "mtime": 1620963964,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 9503,
-        "concern_user_count": 376309 }],
-
-
-      "user_interact": {
-        "id": 6961978484298088456,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 15,
-    "item_info": {
-      "id": 803,
-      "advert_id": "6960547613125345288",
-      "user_id": "2717648473821736",
-      "item_id": "6948353204648148995",
-      "item_type": 15,
-      "platform": 2608,
-      "layout": 1,
-      "position": 10,
-      "advert_type": 0,
-      "station_type": 0,
-      "author_name": "Cookieboty",
-      "author_id": 2717648473821736,
-      "title": "基于 Node 的 DevOps 实战",
-      "brief": "通过基于 Node 的项目实战，可以对 DevOps 有更深一步了解，包括不限于开发环节、测试环节、构建和部署环节等等。",
-      "url": "",
-      "picture": "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efec1d57146a4127bb8a0c32f3b0a61d~tplv-k3u1fbpfcp-watermark.image",
-      "avatar": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/67b174696e0477c9afd38a893b87fc95~300x300.image",
-      "start_time": "0",
-      "end_time": "0",
-      "ctime": "1618284482",
-      "mtime": "1620839564",
-      "sale_count": 699,
-      "sale_price": 3990,
-      "discount_rate": 7,
-      "digg_count": 0,
-      "comment_count": 0,
-      "topic": "",
-      "topic_id": "0",
-      "status": 1,
-      "item_user_info": {
-        "user_id": "2717648473821736",
-        "user_name": "Cookieboty",
-        "company": "涂鸦大前端",
-        "job_title": "前端小兵成长营",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/67b174696e0477c9afd38a893b87fc95~300x300.image",
-        "level": 4,
-        "description": "工资到位，四皇干废",
-        "followee_count": 38,
-        "follower_count": 1276,
-        "post_article_count": 32,
-        "digg_article_count": 191,
-        "got_digg_count": 3342,
-        "got_view_count": 167161,
-        "post_shortmsg_count": 8,
-        "digg_shortmsg_count": 3,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 5013,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961968239752511524",
-      "article_info": {
-        "article_id": "6961968239752511524",
-        "user_id": "2277843822969863",
-        "category_id": "6809635626879549454",
-        "tag_ids": [
-        6809640400832167949],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bce27cdd873e4233b4e0c24cc68df669~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "别让引入的 SDK 和第三方库导致您应用被下架！",
-        "brief_content": "或许您的应用正在使用一些第三方 SDK 或者代码库，毕竟 \"站在巨人的肩膀上\" 比从头开始最基础的应用开发更节省时间。作为应用开发者，您需要为应用的整体情况负责，包括用户体验和您的代码，当然，也包含第",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 8.884623605314118,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620959685",
-        "mtime": "1620963473",
-        "rtime": "1620963473",
-        "draft_id": "6961967280875896868",
-        "view_count": 25,
-        "collect_count": 0,
-        "digg_count": 3,
-        "comment_count": 0,
-        "hot_index": 2,
-        "is_hot": 0,
-        "rank_index": 8.93568145,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "2277843822969863",
-        "user_name": "Android_开发者",
-        "company": "Google",
-        "job_title": "",
-        "avatar_large": "https://user-gold-cdn.xitu.io/2019/9/4/16cfa3d03cb5d6cd",
-        "level": 5,
-        "description": "谷歌中国 Android 开发者官方账号，汇集 Android 开发者相关的最新资讯。欢迎",
-        "followee_count": 11,
-        "follower_count": 23763,
-        "post_article_count": 492,
-        "digg_article_count": 224,
-        "got_digg_count": 7755,
-        "got_view_count": 1033719,
-        "post_shortmsg_count": 13,
-        "digg_shortmsg_count": 3,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 18018,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809635626879549454",
-        "category_name": "Android",
-        "category_url": "android",
-        "rank": 3,
-        "ctime": 1461266353,
-        "mtime": 1432503184,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546521,
-        "tag_id": "6809640400832167949",
-        "tag_name": "Android",
-        "color": "#A3CC28",
-        "icon": "https://lc-gold-cdn.xitu.io/7bab0e1e66ea386e6f94.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435964175,
-        "mtime": 1620963331,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 37584,
-        "concern_user_count": 251101 }],
-
-
-      "user_interact": {
-        "id": 6961968239752511524,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961323610631831560",
-      "article_info": {
-        "article_id": "6961323610631831560",
-        "user_id": "4459274891961112",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640408797167623],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "从源码角度来研究PostgreSQL是如何管理使用文件描述符",
-        "brief_content": "1.前言 在详谈PostgreSQL是如何评估进程可打开最大文件数量数量 一文中，通过结合内核的方式，详细分析了PostgreSQL对于进程能够同时打开最大文件数量的逻辑判断处理过程，从而使进程不会因",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 5.9139374137187,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620809489",
-        "mtime": "1620958587",
-        "rtime": "1620958587",
-        "draft_id": "6961323403173167111",
-        "view_count": 414,
-        "collect_count": 2,
-        "digg_count": 4,
-        "comment_count": 0,
-        "hot_index": 24,
-        "is_hot": 0,
-        "rank_index": 7.57786839,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "4459274891961112",
-        "user_name": "君子黎",
-        "company": "公众号: 君子黎",
-        "job_title": "C/C++工程师",
-        "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/4fe2a07bff0a20f5ef8571fc3ab65ccd~300x300.image",
-        "level": 1,
-        "description": "擅长C/C++、PostgreSQL数据库、编译原理、数据结构&算法、Linux、TCP/IP",
-        "followee_count": 0,
-        "follower_count": 8,
-        "post_article_count": 6,
-        "digg_article_count": 5,
-        "got_digg_count": 18,
-        "got_view_count": 3664,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 54,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546527,
-        "tag_id": "6809640408797167623",
-        "tag_name": "后端",
-        "color": "#C679FF",
-        "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971556,
-        "mtime": 1620963727,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 44008,
-        "concern_user_count": 409488 }],
-
-
-      "user_interact": {
-        "id": 6961323610631831560,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } },
-
-
-
-  {
-    "item_type": 2,
-    "item_info": {
-      "article_id": "6961724298243342344",
-      "article_info": {
-        "article_id": "6961724298243342344",
-        "user_id": "1820446985555544",
-        "category_id": "6809637767543259144",
-        "tag_ids": [
-        6809640528267706382],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a1ef0df720447ba9709d7e3baa2b108~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "有点难的知识点：Webpack Chunk 分包规则详解",
-        "brief_content": "Chunk 是什么？Webpack 如何根据 entry、异步模块、runtime 配置组装 Chunk？",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 9.22604465399947,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620902773",
-        "mtime": "1620960288",
-        "rtime": "1620960288",
-        "draft_id": "6961668285800824839",
-        "view_count": 167,
-        "collect_count": 7,
-        "digg_count": 8,
-        "comment_count": 0,
-        "hot_index": 14,
-        "is_hot": 0,
-        "rank_index": 8.05796324,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1820446985555544",
-        "user_name": "Tecvan",
-        "company": "字节跳动",
-        "job_title": "",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/21fdaffc8b348ebf9083bbcde714d435~300x300.image",
-        "level": 3,
-        "description": "喜欢写点有深度的技术文章，关注公号不失联：tecvan",
-        "followee_count": 38,
-        "follower_count": 168,
-        "post_article_count": 31,
-        "digg_article_count": 104,
-        "got_digg_count": 863,
-        "got_view_count": 41188,
-        "post_shortmsg_count": 2,
-        "digg_shortmsg_count": 1,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 1273,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637767543259144",
-        "category_name": "前端",
-        "category_url": "frontend",
-        "rank": 2,
-        "ctime": 1457483942,
-        "mtime": 1432503190,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546614,
-        "tag_id": "6809640528267706382",
-        "tag_name": "Webpack",
-        "color": "#6F94DB",
-        "icon": "https://lc-gold-cdn.xitu.io/73e856b07f83b4231c1e.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1440920866,
-        "mtime": 1620963981,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 5966,
-        "concern_user_count": 199274 }],
-
-
-      "user_interact": {
-        "id": 6961724298243342344,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } } }],
-
-
-
-
-  "cursor": "eyJ2IjoiNjk2MTc5MDQ5NDUxNDg3MjMzMyIsImkiOjEwfQ==",
-  "count": 168238,
-  "has_more": true };exports.recomments = recomments;
-
-
-var articles = {
-  "err_no": 0,
-  "err_msg": "success",
-  "data": [
-  {
-    "article_id": "6961323610631831560",
-    "article_info": {
-      "article_id": "6961323610631831560",
-      "user_id": "4459274891961112",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640408797167623],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "从源码角度来研究PostgreSQL是如何管理使用文件描述符",
-      "brief_content": "1.前言 在详谈PostgreSQL是如何评估进程可打开最大文件数量数量 一文中，通过结合内核的方式，详细分析了PostgreSQL对于进程能够同时打开最大文件数量的逻辑判断处理过程，从而使进程不会因",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 5.9139374137187,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620809489",
-      "mtime": "1620958587",
-      "rtime": "1620958587",
-      "draft_id": "6961323403173167111",
-      "view_count": 416,
-      "collect_count": 2,
-      "digg_count": 4,
-      "comment_count": 0,
-      "hot_index": 24,
-      "is_hot": 0,
-      "rank_index": 7.23937405,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "4459274891961112",
-      "user_name": "君子黎",
-      "company": "公众号: 君子黎",
-      "job_title": "C/C++工程师",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/4fe2a07bff0a20f5ef8571fc3ab65ccd~300x300.image",
-      "level": 1,
-      "description": "擅长C/C++、PostgreSQL数据库、编译原理、数据结构&算法、Linux、TCP/IP",
-      "followee_count": 0,
-      "follower_count": 9,
-      "post_article_count": 6,
-      "digg_article_count": 5,
-      "got_digg_count": 18,
-      "got_view_count": 3670,
-      "post_shortmsg_count": 0,
-      "digg_shortmsg_count": 0,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 54,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964211,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44009,
-      "concern_user_count": 409489 }],
-
-
-    "user_interact": {
-      "id": 6961323610631831560,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961978484298088456",
-    "article_info": {
-      "article_id": "6961978484298088456",
-      "user_id": "958429870690413",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640408797167623,
-      6809640375880253447],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4318f0c853e04f2caa209b8ba228cd23~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "GitHub 星标 7K 的计算机科学速成课！",
-      "brief_content": "记得之前有个读者留言说，“二哥，你把你妹也带到计算机这个行业，不觉得无趣吗？况且现在编程卷的飞起。” 说实话，如今这个快节奏的时代，哪个行业都很容易卷，尤其是顶着高薪帽子的计算机行业。但算不上无趣吧？",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 9.723979226757681,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620961984",
-      "mtime": "1620962343",
-      "rtime": "1620962343",
-      "draft_id": "6961974836239269919",
-      "view_count": 129,
-      "collect_count": 2,
-      "digg_count": 1,
-      "comment_count": 0,
-      "hot_index": 6,
-      "is_hot": 0,
-      "rank_index": 8.29567866,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "958429870690413",
-      "user_name": "沉默王二",
-      "company": "沉默王二",
-      "job_title": "微信搜",
-      "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/46a16721efab0a0f50a4347c690a875a~300x300.image",
-      "level": 5,
-      "description": "一枚有趣的程序员",
-      "followee_count": 37,
-      "follower_count": 16087,
-      "post_article_count": 262,
-      "digg_article_count": 234,
-      "got_digg_count": 7259,
-      "got_view_count": 615589,
-      "post_shortmsg_count": 2,
-      "digg_shortmsg_count": 90,
-      "isfollowed": false,
-      "favorable_author": 1,
-      "power": 13459,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964211,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44009,
-      "concern_user_count": 409489 },
-
-    {
-      "id": 2546502,
-      "tag_id": "6809640375880253447",
-      "tag_name": "GitHub",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/0d614af263aa63aa6a77.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234558,
-      "mtime": 1620964308,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 9503,
-      "concern_user_count": 376313 }],
-
-
-    "user_interact": {
-      "id": 6961978484298088456,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961957755573764132",
-    "article_info": {
-      "article_id": "6961957755573764132",
-      "user_id": "2242659450112455",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640385980137480,
-      6809640488954494983],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af1a66fb474646aeafa8482aa81193e9~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "面对突发流量：系统、软件层限流手段",
-      "brief_content": "简介 在信息时代，什么最值钱？信息和流量，内容产出方式形式不尽相同不是本文的内容，所以我们来说下流量。 网站、媒体都在追逐热点追逐流量，但有时候流量增加不一定是好事。 网站流量暴增大致为以下几种情况 ",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 11.124351165786747,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620957155",
-      "mtime": "1620957160",
-      "rtime": "1620957160",
-      "draft_id": "6961954106231504927",
-      "view_count": 372,
-      "collect_count": 3,
-      "digg_count": 12,
-      "comment_count": 2,
-      "hot_index": 32,
-      "is_hot": 0,
-      "rank_index": 8.41985179,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "2242659450112455",
-      "user_name": "锐玩道",
-      "company": "",
-      "job_title": "攻城狮 @ 微信搜 「锐玩道」",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/1b5f5e4d55a0e45833f15f4ebff03625~300x300.image",
-      "level": 4,
-      "description": "玩,玩出自己的特色来",
-      "followee_count": 29,
-      "follower_count": 5945,
-      "post_article_count": 69,
-      "digg_article_count": 112,
-      "got_digg_count": 4261,
-      "got_view_count": 203071,
-      "post_shortmsg_count": 65,
-      "digg_shortmsg_count": 30,
-      "isfollowed": false,
-      "favorable_author": 1,
-      "power": 6205,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546510,
-      "tag_id": "6809640385980137480",
-      "tag_name": "Linux",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/b49dc843907aa7843a77.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234608,
-      "mtime": 1620964322,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 8379,
-      "concern_user_count": 219895 },
-
-    {
-      "id": 2546585,
-      "tag_id": "6809640488954494983",
-      "tag_name": "Nginx",
-      "color": "#009733",
-      "icon": "https://lc-gold-cdn.xitu.io/3cfd907394313acbedff.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1438735979,
-      "mtime": 1620963988,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 2602,
-      "concern_user_count": 146493 }],
-
-
-    "user_interact": {
-      "id": 6961957755573764132,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961225337002786847",
-    "article_info": {
-      "article_id": "6961225337002786847",
-      "user_id": "1503787640164695",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640408797167623,
-      6809641135154135054],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73942ff8855c45149979fc9f59853f03~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "源码解析之Seata项目中的分布式ID生成算法",
-      "brief_content": "背景 Saga作为阿里开源的长事务解决方案，涉及到全局事务id的生成和串联。欢迎搜索关注同名微信公众号【Coder的技术之路】，后台提供历史文章整理版PDF下载，欢迎收藏，欢迎讨论",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 0,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620786598",
-      "mtime": "1620961369",
-      "rtime": "1620961369",
-      "draft_id": "6961223777908686856",
-      "view_count": 228,
-      "collect_count": 2,
-      "digg_count": 8,
-      "comment_count": 0,
-      "hot_index": 18,
-      "is_hot": 0,
-      "rank_index": 7.44025136,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "1503787640164695",
-      "user_name": "Coder的技术之路",
-      "company": "支付宝",
-      "job_title": "后端",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/2c5bbe7ae4c4ca00b411b61264b00a0d~300x300.image",
-      "level": 1,
-      "description": "一个工作6年的技术人，浪过京东、支付宝， 干过电商、搞过支付链路、玩过广告系统~ ，欢迎关注同名微信公众号，有任何想法问题，欢迎大伙交流讨论",
-      "followee_count": 11,
-      "follower_count": 15,
-      "post_article_count": 10,
-      "digg_article_count": 10,
-      "got_digg_count": 32,
-      "got_view_count": 2016,
-      "post_shortmsg_count": 16,
-      "digg_shortmsg_count": 12,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 46,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964211,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44009,
-      "concern_user_count": 409489 },
-
-    {
-      "id": 2547052,
-      "tag_id": "6809641135154135054",
-      "tag_name": "分布式",
-      "color": "",
-      "icon": "https://user-gold-cdn.xitu.io/1543069161467d7c255d31b971d1898bbaa4fd32f8945.jpg",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1543040364,
-      "mtime": 1620956531,
-      "id_type": 9,
-      "tag_alias": "Distributed",
-      "post_article_count": 1673,
-      "concern_user_count": 8448 }],
-
-
-    "user_interact": {
-      "id": 6961225337002786847,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961966535472578590",
-    "article_info": {
-      "article_id": "6961966535472578590",
-      "user_id": "131597123993358",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640445233070094],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "低代码平台如何一步步摧毁开发团队的效率与创新！",
-      "brief_content": "关于低代码平台，之前我也推送过两篇相关的文章，我的观点很简单：东西是好的，有它所擅长和适用的领域，但软件产品不存在银弹，低代码平台一样如此！ 现在在搜索引擎上搜“低代码”这样的关键词，你会看到很多",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 7.579406401446725,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620959169",
-      "mtime": "1620959264",
-      "rtime": "1620959264",
-      "draft_id": "6961966255087550472",
-      "view_count": 272,
-      "collect_count": 0,
-      "digg_count": 4,
-      "comment_count": 3,
-      "hot_index": 19,
-      "is_hot": 0,
-      "rank_index": 7.20746365,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "131597123993358",
-      "user_name": "程序猿DD",
-      "company": "关注我，每日技术干货推送，每月福",
-      "job_title": "架构师",
-      "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/76e2c861d9dc3009decff75214db090a~300x300.image",
-      "level": 3,
-      "description": "《Spring Cloud微服务实战》作者",
-      "followee_count": 12,
-      "follower_count": 17198,
-      "post_article_count": 227,
-      "digg_article_count": 65,
-      "got_digg_count": 2501,
-      "got_view_count": 328780,
-      "post_shortmsg_count": 11,
-      "digg_shortmsg_count": 0,
-      "isfollowed": false,
-      "favorable_author": 1,
-      "power": 4891,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546553,
-      "tag_id": "6809640445233070094",
-      "tag_name": "Java",
-      "color": "#DD2C2A",
-      "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1436156295,
-      "mtime": 1620964228,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 65146,
-      "concern_user_count": 283702 }],
-
-
-    "user_interact": {
-      "id": 6961966535472578590,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961704469327249415",
-    "article_info": {
-      "article_id": "6961704469327249415",
-      "user_id": "1099167357226904",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640445233070094],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0c21f79c3724008abe5ede17683c9c5~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "既要遍历又要重构实在无能为力至list的ConcurrentModificationException | Java Debug 笔记",
-      "brief_content": "本文正在参加「Java主题月 - Java Debug笔记活动」，详情查看<活动链接> 前言 ConcurrentModificationException 这个异常大伙应该不少见啊。List在循环时",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 8.541016268723174,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620898135",
-      "mtime": "1620959245",
-      "rtime": "1620959245",
-      "draft_id": "6961703746044690462",
-      "view_count": 116,
-      "collect_count": 1,
-      "digg_count": 5,
-      "comment_count": 4,
-      "hot_index": 14,
-      "is_hot": 0,
-      "rank_index": 6.0919855,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "1099167357226904",
-      "user_name": "zxhtom",
-      "company": "一个死磕源码的码农",
-      "job_title": "Java后端工程师",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/f2465c206f9c13c5535451dfc7087d7b~300x300.image",
-      "level": 3,
-      "description": "执着于写代码的IT职业者",
-      "followee_count": 9,
-      "follower_count": 58,
-      "post_article_count": 61,
-      "digg_article_count": 255,
-      "got_digg_count": 640,
-      "got_view_count": 120597,
-      "post_shortmsg_count": 57,
-      "digg_shortmsg_count": 33,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 1894,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546553,
-      "tag_id": "6809640445233070094",
-      "tag_name": "Java",
-      "color": "#DD2C2A",
-      "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1436156295,
-      "mtime": 1620964228,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 65146,
-      "concern_user_count": 283702 }],
-
-
-    "user_interact": {
-      "id": 6961704469327249415,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961321865730064421",
-    "article_info": {
-      "article_id": "6961321865730064421",
-      "user_id": "2445747818081886",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640408797167623],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "安装spark详细步骤",
-      "brief_content": "Spark具有从存储在HDFS或者HadAPI(Hive、HBase等)中的任何文件创造分布式弹性数据集的能力。Spark+Hadoop 的结合能够提供内存级性能的企业级应用的威力。安装前准备 名称 版本 JDK 1.8.0 Hadoop 2.7.2 scala 2.11.6 h...",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 0,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620809052",
-      "mtime": "1620961352",
-      "rtime": "1620961352",
-      "draft_id": "6961321800839987236",
-      "view_count": 150,
-      "collect_count": 2,
-      "digg_count": 6,
-      "comment_count": 0,
-      "hot_index": 12,
-      "is_hot": 0,
-      "rank_index": 4.94090903,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "2445747818081886",
-      "user_name": "蹊源的奇思妙想",
-      "company": "阿里巴巴",
-      "job_title": "攻城狮",
-      "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/cf425ca7ffb4b1c9c34403c7b83d4b35~300x300.image",
-      "level": 2,
-      "description": "微信公众号：蹊源的奇思妙想",
-      "followee_count": 1,
-      "follower_count": 19,
-      "post_article_count": 80,
-      "digg_article_count": 77,
-      "got_digg_count": 138,
-      "got_view_count": 4199,
-      "post_shortmsg_count": 0,
-      "digg_shortmsg_count": 0,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 179,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964211,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44009,
-      "concern_user_count": 409489 }],
-
-
-    "user_interact": {
-      "id": 6961321865730064421,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961979432194015269",
-    "article_info": {
-      "article_id": "6961979432194015269",
-      "user_id": "3808363977648493",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809641116783083528],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "被解救的代码 - 代码即服务时代来了！",
-      "brief_content": "作者 | 王铎（都铎） 来源 | Serverless 公众号 一、一切皆代码的革命（Everything As Code） 代码一直是服务器中的囚徒，然而革命已来，看代码和如何一步一步掌控环境，走向",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 6.174378372469258,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620962271",
-      "mtime": "1620962427",
-      "rtime": "1620962427",
-      "draft_id": "6961979527245332511",
-      "view_count": 76,
-      "collect_count": 0,
-      "digg_count": 2,
-      "comment_count": 0,
-      "hot_index": 5,
-      "is_hot": 0,
-      "rank_index": 6.03207555,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "3808363977648493",
-      "user_name": "阿里巴巴云原生",
-      "company": "阿里巴巴集团",
-      "job_title": "",
-      "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/ceff4560c9a0b128a71587e297ef2617~300x300.image",
-      "level": 4,
-      "description": "",
-      "followee_count": 0,
-      "follower_count": 6513,
-      "post_article_count": 685,
-      "digg_article_count": 10,
-      "got_digg_count": 3060,
-      "got_view_count": 525195,
-      "post_shortmsg_count": 5,
-      "digg_shortmsg_count": 2,
-      "isfollowed": false,
-      "favorable_author": 1,
-      "power": 8365,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2547039,
-      "tag_id": "6809641116783083528",
-      "tag_name": "Serverless",
-      "color": "",
-      "icon": "https://user-gold-cdn.xitu.io/1531896618163098d601094bcc2d79c1d31222a1a5aca.jpg",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1531264852,
-      "mtime": 1620962271,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 771,
-      "concern_user_count": 1814 }],
-
-
-    "user_interact": {
-      "id": 6961979432194015269,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961770327646928927",
-    "article_info": {
-      "article_id": "6961770327646928927",
-      "user_id": "3790771822007822",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640445233070094,
-      6809640408797167623],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3584399a1a61406c81cc5f38d6377cec~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "盘点 JPA : SQL 解析 ｜ Java Debug 笔记",
-      "brief_content": "JPA 使用过程中 , 经常会出现解析的异常 ,通过以下流程 , 有利于找到对应的节点 ..........",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 0,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620913489",
-      "mtime": "1620960661",
-      "rtime": "1620960521",
-      "draft_id": "6961724625629741069",
-      "view_count": 75,
-      "collect_count": 0,
-      "digg_count": 11,
-      "comment_count": 0,
-      "hot_index": 14,
-      "is_hot": 0,
-      "rank_index": 4.81276555,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "3790771822007822",
-      "user_name": "AntBlack",
-      "company": "",
-      "job_title": "苦逼的程序猿",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/98fce255804de3671e095d2ecdca0b13~300x300.image",
-      "level": 3,
-      "description": "长路漫漫",
-      "followee_count": 15,
-      "follower_count": 171,
-      "post_article_count": 43,
-      "digg_article_count": 56,
-      "got_digg_count": 918,
-      "got_view_count": 31049,
-      "post_shortmsg_count": 5,
-      "digg_shortmsg_count": 1,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 1228,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546553,
-      "tag_id": "6809640445233070094",
-      "tag_name": "Java",
-      "color": "#DD2C2A",
-      "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1436156295,
-      "mtime": 1620964228,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 65146,
-      "concern_user_count": 283702 },
-
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964211,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44009,
-      "concern_user_count": 409489 }],
-
-
-    "user_interact": {
-      "id": 6961770327646928927,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961970769408720909",
-    "article_info": {
-      "article_id": "6961970769408720909",
-      "user_id": "1688479379255687",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640408797167623],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33a77ea85fda413fbce70b19af82281a~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "ThreadLocal的Entry为什么要继承WeakReference？",
-      "brief_content": "首先得看一眼WeakReference的代码，它继承自Reference，这里有个get()方法，代码如下： 注意这一句： 也就是说，referent这个字段会在GC时被修改，而它经过GC后会变成nu",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 3.627566761566029,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620960251",
-      "mtime": "1620961039",
-      "rtime": "1620961039",
-      "draft_id": "6961970058637803533",
-      "view_count": 86,
-      "collect_count": 0,
-      "digg_count": 2,
-      "comment_count": 0,
-      "hot_index": 6,
-      "is_hot": 0,
-      "rank_index": 3.69395584,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "1688479379255687",
-      "user_name": "码农架构",
-      "company": "码农架构",
-      "job_title": "阿里 / 公众号",
-      "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/8323548c0f8f375e04ae7ff8e1b866f7~300x300.image",
-      "level": 2,
-      "description": "[公众号：码农架构] 专注于系统架构、高可用、高性能、高并发类技术分享",
-      "followee_count": 0,
-      "follower_count": 72,
-      "post_article_count": 52,
-      "digg_article_count": 56,
-      "got_digg_count": 133,
-      "got_view_count": 9219,
-      "post_shortmsg_count": 1,
-      "digg_shortmsg_count": 3,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 225,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964211,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44009,
-      "concern_user_count": 409489 }],
-
-
-    "user_interact": {
-      "id": 6961970769408720909,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } }],
-
-
-
-  "cursor": "eyJ2IjoiNjk2MTMyMzYxMDYzMTgzMTU2MCIsImkiOjEwfQ==",
-  "count": 53721,
-  "has_more": true };exports.articles = articles;var _default =
-
-
-{
-  tags: tags,
-  recomments: recomments,
-  articles: articles };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  "pulldown": "\uE588",
+  "refreshempty": "\uE461",
+  "back": "\uE471",
+  "forward": "\uE470",
+  "more": "\uE507",
+  "more-filled": "\uE537",
+  "scan": "\uE612",
+  "qq": "\uE264",
+  "weibo": "\uE260",
+  "weixin": "\uE261",
+  "pengyouquan": "\uE262",
+  "loop": "\uE565",
+  "refresh": "\uE407",
+  "refresh-filled": "\uE437",
+  "arrowthindown": "\uE585",
+  "arrowthinleft": "\uE586",
+  "arrowthinright": "\uE587",
+  "arrowthinup": "\uE584",
+  "undo-filled": "\uE7D6",
+  "undo": "\uE406",
+  "redo": "\uE405",
+  "redo-filled": "\uE7D9",
+  "bars": "\uE563",
+  "chatboxes": "\uE203",
+  "camera": "\uE301",
+  "chatboxes-filled": "\uE233",
+  "camera-filled": "\uE7EF",
+  "cart-filled": "\uE7F4",
+  "cart": "\uE7F5",
+  "checkbox-filled": "\uE442",
+  "checkbox": "\uE7FA",
+  "arrowleft": "\uE582",
+  "arrowdown": "\uE581",
+  "arrowright": "\uE583",
+  "smallcircle-filled": "\uE801",
+  "arrowup": "\uE580",
+  "circle": "\uE411",
+  "eye-filled": "\uE568",
+  "eye-slash-filled": "\uE822",
+  "eye-slash": "\uE823",
+  "eye": "\uE824",
+  "flag-filled": "\uE825",
+  "flag": "\uE508",
+  "gear-filled": "\uE532",
+  "reload": "\uE462",
+  "gear": "\uE502",
+  "hand-thumbsdown-filled": "\uE83B",
+  "hand-thumbsdown": "\uE83C",
+  "hand-thumbsup-filled": "\uE83D",
+  "heart-filled": "\uE83E",
+  "hand-thumbsup": "\uE83F",
+  "heart": "\uE840",
+  "home": "\uE500",
+  "info": "\uE504",
+  "home-filled": "\uE530",
+  "info-filled": "\uE534",
+  "circle-filled": "\uE441",
+  "chat-filled": "\uE847",
+  "chat": "\uE263",
+  "mail-open-filled": "\uE84D",
+  "email-filled": "\uE231",
+  "mail-open": "\uE84E",
+  "email": "\uE201",
+  "checkmarkempty": "\uE472",
+  "list": "\uE562",
+  "locked-filled": "\uE856",
+  "locked": "\uE506",
+  "map-filled": "\uE85C",
+  "map-pin": "\uE85E",
+  "map-pin-ellipse": "\uE864",
+  "map": "\uE364",
+  "minus-filled": "\uE440",
+  "mic-filled": "\uE332",
+  "minus": "\uE410",
+  "micoff": "\uE360",
+  "mic": "\uE302",
+  "clear": "\uE434",
+  "smallcircle": "\uE868",
+  "close": "\uE404",
+  "closeempty": "\uE460",
+  "paperclip": "\uE567",
+  "paperplane": "\uE503",
+  "paperplane-filled": "\uE86E",
+  "person-filled": "\uE131",
+  "contact-filled": "\uE130",
+  "person": "\uE101",
+  "contact": "\uE100",
+  "images-filled": "\uE87A",
+  "phone": "\uE200",
+  "images": "\uE87B",
+  "image": "\uE363",
+  "image-filled": "\uE877",
+  "location-filled": "\uE333",
+  "location": "\uE303",
+  "plus-filled": "\uE439",
+  "plus": "\uE409",
+  "plusempty": "\uE468",
+  "help-filled": "\uE535",
+  "help": "\uE505",
+  "navigate-filled": "\uE884",
+  "navigate": "\uE501",
+  "mic-slash-filled": "\uE892",
+  "search": "\uE466",
+  "settings": "\uE560",
+  "sound": "\uE590",
+  "sound-filled": "\uE8A1",
+  "spinner-cycle": "\uE465",
+  "download-filled": "\uE8A4",
+  "personadd-filled": "\uE132",
+  "videocam-filled": "\uE8AF",
+  "personadd": "\uE102",
+  "upload": "\uE402",
+  "upload-filled": "\uE8B1",
+  "starhalf": "\uE463",
+  "star-filled": "\uE438",
+  "star": "\uE408",
+  "trash": "\uE401",
+  "phone-filled": "\uE230",
+  "compose": "\uE400",
+  "videocam": "\uE300",
+  "trash-filled": "\uE8DC",
+  "download": "\uE403",
+  "chatbubble-filled": "\uE232",
+  "chatbubble": "\uE202",
+  "cloud-download": "\uE8E4",
+  "cloud-upload-filled": "\uE8E5",
+  "cloud-upload": "\uE8E6",
+  "cloud-download-filled": "\uE8E9",
+  "headphones": "\uE8BF",
+  "shop": "\uE609" };exports.default = _default;
 
 /***/ }),
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */
-/*!***************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/detail.js ***!
-  \***************************************************************************/
+
+/***/ 66:
+/*!*************************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/js_sdk/validator/std-menus.js ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.details = void 0;var details = {
-  "err_no": 0,
-  "err_msg": "success",
-  "data": {
-    "article_id": "6961323610631831560",
-    "article_info": {
-      "article_id": "6961323610631831560",
-      "user_id": "4459274891961112",
-      "category_id": "6809637769959178254",
-      "tag_ids": [
-      6809640408797167623],
+Object.defineProperty(exports, "__esModule", { value: true });exports.filterToWhere = filterToWhere;exports.enumConverter = exports.validator = void 0;function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e2) {throw _e2;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e3) {didErr = true;err = _e3;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;} // 表单校验规则由 schema2code 生成，不建议直接修改校验规则，而建议通过 schema2code 生成, 详情: https://uniapp.dcloud.net.cn/uniCloud/schema
 
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "从源码角度来研究PostgreSQL是如何管理使用文件描述符",
-      "brief_content": "1.前言 在详谈PostgreSQL是如何评估进程可打开最大文件数量数量 一文中，通过结合内核的方式，详细分析了PostgreSQL对于进程能够同时打开最大文件数量的逻辑判断处理过程，从而使进程不会因",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 5.9139374137187,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620809489",
-      "mtime": "1620958587",
-      "rtime": "1620958587",
-      "draft_id": "6961323403173167111",
-      "view_count": 420,
-      "collect_count": 2,
-      "digg_count": 4,
-      "comment_count": 0,
-      "hot_index": 24,
-      "is_hot": 0,
-      "rank_index": 6.90292699,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "1.前言\n====\n\n在[详谈PostgreSQL是如何评估进程可打开最大文件数量数量](http://mp.weixin.qq.com/s?__biz=MzkyNDE2NDU3Ng==&mid=2247484879&idx=1&sn=0689068dc7a603fe0825f83f891deabe&chksm=c1db4d40f6acc45646bada941e1450e22725770d0a55b40da027c242b46f72eb1f48ba0f295d&scene=21#wechat_redirect) 一文中，通过结合内核的方式，详细分析了PostgreSQL对于进程能够同时打开最大文件数量的逻辑判断处理过程，从而使进程不会因为在此基础上，此处将继续通过研究读源码，结合编译运行postmaster的方式来分析PostgreSQL数据库是如何去管理并使用文件格式（File Descriptor）句柄。 [](http://mp.weixin.qq.com/s?__biz=MzkyNDE2NDU3Ng==&mid=2247484879&idx=1&sn=0689068dc7a603fe0825f83f891deabe&chksm=c1db4d40f6acc45646bada941e1450e22725770d0a55b40da027c242b46f72eb1f48ba0f295d&scene=21#wechat_redirect) [](http://mp.weixin.qq.com/s?__biz=MzkyNDE2NDU3Ng==&mid=2247484879&idx=1&sn=0689068dc7a603fe0825f83f891deabe&chksm=c1db4d40f6acc45646bada941e1450e22725770d0a55b40da027c242b46f72eb1f48ba0f295d&scene=21#wechat_redirect) \n\n2.从VFD说起\n========\n\n出于各种原因，PostgreSQL服务器会打开许多​​文件副本。包括基表，临时文件（例如排序和哈希散列spool文件等）以及对libpq C常规库（如system（3））的随机调用。一个进程可以拥有的打开文件的数量很容易超过系统限制（在许多现代操作系统上，这个值大约1024，但在其他操作系统上可能会导致）。\n\n为了统一管理，使用文件句柄，于是乎PostgreSQL引入了VFD机制，所谓的VFD即指虚拟文件重定向（虚拟文件描述符（VFD））。 （内核）分配的文件尺寸。当进程需要打开文件时候，VFD总是能够返回一个有效且可用的文件位置。细节，以及相应的逻辑判断处理。\n\n本质上，PostgreSQL所能使用的文件数量仍然是操作系统规定的，仅不过因为VFD内部特殊实现机制，给进程一种表象，即文件少量是无穷尽的。进程在操作系列文件（UNIX，一切皆文件，因此这里包括文件包括目录等）时，不是直接通过调用系统函数（例如打开，读取，写入，查找，同步等）去处理，甚至通过VFD。VFD内部会进行系列的逻辑判断处理，并最终最终一个一个待处理文件的对应内核中的文件句柄fd。不过反馈给进程的fd不是内核分配的那个真实fd，而是一个虚拟的，即经过VFD内部一层映射后的虚拟文件句柄VFD。实际上，该VFD是VFD缓存池VfdCache中的真实文件句柄FD所对应的VFD索引，即数组下标。\n\n从Linux内核架构图来看，VFD位于应用层的系统调用（即open，read等）函数上方。如下图示所示：  \n\n![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e820d77656d42c5944b5d75280a0070~tplv-k3u1fbpfcp-zoom-1.image)\n\n  \n其顺序是：PostgreSQL过程直接调用VFD，VFD内部封装了系统函数。当进程要获取文件相关数据信息时直接调用VFD的系列封装函数即可。\n\n2.1 VFD数据结构\n-----------\n\nPostgreSQL是通过声明一个名为Vfd的结构体数据类型来实现VFD的LRU（Last Recently Used，最近最少使用）缓存池管理的。因此，在进入LRU池管理之前，让我们先对Vfd的结构类型声明有个熟悉的概念。\n\n对于PostgreSQL中的进程，每当打开一个文件时候，均会返回一个Vfd结构体变量。对于Vfd的类型声明，位于src/backend/storage/file/fd.c文件中，其格式如下所示：\n\n  \n\n```\ntypedef struct vfd\n{\n  int        fd;          /* current FD, or VFD_CLOSED if none */\n  unsigned short   fdstate;      /* bitflags for VFD's state */\n  ResourceOwner   resowner;      /* owner, for automatic cleanup */\n  File      nextFree;      /* link to next free VFD, if in freelist */\n  File      lruMoreRecently;  /* doubly linked recency-of-use list */\n  File      lruLessRecently;\n  off_t      fileSize;      /* current size of file (0 if not temporary) */\n  char         *fileName;      /* name of file, or NULL for unused VFD */\n  /* NB: fileName is malloc'd, and must be free'd when closing the VFD */\n  int        fileFlags;      /* open(2) flags for (re)opening the file */\n  mode_t      fileMode;      /* mode to pass to open(2) */\n} Vfd;\n```\n\n在PostgreSQL 13.2版本中，该结构体数据类型中共有10个数据成员。下面分别对各成员所充当的功能进行描述，这将有助于接下来的对LRU池逻辑的理解。\n\n*    fd\n    \n\nfd是当前VFD所对应的内核分配的真实文件描述符fd。如果VFD没有打开文件（即没有文件描述符），则其初始值是VFD\\_CLOSED，即-1。其宏名声明如下：\n\n```\n#define VFD_CLOSED (-1)\n```\n\n*   fdstate\n    \n\n记录该VFD的状态标记位。在13.2版本中，该状态标记位共有以下三种，分别是：FD\\_DELETE\\_AT\\_CLOSE、FD\\_CLOSE\\_AT\\_EOXACT 以及\n\nFD\\_TEMP\\_FILE\\_LIMIT。\n\n其声明如下：\n\n```\n#define FD_DELETE_AT_CLOSE  (1 << 0)  /* T = delete when closed */\n#define FD_CLOSE_AT_EOXACT  (1 << 1)  /* T = close at eoXact */\n#define FD_TEMP_FILE_LIMIT  (1 << 2)  /* T = respect temp_file_limit */\n```\n\n这里之所以强调PostgreSQL版本，是因为不同版本间该成员的标记位值差异比较大。比如在V9.6.7中，该标记位的值声明如下：\n\n```\n/* these are the assigned bits in fdstate below: */\n#define FD_TEMPORARY    (1 << 0)  /* T = delete when closed */\n#define FD_XACT_TEMPORARY  (1 << 1)  /* T = delete at eoXact */\n```\n\n不但宏名改变，其值也有所差异：\n\n*   FD\\_DELETE\\_AT\\_CLOSE\n    \n\n 若fdstate第1位置1，则表示文件关闭时应该删除掉。\n\n*   FD\\_TEMP\\_FILE\\_LIMIT\n    \n\n若fdstate第2位置1，则遵守临时文件限制。\n\n*   FD\\_CLOSE\\_AT\\_EOXACT\n    \n\n若fdstate第3位置1，则在eoXact关闭。\n\n*   resowner\n    \n\n记录资源所有者，用于自动清理。该成员所属的结构体类型如下：\n\n```\ntypedef struct ResourceOwnerData\n{\n  ResourceOwner parent;    /* NULL if no parent (toplevel owner) */\n  ResourceOwner firstchild;  /* head of linked list of children */\n  ResourceOwner nextchild;  /* next child of same parent */\n  const char *name;      /* name (just for debugging) */\n\n  /* We have built-in support for remembering: */\n  ResourceArray bufferarr;  /* owned buffers */\n  ResourceArray catrefarr;  /* catcache references */\n  ResourceArray catlistrefarr;  /* catcache-list pins */\n  ResourceArray relrefarr;  /* relcache references */\n  ResourceArray planrefarr;  /* plancache references */\n  ResourceArray tupdescarr;  /* tupdesc references */\n  ResourceArray snapshotarr;  /* snapshot references */\n  ResourceArray filearr;    /* open temporary files */\n  ResourceArray dsmarr;    /* dynamic shmem segments */\n  ResourceArray jitarr;    /* JIT contexts */\n\n  /* We can remember up to MAX_RESOWNER_LOCKS references to local locks. */\n  int      nlocks;      /* number of owned locks */\n  LOCALLOCK  *locks[MAX_RESOWNER_LOCKS];  /* list of owned locks */\n}      ResourceOwnerData;\n\n```\n\n该结构体内部成员列表中分别记录了快照、动态shmem段、所分配的缓存资源等等。对于Vfd中的resowner成员，后面将专门出一章节来讲解。\n\n  \n\n*   nextFree\n    \n\n指向下一个空闲的VFD。其中nextFree成员的数据类型是FILE。注意，Vfd中的FILE并不是C库中的文件流FILE数据类型。在Vfd中，其FILE类型是int整型的别名，它表示该VFD位于VfdCache数组中的下标。如下所示：\n\n```\ntypedef int File;\n```\n\n而对于C库中的FILE类型，其结构体类型声明如下（该结构类型声明来自glibc V2.31）。\n\n```\ntypedef struct _IO_FILE FILE;\n\nstruct _IO_FILE\n{\n  int _flags;    /* High-order word is _IO_MAGIC; rest is flags. */\n\n  /* The following pointers correspond to the C++ streambuf protocol. */\n  char *_IO_read_ptr;  /* Current read pointer */\n  char *_IO_read_end;  /* End of get area. */\n  char *_IO_read_base;  /* Start of putback+get area. */\n  char *_IO_write_base;  /* Start of put area. */\n  char *_IO_write_ptr;  /* Current put pointer. */\n  char *_IO_write_end;  /* End of put area. */\n  char *_IO_buf_base;  /* Start of reserve area. */\n  char *_IO_buf_end;  /* End of reserve area. */\n\n  /* The following fields are used to support backing up and undo. */\n  char *_IO_save_base; /* Pointer to start of non-current get area. */\n  char *_IO_backup_base;  /* Pointer to first valid character of backup area */\n  char *_IO_save_end; /* Pointer to end of non-current get area. */\n\n  struct _IO_marker *_markers;\n\n  struct _IO_FILE *_chain;\n\n  int _fileno;\n  int _flags2;\n  __off_t _old_offset; /* This used to be _offset but it's too small.  */\n\n  /* 1+column number of pbase(); 0 is unknown. */\n  unsigned short _cur_column;\n  signed char _vtable_offset;\n  char _shortbuf[1];\n\n  _IO_lock_t *_lock;\n#ifdef _IO_USE_OLD_IO_FILE\n};\n```\n\n如何理解上面提到的“指向下一个空闲的VFD？” 请跳转到3.3节内容。\n\n*   lruMoreRecently\n    \n\n该成员指向比该VFD最近更常使用的虚拟文件描述符。\n\n*   lruLessRecently\n    \n\n指向此LRU虚拟句柄池中比该VFD最近更不常用的虚拟文件描述符。\n\n*   fileSize\n    \n\n如果当前VFD是指向文件不是临时文件，则表示当前文件的大小。\n\n*   fileName\n    \n\n文件名，对于未使用的VFD，则其值为NULL。注意，这里的fileName是动态malloc的内存空间，在关闭该VFD虚拟文件描述符时候，需要free掉指针的内存空间。\n\n*   fileFlags\n    \n\n文件权限标记，比如当该文件不存在且open()的第二个标记参数或上O\\_CREATE时，则该参数设置文件的所有者、所属组、其他用户的文件读、写和执行权限。\n\n*   fileMode\n    \n\n用于打开/重打开（open()）文件的标记。比如O\\_RDONLY （只读）、O\\_WRONLY（只写）或O\\_RDWR（读写）等模式。如下所示：\n\n```\n#define PG_MODE_MASK_OWNER        (S_IRWXG | S_IRWXO)\n/*\n * Mode mask for data directory permissions that also allows group read/execute.\n */\n#define PG_MODE_MASK_GROUP      (S_IWGRP | S_IRWXO)\n\n/* Default mode for creating directories */\n#define PG_DIR_MODE_OWNER      S_IRWXU\n\n/* Mode for creating directories that allows group read/execute */\n#define PG_DIR_MODE_GROUP      (S_IRWXU | S_IRGRP | S_IXGRP)\n\n/* Default mode for creating files */\n#define PG_FILE_MODE_OWNER        (S_IRUSR | S_IWUSR)\n\n/* Mode for creating files that allows group read */\n#define PG_FILE_MODE_GROUP      (S_IRUSR | S_IWUSR | S_IRGRP)\n```\n\n  \n\n在介绍完Vfd结构类型的成员列表之后，接下来重点剖析PostgreSQL是如何使用Vfd数据结构来实现LRU句柄资源池的。\n\n  \n\n3\\. LRU虚拟文件描述符池\n===============\n\n对于PostgreSQL，每个后台进程（更多关于后台进程的概念，请阅读 [PostgreSQL数据库体系架构](http://mp.weixin.qq.com/s?__biz=MzkyNDE2NDU3Ng==&mid=2247484692&idx=1&sn=a30bb33e945c803957fd7ba8e520037d&chksm=c1db4d9bf6acc48d656659803fb21143f122150d2bdb41ab9876046b16636e09bc95d4b3bf11&scene=21#wechat_redirect)）都使用一个所谓的LRU（Last Recently Use，最近最少使用）池来管理所有已打开的虚拟文件描述符VFD。对于该LRU池中的每一个VFD，都分别一一对应磁盘上已打开的文件。每个进程都拥有者自己私有的LRU池和文件描述符VFD。当进程需要打开文件中，直接从自己的LRU池中申请VFD，当不需要时释放VFD（包括对应的内存段、缓存资源、快照等）。\n\n3.1 VfdCache全局数组\n----------------\n\nPostgreSQL通过在fd.c文件中定义一个指向Vfd数据类型的全局指针变量VfdCache来开始管理LRU池。它是虚拟文件描述符数组指针，它在需要时动态增长。VfdCache作为LRU池的头部（类似于链表中的头指针，关于链表的更多知识请阅读 [数据结构之链表（一）](http://mp.weixin.qq.com/s?__biz=MzkyNDE2NDU3Ng==&mid=2247484233&idx=1&sn=1c94e7be74c008c7acd281b956d902de&chksm=c1db4bc6f6acc2d0794ba9cc4c39e67fbe76ed09451da0394d149e3cd791d7d34f5ef6053c92&scene=21#wechat_redirect)）。\n\n对于VfdCache指针变量的定义如下所示：\n\n```\nstatic Vfd *VfdCache;\nstatic Size SizeVfdCache = 0;\n\n/*\n * Number of file descriptors known to be in use by VFD entries.\n */\nstatic int  nfile = 0;\n```\n\n这里有3个重要的变量，分别是：VfdCache、SizeVfdCache 和nfile。VfdCache指向LRU池头部，SizeVfdCache 表示当前LRU池的大小。nfile表示当前LRU池中已使用的VFD虚拟文件描述符句柄数量。\n\n  \n\n3.2 VfdCache数组初始化\n-----------------\n\nVfdCache数组指针变量在postmanster进程起来之前，会进行初始化操作。并且置fd成员的值为VFD\\_CLOSED, 表示该文件描述符fd不可用。该初始化过程由函数InitFileAccess()完成。\n\n```\nAssert(SizeVfdCache == 0);  /* call me only once */\n\n/* initialize cache header entry */\nVfdCache = (Vfd *) malloc(sizeof(Vfd));\nif (VfdCache == NULL)\n  ereport(FATAL,\n      (errcode(ERRCODE_OUT_OF_MEMORY),\n       errmsg(\"out of memory\")));\n\nMemSet((char *) &(VfdCache[0]), 0, sizeof(Vfd));\nVfdCache->fd = VFD_CLOSED;\n\n```\n\n  \n\n注意，VfdCache\\[0\\]不是一个可用的VFD，它是整个LRU池的头节点（即头指针）。当初始化完成之后，VfdCache指向堆空间中的某个地址，示意图如下：  \n   \n\n![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e186d5ef6af64c8f97fff6aa3e3e94f9~tplv-k3u1fbpfcp-zoom-1.image)\n\n因为全局变量SizeVfdCache 动态记录着VfdCache池的大小，所以这里SizeVfdCache将会被置为1。因为此时VfdCache指向LRU池的头部。虽然VFD\\[0\\]不是一个可用的VFD，但它是唯一指向该LRU池，充当头节点的作用。\n\n  \n\n```\n{\n     . . . //省略若干\n    SizeVfdCache = 1;\n    /* register proc-exit hook to ensure temp files are dropped at exit \n     */\n    on_proc_exit(AtProcExit_Files, 0);\n}\n```\n\n同时on\\_proc\\_exit()将注册一个回调函数，用于确保临时文件在进程退出时候能被删除。每当打开一个文件时，内部会根据打开文件的类型初始化Vfd结构体数据类型中的数据成员fdstate。在进程退出时候会根据fdstate成员的不同值，分别调用对应的函数进行情理操作。如下代码所示：\n\n```\nswitch (desc->kind)\n{\n  case AllocateDescFile:\n    result = fclose(desc->desc.file);\n    break;\n  case AllocateDescPipe:\n    result = pclose(desc->desc.file);\n    break;\n  case AllocateDescDir:\n    result = closedir(desc->desc.dir);\n    break;\n  case AllocateDescRawFD:\n    result = close(desc->desc.fd);\n    break;\n  default:\n    elog(ERROR, \"AllocateDesc kind not recognized\");\n    result = 0;      /* keep compiler quiet */\n    break;\n}\n```\n\n  \n\n3.3 LRU池结构图\n-----------\n\nLRU池是一个双向链表，开始和结束于元素VfdCache\\[0\\]， 元素0是特殊节点，它不代表一个文件，其中fd字段总是等于VFD\\_CLOSED。元素0是一个头节点，它标明了LRU池的开始/结束。只有当前真正打开（分配了FD）的VFD元素在LRU池中。\n\n虽然LRU池是双向链表，但是Vfd结构中并没有指针，而是通过lruMoreRecently、lruLessRecently这两个int类型的成员变量实现了双向链表中的next和prev指针的功能。\n\n对于LRU池中的每个VFD，均使用成员lruMoreRecently、lruLessRecently链接两个VFD变量，通过lruMoreRecently成员数组下标链接最近更常使用的VFD；而通过lruLessRecently成员数组下标链接最近不常用的VFD。如下图所示：\n\n![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66e5923b91534ca58b6c52837cc8a0ac~tplv-k3u1fbpfcp-zoom-1.image)\n\n其中VfdCache\\[0\\]充当该链接池的头节点（特殊VFD）；另外该LRU池的尾元素VfdCache\\[0\\]通过lruLessRecently成员链接到VfdCache\\[0\\]头部，而VfdCache\\[0\\]头节点通过lruMoreRecently成员链接到VfdCache\\[n\\]。这样就能够很方便地通过VfdCache\\[0\\]头节点找到该池中最近最少使用的VFD。\n\n当然，这个LRU池的大小同样是受到操作系统对进程打开文件描述符数据的限制是一样的。在PostgreSQL中，与max\\_safe\\_fds变量的值极其相关。\n\n### 3.3.1 从LRU池获取VFD\n\n在3.1节中说过，postmaster进程起来时候，会对VfdCache指针变量分配一个Vfd类型大小内存空间。但是此时，还没有可使用的VfdCache虚拟文件句柄，正如前面提到的，VfdCache\\[0\\]充当双向链表头节点的功能，所以它是不会存储有效的VFD的。因此，在第一次尝试获取VFD时候，进程会先走AllocateVfd()函数以分配有效的可用的VFD变量。\n\nVfdCache在分配VFD时候，其采取的方案是成倍的申请（最小的VFD申请数量是32）。比如在第一次初始化VfdCache内存空间时候，在成功申请内存空间的情况下，会将SizeVfdCache变量置为1。该变量记录着当前VfdCache申请的VFD个数。首次调用AllocateVfd()时，因为SizeVfdCache = 1，所以小于32，则本次申请32个VFD变量内存空间。VFD申请示意图如下所示：  \n\n![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52519608ba6e463aa7d38559dafa2f6f~tplv-k3u1fbpfcp-zoom-1.image)\n\n  \n其对应的代码参考如下：\n\n```\nSize    newCacheSize = SizeVfdCache * 2;  //InitFileAccess之后,置为1\nVfd       *newVfdCache;\n\nif (newCacheSize < 32)\n  newCacheSize = 32;\n\n/*\n * Be careful not to clobber VfdCache ptr if realloc fails.\n */\nnewVfdCache = (Vfd *) realloc(VfdCache, sizeof(Vfd) * newCacheSize);\nif (newVfdCache == NULL)\n  ereport(ERROR,\n      (errcode(ERRCODE_OUT_OF_MEMORY),\n       errmsg(\"out of memory\")));\nVfdCache = newVfdCache;\n```\n\n当VFD内存空间申请成功之后，便依次对VFD变量中的成员nextFree进行初始化，使其依次指向下一个VFD。因为SizeVfdCache等于1，所以从VfdCache\\[1\\]开始进行初始化。\n\n```\nfor (i = SizeVfdCache; i < newCacheSize; i++)\n{\n  MemSet((char *) &(VfdCache[i]), 0, sizeof(Vfd));\n  VfdCache[i].nextFree = i + 1;  //31 next--> 32\n  VfdCache[i].fd = VFD_CLOSED;\n}\n\nVfdCache[newCacheSize - 1].nextFree = 0;\nVfdCache[0].nextFree = SizeVfdCache;\n\n/*\n * Record the new size\n */\nSizeVfdCache = newCacheSize;  //1, 32, 64, 128, 256 . . .\n```\n\n当nextFree成员初始化之后，重置SizeVfdCache 全局变量的值为当前申请的VFD个数（依次是32、64、128、256、512知道满足不超过操作系统对进程可打开文件描述符的限制为止）。\n\n```\nfile = VfdCache[0].nextFree;\nVfdCache[0].nextFree = VfdCache[file].nextFree;\n\nreturn file;\n```\n\n然后返回可用的VfdCache，即VFD。这里file即为VFD位于VfdCache数组的下标。因为是第一次申请VFD，所以从VfdCache\\[0\\]开始依次使用VFD，这里file分别是：1、2、3、4、5、6 . . . ，知道可使用的VFD小于本次所申请的32个时候，继续重新申请VFD，这时候是申请64个。如下图所示，获取LRU池中的VfdCache\\[1\\]变量。  \n\n![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f32f080044094510bf8b863287686803~tplv-k3u1fbpfcp-zoom-1.image)\n\n当获取到可用的VFD数组元素之后，接下来就开始调用系统函数来打开所指定的文件，然后将open()系统函数返回的文件描述符fd初始化给VFD中的fd成员变量。同时分别将本次打开文件的模式以及文件权限（若是创建文件的话）初始化给VFD中的成员fileFlags和fileMode。并将其他的成员根据实际情况进行初始化。\n\n```\nfile = AllocateVfd();\nvfdP = &VfdCache[file];\n\n/* Close excess kernel FDs. \n * 关闭多余的内核fd.\n */\nReleaseLruFiles();\n\nvfdP->fd = BasicOpenFilePerm(fileName, fileFlags, fileMode);\n\nif (vfdP->fd < 0)\n{\n  int      save_errno = errno;\n\n  FreeVfd(file);\n  free(fnamecopy);\n  errno = save_errno;\n  return -1;\n}\n++nfile;\nDO_DB(elog(LOG, \"PathNameOpenFile: success %d\",\n       vfdP->fd));\n\nvfdP->fileName = fnamecopy;\n/* Saved flags are adjusted to be OK for re-opening file */\nvfdP->fileFlags = fileFlags & ~(O_CREAT | O_TRUNC | O_EXCL);\nvfdP->fileMode   = fileMode;\nvfdP->fileSize   = 0;\nvfdP->fdstate   = 0x0;\nvfdP->resowner   = NULL;\n```\n\n到这里时，VFD已经是一个可提供给进程使用的虚拟文件描述符了。给上层的是该VFD位于LRU池中的数组下标nextFree，而不会对外提供VFD中的成员fd值。接下来的最后一个任务就是初始化VFD中的两个数组下标成员lruMoreRecently和lruMoreRecently。使它们分别指向VfdCache头节点。以便于快速从VfdCache\\[0\\]找到该LRU池中最近常使用、不常使用的VFD。以便于在LRU池超出操作系统文件描述符限制时根据LRU策略删除不常用的VFD。对应代码如下：\n\n```\nvfdP = &VfdCache[file];\nvfdP->lruMoreRecently = 0;\nvfdP->lruLessRecently = VfdCache[0].lruLessRecently;\nVfdCache[0].lruLessRecently = file;\nVfdCache[vfdP->lruLessRecently].lruMoreRecently = file;\n```\n\n4\\. 总结\n======\n\n本文通过结合二进制代码，详细地分析了PostgreSQL数据库分配，管理文件的内部原理。因为操作系统对进程同时能够打开的fd数量是强烈的限制，并且在超过限制后会触发一些内核级别的问题，所以如何使用，管理文件压缩就变成了PostgreSQL数据库中的一个急切重要的功能点。通过使用VFD虚拟文件转换映射的方式，可以给逐步一种假象是文件缩小fd是数量用之不竭，这样的好处是进程不必过多地去担心，判断fd的细节处理问题。调用相应的系列位于fd.c文件中封装的函数接口即可，屏蔽掉了系统函数调用错误代码的逻辑判断处理。\n\n\n" },
 
-    "author_user_info": {
-      "user_id": "4459274891961112",
-      "user_name": "君子黎",
-      "company": "公众号: 君子黎",
-      "job_title": "C/C++工程师",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/4fe2a07bff0a20f5ef8571fc3ab65ccd~300x300.image",
-      "level": 1,
-      "description": "擅长C/C++、PostgreSQL数据库、编译原理、数据结构&算法、Linux、TCP/IP",
-      "followee_count": 0,
-      "follower_count": 9,
-      "post_article_count": 6,
-      "digg_article_count": 5,
-      "got_digg_count": 18,
-      "got_view_count": 3674,
-      "post_shortmsg_count": 0,
-      "digg_shortmsg_count": 0,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 54,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
+var validator = {};exports.validator = validator;
 
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
+var enumConverter = {};exports.enumConverter = enumConverter;
 
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637769959178254",
-      "category_name": "后端",
-      "category_url": "backend",
-      "rank": 1,
-      "ctime": 1457483880,
-      "mtime": 1432503193,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964564,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44009,
-      "concern_user_count": 409491 }],
-
-
-    "user_interact": {
-      "id": 6961323610631831560,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } } };exports.details = details;var _default =
-
-
-
-
-{
-  details: details };exports.default = _default;
-
-/***/ }),
-/* 60 */
-/*!*********************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/node_modules/marked/lib/marked.js ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * marked - a markdown parser
- * Copyright (c) 2011-2021, Christopher Jeffrey. (MIT Licensed)
- * https://github.com/markedjs/marked
- */
-
-/**
-     * DO NOT EDIT THIS FILE
-     * The code in this file is generated from files in ./src/
-     */
-
-(function (global, factory) {
-   true ? module.exports = factory() :
-  undefined;
-})(this, function () {'use strict';
-
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-  }
-
-  function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-
-    for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}
-
-    return arr2;
-  }
-
-  function _createForOfIteratorHelperLoose(o, allowArrayLike) {
-    var it;
-
-    if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
-      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-        if (it) o = it;
-        var i = 0;
-        return function () {
-          if (i >= o.length) return {
-            done: true };
-
-          return {
-            done: false,
-            value: o[i++] };
-
-        };
-      }
-
-      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
-
-    it = o[Symbol.iterator]();
-    return it.next.bind(it);
-  }
-
-  function createCommonjsModule(fn) {
-    var module = { exports: {} };
-    return fn(module, module.exports), module.exports;
-  }
-
-  var defaults$5 = createCommonjsModule(function (module) {
-    function getDefaults() {
-      return {
-        baseUrl: null,
-        breaks: false,
-        gfm: true,
-        headerIds: true,
-        headerPrefix: '',
-        highlight: null,
-        langPrefix: 'language-',
-        mangle: true,
-        pedantic: false,
-        renderer: null,
-        sanitize: false,
-        sanitizer: null,
-        silent: false,
-        smartLists: false,
-        smartypants: false,
-        tokenizer: null,
-        walkTokens: null,
-        xhtml: false };
-
-    }
-
-    function changeDefaults(newDefaults) {
-      module.exports.defaults = newDefaults;
-    }
-
-    module.exports = {
-      defaults: getDefaults(),
-      getDefaults: getDefaults,
-      changeDefaults: changeDefaults };
-
-  });
-
-  /**
-       * Helpers
-       */
-  var escapeTest = /[&<>"']/;
-  var escapeReplace = /[&<>"']/g;
-  var escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
-  var escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
-  var escapeReplacements = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;' };
-
-
-  var getEscapeReplacement = function getEscapeReplacement(ch) {
-    return escapeReplacements[ch];
-  };
-
-  function escape$2(html, encode) {
-    if (encode) {
-      if (escapeTest.test(html)) {
-        return html.replace(escapeReplace, getEscapeReplacement);
-      }
-    } else {
-      if (escapeTestNoEncode.test(html)) {
-        return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
-      }
-    }
-
-    return html;
-  }
-
-  var unescapeTest = /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig;
-
-  function unescape$1(html) {
-    // explicitly match decimal, hex, and named HTML entities
-    return html.replace(unescapeTest, function (_, n) {
-      n = n.toLowerCase();
-      if (n === 'colon') return ':';
-
-      if (n.charAt(0) === '#') {
-        return n.charAt(1) === 'x' ? String.fromCharCode(parseInt(n.substring(2), 16)) : String.fromCharCode(+n.substring(1));
-      }
-
-      return '';
-    });
-  }
-
-  var caret = /(^|[^\[])\^/g;
-
-  function edit$1(regex, opt) {
-    regex = regex.source || regex;
-    opt = opt || '';
-    var obj = {
-      replace: function replace(name, val) {
-        val = val.source || val;
-        val = val.replace(caret, '$1');
-        regex = regex.replace(name, val);
-        return obj;
-      },
-      getRegex: function getRegex() {
-        return new RegExp(regex, opt);
-      } };
-
-    return obj;
-  }
-
-  var nonWordAndColonTest = /[^\w:]/g;
-  var originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
-
-  function cleanUrl$1(sanitize, base, href) {
-    if (sanitize) {
-      var prot;
-
-      try {
-        prot = decodeURIComponent(unescape$1(href)).replace(nonWordAndColonTest, '').toLowerCase();
-      } catch (e) {
-        return null;
-      }
-
-      if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0 || prot.indexOf('data:') === 0) {
-        return null;
-      }
-    }
-
-    if (base && !originIndependentUrl.test(href)) {
-      href = resolveUrl(base, href);
-    }
-
-    try {
-      href = encodeURI(href).replace(/%25/g, '%');
-    } catch (e) {
-      return null;
-    }
-
-    return href;
-  }
-
-  var baseUrls = {};
-  var justDomain = /^[^:]+:\/*[^/]*$/;
-  var protocol = /^([^:]+:)[\s\S]*$/;
-  var domain = /^([^:]+:\/*[^/]*)[\s\S]*$/;
-
-  function resolveUrl(base, href) {
-    if (!baseUrls[' ' + base]) {
-      // we can ignore everything in base after the last slash of its path component,
-      // but we might need to add _that_
-      // https://tools.ietf.org/html/rfc3986#section-3
-      if (justDomain.test(base)) {
-        baseUrls[' ' + base] = base + '/';
-      } else {
-        baseUrls[' ' + base] = rtrim$1(base, '/', true);
-      }
-    }
-
-    base = baseUrls[' ' + base];
-    var relativeBase = base.indexOf(':') === -1;
-
-    if (href.substring(0, 2) === '//') {
-      if (relativeBase) {
-        return href;
-      }
-
-      return base.replace(protocol, '$1') + href;
-    } else if (href.charAt(0) === '/') {
-      if (relativeBase) {
-        return href;
-      }
-
-      return base.replace(domain, '$1') + href;
-    } else {
-      return base + href;
-    }
-  }
-
-  var noopTest$1 = {
-    exec: function noopTest() {} };
-
-
-  function merge$2(obj) {
-    var i = 1,
-    target,
-    key;
-
-    for (; i < arguments.length; i++) {
-      target = arguments[i];
-
-      for (key in target) {
-        if (Object.prototype.hasOwnProperty.call(target, key)) {
-          obj[key] = target[key];
+function filterToWhere(filter, command) {
+  var where = {};
+  for (var field in filter) {var _filter$field =
+    filter[field],type = _filter$field.type,value = _filter$field.value;
+    switch (type) {
+      case "search":
+        if (typeof value === 'string' && value.length) {
+          where[field] = new RegExp(value);
         }
-      }
-    }
-
-    return obj;
-  }
-
-  function splitCells$1(tableRow, count) {
-    // ensure that every cell-delimiting pipe has a space
-    // before it to distinguish it from an escaped pipe
-    var row = tableRow.replace(/\|/g, function (match, offset, str) {
-      var escaped = false,
-      curr = offset;
-
-      while (--curr >= 0 && str[curr] === '\\') {
-        escaped = !escaped;
-      }
-
-      if (escaped) {
-        // odd number of slashes means | is escaped
-        // so we leave it alone
-        return '|';
-      } else {
-        // add space before unescaped |
-        return ' |';
-      }
-    }),
-    cells = row.split(/ \|/);
-    var i = 0;
-
-    if (cells.length > count) {
-      cells.splice(count);
-    } else {
-      while (cells.length < count) {
-        cells.push('');
-      }
-    }
-
-    for (; i < cells.length; i++) {
-      // leading or trailing whitespace is ignored per the gfm spec
-      cells[i] = cells[i].trim().replace(/\\\|/g, '|');
-    }
-
-    return cells;
-  } // Remove trailing 'c's. Equivalent to str.replace(/c*$/, '').
-  // /c*$/ is vulnerable to REDOS.
-  // invert: Remove suffix of non-c chars instead. Default falsey.
-
-
-  function rtrim$1(str, c, invert) {
-    var l = str.length;
-
-    if (l === 0) {
-      return '';
-    } // Length of suffix matching the invert condition.
-
-
-    var suffLen = 0; // Step left until we fail to match the invert condition.
-
-    while (suffLen < l) {
-      var currChar = str.charAt(l - suffLen - 1);
-
-      if (currChar === c && !invert) {
-        suffLen++;
-      } else if (currChar !== c && invert) {
-        suffLen++;
-      } else {
         break;
-      }
-    }
+      case "select":
+        if (value.length) {
+          var selectValue = [];var _iterator = _createForOfIteratorHelper(
+          value),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var s = _step.value;
+              selectValue.push(command.eq(s));
+            }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
+          where[field] = command.or(selectValue);
+        }
+        break;
+      case "range":
+        if (value.length) {
+          var gt = value[0];
+          var lt = value[1];
+          where[field] = command.and([command.gte(gt), command.lte(lt)]);
+        }
+        break;
+      case "date":
+        if (value.length) {var _value = _slicedToArray(
+          value, 2),_s = _value[0],e = _value[1];
+          var startDate = new Date(_s);
+          var endDate = new Date(e);
+          where[field] = command.and([command.gte(startDate), command.lte(endDate)]);
+        }
+        break;
+      case "timestamp":
+        if (value.length) {var _value2 = _slicedToArray(
+          value, 2),_startDate = _value2[0],_endDate = _value2[1];
+          where[field] = command.and([command.gte(_startDate), command.lte(_endDate)]);
+        }
+        break;}
 
-    return str.substr(0, l - suffLen);
   }
-
-  function findClosingBracket$1(str, b) {
-    if (str.indexOf(b[1]) === -1) {
-      return -1;
-    }
-
-    var l = str.length;
-    var level = 0,
-    i = 0;
-
-    for (; i < l; i++) {
-      if (str[i] === '\\') {
-        i++;
-      } else if (str[i] === b[0]) {
-        level++;
-      } else if (str[i] === b[1]) {
-        level--;
-
-        if (level < 0) {
-          return i;
-        }
-      }
-    }
-
-    return -1;
-  }
-
-  function checkSanitizeDeprecation$1(opt) {
-    if (opt && opt.sanitize && !opt.silent) {
-      console.warn('marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options');
-    }
-  } // copied from https://stackoverflow.com/a/5450113/806777
-
-
-  function repeatString$1(pattern, count) {
-    if (count < 1) {
-      return '';
-    }
-
-    var result = '';
-
-    while (count > 1) {
-      if (count & 1) {
-        result += pattern;
-      }
-
-      count >>= 1;
-      pattern += pattern;
-    }
-
-    return result + pattern;
-  }
-
-  var helpers = {
-    escape: escape$2,
-    unescape: unescape$1,
-    edit: edit$1,
-    cleanUrl: cleanUrl$1,
-    resolveUrl: resolveUrl,
-    noopTest: noopTest$1,
-    merge: merge$2,
-    splitCells: splitCells$1,
-    rtrim: rtrim$1,
-    findClosingBracket: findClosingBracket$1,
-    checkSanitizeDeprecation: checkSanitizeDeprecation$1,
-    repeatString: repeatString$1 };
-
-
-  var defaults$4 = defaults$5.defaults;
-  var rtrim = helpers.rtrim,
-  splitCells = helpers.splitCells,
-  _escape = helpers.escape,
-  findClosingBracket = helpers.findClosingBracket;
-
-  function outputLink(cap, link, raw) {
-    var href = link.href;
-    var title = link.title ? _escape(link.title) : null;
-    var text = cap[1].replace(/\\([\[\]])/g, '$1');
-
-    if (cap[0].charAt(0) !== '!') {
-      return {
-        type: 'link',
-        raw: raw,
-        href: href,
-        title: title,
-        text: text };
-
-    } else {
-      return {
-        type: 'image',
-        raw: raw,
-        href: href,
-        title: title,
-        text: _escape(text) };
-
-    }
-  }
-
-  function indentCodeCompensation(raw, text) {
-    var matchIndentToCode = raw.match(/^(\s+)(?:```)/);
-
-    if (matchIndentToCode === null) {
-      return text;
-    }
-
-    var indentToCode = matchIndentToCode[1];
-    return text.split('\n').map(function (node) {
-      var matchIndentInNode = node.match(/^\s+/);
-
-      if (matchIndentInNode === null) {
-        return node;
-      }
-
-      var indentInNode = matchIndentInNode[0];
-
-      if (indentInNode.length >= indentToCode.length) {
-        return node.slice(indentToCode.length);
-      }
-
-      return node;
-    }).join('\n');
-  }
-  /**
-     * Tokenizer
-     */
-
-
-  var Tokenizer_1 = /*#__PURE__*/function () {
-    function Tokenizer(options) {
-      this.options = options || defaults$4;
-    }
-
-    var _proto = Tokenizer.prototype;
-
-    _proto.space = function space(src) {
-      var cap = this.rules.block.newline.exec(src);
-
-      if (cap) {
-        if (cap[0].length > 1) {
-          return {
-            type: 'space',
-            raw: cap[0] };
-
-        }
-
-        return {
-          raw: '\n' };
-
-      }
-    };
-
-    _proto.code = function code(src) {
-      var cap = this.rules.block.code.exec(src);
-
-      if (cap) {
-        var text = cap[0].replace(/^ {1,4}/gm, '');
-        return {
-          type: 'code',
-          raw: cap[0],
-          codeBlockStyle: 'indented',
-          text: !this.options.pedantic ? rtrim(text, '\n') : text };
-
-      }
-    };
-
-    _proto.fences = function fences(src) {
-      var cap = this.rules.block.fences.exec(src);
-
-      if (cap) {
-        var raw = cap[0];
-        var text = indentCodeCompensation(raw, cap[3] || '');
-        return {
-          type: 'code',
-          raw: raw,
-          lang: cap[2] ? cap[2].trim() : cap[2],
-          text: text };
-
-      }
-    };
-
-    _proto.heading = function heading(src) {
-      var cap = this.rules.block.heading.exec(src);
-
-      if (cap) {
-        var text = cap[2].trim(); // remove trailing #s
-
-        if (/#$/.test(text)) {
-          var trimmed = rtrim(text, '#');
-
-          if (this.options.pedantic) {
-            text = trimmed.trim();
-          } else if (!trimmed || / $/.test(trimmed)) {
-            // CommonMark requires space before trailing #s
-            text = trimmed.trim();
-          }
-        }
-
-        return {
-          type: 'heading',
-          raw: cap[0],
-          depth: cap[1].length,
-          text: text };
-
-      }
-    };
-
-    _proto.nptable = function nptable(src) {
-      var cap = this.rules.block.nptable.exec(src);
-
-      if (cap) {
-        var item = {
-          type: 'table',
-          header: splitCells(cap[1].replace(/^ *| *\| *$/g, '')),
-          align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
-          cells: cap[3] ? cap[3].replace(/\n$/, '').split('\n') : [],
-          raw: cap[0] };
-
-
-        if (item.header.length === item.align.length) {
-          var l = item.align.length;
-          var i;
-
-          for (i = 0; i < l; i++) {
-            if (/^ *-+: *$/.test(item.align[i])) {
-              item.align[i] = 'right';
-            } else if (/^ *:-+: *$/.test(item.align[i])) {
-              item.align[i] = 'center';
-            } else if (/^ *:-+ *$/.test(item.align[i])) {
-              item.align[i] = 'left';
-            } else {
-              item.align[i] = null;
-            }
-          }
-
-          l = item.cells.length;
-
-          for (i = 0; i < l; i++) {
-            item.cells[i] = splitCells(item.cells[i], item.header.length);
-          }
-
-          return item;
-        }
-      }
-    };
-
-    _proto.hr = function hr(src) {
-      var cap = this.rules.block.hr.exec(src);
-
-      if (cap) {
-        return {
-          type: 'hr',
-          raw: cap[0] };
-
-      }
-    };
-
-    _proto.blockquote = function blockquote(src) {
-      var cap = this.rules.block.blockquote.exec(src);
-
-      if (cap) {
-        var text = cap[0].replace(/^ *> ?/gm, '');
-        return {
-          type: 'blockquote',
-          raw: cap[0],
-          text: text };
-
-      }
-    };
-
-    _proto.list = function list(src) {
-      var cap = this.rules.block.list.exec(src);
-
-      if (cap) {
-        var raw = cap[0];
-        var bull = cap[2];
-        var isordered = bull.length > 1;
-        var list = {
-          type: 'list',
-          raw: raw,
-          ordered: isordered,
-          start: isordered ? +bull.slice(0, -1) : '',
-          loose: false,
-          items: [] };
-        // Get each top-level item.
-
-        var itemMatch = cap[0].match(this.rules.block.item);
-        var next = false,
-        item,
-        space,
-        bcurr,
-        bnext,
-        addBack,
-        loose,
-        istask,
-        ischecked,
-        endMatch;
-        var l = itemMatch.length;
-        bcurr = this.rules.block.listItemStart.exec(itemMatch[0]);
-
-        for (var i = 0; i < l; i++) {
-          item = itemMatch[i];
-          raw = item;
-
-          if (!this.options.pedantic) {
-            // Determine if current item contains the end of the list
-            endMatch = item.match(new RegExp('\\n\\s*\\n {0,' + (bcurr[0].length - 1) + '}\\S'));
-
-            if (endMatch) {
-              addBack = item.length - endMatch.index + itemMatch.slice(i + 1).join('\n').length;
-              list.raw = list.raw.substring(0, list.raw.length - addBack);
-              item = item.substring(0, endMatch.index);
-              raw = item;
-              l = i + 1;
-            }
-          } // Determine whether the next list item belongs here.
-          // Backpedal if it does not belong in this list.
-
-
-          if (i !== l - 1) {
-            bnext = this.rules.block.listItemStart.exec(itemMatch[i + 1]);
-
-            if (!this.options.pedantic ? bnext[1].length >= bcurr[0].length || bnext[1].length > 3 : bnext[1].length > bcurr[1].length) {
-              // nested list or continuation
-              itemMatch.splice(i, 2, itemMatch[i] + (!this.options.pedantic && bnext[1].length < bcurr[0].length && !itemMatch[i].match(/\n$/) ? '' : '\n') + itemMatch[i + 1]);
-              i--;
-              l--;
-              continue;
-            } else if ( // different bullet style
-            !this.options.pedantic || this.options.smartLists ? bnext[2][bnext[2].length - 1] !== bull[bull.length - 1] : isordered === (bnext[2].length === 1)) {
-              addBack = itemMatch.slice(i + 1).join('\n').length;
-              list.raw = list.raw.substring(0, list.raw.length - addBack);
-              i = l - 1;
-            }
-
-            bcurr = bnext;
-          } // Remove the list item's bullet
-          // so it is seen as the next token.
-
-
-          space = item.length;
-          item = item.replace(/^ *([*+-]|\d+[.)]) ?/, ''); // Outdent whatever the
-          // list item contains. Hacky.
-
-          if (~item.indexOf('\n ')) {
-            space -= item.length;
-            item = !this.options.pedantic ? item.replace(new RegExp('^ {1,' + space + '}', 'gm'), '') : item.replace(/^ {1,4}/gm, '');
-          } // trim item newlines at end
-
-
-          item = rtrim(item, '\n');
-
-          if (i !== l - 1) {
-            raw = raw + '\n';
-          } // Determine whether item is loose or not.
-          // Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/
-          // for discount behavior.
-
-
-          loose = next || /\n\n(?!\s*$)/.test(raw);
-
-          if (i !== l - 1) {
-            next = raw.slice(-2) === '\n\n';
-            if (!loose) loose = next;
-          }
-
-          if (loose) {
-            list.loose = true;
-          } // Check for task list items
-
-
-          if (this.options.gfm) {
-            istask = /^\[[ xX]\] /.test(item);
-            ischecked = undefined;
-
-            if (istask) {
-              ischecked = item[1] !== ' ';
-              item = item.replace(/^\[[ xX]\] +/, '');
-            }
-          }
-
-          list.items.push({
-            type: 'list_item',
-            raw: raw,
-            task: istask,
-            checked: ischecked,
-            loose: loose,
-            text: item });
-
-        }
-
-        return list;
-      }
-    };
-
-    _proto.html = function html(src) {
-      var cap = this.rules.block.html.exec(src);
-
-      if (cap) {
-        return {
-          type: this.options.sanitize ? 'paragraph' : 'html',
-          raw: cap[0],
-          pre: !this.options.sanitizer && (cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style'),
-          text: this.options.sanitize ? this.options.sanitizer ? this.options.sanitizer(cap[0]) : _escape(cap[0]) : cap[0] };
-
-      }
-    };
-
-    _proto.def = function def(src) {
-      var cap = this.rules.block.def.exec(src);
-
-      if (cap) {
-        if (cap[3]) cap[3] = cap[3].substring(1, cap[3].length - 1);
-        var tag = cap[1].toLowerCase().replace(/\s+/g, ' ');
-        return {
-          type: 'def',
-          tag: tag,
-          raw: cap[0],
-          href: cap[2],
-          title: cap[3] };
-
-      }
-    };
-
-    _proto.table = function table(src) {
-      var cap = this.rules.block.table.exec(src);
-
-      if (cap) {
-        var item = {
-          type: 'table',
-          header: splitCells(cap[1].replace(/^ *| *\| *$/g, '')),
-          align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
-          cells: cap[3] ? cap[3].replace(/\n$/, '').split('\n') : [] };
-
-
-        if (item.header.length === item.align.length) {
-          item.raw = cap[0];
-          var l = item.align.length;
-          var i;
-
-          for (i = 0; i < l; i++) {
-            if (/^ *-+: *$/.test(item.align[i])) {
-              item.align[i] = 'right';
-            } else if (/^ *:-+: *$/.test(item.align[i])) {
-              item.align[i] = 'center';
-            } else if (/^ *:-+ *$/.test(item.align[i])) {
-              item.align[i] = 'left';
-            } else {
-              item.align[i] = null;
-            }
-          }
-
-          l = item.cells.length;
-
-          for (i = 0; i < l; i++) {
-            item.cells[i] = splitCells(item.cells[i].replace(/^ *\| *| *\| *$/g, ''), item.header.length);
-          }
-
-          return item;
-        }
-      }
-    };
-
-    _proto.lheading = function lheading(src) {
-      var cap = this.rules.block.lheading.exec(src);
-
-      if (cap) {
-        return {
-          type: 'heading',
-          raw: cap[0],
-          depth: cap[2].charAt(0) === '=' ? 1 : 2,
-          text: cap[1] };
-
-      }
-    };
-
-    _proto.paragraph = function paragraph(src) {
-      var cap = this.rules.block.paragraph.exec(src);
-
-      if (cap) {
-        return {
-          type: 'paragraph',
-          raw: cap[0],
-          text: cap[1].charAt(cap[1].length - 1) === '\n' ? cap[1].slice(0, -1) : cap[1] };
-
-      }
-    };
-
-    _proto.text = function text(src) {
-      var cap = this.rules.block.text.exec(src);
-
-      if (cap) {
-        return {
-          type: 'text',
-          raw: cap[0],
-          text: cap[0] };
-
-      }
-    };
-
-    _proto.escape = function escape(src) {
-      var cap = this.rules.inline.escape.exec(src);
-
-      if (cap) {
-        return {
-          type: 'escape',
-          raw: cap[0],
-          text: _escape(cap[1]) };
-
-      }
-    };
-
-    _proto.tag = function tag(src, inLink, inRawBlock) {
-      var cap = this.rules.inline.tag.exec(src);
-
-      if (cap) {
-        if (!inLink && /^<a /i.test(cap[0])) {
-          inLink = true;
-        } else if (inLink && /^<\/a>/i.test(cap[0])) {
-          inLink = false;
-        }
-
-        if (!inRawBlock && /^<(pre|code|kbd|script)(\s|>)/i.test(cap[0])) {
-          inRawBlock = true;
-        } else if (inRawBlock && /^<\/(pre|code|kbd|script)(\s|>)/i.test(cap[0])) {
-          inRawBlock = false;
-        }
-
-        return {
-          type: this.options.sanitize ? 'text' : 'html',
-          raw: cap[0],
-          inLink: inLink,
-          inRawBlock: inRawBlock,
-          text: this.options.sanitize ? this.options.sanitizer ? this.options.sanitizer(cap[0]) : _escape(cap[0]) : cap[0] };
-
-      }
-    };
-
-    _proto.link = function link(src) {
-      var cap = this.rules.inline.link.exec(src);
-
-      if (cap) {
-        var trimmedUrl = cap[2].trim();
-
-        if (!this.options.pedantic && /^</.test(trimmedUrl)) {
-          // commonmark requires matching angle brackets
-          if (!/>$/.test(trimmedUrl)) {
-            return;
-          } // ending angle bracket cannot be escaped
-
-
-          var rtrimSlash = rtrim(trimmedUrl.slice(0, -1), '\\');
-
-          if ((trimmedUrl.length - rtrimSlash.length) % 2 === 0) {
-            return;
-          }
-        } else {
-          // find closing parenthesis
-          var lastParenIndex = findClosingBracket(cap[2], '()');
-
-          if (lastParenIndex > -1) {
-            var start = cap[0].indexOf('!') === 0 ? 5 : 4;
-            var linkLen = start + cap[1].length + lastParenIndex;
-            cap[2] = cap[2].substring(0, lastParenIndex);
-            cap[0] = cap[0].substring(0, linkLen).trim();
-            cap[3] = '';
-          }
-        }
-
-        var href = cap[2];
-        var title = '';
-
-        if (this.options.pedantic) {
-          // split pedantic href and title
-          var link = /^([^'"]*[^\s])\s+(['"])(.*)\2/.exec(href);
-
-          if (link) {
-            href = link[1];
-            title = link[3];
-          }
-        } else {
-          title = cap[3] ? cap[3].slice(1, -1) : '';
-        }
-
-        href = href.trim();
-
-        if (/^</.test(href)) {
-          if (this.options.pedantic && !/>$/.test(trimmedUrl)) {
-            // pedantic allows starting angle bracket without ending angle bracket
-            href = href.slice(1);
-          } else {
-            href = href.slice(1, -1);
-          }
-        }
-
-        return outputLink(cap, {
-          href: href ? href.replace(this.rules.inline._escapes, '$1') : href,
-          title: title ? title.replace(this.rules.inline._escapes, '$1') : title },
-        cap[0]);
-      }
-    };
-
-    _proto.reflink = function reflink(src, links) {
-      var cap;
-
-      if ((cap = this.rules.inline.reflink.exec(src)) || (cap = this.rules.inline.nolink.exec(src))) {
-        var link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
-        link = links[link.toLowerCase()];
-
-        if (!link || !link.href) {
-          var text = cap[0].charAt(0);
-          return {
-            type: 'text',
-            raw: text,
-            text: text };
-
-        }
-
-        return outputLink(cap, link, cap[0]);
-      }
-    };
-
-    _proto.emStrong = function emStrong(src, maskedSrc, prevChar) {
-      if (prevChar === void 0) {
-        prevChar = '';
-      }
-
-      var match = this.rules.inline.emStrong.lDelim.exec(src);
-      if (!match) return;
-      if (match[3] && prevChar.match(/(?:[0-9A-Za-z\xAA\xB2\xB3\xB5\xB9\xBA\xBC-\xBE\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0560-\u0588\u05D0-\u05EA\u05EF-\u05F2\u0620-\u064A\u0660-\u0669\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07C0-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u0860-\u086A\u08A0-\u08B4\u08B6-\u08C7\u0904-\u0939\u093D\u0950\u0958-\u0961\u0966-\u096F\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09E6-\u09F1\u09F4-\u09F9\u09FC\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A66-\u0A6F\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AE6-\u0AEF\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B66-\u0B6F\u0B71-\u0B77\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0BE6-\u0BF2\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C66-\u0C6F\u0C78-\u0C7E\u0C80\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CE6-\u0CEF\u0CF1\u0CF2\u0D04-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D54-\u0D56\u0D58-\u0D61\u0D66-\u0D78\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DE6-\u0DEF\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E50-\u0E59\u0E81\u0E82\u0E84\u0E86-\u0E8A\u0E8C-\u0EA3\u0EA5\u0EA7-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0ED0-\u0ED9\u0EDC-\u0EDF\u0F00\u0F20-\u0F33\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F-\u1049\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u1090-\u1099\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1369-\u137C\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1820-\u1878\u1880-\u1884\u1887-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1946-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u19D0-\u19DA\u1A00-\u1A16\u1A20-\u1A54\u1A80-\u1A89\u1A90-\u1A99\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B50-\u1B59\u1B83-\u1BA0\u1BAE-\u1BE5\u1C00-\u1C23\u1C40-\u1C49\u1C4D-\u1C7D\u1C80-\u1C88\u1C90-\u1CBA\u1CBD-\u1CBF\u1CE9-\u1CEC\u1CEE-\u1CF3\u1CF5\u1CF6\u1CFA\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2070\u2071\u2074-\u2079\u207F-\u2089\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2150-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2CFD\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312F\u3131-\u318E\u3192-\u3195\u31A0-\u31BF\u31F0-\u31FF\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\u3400-\u4DBF\u4E00-\u9FFC\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6EF\uA717-\uA71F\uA722-\uA788\uA78B-\uA7BF\uA7C2-\uA7CA\uA7F5-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA830-\uA835\uA840-\uA873\uA882-\uA8B3\uA8D0-\uA8D9\uA8F2-\uA8F7\uA8FB\uA8FD\uA8FE\uA900-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF-\uA9D9\uA9E0-\uA9E4\uA9E6-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA50-\uAA59\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB69\uAB70-\uABE2\uABF0-\uABF9\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B\uDC0D-\uDC26\uDC28-\uDC3A\uDC3C\uDC3D\uDC3F-\uDC4D\uDC50-\uDC5D\uDC80-\uDCFA\uDD07-\uDD33\uDD40-\uDD78\uDD8A\uDD8B\uDE80-\uDE9C\uDEA0-\uDED0\uDEE1-\uDEFB\uDF00-\uDF23\uDF2D-\uDF4A\uDF50-\uDF75\uDF80-\uDF9D\uDFA0-\uDFC3\uDFC8-\uDFCF\uDFD1-\uDFD5]|\uD801[\uDC00-\uDC9D\uDCA0-\uDCA9\uDCB0-\uDCD3\uDCD8-\uDCFB\uDD00-\uDD27\uDD30-\uDD63\uDE00-\uDF36\uDF40-\uDF55\uDF60-\uDF67]|\uD802[\uDC00-\uDC05\uDC08\uDC0A-\uDC35\uDC37\uDC38\uDC3C\uDC3F-\uDC55\uDC58-\uDC76\uDC79-\uDC9E\uDCA7-\uDCAF\uDCE0-\uDCF2\uDCF4\uDCF5\uDCFB-\uDD1B\uDD20-\uDD39\uDD80-\uDDB7\uDDBC-\uDDCF\uDDD2-\uDE00\uDE10-\uDE13\uDE15-\uDE17\uDE19-\uDE35\uDE40-\uDE48\uDE60-\uDE7E\uDE80-\uDE9F\uDEC0-\uDEC7\uDEC9-\uDEE4\uDEEB-\uDEEF\uDF00-\uDF35\uDF40-\uDF55\uDF58-\uDF72\uDF78-\uDF91\uDFA9-\uDFAF]|\uD803[\uDC00-\uDC48\uDC80-\uDCB2\uDCC0-\uDCF2\uDCFA-\uDD23\uDD30-\uDD39\uDE60-\uDE7E\uDE80-\uDEA9\uDEB0\uDEB1\uDF00-\uDF27\uDF30-\uDF45\uDF51-\uDF54\uDFB0-\uDFCB\uDFE0-\uDFF6]|\uD804[\uDC03-\uDC37\uDC52-\uDC6F\uDC83-\uDCAF\uDCD0-\uDCE8\uDCF0-\uDCF9\uDD03-\uDD26\uDD36-\uDD3F\uDD44\uDD47\uDD50-\uDD72\uDD76\uDD83-\uDDB2\uDDC1-\uDDC4\uDDD0-\uDDDA\uDDDC\uDDE1-\uDDF4\uDE00-\uDE11\uDE13-\uDE2B\uDE80-\uDE86\uDE88\uDE8A-\uDE8D\uDE8F-\uDE9D\uDE9F-\uDEA8\uDEB0-\uDEDE\uDEF0-\uDEF9\uDF05-\uDF0C\uDF0F\uDF10\uDF13-\uDF28\uDF2A-\uDF30\uDF32\uDF33\uDF35-\uDF39\uDF3D\uDF50\uDF5D-\uDF61]|\uD805[\uDC00-\uDC34\uDC47-\uDC4A\uDC50-\uDC59\uDC5F-\uDC61\uDC80-\uDCAF\uDCC4\uDCC5\uDCC7\uDCD0-\uDCD9\uDD80-\uDDAE\uDDD8-\uDDDB\uDE00-\uDE2F\uDE44\uDE50-\uDE59\uDE80-\uDEAA\uDEB8\uDEC0-\uDEC9\uDF00-\uDF1A\uDF30-\uDF3B]|\uD806[\uDC00-\uDC2B\uDCA0-\uDCF2\uDCFF-\uDD06\uDD09\uDD0C-\uDD13\uDD15\uDD16\uDD18-\uDD2F\uDD3F\uDD41\uDD50-\uDD59\uDDA0-\uDDA7\uDDAA-\uDDD0\uDDE1\uDDE3\uDE00\uDE0B-\uDE32\uDE3A\uDE50\uDE5C-\uDE89\uDE9D\uDEC0-\uDEF8]|\uD807[\uDC00-\uDC08\uDC0A-\uDC2E\uDC40\uDC50-\uDC6C\uDC72-\uDC8F\uDD00-\uDD06\uDD08\uDD09\uDD0B-\uDD30\uDD46\uDD50-\uDD59\uDD60-\uDD65\uDD67\uDD68\uDD6A-\uDD89\uDD98\uDDA0-\uDDA9\uDEE0-\uDEF2\uDFB0\uDFC0-\uDFD4]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E\uDC80-\uDD43]|[\uD80C\uD81C-\uD820\uD822\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879\uD880-\uD883][\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38\uDE40-\uDE5E\uDE60-\uDE69\uDED0-\uDEED\uDF00-\uDF2F\uDF40-\uDF43\uDF50-\uDF59\uDF5B-\uDF61\uDF63-\uDF77\uDF7D-\uDF8F]|\uD81B[\uDE40-\uDE96\uDF00-\uDF4A\uDF50\uDF93-\uDF9F\uDFE0\uDFE1\uDFE3]|\uD821[\uDC00-\uDFF7]|\uD823[\uDC00-\uDCD5\uDD00-\uDD08]|\uD82C[\uDC00-\uDD1E\uDD50-\uDD52\uDD64-\uDD67\uDD70-\uDEFB]|\uD82F[\uDC00-\uDC6A\uDC70-\uDC7C\uDC80-\uDC88\uDC90-\uDC99]|\uD834[\uDEE0-\uDEF3\uDF60-\uDF78]|\uD835[\uDC00-\uDC54\uDC56-\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDEA5\uDEA8-\uDEC0\uDEC2-\uDEDA\uDEDC-\uDEFA\uDEFC-\uDF14\uDF16-\uDF34\uDF36-\uDF4E\uDF50-\uDF6E\uDF70-\uDF88\uDF8A-\uDFA8\uDFAA-\uDFC2\uDFC4-\uDFCB\uDFCE-\uDFFF]|\uD838[\uDD00-\uDD2C\uDD37-\uDD3D\uDD40-\uDD49\uDD4E\uDEC0-\uDEEB\uDEF0-\uDEF9]|\uD83A[\uDC00-\uDCC4\uDCC7-\uDCCF\uDD00-\uDD43\uDD4B\uDD50-\uDD59]|\uD83B[\uDC71-\uDCAB\uDCAD-\uDCAF\uDCB1-\uDCB4\uDD01-\uDD2D\uDD2F-\uDD3D\uDE00-\uDE03\uDE05-\uDE1F\uDE21\uDE22\uDE24\uDE27\uDE29-\uDE32\uDE34-\uDE37\uDE39\uDE3B\uDE42\uDE47\uDE49\uDE4B\uDE4D-\uDE4F\uDE51\uDE52\uDE54\uDE57\uDE59\uDE5B\uDE5D\uDE5F\uDE61\uDE62\uDE64\uDE67-\uDE6A\uDE6C-\uDE72\uDE74-\uDE77\uDE79-\uDE7C\uDE7E\uDE80-\uDE89\uDE8B-\uDE9B\uDEA1-\uDEA3\uDEA5-\uDEA9\uDEAB-\uDEBB]|\uD83C[\uDD00-\uDD0C]|\uD83E[\uDFF0-\uDFF9]|\uD869[\uDC00-\uDEDD\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0]|\uD87E[\uDC00-\uDE1D]|\uD884[\uDC00-\uDF4A])/)) return; // _ can't be between two alphanumerics. \p{L}\p{N} includes non-english alphabet/numbers as well
-
-      var nextChar = match[1] || match[2] || '';
-
-      if (!nextChar || nextChar && (prevChar === '' || this.rules.inline.punctuation.exec(prevChar))) {
-        var lLength = match[0].length - 1;
-        var rDelim,
-        rLength,
-        delimTotal = lLength,
-        midDelimTotal = 0;
-        var endReg = match[0][0] === '*' ? this.rules.inline.emStrong.rDelimAst : this.rules.inline.emStrong.rDelimUnd;
-        endReg.lastIndex = 0;
-        maskedSrc = maskedSrc.slice(-1 * src.length + lLength); // Bump maskedSrc to same section of string as src (move to lexer?)
-
-        while ((match = endReg.exec(maskedSrc)) != null) {
-          rDelim = match[1] || match[2] || match[3] || match[4] || match[5] || match[6];
-          if (!rDelim) continue; // matched the first alternative in rules.js (skip the * in __abc*abc__)
-
-          rLength = rDelim.length;
-
-          if (match[3] || match[4]) {
-            // found another Left Delim
-            delimTotal += rLength;
-            continue;
-          } else if (match[5] || match[6]) {
-            // either Left or Right Delim
-            if (lLength % 3 && !((lLength + rLength) % 3)) {
-              midDelimTotal += rLength;
-              continue; // CommonMark Emphasis Rules 9-10
-            }
-          }
-
-          delimTotal -= rLength;
-          if (delimTotal > 0) continue; // Haven't found enough closing delimiters
-          // If this is the last rDelimiter, remove extra characters. *a*** -> *a*
-
-          if (delimTotal + midDelimTotal - rLength <= 0 && !maskedSrc.slice(endReg.lastIndex).match(endReg)) {
-            rLength = Math.min(rLength, rLength + delimTotal + midDelimTotal);
-          }
-
-          if (Math.min(lLength, rLength) % 2) {
-            return {
-              type: 'em',
-              raw: src.slice(0, lLength + match.index + rLength + 1),
-              text: src.slice(1, lLength + match.index + rLength) };
-
-          }
-
-          if (Math.min(lLength, rLength) % 2 === 0) {
-            return {
-              type: 'strong',
-              raw: src.slice(0, lLength + match.index + rLength + 1),
-              text: src.slice(2, lLength + match.index + rLength - 1) };
-
-          }
-        }
-      }
-    };
-
-    _proto.codespan = function codespan(src) {
-      var cap = this.rules.inline.code.exec(src);
-
-      if (cap) {
-        var text = cap[2].replace(/\n/g, ' ');
-        var hasNonSpaceChars = /[^ ]/.test(text);
-        var hasSpaceCharsOnBothEnds = /^ /.test(text) && / $/.test(text);
-
-        if (hasNonSpaceChars && hasSpaceCharsOnBothEnds) {
-          text = text.substring(1, text.length - 1);
-        }
-
-        text = _escape(text, true);
-        return {
-          type: 'codespan',
-          raw: cap[0],
-          text: text };
-
-      }
-    };
-
-    _proto.br = function br(src) {
-      var cap = this.rules.inline.br.exec(src);
-
-      if (cap) {
-        return {
-          type: 'br',
-          raw: cap[0] };
-
-      }
-    };
-
-    _proto.del = function del(src) {
-      var cap = this.rules.inline.del.exec(src);
-
-      if (cap) {
-        return {
-          type: 'del',
-          raw: cap[0],
-          text: cap[2] };
-
-      }
-    };
-
-    _proto.autolink = function autolink(src, mangle) {
-      var cap = this.rules.inline.autolink.exec(src);
-
-      if (cap) {
-        var text, href;
-
-        if (cap[2] === '@') {
-          text = _escape(this.options.mangle ? mangle(cap[1]) : cap[1]);
-          href = 'mailto:' + text;
-        } else {
-          text = _escape(cap[1]);
-          href = text;
-        }
-
-        return {
-          type: 'link',
-          raw: cap[0],
-          text: text,
-          href: href,
-          tokens: [{
-            type: 'text',
-            raw: text,
-            text: text }] };
-
-
-      }
-    };
-
-    _proto.url = function url(src, mangle) {
-      var cap;
-
-      if (cap = this.rules.inline.url.exec(src)) {
-        var text, href;
-
-        if (cap[2] === '@') {
-          text = _escape(this.options.mangle ? mangle(cap[0]) : cap[0]);
-          href = 'mailto:' + text;
-        } else {
-          // do extended autolink path validation
-          var prevCapZero;
-
-          do {
-            prevCapZero = cap[0];
-            cap[0] = this.rules.inline._backpedal.exec(cap[0])[0];
-          } while (prevCapZero !== cap[0]);
-
-          text = _escape(cap[0]);
-
-          if (cap[1] === 'www.') {
-            href = 'http://' + text;
-          } else {
-            href = text;
-          }
-        }
-
-        return {
-          type: 'link',
-          raw: cap[0],
-          text: text,
-          href: href,
-          tokens: [{
-            type: 'text',
-            raw: text,
-            text: text }] };
-
-
-      }
-    };
-
-    _proto.inlineText = function inlineText(src, inRawBlock, smartypants) {
-      var cap = this.rules.inline.text.exec(src);
-
-      if (cap) {
-        var text;
-
-        if (inRawBlock) {
-          text = this.options.sanitize ? this.options.sanitizer ? this.options.sanitizer(cap[0]) : _escape(cap[0]) : cap[0];
-        } else {
-          text = _escape(this.options.smartypants ? smartypants(cap[0]) : cap[0]);
-        }
-
-        return {
-          type: 'text',
-          raw: cap[0],
-          text: text };
-
-      }
-    };
-
-    return Tokenizer;
-  }();
-
-  var noopTest = helpers.noopTest,
-  edit = helpers.edit,
-  merge$1 = helpers.merge;
-  /**
-                            * Block-Level Grammar
-                            */
-
-  var block$1 = {
-    newline: /^(?: *(?:\n|$))+/,
-    code: /^( {4}[^\n]+(?:\n(?: *(?:\n|$))*)?)+/,
-    fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?:\n+|$)|$)/,
-    hr: /^ {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\* *){3,})(?:\n+|$)/,
-    heading: /^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/,
-    blockquote: /^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/,
-    list: /^( {0,3})(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?! {0,3}bull )\n*|\s*$)/,
-    html: '^ {0,3}(?:' // optional indentation
-    + '<(script|pre|style)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)' // (1)
-    + '|comment[^\\n]*(\\n+|$)' // (2)
-    + '|<\\?[\\s\\S]*?(?:\\?>\\n*|$)' // (3)
-    + '|<![A-Z][\\s\\S]*?(?:>\\n*|$)' // (4)
-    + '|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)' // (5)
-    + '|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:\\n{2,}|$)' // (6)
-    + '|<(?!script|pre|style)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:\\n{2,}|$)' // (7) open tag
-    + '|</(?!script|pre|style)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:\\n{2,}|$)' // (7) closing tag
-    + ')',
-    def: /^ {0,3}\[(label)\]: *\n? *<?([^\s>]+)>?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,
-    nptable: noopTest,
-    table: noopTest,
-    lheading: /^([^\n]+)\n {0,3}(=+|-+) *(?:\n+|$)/,
-    // regex template, placeholders will be replaced according to different paragraph
-    // interruption rules of commonmark and the original markdown spec:
-    _paragraph: /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html| +\n)[^\n]+)*)/,
-    text: /^[^\n]+/ };
-
-  block$1._label = /(?!\s*\])(?:\\[\[\]]|[^\[\]])+/;
-  block$1._title = /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/;
-  block$1.def = edit(block$1.def).replace('label', block$1._label).replace('title', block$1._title).getRegex();
-  block$1.bullet = /(?:[*+-]|\d{1,9}[.)])/;
-  block$1.item = /^( *)(bull) ?[^\n]*(?:\n(?! *bull ?)[^\n]*)*/;
-  block$1.item = edit(block$1.item, 'gm').replace(/bull/g, block$1.bullet).getRegex();
-  block$1.listItemStart = edit(/^( *)(bull) */).replace('bull', block$1.bullet).getRegex();
-  block$1.list = edit(block$1.list).replace(/bull/g, block$1.bullet).replace('hr', '\\n+(?=\\1?(?:(?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$))').replace('def', '\\n+(?=' + block$1.def.source + ')').getRegex();
-  block$1._tag = 'address|article|aside|base|basefont|blockquote|body|caption' + '|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption' + '|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe' + '|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option' + '|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr' + '|track|ul';
-  block$1._comment = /<!--(?!-?>)[\s\S]*?(?:-->|$)/;
-  block$1.html = edit(block$1.html, 'i').replace('comment', block$1._comment).replace('tag', block$1._tag).replace('attribute', / +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex();
-  block$1.paragraph = edit(block$1._paragraph).replace('hr', block$1.hr).replace('heading', ' {0,3}#{1,6} ').replace('|lheading', '') // setex headings don't interrupt commonmark paragraphs
-  .replace('blockquote', ' {0,3}>').replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n').replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
-  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|!--)').replace('tag', block$1._tag) // pars can be interrupted by type (6) html blocks
-  .getRegex();
-  block$1.blockquote = edit(block$1.blockquote).replace('paragraph', block$1.paragraph).getRegex();
-  /**
-                                                                                                     * Normal Block Grammar
-                                                                                                     */
-
-  block$1.normal = merge$1({}, block$1);
-  /**
-                                          * GFM Block Grammar
-                                          */
-
-  block$1.gfm = merge$1({}, block$1.normal, {
-    nptable: '^ *([^|\\n ].*\\|.*)\\n' // Header
-    + ' {0,3}([-:]+ *\\|[-| :]*)' // Align
-    + '(?:\\n((?:(?!\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)',
-    // Cells
-    table: '^ *\\|(.+)\\n' // Header
-    + ' {0,3}\\|?( *[-:]+[-| :]*)' // Align
-    + '(?:\\n *((?:(?!\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
-  });
-
-  block$1.gfm.nptable = edit(block$1.gfm.nptable).replace('hr', block$1.hr).replace('heading', ' {0,3}#{1,6} ').replace('blockquote', ' {0,3}>').replace('code', ' {4}[^\\n]').replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n').replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
-  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|!--)').replace('tag', block$1._tag) // tables can be interrupted by type (6) html blocks
-  .getRegex();
-  block$1.gfm.table = edit(block$1.gfm.table).replace('hr', block$1.hr).replace('heading', ' {0,3}#{1,6} ').replace('blockquote', ' {0,3}>').replace('code', ' {4}[^\\n]').replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n').replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
-  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|!--)').replace('tag', block$1._tag) // tables can be interrupted by type (6) html blocks
-  .getRegex();
-  /**
-                * Pedantic grammar (original John Gruber's loose markdown specification)
-                */
-
-  block$1.pedantic = merge$1({}, block$1.normal, {
-    html: edit('^ *(?:comment *(?:\\n|\\s*$)' + '|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)' // closed tag
-    + '|<tag(?:"[^"]*"|\'[^\']*\'|\\s[^\'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))').replace('comment', block$1._comment).replace(/tag/g, '(?!(?:' + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub' + '|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)' + '\\b)\\w+(?!:|[^\\w\\s@]*@)\\b').getRegex(),
-    def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,
-    heading: /^(#{1,6})(.*)(?:\n+|$)/,
-    fences: noopTest,
-    // fences not supported
-    paragraph: edit(block$1.normal._paragraph).replace('hr', block$1.hr).replace('heading', ' *#{1,6} *[^\n]').replace('lheading', block$1.lheading).replace('blockquote', ' {0,3}>').replace('|fences', '').replace('|list', '').replace('|html', '').getRegex() });
-
-  /**
-                                                                                                                                                                                                                                                                       * Inline-Level Grammar
-                                                                                                                                                                                                                                                                       */
-
-  var inline$1 = {
-    escape: /^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,
-    autolink: /^<(scheme:[^\s\x00-\x1f<>]*|email)>/,
-    url: noopTest,
-    tag: '^comment' + '|^</[a-zA-Z][\\w:-]*\\s*>' // self-closing tag
-    + '|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>' // open tag
-    + '|^<\\?[\\s\\S]*?\\?>' // processing instruction, e.g. <?php ?>
-    + '|^<![a-zA-Z]+\\s[\\s\\S]*?>' // declaration, e.g. <!DOCTYPE html>
-    + '|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>',
-    // CDATA section
-    link: /^!?\[(label)\]\(\s*(href)(?:\s+(title))?\s*\)/,
-    reflink: /^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,
-    nolink: /^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,
-    reflinkSearch: 'reflink|nolink(?!\\()',
-    emStrong: {
-      lDelim: /^(?:\*+(?:([punct_])|[^\s*]))|^_+(?:([punct*])|([^\s_]))/,
-      //        (1) and (2) can only be a Right Delimiter. (3) and (4) can only be Left.  (5) and (6) can be either Left or Right.
-      //        () Skip other delimiter (1) #***                (2) a***#, a***                   (3) #***a, ***a                 (4) ***#              (5) #***#                 (6) a***a
-      rDelimAst: /\_\_[^_]*?\*[^_]*?\_\_|[punct_](\*+)(?=[\s]|$)|[^punct*_\s](\*+)(?=[punct_\s]|$)|[punct_\s](\*+)(?=[^punct*_\s])|[\s](\*+)(?=[punct_])|[punct_](\*+)(?=[punct_])|[^punct*_\s](\*+)(?=[^punct*_\s])/,
-      rDelimUnd: /\*\*[^*]*?\_[^*]*?\*\*|[punct*](\_+)(?=[\s]|$)|[^punct*_\s](\_+)(?=[punct*\s]|$)|[punct*\s](\_+)(?=[^punct*_\s])|[\s](\_+)(?=[punct*])|[punct*](\_+)(?=[punct*])/ // ^- Not allowed for _
-    },
-
-    code: /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,
-    br: /^( {2,}|\\)\n(?!\s*$)/,
-    del: noopTest,
-    text: /^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/,
-    punctuation: /^([\spunctuation])/ };
-  // list of punctuation marks from CommonMark spec
-  // without * and _ to handle the different emphasis markers * and _
-
-  inline$1._punctuation = '!"#$%&\'()+\\-.,/:;<=>?@\\[\\]`^{|}~';
-  inline$1.punctuation = edit(inline$1.punctuation).replace(/punctuation/g, inline$1._punctuation).getRegex(); // sequences em should skip over [title](link), `code`, <html>
-
-  inline$1.blockSkip = /\[[^\]]*?\]\([^\)]*?\)|`[^`]*?`|<[^>]*?>/g;
-  inline$1.escapedEmSt = /\\\*|\\_/g;
-  inline$1._comment = edit(block$1._comment).replace('(?:-->|$)', '-->').getRegex();
-  inline$1.emStrong.lDelim = edit(inline$1.emStrong.lDelim).replace(/punct/g, inline$1._punctuation).getRegex();
-  inline$1.emStrong.rDelimAst = edit(inline$1.emStrong.rDelimAst, 'g').replace(/punct/g, inline$1._punctuation).getRegex();
-  inline$1.emStrong.rDelimUnd = edit(inline$1.emStrong.rDelimUnd, 'g').replace(/punct/g, inline$1._punctuation).getRegex();
-  inline$1._escapes = /\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/g;
-  inline$1._scheme = /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/;
-  inline$1._email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/;
-  inline$1.autolink = edit(inline$1.autolink).replace('scheme', inline$1._scheme).replace('email', inline$1._email).getRegex();
-  inline$1._attribute = /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/;
-  inline$1.tag = edit(inline$1.tag).replace('comment', inline$1._comment).replace('attribute', inline$1._attribute).getRegex();
-  inline$1._label = /(?:\[(?:\\.|[^\[\]\\])*\]|\\.|`[^`]*`|[^\[\]\\`])*?/;
-  inline$1._href = /<(?:\\.|[^\n<>\\])+>|[^\s\x00-\x1f]*/;
-  inline$1._title = /"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/;
-  inline$1.link = edit(inline$1.link).replace('label', inline$1._label).replace('href', inline$1._href).replace('title', inline$1._title).getRegex();
-  inline$1.reflink = edit(inline$1.reflink).replace('label', inline$1._label).getRegex();
-  inline$1.reflinkSearch = edit(inline$1.reflinkSearch, 'g').replace('reflink', inline$1.reflink).replace('nolink', inline$1.nolink).getRegex();
-  /**
-                                                                                                                                                  * Normal Inline Grammar
-                                                                                                                                                  */
-
-  inline$1.normal = merge$1({}, inline$1);
-  /**
-                                            * Pedantic Inline Grammar
-                                            */
-
-  inline$1.pedantic = merge$1({}, inline$1.normal, {
-    strong: {
-      start: /^__|\*\*/,
-      middle: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
-      endAst: /\*\*(?!\*)/g,
-      endUnd: /__(?!_)/g },
-
-    em: {
-      start: /^_|\*/,
-      middle: /^()\*(?=\S)([\s\S]*?\S)\*(?!\*)|^_(?=\S)([\s\S]*?\S)_(?!_)/,
-      endAst: /\*(?!\*)/g,
-      endUnd: /_(?!_)/g },
-
-    link: edit(/^!?\[(label)\]\((.*?)\)/).replace('label', inline$1._label).getRegex(),
-    reflink: edit(/^!?\[(label)\]\s*\[([^\]]*)\]/).replace('label', inline$1._label).getRegex() });
-
-  /**
-                                                                                                     * GFM Inline Grammar
-                                                                                                     */
-
-  inline$1.gfm = merge$1({}, inline$1.normal, {
-    escape: edit(inline$1.escape).replace('])', '~|])').getRegex(),
-    _extended_email: /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/,
-    url: /^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,
-    _backpedal: /(?:[^?!.,:;*_~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,
-    del: /^(~~?)(?=[^\s~])([\s\S]*?[^\s~])\1(?=[^~]|$)/,
-    text: /^([`~]+|[^`~])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@))|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@))/ });
-
-  inline$1.gfm.url = edit(inline$1.gfm.url, 'i').replace('email', inline$1.gfm._extended_email).getRegex();
-  /**
-                                                                                                             * GFM + Line Breaks Inline Grammar
-                                                                                                             */
-
-  inline$1.breaks = merge$1({}, inline$1.gfm, {
-    br: edit(inline$1.br).replace('{2,}', '*').getRegex(),
-    text: edit(inline$1.gfm.text).replace('\\b_', '\\b_| {2,}\\n').replace(/\{2,\}/g, '*').getRegex() });
-
-  var rules = {
-    block: block$1,
-    inline: inline$1 };
-
-
-  var defaults$3 = defaults$5.defaults;
-  var block = rules.block,
-  inline = rules.inline;
-  var repeatString = helpers.repeatString;
-  /**
-                                            * smartypants text replacement
-                                            */
-
-  function smartypants(text) {
-    return text // em-dashes
-    .replace(/---/g, "\u2014") // en-dashes
-    .replace(/--/g, "\u2013") // opening singles
-    .replace(/(^|[-\u2014/(\[{"\s])'/g, "$1\u2018") // closing singles & apostrophes
-    .replace(/'/g, "\u2019") // opening doubles
-    .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, "$1\u201C") // closing doubles
-    .replace(/"/g, "\u201D") // ellipses
-    .replace(/\.{3}/g, "\u2026");
-  }
-  /**
-     * mangle email addresses
-     */
-
-
-  function mangle(text) {
-    var out = '',
-    i,
-    ch;
-    var l = text.length;
-
-    for (i = 0; i < l; i++) {
-      ch = text.charCodeAt(i);
-
-      if (Math.random() > 0.5) {
-        ch = 'x' + ch.toString(16);
-      }
-
-      out += '&#' + ch + ';';
-    }
-
-    return out;
-  }
-  /**
-     * Block Lexer
-     */
-
-
-  var Lexer_1 = /*#__PURE__*/function () {
-    function Lexer(options) {
-      this.tokens = [];
-      this.tokens.links = Object.create(null);
-      this.options = options || defaults$3;
-      this.options.tokenizer = this.options.tokenizer || new Tokenizer_1();
-      this.tokenizer = this.options.tokenizer;
-      this.tokenizer.options = this.options;
-      var rules = {
-        block: block.normal,
-        inline: inline.normal };
-
-
-      if (this.options.pedantic) {
-        rules.block = block.pedantic;
-        rules.inline = inline.pedantic;
-      } else if (this.options.gfm) {
-        rules.block = block.gfm;
-
-        if (this.options.breaks) {
-          rules.inline = inline.breaks;
-        } else {
-          rules.inline = inline.gfm;
-        }
-      }
-
-      this.tokenizer.rules = rules;
-    }
-    /**
-       * Expose Rules
-       */
-
-
-    /**
-           * Static Lex Method
-           */
-    Lexer.lex = function lex(src, options) {
-      var lexer = new Lexer(options);
-      return lexer.lex(src);
-    }
-    /**
-       * Static Lex Inline Method
-       */;
-
-
-    Lexer.lexInline = function lexInline(src, options) {
-      var lexer = new Lexer(options);
-      return lexer.inlineTokens(src);
-    }
-    /**
-       * Preprocessing
-       */;
-
-
-    var _proto = Lexer.prototype;
-
-    _proto.lex = function lex(src) {
-      src = src.replace(/\r\n|\r/g, '\n').replace(/\t/g, '    ');
-      this.blockTokens(src, this.tokens, true);
-      this.inline(this.tokens);
-      return this.tokens;
-    }
-    /**
-       * Lexing
-       */;
-
-
-    _proto.blockTokens = function blockTokens(src, tokens, top) {
-      if (tokens === void 0) {
-        tokens = [];
-      }
-
-      if (top === void 0) {
-        top = true;
-      }
-
-      if (this.options.pedantic) {
-        src = src.replace(/^ +$/gm, '');
-      }
-
-      var token, i, l, lastToken;
-
-      while (src) {
-        // newline
-        if (token = this.tokenizer.space(src)) {
-          src = src.substring(token.raw.length);
-
-          if (token.type) {
-            tokens.push(token);
-          }
-
-          continue;
-        } // code
-
-
-        if (token = this.tokenizer.code(src)) {
-          src = src.substring(token.raw.length);
-          lastToken = tokens[tokens.length - 1]; // An indented code block cannot interrupt a paragraph.
-
-          if (lastToken && lastToken.type === 'paragraph') {
-            lastToken.raw += '\n' + token.raw;
-            lastToken.text += '\n' + token.text;
-          } else {
-            tokens.push(token);
-          }
-
-          continue;
-        } // fences
-
-
-        if (token = this.tokenizer.fences(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // heading
-
-
-        if (token = this.tokenizer.heading(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // table no leading pipe (gfm)
-
-
-        if (token = this.tokenizer.nptable(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // hr
-
-
-        if (token = this.tokenizer.hr(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // blockquote
-
-
-        if (token = this.tokenizer.blockquote(src)) {
-          src = src.substring(token.raw.length);
-          token.tokens = this.blockTokens(token.text, [], top);
-          tokens.push(token);
-          continue;
-        } // list
-
-
-        if (token = this.tokenizer.list(src)) {
-          src = src.substring(token.raw.length);
-          l = token.items.length;
-
-          for (i = 0; i < l; i++) {
-            token.items[i].tokens = this.blockTokens(token.items[i].text, [], false);
-          }
-
-          tokens.push(token);
-          continue;
-        } // html
-
-
-        if (token = this.tokenizer.html(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // def
-
-
-        if (top && (token = this.tokenizer.def(src))) {
-          src = src.substring(token.raw.length);
-
-          if (!this.tokens.links[token.tag]) {
-            this.tokens.links[token.tag] = {
-              href: token.href,
-              title: token.title };
-
-          }
-
-          continue;
-        } // table (gfm)
-
-
-        if (token = this.tokenizer.table(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // lheading
-
-
-        if (token = this.tokenizer.lheading(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // top-level paragraph
-
-
-        if (top && (token = this.tokenizer.paragraph(src))) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // text
-
-
-        if (token = this.tokenizer.text(src)) {
-          src = src.substring(token.raw.length);
-          lastToken = tokens[tokens.length - 1];
-
-          if (lastToken && lastToken.type === 'text') {
-            lastToken.raw += '\n' + token.raw;
-            lastToken.text += '\n' + token.text;
-          } else {
-            tokens.push(token);
-          }
-
-          continue;
-        }
-
-        if (src) {
-          var errMsg = 'Infinite loop on byte: ' + src.charCodeAt(0);
-
-          if (this.options.silent) {
-            console.error(errMsg);
-            break;
-          } else {
-            throw new Error(errMsg);
-          }
-        }
-      }
-
-      return tokens;
-    };
-
-    _proto.inline = function inline(tokens) {
-      var i, j, k, l2, row, token;
-      var l = tokens.length;
-
-      for (i = 0; i < l; i++) {
-        token = tokens[i];
-
-        switch (token.type) {
-          case 'paragraph':
-          case 'text':
-          case 'heading':
-            {
-              token.tokens = [];
-              this.inlineTokens(token.text, token.tokens);
-              break;
-            }
-
-          case 'table':
-            {
-              token.tokens = {
-                header: [],
-                cells: [] };
-              // header
-
-              l2 = token.header.length;
-
-              for (j = 0; j < l2; j++) {
-                token.tokens.header[j] = [];
-                this.inlineTokens(token.header[j], token.tokens.header[j]);
-              } // cells
-
-
-              l2 = token.cells.length;
-
-              for (j = 0; j < l2; j++) {
-                row = token.cells[j];
-                token.tokens.cells[j] = [];
-
-                for (k = 0; k < row.length; k++) {
-                  token.tokens.cells[j][k] = [];
-                  this.inlineTokens(row[k], token.tokens.cells[j][k]);
-                }
-              }
-
-              break;
-            }
-
-          case 'blockquote':
-            {
-              this.inline(token.tokens);
-              break;
-            }
-
-          case 'list':
-            {
-              l2 = token.items.length;
-
-              for (j = 0; j < l2; j++) {
-                this.inline(token.items[j].tokens);
-              }
-
-              break;
-            }}
-
-      }
-
-      return tokens;
-    }
-    /**
-       * Lexing/Compiling
-       */;
-
-
-    _proto.inlineTokens = function inlineTokens(src, tokens, inLink, inRawBlock) {
-      if (tokens === void 0) {
-        tokens = [];
-      }
-
-      if (inLink === void 0) {
-        inLink = false;
-      }
-
-      if (inRawBlock === void 0) {
-        inRawBlock = false;
-      }
-
-      var token, lastToken; // String with links masked to avoid interference with em and strong
-
-      var maskedSrc = src;
-      var match;
-      var keepPrevChar, prevChar; // Mask out reflinks
-
-      if (this.tokens.links) {
-        var links = Object.keys(this.tokens.links);
-
-        if (links.length > 0) {
-          while ((match = this.tokenizer.rules.inline.reflinkSearch.exec(maskedSrc)) != null) {
-            if (links.includes(match[0].slice(match[0].lastIndexOf('[') + 1, -1))) {
-              maskedSrc = maskedSrc.slice(0, match.index) + '[' + repeatString('a', match[0].length - 2) + ']' + maskedSrc.slice(this.tokenizer.rules.inline.reflinkSearch.lastIndex);
-            }
-          }
-        }
-      } // Mask out other blocks
-
-
-      while ((match = this.tokenizer.rules.inline.blockSkip.exec(maskedSrc)) != null) {
-        maskedSrc = maskedSrc.slice(0, match.index) + '[' + repeatString('a', match[0].length - 2) + ']' + maskedSrc.slice(this.tokenizer.rules.inline.blockSkip.lastIndex);
-      } // Mask out escaped em & strong delimiters
-
-
-      while ((match = this.tokenizer.rules.inline.escapedEmSt.exec(maskedSrc)) != null) {
-        maskedSrc = maskedSrc.slice(0, match.index) + '++' + maskedSrc.slice(this.tokenizer.rules.inline.escapedEmSt.lastIndex);
-      }
-
-      while (src) {
-        if (!keepPrevChar) {
-          prevChar = '';
-        }
-
-        keepPrevChar = false; // escape
-
-        if (token = this.tokenizer.escape(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // tag
-
-
-        if (token = this.tokenizer.tag(src, inLink, inRawBlock)) {
-          src = src.substring(token.raw.length);
-          inLink = token.inLink;
-          inRawBlock = token.inRawBlock;
-          var _lastToken = tokens[tokens.length - 1];
-
-          if (_lastToken && token.type === 'text' && _lastToken.type === 'text') {
-            _lastToken.raw += token.raw;
-            _lastToken.text += token.text;
-          } else {
-            tokens.push(token);
-          }
-
-          continue;
-        } // link
-
-
-        if (token = this.tokenizer.link(src)) {
-          src = src.substring(token.raw.length);
-
-          if (token.type === 'link') {
-            token.tokens = this.inlineTokens(token.text, [], true, inRawBlock);
-          }
-
-          tokens.push(token);
-          continue;
-        } // reflink, nolink
-
-
-        if (token = this.tokenizer.reflink(src, this.tokens.links)) {
-          src = src.substring(token.raw.length);
-          var _lastToken2 = tokens[tokens.length - 1];
-
-          if (token.type === 'link') {
-            token.tokens = this.inlineTokens(token.text, [], true, inRawBlock);
-            tokens.push(token);
-          } else if (_lastToken2 && token.type === 'text' && _lastToken2.type === 'text') {
-            _lastToken2.raw += token.raw;
-            _lastToken2.text += token.text;
-          } else {
-            tokens.push(token);
-          }
-
-          continue;
-        } // em & strong
-
-
-        if (token = this.tokenizer.emStrong(src, maskedSrc, prevChar)) {
-          src = src.substring(token.raw.length);
-          token.tokens = this.inlineTokens(token.text, [], inLink, inRawBlock);
-          tokens.push(token);
-          continue;
-        } // code
-
-
-        if (token = this.tokenizer.codespan(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // br
-
-
-        if (token = this.tokenizer.br(src)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // del (gfm)
-
-
-        if (token = this.tokenizer.del(src)) {
-          src = src.substring(token.raw.length);
-          token.tokens = this.inlineTokens(token.text, [], inLink, inRawBlock);
-          tokens.push(token);
-          continue;
-        } // autolink
-
-
-        if (token = this.tokenizer.autolink(src, mangle)) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // url (gfm)
-
-
-        if (!inLink && (token = this.tokenizer.url(src, mangle))) {
-          src = src.substring(token.raw.length);
-          tokens.push(token);
-          continue;
-        } // text
-
-
-        if (token = this.tokenizer.inlineText(src, inRawBlock, smartypants)) {
-          src = src.substring(token.raw.length);
-
-          if (token.raw.slice(-1) !== '_') {
-            // Track prevChar before string of ____ started
-            prevChar = token.raw.slice(-1);
-          }
-
-          keepPrevChar = true;
-          lastToken = tokens[tokens.length - 1];
-
-          if (lastToken && lastToken.type === 'text') {
-            lastToken.raw += token.raw;
-            lastToken.text += token.text;
-          } else {
-            tokens.push(token);
-          }
-
-          continue;
-        }
-
-        if (src) {
-          var errMsg = 'Infinite loop on byte: ' + src.charCodeAt(0);
-
-          if (this.options.silent) {
-            console.error(errMsg);
-            break;
-          } else {
-            throw new Error(errMsg);
-          }
-        }
-      }
-
-      return tokens;
-    };
-
-    _createClass(Lexer, null, [{
-      key: "rules",
-      get: function get() {
-        return {
-          block: block,
-          inline: inline };
-
-      } }]);
-
-
-    return Lexer;
-  }();
-
-  var defaults$2 = defaults$5.defaults;
-  var cleanUrl = helpers.cleanUrl,
-  escape$1 = helpers.escape;
-  /**
-                              * Renderer
-                              */
-
-  var Renderer_1 = /*#__PURE__*/function () {
-    function Renderer(options) {
-      this.options = options || defaults$2;
-    }
-
-    var _proto = Renderer.prototype;
-
-    _proto.code = function code(_code, infostring, escaped) {
-      var lang = (infostring || '').match(/\S*/)[0];
-
-      if (this.options.highlight) {
-        var out = this.options.highlight(_code, lang);
-
-        if (out != null && out !== _code) {
-          escaped = true;
-          _code = out;
-        }
-      }
-
-      _code = _code.replace(/\n$/, '') + '\n';
-
-      if (!lang) {
-        return '<pre><code>' + (escaped ? _code : escape$1(_code, true)) + '</code></pre>\n';
-      }
-
-      return '<pre><code class="' + this.options.langPrefix + escape$1(lang, true) + '">' + (escaped ? _code : escape$1(_code, true)) + '</code></pre>\n';
-    };
-
-    _proto.blockquote = function blockquote(quote) {
-      return '<blockquote>\n' + quote + '</blockquote>\n';
-    };
-
-    _proto.html = function html(_html) {
-      return _html;
-    };
-
-    _proto.heading = function heading(text, level, raw, slugger) {
-      if (this.options.headerIds) {
-        return '<h' + level + ' id="' + this.options.headerPrefix + slugger.slug(raw) + '">' + text + '</h' + level + '>\n';
-      } // ignore IDs
-
-
-      return '<h' + level + '>' + text + '</h' + level + '>\n';
-    };
-
-    _proto.hr = function hr() {
-      return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
-    };
-
-    _proto.list = function list(body, ordered, start) {
-      var type = ordered ? 'ol' : 'ul',
-      startatt = ordered && start !== 1 ? ' start="' + start + '"' : '';
-      return '<' + type + startatt + '>\n' + body + '</' + type + '>\n';
-    };
-
-    _proto.listitem = function listitem(text) {
-      return '<li>' + text + '</li>\n';
-    };
-
-    _proto.checkbox = function checkbox(checked) {
-      return '<input ' + (checked ? 'checked="" ' : '') + 'disabled="" type="checkbox"' + (this.options.xhtml ? ' /' : '') + '> ';
-    };
-
-    _proto.paragraph = function paragraph(text) {
-      return '<p>' + text + '</p>\n';
-    };
-
-    _proto.table = function table(header, body) {
-      if (body) body = '<tbody>' + body + '</tbody>';
-      return '<table>\n' + '<thead>\n' + header + '</thead>\n' + body + '</table>\n';
-    };
-
-    _proto.tablerow = function tablerow(content) {
-      return '<tr>\n' + content + '</tr>\n';
-    };
-
-    _proto.tablecell = function tablecell(content, flags) {
-      var type = flags.header ? 'th' : 'td';
-      var tag = flags.align ? '<' + type + ' align="' + flags.align + '">' : '<' + type + '>';
-      return tag + content + '</' + type + '>\n';
-    } // span level renderer
-    ;
-
-    _proto.strong = function strong(text) {
-      return '<strong>' + text + '</strong>';
-    };
-
-    _proto.em = function em(text) {
-      return '<em>' + text + '</em>';
-    };
-
-    _proto.codespan = function codespan(text) {
-      return '<code>' + text + '</code>';
-    };
-
-    _proto.br = function br() {
-      return this.options.xhtml ? '<br/>' : '<br>';
-    };
-
-    _proto.del = function del(text) {
-      return '<del>' + text + '</del>';
-    };
-
-    _proto.link = function link(href, title, text) {
-      href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
-
-      if (href === null) {
-        return text;
-      }
-
-      var out = '<a href="' + escape$1(href) + '"';
-
-      if (title) {
-        out += ' title="' + title + '"';
-      }
-
-      out += '>' + text + '</a>';
-      return out;
-    };
-
-    _proto.image = function image(href, title, text) {
-      href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
-
-      if (href === null) {
-        return text;
-      }
-
-      var out = '<img src="' + href + '" alt="' + text + '"';
-
-      if (title) {
-        out += ' title="' + title + '"';
-      }
-
-      out += this.options.xhtml ? '/>' : '>';
-      return out;
-    };
-
-    _proto.text = function text(_text) {
-      return _text;
-    };
-
-    return Renderer;
-  }();
-
-  /**
-        * TextRenderer
-        * returns only the textual part of the token
-        */
-  var TextRenderer_1 = /*#__PURE__*/function () {
-    function TextRenderer() {}
-
-    var _proto = TextRenderer.prototype;
-
-    // no need for block level renderers
-    _proto.strong = function strong(text) {
-      return text;
-    };
-
-    _proto.em = function em(text) {
-      return text;
-    };
-
-    _proto.codespan = function codespan(text) {
-      return text;
-    };
-
-    _proto.del = function del(text) {
-      return text;
-    };
-
-    _proto.html = function html(text) {
-      return text;
-    };
-
-    _proto.text = function text(_text) {
-      return _text;
-    };
-
-    _proto.link = function link(href, title, text) {
-      return '' + text;
-    };
-
-    _proto.image = function image(href, title, text) {
-      return '' + text;
-    };
-
-    _proto.br = function br() {
-      return '';
-    };
-
-    return TextRenderer;
-  }();
-
-  /**
-        * Slugger generates header id
-        */
-  var Slugger_1 = /*#__PURE__*/function () {
-    function Slugger() {
-      this.seen = {};
-    }
-
-    var _proto = Slugger.prototype;
-
-    _proto.serialize = function serialize(value) {
-      return value.toLowerCase().trim() // remove html tags
-      .replace(/<[!\/a-z].*?>/ig, '') // remove unwanted chars
-      .replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~]/g, '').replace(/\s/g, '-');
-    }
-    /**
-       * Finds the next safe (unique) slug to use
-       */;
-
-
-    _proto.getNextSafeSlug = function getNextSafeSlug(originalSlug, isDryRun) {
-      var slug = originalSlug;
-      var occurenceAccumulator = 0;
-
-      if (this.seen.hasOwnProperty(slug)) {
-        occurenceAccumulator = this.seen[originalSlug];
-
-        do {
-          occurenceAccumulator++;
-          slug = originalSlug + '-' + occurenceAccumulator;
-        } while (this.seen.hasOwnProperty(slug));
-      }
-
-      if (!isDryRun) {
-        this.seen[originalSlug] = occurenceAccumulator;
-        this.seen[slug] = 0;
-      }
-
-      return slug;
-    }
-    /**
-       * Convert string to unique id
-       * @param {object} options
-       * @param {boolean} options.dryrun Generates the next unique slug without updating the internal accumulator.
-       */;
-
-
-    _proto.slug = function slug(value, options) {
-      if (options === void 0) {
-        options = {};
-      }
-
-      var slug = this.serialize(value);
-      return this.getNextSafeSlug(slug, options.dryrun);
-    };
-
-    return Slugger;
-  }();
-
-  var defaults$1 = defaults$5.defaults;
-  var unescape = helpers.unescape;
-  /**
-                                    * Parsing & Compiling
-                                    */
-
-  var Parser_1 = /*#__PURE__*/function () {
-    function Parser(options) {
-      this.options = options || defaults$1;
-      this.options.renderer = this.options.renderer || new Renderer_1();
-      this.renderer = this.options.renderer;
-      this.renderer.options = this.options;
-      this.textRenderer = new TextRenderer_1();
-      this.slugger = new Slugger_1();
-    }
-    /**
-       * Static Parse Method
-       */
-
-
-    Parser.parse = function parse(tokens, options) {
-      var parser = new Parser(options);
-      return parser.parse(tokens);
-    }
-    /**
-       * Static Parse Inline Method
-       */;
-
-
-    Parser.parseInline = function parseInline(tokens, options) {
-      var parser = new Parser(options);
-      return parser.parseInline(tokens);
-    }
-    /**
-       * Parse Loop
-       */;
-
-
-    var _proto = Parser.prototype;
-
-    _proto.parse = function parse(tokens, top) {
-      if (top === void 0) {
-        top = true;
-      }
-
-      var out = '',
-      i,
-      j,
-      k,
-      l2,
-      l3,
-      row,
-      cell,
-      header,
-      body,
-      token,
-      ordered,
-      start,
-      loose,
-      itemBody,
-      item,
-      checked,
-      task,
-      checkbox;
-      var l = tokens.length;
-
-      for (i = 0; i < l; i++) {
-        token = tokens[i];
-
-        switch (token.type) {
-          case 'space':
-            {
-              continue;
-            }
-
-          case 'hr':
-            {
-              out += this.renderer.hr();
-              continue;
-            }
-
-          case 'heading':
-            {
-              out += this.renderer.heading(this.parseInline(token.tokens), token.depth, unescape(this.parseInline(token.tokens, this.textRenderer)), this.slugger);
-              continue;
-            }
-
-          case 'code':
-            {
-              out += this.renderer.code(token.text, token.lang, token.escaped);
-              continue;
-            }
-
-          case 'table':
-            {
-              header = ''; // header
-
-              cell = '';
-              l2 = token.header.length;
-
-              for (j = 0; j < l2; j++) {
-                cell += this.renderer.tablecell(this.parseInline(token.tokens.header[j]), {
-                  header: true,
-                  align: token.align[j] });
-
-              }
-
-              header += this.renderer.tablerow(cell);
-              body = '';
-              l2 = token.cells.length;
-
-              for (j = 0; j < l2; j++) {
-                row = token.tokens.cells[j];
-                cell = '';
-                l3 = row.length;
-
-                for (k = 0; k < l3; k++) {
-                  cell += this.renderer.tablecell(this.parseInline(row[k]), {
-                    header: false,
-                    align: token.align[k] });
-
-                }
-
-                body += this.renderer.tablerow(cell);
-              }
-
-              out += this.renderer.table(header, body);
-              continue;
-            }
-
-          case 'blockquote':
-            {
-              body = this.parse(token.tokens);
-              out += this.renderer.blockquote(body);
-              continue;
-            }
-
-          case 'list':
-            {
-              ordered = token.ordered;
-              start = token.start;
-              loose = token.loose;
-              l2 = token.items.length;
-              body = '';
-
-              for (j = 0; j < l2; j++) {
-                item = token.items[j];
-                checked = item.checked;
-                task = item.task;
-                itemBody = '';
-
-                if (item.task) {
-                  checkbox = this.renderer.checkbox(checked);
-
-                  if (loose) {
-                    if (item.tokens.length > 0 && item.tokens[0].type === 'text') {
-                      item.tokens[0].text = checkbox + ' ' + item.tokens[0].text;
-
-                      if (item.tokens[0].tokens && item.tokens[0].tokens.length > 0 && item.tokens[0].tokens[0].type === 'text') {
-                        item.tokens[0].tokens[0].text = checkbox + ' ' + item.tokens[0].tokens[0].text;
-                      }
-                    } else {
-                      item.tokens.unshift({
-                        type: 'text',
-                        text: checkbox });
-
-                    }
-                  } else {
-                    itemBody += checkbox;
-                  }
-                }
-
-                itemBody += this.parse(item.tokens, loose);
-                body += this.renderer.listitem(itemBody, task, checked);
-              }
-
-              out += this.renderer.list(body, ordered, start);
-              continue;
-            }
-
-          case 'html':
-            {
-              // TODO parse inline content if parameter markdown=1
-              out += this.renderer.html(token.text);
-              continue;
-            }
-
-          case 'paragraph':
-            {
-              out += this.renderer.paragraph(this.parseInline(token.tokens));
-              continue;
-            }
-
-          case 'text':
-            {
-              body = token.tokens ? this.parseInline(token.tokens) : token.text;
-
-              while (i + 1 < l && tokens[i + 1].type === 'text') {
-                token = tokens[++i];
-                body += '\n' + (token.tokens ? this.parseInline(token.tokens) : token.text);
-              }
-
-              out += top ? this.renderer.paragraph(body) : body;
-              continue;
-            }
-
-          default:
-            {
-              var errMsg = 'Token with "' + token.type + '" type was not found.';
-
-              if (this.options.silent) {
-                console.error(errMsg);
-                return;
-              } else {
-                throw new Error(errMsg);
-              }
-            }}
-
-      }
-
-      return out;
-    }
-    /**
-       * Parse Inline Tokens
-       */;
-
-
-    _proto.parseInline = function parseInline(tokens, renderer) {
-      renderer = renderer || this.renderer;
-      var out = '',
-      i,
-      token;
-      var l = tokens.length;
-
-      for (i = 0; i < l; i++) {
-        token = tokens[i];
-
-        switch (token.type) {
-          case 'escape':
-            {
-              out += renderer.text(token.text);
-              break;
-            }
-
-          case 'html':
-            {
-              out += renderer.html(token.text);
-              break;
-            }
-
-          case 'link':
-            {
-              out += renderer.link(token.href, token.title, this.parseInline(token.tokens, renderer));
-              break;
-            }
-
-          case 'image':
-            {
-              out += renderer.image(token.href, token.title, token.text);
-              break;
-            }
-
-          case 'strong':
-            {
-              out += renderer.strong(this.parseInline(token.tokens, renderer));
-              break;
-            }
-
-          case 'em':
-            {
-              out += renderer.em(this.parseInline(token.tokens, renderer));
-              break;
-            }
-
-          case 'codespan':
-            {
-              out += renderer.codespan(token.text);
-              break;
-            }
-
-          case 'br':
-            {
-              out += renderer.br();
-              break;
-            }
-
-          case 'del':
-            {
-              out += renderer.del(this.parseInline(token.tokens, renderer));
-              break;
-            }
-
-          case 'text':
-            {
-              out += renderer.text(token.text);
-              break;
-            }
-
-          default:
-            {
-              var errMsg = 'Token with "' + token.type + '" type was not found.';
-
-              if (this.options.silent) {
-                console.error(errMsg);
-                return;
-              } else {
-                throw new Error(errMsg);
-              }
-            }}
-
-      }
-
-      return out;
-    };
-
-    return Parser;
-  }();
-
-  var merge = helpers.merge,
-  checkSanitizeDeprecation = helpers.checkSanitizeDeprecation,
-  escape = helpers.escape;
-  var getDefaults = defaults$5.getDefaults,
-  changeDefaults = defaults$5.changeDefaults,
-  defaults = defaults$5.defaults;
-  /**
-                                   * Marked
-                                   */
-
-  function marked(src, opt, callback) {
-    // throw error in case of non string input
-    if (typeof src === 'undefined' || src === null) {
-      throw new Error('marked(): input parameter is undefined or null');
-    }
-
-    if (typeof src !== 'string') {
-      throw new Error('marked(): input parameter is of type ' + Object.prototype.toString.call(src) + ', string expected');
-    }
-
-    if (typeof opt === 'function') {
-      callback = opt;
-      opt = null;
-    }
-
-    opt = merge({}, marked.defaults, opt || {});
-    checkSanitizeDeprecation(opt);
-
-    if (callback) {
-      var highlight = opt.highlight;
-      var tokens;
-
-      try {
-        tokens = Lexer_1.lex(src, opt);
-      } catch (e) {
-        return callback(e);
-      }
-
-      var done = function done(err) {
-        var out;
-
-        if (!err) {
-          try {
-            out = Parser_1.parse(tokens, opt);
-          } catch (e) {
-            err = e;
-          }
-        }
-
-        opt.highlight = highlight;
-        return err ? callback(err) : callback(null, out);
-      };
-
-      if (!highlight || highlight.length < 3) {
-        return done();
-      }
-
-      delete opt.highlight;
-      if (!tokens.length) return done();
-      var pending = 0;
-      marked.walkTokens(tokens, function (token) {
-        if (token.type === 'code') {
-          pending++;
-          setTimeout(function () {
-            highlight(token.text, token.lang, function (err, code) {
-              if (err) {
-                return done(err);
-              }
-
-              if (code != null && code !== token.text) {
-                token.text = code;
-                token.escaped = true;
-              }
-
-              pending--;
-
-              if (pending === 0) {
-                done();
-              }
-            });
-          }, 0);
-        }
-      });
-
-      if (pending === 0) {
-        done();
-      }
-
-      return;
-    }
-
-    try {
-      var _tokens = Lexer_1.lex(src, opt);
-
-      if (opt.walkTokens) {
-        marked.walkTokens(_tokens, opt.walkTokens);
-      }
-
-      return Parser_1.parse(_tokens, opt);
-    } catch (e) {
-      e.message += '\nPlease report this to https://github.com/markedjs/marked.';
-
-      if (opt.silent) {
-        return '<p>An error occurred:</p><pre>' + escape(e.message + '', true) + '</pre>';
-      }
-
-      throw e;
-    }
-  }
-  /**
-     * Options
-     */
-
-
-  marked.options = marked.setOptions = function (opt) {
-    merge(marked.defaults, opt);
-    changeDefaults(marked.defaults);
-    return marked;
-  };
-
-  marked.getDefaults = getDefaults;
-  marked.defaults = defaults;
-  /**
-                               * Use Extension
-                               */
-
-  marked.use = function (extension) {
-    var opts = merge({}, extension);
-
-    if (extension.renderer) {
-      (function () {
-        var renderer = marked.defaults.renderer || new Renderer_1();
-
-        var _loop = function _loop(prop) {
-          var prevRenderer = renderer[prop];
-
-          renderer[prop] = function () {
-            for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-              args[_key] = arguments[_key];
-            }
-
-            var ret = extension.renderer[prop].apply(renderer, args);
-
-            if (ret === false) {
-              ret = prevRenderer.apply(renderer, args);
-            }
-
-            return ret;
-          };
-        };
-
-        for (var prop in extension.renderer) {
-          _loop(prop);
-        }
-
-        opts.renderer = renderer;
-      })();
-    }
-
-    if (extension.tokenizer) {
-      (function () {
-        var tokenizer = marked.defaults.tokenizer || new Tokenizer_1();
-
-        var _loop2 = function _loop2(prop) {
-          var prevTokenizer = tokenizer[prop];
-
-          tokenizer[prop] = function () {
-            for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-              args[_key2] = arguments[_key2];
-            }
-
-            var ret = extension.tokenizer[prop].apply(tokenizer, args);
-
-            if (ret === false) {
-              ret = prevTokenizer.apply(tokenizer, args);
-            }
-
-            return ret;
-          };
-        };
-
-        for (var prop in extension.tokenizer) {
-          _loop2(prop);
-        }
-
-        opts.tokenizer = tokenizer;
-      })();
-    }
-
-    if (extension.walkTokens) {
-      var walkTokens = marked.defaults.walkTokens;
-
-      opts.walkTokens = function (token) {
-        extension.walkTokens(token);
-
-        if (walkTokens) {
-          walkTokens(token);
-        }
-      };
-    }
-
-    marked.setOptions(opts);
-  };
-  /**
-      * Run callback for every token
-      */
-
-
-  marked.walkTokens = function (tokens, callback) {
-    for (var _iterator = _createForOfIteratorHelperLoose(tokens), _step; !(_step = _iterator()).done;) {
-      var token = _step.value;
-      callback(token);
-
-      switch (token.type) {
-        case 'table':
-          {
-            for (var _iterator2 = _createForOfIteratorHelperLoose(token.tokens.header), _step2; !(_step2 = _iterator2()).done;) {
-              var cell = _step2.value;
-              marked.walkTokens(cell, callback);
-            }
-
-            for (var _iterator3 = _createForOfIteratorHelperLoose(token.tokens.cells), _step3; !(_step3 = _iterator3()).done;) {
-              var row = _step3.value;
-
-              for (var _iterator4 = _createForOfIteratorHelperLoose(row), _step4; !(_step4 = _iterator4()).done;) {
-                var _cell = _step4.value;
-                marked.walkTokens(_cell, callback);
-              }
-            }
-
-            break;
-          }
-
-        case 'list':
-          {
-            marked.walkTokens(token.items, callback);
-            break;
-          }
-
-        default:
-          {
-            if (token.tokens) {
-              marked.walkTokens(token.tokens, callback);
-            }
-          }}
-
-    }
-  };
-  /**
-      * Parse Inline
-      */
-
-
-  marked.parseInline = function (src, opt) {
-    // throw error in case of non string input
-    if (typeof src === 'undefined' || src === null) {
-      throw new Error('marked.parseInline(): input parameter is undefined or null');
-    }
-
-    if (typeof src !== 'string') {
-      throw new Error('marked.parseInline(): input parameter is of type ' + Object.prototype.toString.call(src) + ', string expected');
-    }
-
-    opt = merge({}, marked.defaults, opt || {});
-    checkSanitizeDeprecation(opt);
-
-    try {
-      var tokens = Lexer_1.lexInline(src, opt);
-
-      if (opt.walkTokens) {
-        marked.walkTokens(tokens, opt.walkTokens);
-      }
-
-      return Parser_1.parseInline(tokens, opt);
-    } catch (e) {
-      e.message += '\nPlease report this to https://github.com/markedjs/marked.';
-
-      if (opt.silent) {
-        return '<p>An error occurred:</p><pre>' + escape(e.message + '', true) + '</pre>';
-      }
-
-      throw e;
-    }
-  };
-  /**
-      * Expose
-      */
-
-
-  marked.Parser = Parser_1;
-  marked.parser = Parser_1.parse;
-  marked.Renderer = Renderer_1;
-  marked.TextRenderer = TextRenderer_1;
-  marked.Lexer = Lexer_1;
-  marked.lexer = Lexer_1.lex;
-  marked.Tokenizer = Tokenizer_1;
-  marked.Slugger = Slugger_1;
-  marked.parse = marked;
-  var marked_1 = marked;
-
-  return marked_1;
-
-});
-
-/***/ }),
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */
-/*!**************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/cates.js ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.cates = void 0;var cates = {
-  "err_no": 0,
-  "err_msg": "success",
-  "data": [
-  {
-    "tag_id": "6809640407484334093",
-    "tag": {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 },
-
-    "user_interact": {
-      "id": 6809640407484334093,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640408797167623",
-    "tag": {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964889,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44010,
-      "concern_user_count": 409491 },
-
-    "user_interact": {
-      "id": 6809640408797167623,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640398105870343",
-    "tag": {
-      "id": 2546519,
-      "tag_id": "6809640398105870343",
-      "tag_name": "JavaScript",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/5d70fd6af940df373834.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1435884803,
-      "mtime": 1620964653,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 56906,
-      "concern_user_count": 386885 },
-
-    "user_interact": {
-      "id": 6809640398105870343,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640375880253447",
-    "tag": {
-      "id": 2546502,
-      "tag_id": "6809640375880253447",
-      "tag_name": "GitHub",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/0d614af263aa63aa6a77.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234558,
-      "mtime": 1620964308,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 9503,
-      "concern_user_count": 376314 },
-
-    "user_interact": {
-      "id": 6809640375880253447,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640404791590919",
-    "tag": {
-      "id": 2546524,
-      "tag_id": "6809640404791590919",
-      "tag_name": "面试",
-      "color": "#545454",
-      "icon": "https://lc-gold-cdn.xitu.io/85dd1ce8008458ac220c.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1435971430,
-      "mtime": 1620964655,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 12207,
-      "concern_user_count": 336069 },
-
-    "user_interact": {
-      "id": 6809640404791590919,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640501776482317",
-    "tag": {
-      "id": 2546594,
-      "tag_id": "6809640501776482317",
-      "tag_name": "架构",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/f27d811ad7e2b2a0bc24.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1439515816,
-      "mtime": 1620964309,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 8722,
-      "concern_user_count": 327706 },
-
-    "user_interact": {
-      "id": 6809640501776482317,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640456868085768",
-    "tag": {
-      "id": 2546562,
-      "tag_id": "6809640456868085768",
-      "tag_name": "代码规范",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/cca10b4907aaca2788dd.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1436291276,
-      "mtime": 1620964656,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 2147,
-      "concern_user_count": 318111 },
-
-    "user_interact": {
-      "id": 6809640456868085768,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640369764958215",
-    "tag": {
-      "id": 2546498,
-      "tag_id": "6809640369764958215",
-      "tag_name": "Vue.js",
-      "color": "#41B883",
-      "icon": "https://lc-gold-cdn.xitu.io/7b5c3eb591b671749fee.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234520,
-      "mtime": 1620964501,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 26170,
-      "concern_user_count": 302736 },
-
-    "user_interact": {
-      "id": 6809640369764958215,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640499062767624",
-    "tag": {
-      "id": 2546592,
-      "tag_id": "6809640499062767624",
-      "tag_name": "算法",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/68a1097944c7fa1d7961.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1439503293,
-      "mtime": 1620964658,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 18048,
-      "concern_user_count": 300178 },
-
-    "user_interact": {
-      "id": 6809640499062767624,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640394175971342",
-    "tag": {
-      "id": 2546516,
-      "tag_id": "6809640394175971342",
-      "tag_name": "CSS",
-      "color": "#244DE4",
-      "icon": "https://lc-gold-cdn.xitu.io/66de0c4eb9d10130d5bf.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432239426,
-      "mtime": 1620964313,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 12909,
-      "concern_user_count": 288782 },
-
-    "user_interact": {
-      "id": 6809640394175971342,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640445233070094",
-    "tag": {
-      "id": 2546553,
-      "tag_id": "6809640445233070094",
-      "tag_name": "Java",
-      "color": "#DD2C2A",
-      "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1436156295,
-      "mtime": 1620964566,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 65147,
-      "concern_user_count": 283705 },
-
-    "user_interact": {
-      "id": 6809640445233070094,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640361531539470",
-    "tag": {
-      "id": 2546492,
-      "tag_id": "6809640361531539470",
-      "tag_name": "Node.js",
-      "color": "#e81864",
-      "icon": "https://lc-gold-cdn.xitu.io/f16f548d25028a1fdd80.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234488,
-      "mtime": 1620964566,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 10597,
-      "concern_user_count": 273358 },
-
-    "user_interact": {
-      "id": 6809640361531539470,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640600502009863",
-    "tag": {
-      "id": 2546666,
-      "tag_id": "6809640600502009863",
-      "tag_name": "数据库",
-      "color": "#000000",
-      "icon": "https://lc-gold-cdn.xitu.io/c57a5426c2a8ab565881.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1446683560,
-      "mtime": 1620964567,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 9860,
-      "concern_user_count": 270487 },
-
-    "user_interact": {
-      "id": 6809640600502009863,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640482725953550",
-    "tag": {
-      "id": 2546581,
-      "tag_id": "6809640482725953550",
-      "tag_name": "程序员",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/63baec1130bde0284e98.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1438712834,
-      "mtime": 1620964401,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 13353,
-      "concern_user_count": 267405 },
-
-    "user_interact": {
-      "id": 6809640482725953550,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640467731316749",
-    "tag": {
-      "id": 2546570,
-      "tag_id": "6809640467731316749",
-      "tag_name": "设计模式",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/95e6729d56b35272b0d6.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1437074032,
-      "mtime": 1620964569,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 6334,
-      "concern_user_count": 253592 },
-
-    "user_interact": {
-      "id": 6809640467731316749,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640400832167949",
-    "tag": {
-      "id": 2546521,
-      "tag_id": "6809640400832167949",
-      "tag_name": "Android",
-      "color": "#A3CC28",
-      "icon": "https://lc-gold-cdn.xitu.io/7bab0e1e66ea386e6f94.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435964175,
-      "mtime": 1620964762,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 37584,
-      "concern_user_count": 251104 },
-
-    "user_interact": {
-      "id": 6809640400832167949,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640402103042061",
-    "tag": {
-      "id": 2546522,
-      "tag_id": "6809640402103042061",
-      "tag_name": "前端框架",
-      "color": "#F2AB5B",
-      "icon": "https://lc-gold-cdn.xitu.io/f7a198f1e1aeb6d79878.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1435964339,
-      "mtime": 1620964319,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 3878,
-      "concern_user_count": 248696 },
-
-    "user_interact": {
-      "id": 6809640402103042061,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640392770715656",
-    "tag": {
-      "id": 2546515,
-      "tag_id": "6809640392770715656",
-      "tag_name": "HTML",
-      "color": "#E44D25",
-      "icon": "https://lc-gold-cdn.xitu.io/f18965b2a0ef9cac862e.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432239419,
-      "mtime": 1620964319,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 5534,
-      "concern_user_count": 233227 },
-
-    "user_interact": {
-      "id": 6809640392770715656,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640357354012685",
-    "tag": {
-      "id": 2546490,
-      "tag_id": "6809640357354012685",
-      "tag_name": "React.js",
-      "color": "#61DAFB",
-      "icon": "https://lc-gold-cdn.xitu.io/f655215074250f10f8d4.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234367,
-      "mtime": 1620964321,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 14859,
-      "concern_user_count": 220629 },
-
-    "user_interact": {
-      "id": 6809640357354012685,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640385980137480",
-    "tag": {
-      "id": 2546510,
-      "tag_id": "6809640385980137480",
-      "tag_name": "Linux",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/b49dc843907aa7843a77.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234608,
-      "mtime": 1620964706,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 8379,
-      "concern_user_count": 219898 },
-
-    "user_interact": {
-      "id": 6809640385980137480,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640406058270733",
-    "tag": {
-      "id": 2546525,
-      "tag_id": "6809640406058270733",
-      "tag_name": "设计",
-      "color": "#F56868",
-      "icon": "https://lc-gold-cdn.xitu.io/f2e3a6fceb1a4f1ce6b6.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971510,
-      "mtime": 1620964573,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 5913,
-      "concern_user_count": 215761 },
-
-    "user_interact": {
-      "id": 6809640406058270733,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640653266354190",
-    "tag": {
-      "id": 2546704,
-      "tag_id": "6809640653266354190",
-      "tag_name": "微信小程序",
-      "color": "#11a600",
-      "icon": "https://lc-gold-cdn.xitu.io/a1e7773920f51db40441.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1474932627,
-      "mtime": 1620964768,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 6479,
-      "concern_user_count": 214912 },
-
-    "user_interact": {
-      "id": 6809640653266354190,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640419505209358",
-    "tag": {
-      "id": 2546535,
-      "tag_id": "6809640419505209358",
-      "tag_name": "开源",
-      "color": "#6EBD68",
-      "icon": "https://lc-gold-cdn.xitu.io/553ecacd498946a9a6d9.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1435972427,
-      "mtime": 1620964574,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 5642,
-      "concern_user_count": 211798 },
-
-    "user_interact": {
-      "id": 6809640419505209358,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640373774712840",
-    "tag": {
-      "id": 2546501,
-      "tag_id": "6809640373774712840",
-      "tag_name": "Git",
-      "color": "#F64E19",
-      "icon": "https://lc-gold-cdn.xitu.io/3cf1219be35e6fa28229.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234555,
-      "mtime": 1620964574,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 5240,
-      "concern_user_count": 210669 },
-
-    "user_interact": {
-      "id": 6809640373774712840,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640448827588622",
-    "tag": {
-      "id": 2546556,
-      "tag_id": "6809640448827588622",
-      "tag_name": "Python",
-      "color": "#356E9C",
-      "icon": "https://lc-gold-cdn.xitu.io/b51a1dacf9bb7883defe.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1436156327,
-      "mtime": 1620964772,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 20946,
-      "concern_user_count": 208824 },
-
-    "user_interact": {
-      "id": 6809640448827588622,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640528267706382",
-    "tag": {
-      "id": 2546614,
-      "tag_id": "6809640528267706382",
-      "tag_name": "Webpack",
-      "color": "#6F94DB",
-      "icon": "https://lc-gold-cdn.xitu.io/73e856b07f83b4231c1e.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1440920866,
-      "mtime": 1620964329,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 5966,
-      "concern_user_count": 199277 },
-
-    "user_interact": {
-      "id": 6809640528267706382,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640642101116936",
-    "tag": {
-      "id": 2546696,
-      "tag_id": "6809640642101116936",
-      "tag_name": "人工智能",
-      "color": "#2e6cff",
-      "icon": "https://lc-gold-cdn.xitu.io/9b525117507d7a76c4ac.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1472072600,
-      "mtime": 1620964773,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 10828,
-      "concern_user_count": 195776 },
-
-    "user_interact": {
-      "id": 6809640642101116936,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640621406421006",
-    "tag": {
-      "id": 2546680,
-      "tag_id": "6809640621406421006",
-      "tag_name": "产品",
-      "color": "#78c5ff",
-      "icon": "https://lc-gold-cdn.xitu.io/e98ecc945167940d7b6a.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1457906357,
-      "mtime": 1620964651,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 10500,
-      "concern_user_count": 188682 },
-
-    "user_interact": {
-      "id": 6809640621406421006,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640366896054286",
-    "tag": {
-      "id": 2546496,
-      "tag_id": "6809640366896054286",
-      "tag_name": "MySQL",
-      "color": "#026088",
-      "icon": "https://lc-gold-cdn.xitu.io/b2fbb06dce13eeb3bb9b.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234510,
-      "mtime": 1620964581,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 8631,
-      "concern_user_count": 182621 },
-
-    "user_interact": {
-      "id": 6809640366896054286,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } },
-
-
-  {
-    "tag_id": "6809640458684203021",
-    "tag": {
-      "id": 2546563,
-      "tag_id": "6809640458684203021",
-      "tag_name": "全栈",
-      "color": "#F56868",
-      "icon": "https://lc-gold-cdn.xitu.io/993d9815412ebf9bc888.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1436291642,
-      "mtime": 1620964780,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 670,
-      "concern_user_count": 181008 },
-
-    "user_interact": {
-      "id": 6809640458684203021,
-      "omitempty": 9,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false } }],
-
-
-
-  "cursor": "30",
-  "count": 638,
-  "has_more": true };exports.cates = cates;var _default =
-
-
-{
-  cates: cates };exports.default = _default;
-
-/***/ }),
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */
-/*!************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/tag.js ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.tag = void 0;var tag = {
-  "err_no": 0,
-  "err_msg": "success",
-  "data": [
-  {
-    "article_id": "6961790494514872333",
-    "article_info": {
-      "article_id": "6961790494514872333",
-      "user_id": "2788017216685118",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093,
-      6809640398105870343],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ac32a3c3b5e4fd1862a4c1b31b16719~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "JavaScript Debugger 原理揭秘",
-      "brief_content": "debugger 的实现原理。ide 和 chrome devtools 如何实现调试功能的。本文带你深入探索 debugger 的原理。",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 13.96181691505657,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620918367",
-      "mtime": "1620963891",
-      "rtime": "1620963891",
-      "draft_id": "6961763941789728782",
-      "view_count": 1671,
-      "collect_count": 31,
-      "digg_count": 40,
-      "comment_count": 5,
-      "hot_index": 124,
-      "is_hot": 0,
-      "rank_index": 96.23390965,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "2788017216685118",
-      "user_name": "zxg_神说要有光",
-      "company": "阿里巴巴",
-      "job_title": "前端",
-      "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/553525665fce924274a5fea3e42d289b~300x300.image",
-      "level": 3,
-      "description": "《babel插件通关秘籍》即将上线，公众号「神光的编程秘籍」",
-      "followee_count": 169,
-      "follower_count": 1185,
-      "post_article_count": 10,
-      "digg_article_count": 221,
-      "got_digg_count": 2095,
-      "got_view_count": 59577,
-      "post_shortmsg_count": 7,
-      "digg_shortmsg_count": 4,
-      "isfollowed": false,
-      "favorable_author": 1,
-      "power": 2688,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 },
-
-    {
-      "id": 2546519,
-      "tag_id": "6809640398105870343",
-      "tag_name": "JavaScript",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/5d70fd6af940df373834.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1435884803,
-      "mtime": 1620965050,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 56905,
-      "concern_user_count": 386885 }],
-
-
-    "user_interact": {
-      "id": 6961790494514872333,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961961165656326152",
-    "article_info": {
-      "article_id": "6961961165656326152",
-      "user_id": "1978776660216136",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093,
-      6809640528267706382],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "做了一夜动画，让大家十分钟搞懂Webpack",
-      "brief_content": "做了一夜动画，让大家十分钟搞懂Webpack 一、什么是webpack webpack是一个打包工具，他的宗旨是一切静态资源皆可打包。 二、原理分析 首先我们通过一个制作一个打包文件的原型。 假设有两",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 0,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620957986",
-      "mtime": "1620958179",
-      "rtime": "1620958013",
-      "draft_id": "6960124692996816904",
-      "view_count": 1769,
-      "collect_count": 53,
-      "digg_count": 56,
-      "comment_count": 8,
-      "hot_index": 148,
-      "is_hot": 0,
-      "rank_index": 29.90391209,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "1978776660216136",
-      "user_name": "全栈然叔",
-      "company": "@花果山",
-      "job_title": "",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/406cea3f24e05b9522a65c9b9cf124c2~300x300.image",
-      "level": 4,
-      "description": "刻意学习者、IT老兵",
-      "followee_count": 52,
-      "follower_count": 4862,
-      "post_article_count": 48,
-      "digg_article_count": 320,
-      "got_digg_count": 6059,
-      "got_view_count": 257824,
-      "post_shortmsg_count": 35,
-      "digg_shortmsg_count": 7,
-      "isfollowed": false,
-      "favorable_author": 1,
-      "power": 8647,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 },
-
-    {
-      "id": 2546614,
-      "tag_id": "6809640528267706382",
-      "tag_name": "Webpack",
-      "color": "#6F94DB",
-      "icon": "https://lc-gold-cdn.xitu.io/73e856b07f83b4231c1e.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1440920866,
-      "mtime": 1620964329,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 5966,
-      "concern_user_count": 199277 }],
-
-
-    "user_interact": {
-      "id": 6961961165656326152,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961768585018474509",
-    "article_info": {
-      "article_id": "6961768585018474509",
-      "user_id": "1556564194374926",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093,
-      6809640408797167623,
-      6809640400832167949,
-      6809640399544516616,
-      6809640482725953550],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "职业规划直播专场 | “助力升级”征文活动",
-      "brief_content": "职业规划的专场直播活动结束了，感谢大家的参与，感谢淘系高级前端专家张挺老师的分享！ 直播中张挺老师跟大家分享了自己在职业成长路上的几个迷茫时期，是怎么应对的，以及自己的观点和经验总结，不管是职业初期还",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 0,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620913306",
-      "mtime": "1620964763",
-      "rtime": "1620964763",
-      "draft_id": "6961761919615107108",
-      "view_count": 297,
-      "collect_count": 0,
-      "digg_count": 5,
-      "comment_count": 0,
-      "hot_index": 19,
-      "is_hot": 0,
-      "rank_index": 18.19722436,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "1556564194374926",
-      "user_name": "掘金酱",
-      "company": "掘金",
-      "job_title": "❤首席客服君",
-      "avatar_large": "https://mirror-gold-cdn.xitu.io/168e0858b6ccfd57fe5",
-      "level": 4,
-      "description": "光吃不胖的掘金酱",
-      "followee_count": 158,
-      "follower_count": 3339,
-      "post_article_count": 74,
-      "digg_article_count": 6465,
-      "got_digg_count": 3878,
-      "got_view_count": 560861,
-      "post_shortmsg_count": 94,
-      "digg_shortmsg_count": 108,
-      "isfollowed": false,
-      "favorable_author": 1,
-      "power": 9487,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 },
-
-    {
-      "id": 2546527,
-      "tag_id": "6809640408797167623",
-      "tag_name": "后端",
-      "color": "#C679FF",
-      "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971556,
-      "mtime": 1620964889,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 44011,
-      "concern_user_count": 409491 },
-
-    {
-      "id": 2546521,
-      "tag_id": "6809640400832167949",
-      "tag_name": "Android",
-      "color": "#A3CC28",
-      "icon": "https://lc-gold-cdn.xitu.io/7bab0e1e66ea386e6f94.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435964175,
-      "mtime": 1620964762,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 37584,
-      "concern_user_count": 251104 },
-
-    {
-      "id": 2546520,
-      "tag_id": "6809640399544516616",
-      "tag_name": "iOS",
-      "color": "#616161",
-      "icon": "https://user-gold-cdn.xitu.io/155962881259379c25251a455680e3249366e3a3ac373.jpg",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435964171,
-      "mtime": 1620964527,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 22820,
-      "concern_user_count": 177394 },
-
-    {
-      "id": 2546581,
-      "tag_id": "6809640482725953550",
-      "tag_name": "程序员",
-      "color": "#616161",
-      "icon": "https://lc-gold-cdn.xitu.io/63baec1130bde0284e98.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1438712834,
-      "mtime": 1620964401,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 13353,
-      "concern_user_count": 267405 }],
-
-
-    "user_interact": {
-      "id": 6961768585018474509,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961757804491178014",
-    "article_info": {
-      "article_id": "6961757804491178014",
-      "user_id": "4169764695465239",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31fca823d3ef485b90e9c84325c4be63~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "移动端那些戳中你痛点的软键盘问题及解决方法",
-      "brief_content": "一篇文章，让你远离移动端软键盘疑难杂症。\"踩坑人\"带你远离软键盘之坑，从避坑（软键盘问题）到填坑（如何解决）",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 0,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620910658",
-      "mtime": "1620960840",
-      "rtime": "1620960840",
-      "draft_id": "6961376358769360910",
-      "view_count": 191,
-      "collect_count": 18,
-      "digg_count": 14,
-      "comment_count": 1,
-      "hot_index": 24,
-      "is_hot": 0,
-      "rank_index": 7.78072491,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "4169764695465239",
-      "user_name": "ELab",
-      "company": "公众号：ELab团队",
-      "job_title": "前端工程师",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/2fcea6a9c80b959f2f0e11c9d8667dc3~300x300.image",
-      "level": 3,
-      "description": "字节跳动大力教育前端团队，负责教育全线产品前端开发工作。",
-      "followee_count": 5,
-      "follower_count": 225,
-      "post_article_count": 24,
-      "digg_article_count": 23,
-      "got_digg_count": 822,
-      "got_view_count": 25538,
-      "post_shortmsg_count": 20,
-      "digg_shortmsg_count": 2,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 1077,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 }],
-
-
-    "user_interact": {
-      "id": 6961757804491178014,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": {
-        "org_type": 1,
-        "org_id": "6954914058332176397",
-        "online_version_id": 6954310385126080545,
-        "latest_version_id": 6954310385126080545,
-        "power": 5159,
-        "ctime": 1619491183,
-        "mtime": 1620964823,
-        "audit_status": 2,
-        "status": 0,
-        "org_version": {
-          "version_id": "6954310385126080545",
-          "icon": "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bf7260e68824c658d505ccd0d451669~tplv-k3u1fbpfcp-watermark.image",
-          "background": "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/455f10823b3f4b49b3318302507d0ffd~tplv-k3u1fbpfcp-watermark.image",
-          "name": "字节教育",
-          "introduction": "![](https://tech-proxy.bytedance.net/tos/images/1619576751469_35567ed41fee60ab28d53ada7daff76c)\n\n![](https://tech-proxy.bytedance.net/tos/images/1619576751316_9387c9938901b085e61685a94e02d126)\n\n我们来自字节跳动，是旗下大力教育前端部门，负责字节跳动教育全线产品前端开发工作。\n\n我们围绕产品品质提升、开发效率、创意与前沿技术等方向沉淀与传播专业知识及案例，为业界贡献经验价值。包括但不限于性能监控、组件库、多端技术、Serverless、可视化搭建、音视频、人工智能、产品设计与营销等内容。\n\n![](https://tech-proxy.bytedance.net/tos/images/1619576751361_1d95d2c260eeeda41999d1a30976c4a5)\n\n![](https://tech-proxy.bytedance.net/tos/images/1619576751305_e3ce2c06348d9c0ca9d4cefa99f18286)\n\n大力教育业务横跨 Pre-K、K12、成人教育多年龄段，涵盖多学科、多课程，软硬件均有探索。旗下产品包括瓜瓜龙启蒙、你拍一、GoGoKid、清北网校、大力智能、极课大数据、Ai学、开言英语、学浪、教育硬件等。目前大力教育员工已超过一万人。\n\n![](https://tech-proxy.bytedance.net/tos/images/1619576751373_ed0861e3ecb1c1a4cfb87770725996af)\n\n![](https://tech-proxy.bytedance.net/tos/images/1619576751308_244dd7d5cba4699b09cf43a0b325e50e)\n\n对每一个家庭而言，教育就是一个孕育 “奇迹” 的地方。大力教育秉承着 “创新教育，成就每一个人” 的使命，以及成为 “全球领先的教育科技公司” 的使命，希望通过产品和技术深耕教育，通过理念创新、科技创新、产品创新真正实现教育的创新。\n\n教育是改变人生的大事，创新教育需要从小到大，从学校到家庭，从工作到生活的全方位视角，需要更多合作者一起调动整个社会的力量。这正是大力教育全面铺开，努力实现 “大教育” 的坚持和初心。\n\n![](https://tech-proxy.bytedance.net/tos/images/1619576751353_634e511d8669a5ee8d90dacd4f78882d)\n\n大力教育前端团队欢迎致力于创新教育，追求全球化平台的那个 “你” 加入我们，和优秀的人一起做有挑战的事情！\n\n我们希望每一个加入教育前端团队的同学，都能从平凡蜕变成优秀，从优秀进阶到顶尖，我们一起做优秀的事，做优秀的产品，做公司乃至业界有影响力的前端技术团队。",
-          "weibo_link": "",
-          "github_link": "",
-          "homepage_link": "",
-          "ctime": 1619577541,
-          "mtime": 1619577541,
-          "org_id": "6954914058332176397",
-          "brief_introduction": "字节跳动大力教育前端团队，负责教育全线产品前端开发工作。",
-          "introduction_preview": "[图片]\n[图片]\n我们来自字节跳动，是旗下大力教育前端部门，负责字节跳动教育全线产品前端开发工作。\n我们围绕产品品质提升、开发效率、创意与前沿技术等方向沉淀与传播专业知识及案例，为业界贡献经验价值。包括但不限于性能监控、组件库、多端技术、Serverless、可视化搭建、音视频、人工智能、产品设计与营销等内容。\n[图片]\n[图片]\n大力教育业务横跨 Pre-K、K12、成人教育多年龄段，涵盖多学科、多课程，软硬件均有探索。旗下产品包括瓜瓜龙启蒙、你拍一、GoGoKid、清北网校、大力智能、极课大数据、Ai学、开言英语、学浪、教育硬件等。目前大力教育员工已超过一万人。\n[图片]\n[图片]\n对每一个家庭而言，教育就是一个孕育 “奇迹” 的地方。大力教育秉承着 “创新教育，成就每一个人” 的使命，以及成为 “全球领先的教育科技公司” 的使命，希望通过产品和技术深耕教育，通过理念创新、科技创新、产品创新真正实现教育的创新。\n教育是改变人生的大事，创新教育需要从小到大，从学校到家庭，从工作到生活的全方位视角，需要更多合作者一起调动整个社会的力量。这正是大力教育全面铺开，努力实现 “大教育” 的坚持和初心。\n[图片]\n大力教育前端团队欢迎致力于创新教育，追求全球化平台的那个 “你” 加入我们，和优秀的人一起做有挑战的事情！\n我们希望每一个加入教育前端团队的同学，都能从平凡蜕变成优秀，从优秀进阶到顶尖，我们一起做优秀的事，做优秀的产品，做公司乃至业界有影响力的前端技术团队。" },
-
-        "follower_count": 297,
-        "article_view_count": 121103,
-        "article_digg_count": 3948 },
-
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961780305887756296",
-    "article_info": {
-      "article_id": "6961780305887756296",
-      "user_id": "2049145407280557",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "事件循环机制EventLoop",
-      "brief_content": "在说EventLoop之前我们先看一道题 console.log(111); 永远都不会输出，因为javaScript 是单线程 线程与进程 概念 我们经常说JS是单线程执行的，指的是一个进程里只有一",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 2.933875302918779,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620915956",
-      "mtime": "1620961003",
-      "rtime": "1620961003",
-      "draft_id": "6961775882578952205",
-      "view_count": 185,
-      "collect_count": 4,
-      "digg_count": 3,
-      "comment_count": 0,
-      "hot_index": 11,
-      "is_hot": 0,
-      "rank_index": 4.66622626,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "2049145407280557",
-      "user_name": "贪吃的猫",
-      "company": "",
-      "job_title": "前端开发",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/944711d0171517fd54809d133bde5907~300x300.image",
-      "level": 1,
-      "description": "每天坚持学习，学习要有输出。有计划有目标进行。坚持就是胜利！",
-      "followee_count": 8,
-      "follower_count": 2,
-      "post_article_count": 8,
-      "digg_article_count": 8,
-      "got_digg_count": 19,
-      "got_view_count": 982,
-      "post_shortmsg_count": 0,
-      "digg_shortmsg_count": 0,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 28,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 }],
-
-
-    "user_interact": {
-      "id": 6961780305887756296,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961750750208720903",
-    "article_info": {
-      "article_id": "6961750750208720903",
-      "user_id": "588993965336503",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "详细版输入URL到界面展示的过程",
-      "brief_content": "本文主要通过以下几个方面说明： 域名解析 发起请求 HTML解析 CSS解析 布局 绘制 域名解析 在计算机网络中，我们只能通过IP地址访问到具体的主机。我们不能通过域名直接访问。我们的前端的静态资源",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 2.176239490286997,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620909052",
-      "mtime": "1620960782",
-      "rtime": "1620960782",
-      "draft_id": "6961747499384045576",
-      "view_count": 123,
-      "collect_count": 6,
-      "digg_count": 5,
-      "comment_count": 0,
-      "hot_index": 11,
-      "is_hot": 0,
-      "rank_index": 4.22378299,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "588993965336503",
-      "user_name": "Bye丶L",
-      "company": "",
-      "job_title": "前端开发",
-      "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/7fe0bb1d3db00d0bdcfb48c1a67cf856~300x300.image",
-      "level": 1,
-      "description": "",
-      "followee_count": 19,
-      "follower_count": 6,
-      "post_article_count": 13,
-      "digg_article_count": 19,
-      "got_digg_count": 27,
-      "got_view_count": 984,
-      "post_shortmsg_count": 0,
-      "digg_shortmsg_count": 0,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 36,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 }],
-
-
-    "user_interact": {
-      "id": 6961750750208720903,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961605698069381134",
-    "article_info": {
-      "article_id": "6961605698069381134",
-      "user_id": "676954895831517",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "钉钉前端-如何设计前端实时分析及报警系统",
-      "brief_content": "前言 本文来自 2020年4月25日，前端早早聊第五届“前端搞监控”专场分享嘉宾 - 钉钉前端团队监控负责人 烛象(slashhuang) 的分享实录《钉钉前端-如何设计前端实时分析及报警系统》。 正",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 7.938724591832235,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620875306",
-      "mtime": "1620897863",
-      "rtime": "1620897863",
-      "draft_id": "6961605702439665694",
-      "view_count": 4404,
-      "collect_count": 112,
-      "digg_count": 133,
-      "comment_count": 15,
-      "hot_index": 368,
-      "is_hot": 0,
-      "rank_index": 4.32827365,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "676954895831517",
-      "user_name": "钉钉前端团队",
-      "company": "钉钉",
-      "job_title": "前端技术沉淀、分享",
-      "avatar_large": "https://user-gold-cdn.xitu.io/2020/3/30/171299514d95c070?w=640&h=640&f=jpeg&s=31672",
-      "level": 2,
-      "description": "公众号: 钉钉大前端团队",
-      "followee_count": 4,
-      "follower_count": 1152,
-      "post_article_count": 15,
-      "digg_article_count": 11,
-      "got_digg_count": 327,
-      "got_view_count": 20689,
-      "post_shortmsg_count": 4,
-      "digg_shortmsg_count": 1,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 533,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 1,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 }],
-
-
-    "user_interact": {
-      "id": 6961605698069381134,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961606343442726925",
-    "article_info": {
-      "article_id": "6961606343442726925",
-      "user_id": "2656056996542504",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/094ea2979fe0412e8b1fddff220cd581~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "低代码真的是“行业毒瘤”吗？",
-      "brief_content": "“放屁，现在哪个程序员不使用低代码工具？你真的以为低代码这个概念是最近才有的吗？你懂个屁，低代码一直都是高效的生产力工具。”",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 6.390006913180865,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620875339",
-      "mtime": "1620876222",
-      "rtime": "1620876222",
-      "draft_id": "6961599396370710536",
-      "view_count": 4996,
-      "collect_count": 25,
-      "digg_count": 25,
-      "comment_count": 50,
-      "hot_index": 323,
-      "is_hot": 0,
-      "rank_index": 2.53947593,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "2656056996542504",
-      "user_name": "勾崽",
-      "company": "公号：勾勾的前端世界",
-      "job_title": "前端切图仔",
-      "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/ebc1aca6bab5ac1420c264ff2299488e~300x300.image",
-      "level": 3,
-      "description": "切图/打工/摸鱼/泡澡",
-      "followee_count": 46,
-      "follower_count": 144,
-      "post_article_count": 77,
-      "digg_article_count": 36,
-      "got_digg_count": 481,
-      "got_view_count": 61357,
-      "post_shortmsg_count": 44,
-      "digg_shortmsg_count": 44,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 1094,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 }],
-
-
-    "user_interact": {
-      "id": 6961606343442726925,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6961783397274353672",
-    "article_info": {
-      "article_id": "6961783397274353672",
-      "user_id": "2392981720542840",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640407484334093],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "",
-      "is_gfw": 0,
-      "title": "网络协议之TCP,UDP,IP",
-      "brief_content": "TCP TCP 是面向连接的、可靠的、基于字节流的传输层通信协议。 面向连接：一定是「一对一」才能连接，不能像 UDP 协议可以一个主机同时向多个主机发送消息，也就是一对多是无法做到的； 可靠的：无论",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 2.089693646737103,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620916658",
-      "mtime": "1620960984",
-      "rtime": "1620960984",
-      "draft_id": "6961782529795817508",
-      "view_count": 67,
-      "collect_count": 1,
-      "digg_count": 0,
-      "comment_count": 0,
-      "hot_index": 3,
-      "is_hot": 0,
-      "rank_index": 1.69798595,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "2392981720542840",
-      "user_name": "成长的路好漫长",
-      "company": "",
-      "job_title": "",
-      "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/mosaic-legacy/3791/5035712059~300x300.image",
-      "level": 1,
-      "description": "",
-      "followee_count": 19,
-      "follower_count": 1,
-      "post_article_count": 3,
-      "digg_article_count": 23,
-      "got_digg_count": 3,
-      "got_view_count": 176,
-      "post_shortmsg_count": 0,
-      "digg_shortmsg_count": 0,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 4,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 }],
-
-
-    "user_interact": {
-      "id": 6961783397274353672,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } },
-
-
-  {
-    "article_id": "6960506633839443981",
-    "article_info": {
-      "article_id": "6960506633839443981",
-      "user_id": "1336628107814488",
-      "category_id": "6809637767543259144",
-      "tag_ids": [
-      6809640369764958215,
-      6809640407484334093],
-
-      "visible_level": 0,
-      "link_url": "",
-      "cover_image": "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4aef7e64d7b45bab22155ac0cd04070~tplv-k3u1fbpfcp-watermark.image",
-      "is_gfw": 0,
-      "title": "昨晚尤大的连麦直播，我学到了很多！！！",
-      "brief_content": "昨晚朋友圈已经被连麦尤大的直播刷屏了，主要就是答答疑，聊聊天～ 总共大概聊了一个半小时。 我也抱着 「学习」 、「长见识」 的态度去直播间听了一个多小时",
-      "is_english": 0,
-      "is_original": 1,
-      "user_index": 0,
-      "original_type": 0,
-      "original_author": "",
-      "content": "",
-      "ctime": "1620619477",
-      "mtime": "1620653202",
-      "rtime": "1620621234",
-      "draft_id": "6960478255304409124",
-      "view_count": 24549,
-      "collect_count": 190,
-      "digg_count": 450,
-      "comment_count": 128,
-      "hot_index": 1804,
-      "is_hot": 0,
-      "rank_index": 1.90439662,
-      "status": 2,
-      "verify_status": 1,
-      "audit_status": 2,
-      "mark_content": "" },
-
-    "author_user_info": {
-      "user_id": "1336628107814488",
-      "user_name": "零一01",
-      "company": "字节跳动",
-      "job_title": "公众号「前端印象」",
-      "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/0c62997f869a87c21a817f292cc9a7a6~300x300.image",
-      "level": 3,
-      "description": "我是「零一」，记录技术成长过程中的点点滴滴，请大家见证我从0到1的过程吧",
-      "followee_count": 53,
-      "follower_count": 984,
-      "post_article_count": 23,
-      "digg_article_count": 69,
-      "got_digg_count": 3069,
-      "got_view_count": 95074,
-      "post_shortmsg_count": 10,
-      "digg_shortmsg_count": 2,
-      "isfollowed": false,
-      "favorable_author": 0,
-      "power": 4019,
-      "study_point": 0,
-      "university": {
-        "university_id": "0",
-        "name": "",
-        "logo": "" },
-
-      "major": {
-        "major_id": "0",
-        "parent_id": "0",
-        "name": "" },
-
-      "student_status": 0,
-      "select_event_count": 0,
-      "select_online_course_count": 0,
-      "identity": 0,
-      "is_select_annual": false,
-      "select_annual_rank": 0,
-      "annual_list_type": 0,
-      "extraMap": {} },
-
-    "category": {
-      "category_id": "6809637767543259144",
-      "category_name": "前端",
-      "category_url": "frontend",
-      "rank": 2,
-      "ctime": 1457483942,
-      "mtime": 1432503190,
-      "show_type": 3 },
-
-    "tags": [
-    {
-      "id": 2546498,
-      "tag_id": "6809640369764958215",
-      "tag_name": "Vue.js",
-      "color": "#41B883",
-      "icon": "https://lc-gold-cdn.xitu.io/7b5c3eb591b671749fee.png",
-      "back_ground": "",
-      "show_navi": 0,
-      "ctime": 1432234520,
-      "mtime": 1620964501,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 26170,
-      "concern_user_count": 302736 },
-
-    {
-      "id": 2546526,
-      "tag_id": "6809640407484334093",
-      "tag_name": "前端",
-      "color": "#60ADFF",
-      "icon": "https://lc-gold-cdn.xitu.io/bac28828a49181c34110.png",
-      "back_ground": "",
-      "show_navi": 1,
-      "ctime": 1435971546,
-      "mtime": 1620964652,
-      "id_type": 9,
-      "tag_alias": "",
-      "post_article_count": 55415,
-      "concern_user_count": 512123 }],
-
-
-    "user_interact": {
-      "id": 6960506633839443981,
-      "omitempty": 2,
-      "user_id": 0,
-      "is_digg": false,
-      "is_follow": false,
-      "is_collect": false },
-
-    "org": {
-      "org_info": null,
-      "org_user": null,
-      "is_followed": false } }],
-
-
-
-  "cursor": "eyJ2IjoiNjk2MTc5MDQ5NDUxNDg3MjMzMyIsImkiOjEwfQ==",
-  "count": 15555,
-  "has_more": true };exports.tag = tag;var _default =
-
-
-{
-  tag: tag };exports.default = _default;
-
-/***/ }),
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */
-/*!***************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/utils/search.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = exports.search = void 0;var search = {
-  "err_no": 0,
-  "err_msg": "success",
-  "data": [
-  {
-    "result_type": 9,
-    "result_model": {
-      "tag_id": "6809640445233070094",
-      "tag": {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 },
-
-      "user_interact": {
-        "id": 6809640445233070094,
-        "omitempty": 9,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false } },
-
-
-    "search_attached_info": "1019330523781862056:0:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6961574923227955230",
-      "article_info": {
-        "article_id": "6961574923227955230",
-        "user_id": "3289387412501624",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "您能说说序列化和反序列化吗？是怎么实现的？什么场景下需要它? | Java Debug 笔记",
-        "brief_content": "序列化和反序列化是Java中最基础的知识点，也是很容易被大家遗忘的，虽然天天使用它，但并不一定都能清楚的说明白。",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 5.080173433177302,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620868035",
-        "mtime": "1620891458",
-        "rtime": "1620875324",
-        "draft_id": "6961538343888764941",
-        "view_count": 148,
-        "collect_count": 2,
-        "digg_count": 3,
-        "comment_count": 0,
-        "hot_index": 10,
-        "is_hot": 0,
-        "rank_index": 0.11743178,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "3289387412501624",
-        "user_name": "xcbeyond",
-        "company": "程序猿技术大咖",
-        "job_title": "架构师",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/55024cc237dfc23b1c88540e18f707e5~300x300.image",
-        "level": 2,
-        "description": "现任架构师，拥有8年+研发经验，多年互联网金融行业背景，乐于技术输出、分享。对于Java、微服务、数据库、Docker有深入研究，并有大量的调优经验。",
-        "followee_count": 7,
-        "follower_count": 131,
-        "post_article_count": 106,
-        "digg_article_count": 103,
-        "got_digg_count": 518,
-        "got_view_count": 30874,
-        "post_shortmsg_count": 50,
-        "digg_shortmsg_count": 45,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 826,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6961574923227955230,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:1:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6960902519539105829",
-      "article_info": {
-        "article_id": "6960902519539105829",
-        "user_id": "2418581314483352",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640408797167623],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "恍然大悟丨Java 中 RMI 的使用",
-        "brief_content": "RMI 介绍 RMI (Remote Method Invocation) 模型是一种分布式对象应用，使用 RMI 技术可以使一个 JVM 中的对象，调用另一个 JVM 中的对象方法并获取调用结果。这",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 1.293636511835754,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620711435",
-        "mtime": "1620724984",
-        "rtime": "1620724984",
-        "draft_id": "6960901085238132743",
-        "view_count": 115,
-        "collect_count": 2,
-        "digg_count": 2,
-        "comment_count": 0,
-        "hot_index": 7,
-        "is_hot": 0,
-        "rank_index": 0.01879639,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "2418581314483352",
-        "user_name": "Java斗帝之路",
-        "company": "",
-        "job_title": "Java开发",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/187e86f12a7932e9923981ddc7b29048~300x300.image",
-        "level": 2,
-        "description": "十年后端开发经验随手写一些生活趣事与技术知识",
-        "followee_count": 15,
-        "follower_count": 37,
-        "post_article_count": 238,
-        "digg_article_count": 55,
-        "got_digg_count": 185,
-        "got_view_count": 21282,
-        "post_shortmsg_count": 9,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 399,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546527,
-        "tag_id": "6809640408797167623",
-        "tag_name": "后端",
-        "color": "#C679FF",
-        "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971556,
-        "mtime": 1620965209,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 44013,
-        "concern_user_count": 409492 }],
-
-
-      "user_interact": {
-        "id": 6960902519539105829,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:2:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6960222724153147406",
-      "article_info": {
-        "article_id": "6960222724153147406",
-        "user_id": "3289387412501624",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Map 在 Java 8 中增加非常实用哪些函数接口？",
-        "brief_content": "掌握了Map中的方法，你会秒杀一切。相比 Collection，Map 中加入了更多的方法，快快学习下吧，看你知道几个",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 5.344383219081629,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620553243",
-        "mtime": "1620556493",
-        "rtime": "1620556493",
-        "draft_id": "6960217411559784484",
-        "view_count": 663,
-        "collect_count": 6,
-        "digg_count": 9,
-        "comment_count": 0,
-        "hot_index": 42,
-        "is_hot": 0,
-        "rank_index": 0.03892888,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "3289387412501624",
-        "user_name": "xcbeyond",
-        "company": "程序猿技术大咖",
-        "job_title": "架构师",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/55024cc237dfc23b1c88540e18f707e5~300x300.image",
-        "level": 2,
-        "description": "现任架构师，拥有8年+研发经验，多年互联网金融行业背景，乐于技术输出、分享。对于Java、微服务、数据库、Docker有深入研究，并有大量的调优经验。",
-        "followee_count": 7,
-        "follower_count": 131,
-        "post_article_count": 106,
-        "digg_article_count": 103,
-        "got_digg_count": 518,
-        "got_view_count": 30874,
-        "post_shortmsg_count": 50,
-        "digg_shortmsg_count": 45,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 826,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6960222724153147406,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:3:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6956851800553193503",
-      "article_info": {
-        "article_id": "6956851800553193503",
-        "user_id": "2375391683815624",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java开发必学的Linux命令",
-        "brief_content": "本文章转自：乐字节 文章主要讲解：Linux命令 获取更多Java相关知识可以关注公众号《乐字节》 发送：999 本文并不会对所有命令进行详细讲解，只给出常见用法和解释。具体用法可以使用--help查",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1619768320",
-        "mtime": "1619778494",
-        "rtime": "1619778494",
-        "draft_id": "6956850333432119309",
-        "view_count": 44,
-        "collect_count": 1,
-        "digg_count": 1,
-        "comment_count": 0,
-        "hot_index": 3,
-        "is_hot": 0,
-        "rank_index": 0.00052444,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "2375391683815624",
-        "user_name": "用户605800917826",
-        "company": "",
-        "job_title": "",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/mosaic-legacy/3797/2889309425~300x300.image",
-        "level": 1,
-        "description": "",
-        "followee_count": 0,
-        "follower_count": 0,
-        "post_article_count": 17,
-        "digg_article_count": 0,
-        "got_digg_count": 1,
-        "got_view_count": 213,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 3,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6956851800553193503,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:4:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6961462060307709966",
-      "article_info": {
-        "article_id": "6961462060307709966",
-        "user_id": "3289387412501624",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java统一异常处理(配置文件集中化定义) | Java Debug 笔记",
-        "brief_content": "无论任何项目，都避免不了在运行期间出现的一些异常，并伴随着因业务逻辑的需要而给出相应的提示，使得系统变得更加友好，这类提示处理，我们统称为异常处理。",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620858630",
-        "mtime": "1620874936",
-        "rtime": "1620874936",
-        "draft_id": "6961525841943592996",
-        "view_count": 29,
-        "collect_count": 0,
-        "digg_count": 2,
-        "comment_count": 0,
-        "hot_index": 3,
-        "is_hot": 0,
-        "rank_index": 0.02427897,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "3289387412501624",
-        "user_name": "xcbeyond",
-        "company": "程序猿技术大咖",
-        "job_title": "架构师",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/55024cc237dfc23b1c88540e18f707e5~300x300.image",
-        "level": 2,
-        "description": "现任架构师，拥有8年+研发经验，多年互联网金融行业背景，乐于技术输出、分享。对于Java、微服务、数据库、Docker有深入研究，并有大量的调优经验。",
-        "followee_count": 7,
-        "follower_count": 131,
-        "post_article_count": 106,
-        "digg_article_count": 103,
-        "got_digg_count": 518,
-        "got_view_count": 30874,
-        "post_shortmsg_count": 50,
-        "digg_shortmsg_count": 45,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 826,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6961462060307709966,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:5:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6960540887558389773",
-      "article_info": {
-        "article_id": "6960540887558389773",
-        "user_id": "3966693685605143",
-        "category_id": "6809637776263217160",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "一文带你全面了解 java 对象的序列化和反序列化",
-        "brief_content": "摘要：这篇文章主要给大家介绍了关于java中对象的序列化与反序列化的相关内容，文中通过详细示例代码介绍，希望能对大家有所帮助。",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620627243",
-        "mtime": "1620628120",
-        "rtime": "1620628120",
-        "draft_id": "6960540370492981278",
-        "view_count": 115,
-        "collect_count": 0,
-        "digg_count": 1,
-        "comment_count": 0,
-        "hot_index": 6,
-        "is_hot": 0,
-        "rank_index": 0.00669461,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "3966693685605143",
-        "user_name": "华为云开发者社区",
-        "company": "",
-        "job_title": "",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/9df05ee4be63fc38375bdfeb9931fa6f~300x300.image",
-        "level": 4,
-        "description": "华为云开发者社区，提供全面深入的云计算前景分析、丰富的技术干货",
-        "followee_count": 0,
-        "follower_count": 1731,
-        "post_article_count": 1062,
-        "digg_article_count": 1075,
-        "got_digg_count": 2204,
-        "got_view_count": 379023,
-        "post_shortmsg_count": 51,
-        "digg_shortmsg_count": 59,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 5998,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 1,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637776263217160",
-        "category_name": "代码人生",
-        "category_url": "career",
-        "rank": 7,
-        "ctime": 1553759544,
-        "mtime": 1553759548,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6960540887558389773,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:6:0" },
-
-  {
-    "result_type": 12,
-    "result_model": {
-      "booklet_id": "6844723714538340359",
-      "base_info": {
-        "id": 0,
-        "booklet_id": "6844723714538340359",
-        "title": "响应式编程 —— RxJava 高阶指南",
-        "price": 990,
-        "category_id": "6809637767543259144",
-        "status": 1,
-        "user_id": "976022014531134",
-        "verify_status": 2,
-        "summary": "研究响应式编程，探讨 ReactiveX 的底层概念和 RxJava 的高阶问题",
-        "cover_img": "https://user-gold-cdn.xitu.io/2017/12/13/1604f3080efffc24?w=650&h=910&f=png&s=285719",
-        "section_count": 11,
-        "section_ids": "6844723714538356749|6844723714613837831|6844723714634809357|6844723714634809352|6844723714634809351|6844723714639003662|6844723714639003655|6844723714639003661|6844723714643197966|6844723714643197965|6844723714643378184|6844723714647392263",
-        "is_finished": 1,
-        "ctime": 1510578556,
-        "mtime": 1610536906,
-        "put_on_time": 1598288811,
-        "pull_off_time": 1598288668,
-        "finished_time": 1596106627,
-        "recycle_bin_time": -62135596800,
-        "verify_time": -62135596800,
-        "submit_time": 1610536906,
-        "top_time": -62135596800,
-        "wechat_group_img": "https://user-gold-cdn.xitu.io/1581432488022f4a35c32bb2d5e845b6d9abdab206b8a.jpg",
-        "wechat_group_desc": "二姐",
-        "wechat_group_signal": "ladingwu",
-        "read_time": 0,
-        "buy_count": 1657 },
-
-      "user_info": {
-        "user_id": "976022014531134",
-        "user_name": "拉丁吴",
-        "company": "糗事百科",
-        "job_title": "Android工程师",
-        "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/566a0ae32d2bdbfce5688e49b4703de3~300x300.image",
-        "level": 5,
-        "description": "喜欢研究问题，Android ,Java，Kotlin，Python",
-        "followee_count": 19,
-        "follower_count": 7142,
-        "post_article_count": 33,
-        "digg_article_count": 215,
-        "got_digg_count": 12175,
-        "got_view_count": 320818,
-        "post_shortmsg_count": 15,
-        "digg_shortmsg_count": 4,
-        "isfollowed": false,
-        "favorable_author": 1,
-        "power": 14826,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": null },
-
-      "event_discount": null,
-      "is_buy": false },
-
-    "search_attached_info": "1019330523781862056:7:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6960958404558848008",
-      "article_info": {
-        "article_id": "6960958404558848008",
-        "user_id": "4494459261952119",
-        "category_id": "6809635626879549454",
-        "tag_ids": [
-        6809640445233070094,
-        6809640400832167949],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7167f1d266944d94b0b8454f1fe8e610~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "Java运算符扫盲 ｜ Java Debug 笔记",
-        "brief_content": "我们可能经常看到以下这样2>>>3 & ^8 的代码，你可能看得真是云里雾里。不慌，下面我们来学习它吧！",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620724450",
-        "mtime": "1620806035",
-        "rtime": "1620806035",
-        "draft_id": "6953813786856226847",
-        "view_count": 325,
-        "collect_count": 2,
-        "digg_count": 6,
-        "comment_count": 0,
-        "hot_index": 22,
-        "is_hot": 0,
-        "rank_index": 0.07444213,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "4494459261952119",
-        "user_name": "红烧牛肉",
-        "company": "广东",
-        "job_title": "Android攻城狮",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/72dc0d4f475525a6ef6a17ca48873828~300x300.image",
-        "level": 2,
-        "description": "一个爱拍照，爱动漫，爱做饭，不爱洗碗，爱吃辣的广东人。",
-        "followee_count": 35,
-        "follower_count": 41,
-        "post_article_count": 13,
-        "digg_article_count": 350,
-        "got_digg_count": 94,
-        "got_view_count": 8654,
-        "post_shortmsg_count": 28,
-        "digg_shortmsg_count": 872,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 180,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809635626879549454",
-        "category_name": "Android",
-        "category_url": "android",
-        "rank": 3,
-        "ctime": 1461266353,
-        "mtime": 1432503184,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 },
-
-      {
-        "id": 2546521,
-        "tag_id": "6809640400832167949",
-        "tag_name": "Android",
-        "color": "#A3CC28",
-        "icon": "https://lc-gold-cdn.xitu.io/7bab0e1e66ea386e6f94.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435964175,
-        "mtime": 1620965125,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 37584,
-        "concern_user_count": 251105 }],
-
-
-      "user_interact": {
-        "id": 6960958404558848008,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:8:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6955531618547138597",
-      "article_info": {
-        "article_id": "6955531618547138597",
-        "user_id": "1996368849409815",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java hashCode() 方法",
-        "brief_content": "在 java.lang.Object 类中有几个个非常重要的方法，我们今天来讨论下 hashCode() 这个方法。 什么是 Hash Hash 中文叫做哈希也可以叫做散列，使用 Hash 的算法生成",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1619473955",
-        "mtime": "1619600762",
-        "rtime": "1619600762",
-        "draft_id": "6955551911663632420",
-        "view_count": 41,
-        "collect_count": 0,
-        "digg_count": 2,
-        "comment_count": 0,
-        "hot_index": 4,
-        "is_hot": 0,
-        "rank_index": 0.00055194,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1996368849409815",
-        "user_name": "honeymoose",
-        "company": "",
-        "job_title": "",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/f2596cc33e90c30434a59065dcffe074~300x300.image",
-        "level": 2,
-        "description": "",
-        "followee_count": 5,
-        "follower_count": 2,
-        "post_article_count": 331,
-        "digg_article_count": 0,
-        "got_digg_count": 47,
-        "got_view_count": 13442,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 181,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6955531618547138597,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:9:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6959082139400798215",
-      "article_info": {
-        "article_id": "6959082139400798215",
-        "user_id": "1494986085377223",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java虚拟机",
-        "brief_content": "一、Java虚拟机发展史 Sun Classic/Exact VM Sun Hotspot VM 移动端虚拟机KVM/Squawk VM/JavaInJava BEA JRockit/IBM J9VM",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620287708",
-        "mtime": "1620369169",
-        "rtime": "1620369169",
-        "draft_id": "6959010717810819079",
-        "view_count": 153,
-        "collect_count": 0,
-        "digg_count": 5,
-        "comment_count": 0,
-        "hot_index": 12,
-        "is_hot": 0,
-        "rank_index": 0.00576384,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1494986085377223",
-        "user_name": "自如大前端团队",
-        "company": "北京自如信息科技有限公司",
-        "job_title": "",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/2bce18a089c70bcf80a9e8ff46d15917~300x300.image",
-        "level": 2,
-        "description": "自如大前端的技术实践分享",
-        "followee_count": 6,
-        "follower_count": 125,
-        "post_article_count": 18,
-        "digg_article_count": 0,
-        "got_digg_count": 129,
-        "got_view_count": 9868,
-        "post_shortmsg_count": 5,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 227,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6959082139400798215,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:10:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6958804984901156878",
-      "article_info": {
-        "article_id": "6958804984901156878",
-        "user_id": "562604155866439",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java 数组",
-        "brief_content": "数组定义 数组是一种数据结构， 用来存储同一类型值的集合。通过一个整型下标可以访问数组中 的每一个值。例如， 如果 a 是一个整型数组， a[i] 就是数组中下标为 i 的整数。Java的数组和其他语",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0.745516360910383,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620223232",
-        "mtime": "1620269064",
-        "rtime": "1620269064",
-        "draft_id": "6958773228584042532",
-        "view_count": 46,
-        "collect_count": 0,
-        "digg_count": 2,
-        "comment_count": 0,
-        "hot_index": 4,
-        "is_hot": 0,
-        "rank_index": 0.00176386,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "562604155866439",
-        "user_name": "不闻钟",
-        "company": "",
-        "job_title": "",
-        "avatar_large": "https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/cb6b08248de95a6250b2ae0193926b23~300x300.image",
-        "level": 1,
-        "description": "",
-        "followee_count": 3,
-        "follower_count": 2,
-        "post_article_count": 26,
-        "digg_article_count": 17,
-        "got_digg_count": 27,
-        "got_view_count": 587,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 32,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6958804984901156878,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:11:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6960964220401745933",
-      "article_info": {
-        "article_id": "6960964220401745933",
-        "user_id": "1732486058751982",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640408797167623],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/649d48fad4824c488050a50dc34f56fd~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "Java 代码规范优化 | Java Debug 笔记",
-        "brief_content": "本文正在参加「Java主题月 - Java Debug笔记活动」，详情查看 活动链接 初衷 作为一个合格的开发, 除了在保证代码有效性的前提. 我们需要在其它方面来提供代码的质量. 自己总结了一些,优",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 5.099687890690314,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620725850",
-        "mtime": "1620795944",
-        "rtime": "1620795944",
-        "draft_id": "6960943864865620005",
-        "view_count": 612,
-        "collect_count": 6,
-        "digg_count": 8,
-        "comment_count": 1,
-        "hot_index": 39,
-        "is_hot": 0,
-        "rank_index": 0.13503794,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1732486058751982",
-        "user_name": "java_web攻城狮",
-        "company": "",
-        "job_title": "java/web软件开发",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/aa270edf4094f3c20e9d6330549ba2ae~300x300.image",
-        "level": 2,
-        "description": "java,linux,xshell,node,vue,python,go",
-        "followee_count": 20,
-        "follower_count": 36,
-        "post_article_count": 47,
-        "digg_article_count": 51,
-        "got_digg_count": 139,
-        "got_view_count": 23646,
-        "post_shortmsg_count": 14,
-        "digg_shortmsg_count": 9,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 375,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546527,
-        "tag_id": "6809640408797167623",
-        "tag_name": "后端",
-        "color": "#C679FF",
-        "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971556,
-        "mtime": 1620965209,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 44013,
-        "concern_user_count": 409492 }],
-
-
-      "user_interact": {
-        "id": 6960964220401745933,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:12:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6961256061395271716",
-      "article_info": {
-        "article_id": "6961256061395271716",
-        "user_id": "1337443320603949",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Avoiding NullPointerException in Java ｜ Java Debug 笔记",
-        "brief_content": "本文正在参加「Java主题月 - Java Debug笔记活动」，详情查看活动链接 提问：Avoiding NullPointerException in Java？ 如我用了很多来避免NPE。obj",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 6.012822512337794,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620793939",
-        "mtime": "1620794669",
-        "rtime": "1620794669",
-        "draft_id": "6961254964924514334",
-        "view_count": 47,
-        "collect_count": 0,
-        "digg_count": 0,
-        "comment_count": 0,
-        "hot_index": 2,
-        "is_hot": 0,
-        "rank_index": 0.03298302,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1337443320603949",
-        "user_name": "清蒸闲鱼",
-        "company": "StackOverFlow",
-        "job_title": "StackOverFlow",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/784343dcff0df08e39a9d532acfa3e84~300x300.image",
-        "level": 2,
-        "description": "ICE、PRE",
-        "followee_count": 4,
-        "follower_count": 38,
-        "post_article_count": 49,
-        "digg_article_count": 15,
-        "got_digg_count": 132,
-        "got_view_count": 32847,
-        "post_shortmsg_count": 16,
-        "digg_shortmsg_count": 5,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 460,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6961256061395271716,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:13:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6955168613737168903",
-      "article_info": {
-        "article_id": "6955168613737168903",
-        "user_id": "1996368849409815",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java 一维数组的定义和初始化",
-        "brief_content": "数组是我们非常常见的一种数据结构。 在 Java 中也不意外，通常我们会对数组进行一些操作，包括插入，删除，查找等。其实在实际的运用过程中，我们可能会用到 Java 提供的集合类型。 这些类型比数组操",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1619380050",
-        "mtime": "1619407351",
-        "rtime": "1619407351",
-        "draft_id": "6955156322249605156",
-        "view_count": 31,
-        "collect_count": 0,
-        "digg_count": 2,
-        "comment_count": 0,
-        "hot_index": 3,
-        "is_hot": 0,
-        "rank_index": 0.0003449,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1996368849409815",
-        "user_name": "honeymoose",
-        "company": "",
-        "job_title": "",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/f2596cc33e90c30434a59065dcffe074~300x300.image",
-        "level": 2,
-        "description": "",
-        "followee_count": 5,
-        "follower_count": 2,
-        "post_article_count": 331,
-        "digg_article_count": 0,
-        "got_digg_count": 47,
-        "got_view_count": 13442,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 181,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6955168613737168903,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:14:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6961359406919319589",
-      "article_info": {
-        "article_id": "6961359406919319589",
-        "user_id": "1767670427688702",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640408797167623],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "java中如何以不区分大小写的方式检查一个字符串中包含另一个字符串｜Java Debug 笔记",
-        "brief_content": "**本文正在参加「Java主题月 - Java Debug笔记活动」，详情查看 活动链接 ** 问题： 我有两个字符串如下： 我想要检查s2包含了s1可以这样写： 我很肯定contains()方法是区",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620817877",
-        "mtime": "1620873354",
-        "rtime": "1620873354",
-        "draft_id": "6961305676287049736",
-        "view_count": 31,
-        "collect_count": 0,
-        "digg_count": 1,
-        "comment_count": 1,
-        "hot_index": 3,
-        "is_hot": 0,
-        "rank_index": 0.04811283,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1767670427688702",
-        "user_name": "落水牛肉拉住面",
-        "company": "",
-        "job_title": "后台工程师",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/847d66fde3dcb5d470987a72c97cb841~300x300.image",
-        "level": 1,
-        "description": "等一",
-        "followee_count": 108,
-        "follower_count": 20,
-        "post_article_count": 3,
-        "digg_article_count": 15444,
-        "got_digg_count": 3,
-        "got_view_count": 51,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 461,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 3,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546527,
-        "tag_id": "6809640408797167623",
-        "tag_name": "后端",
-        "color": "#C679FF",
-        "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971556,
-        "mtime": 1620965209,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 44013,
-        "concern_user_count": 409492 }],
-
-
-      "user_interact": {
-        "id": 6961359406919319589,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:15:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6956152323873865764",
-      "article_info": {
-        "article_id": "6956152323873865764",
-        "user_id": "1214292607640664",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java中的JSTL与EL表达式",
-        "brief_content": "什么是JSP? 从用户的角度看，就是一个网页，从程序员的角度看，其实就是一个Java类，它继承了Servlet，所以可以直接说jsp就是一个servlet。",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0.102068501913645,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1619605513",
-        "mtime": "1619665330",
-        "rtime": "1619665330",
-        "draft_id": "6956151840358531085",
-        "view_count": 85,
-        "collect_count": 0,
-        "digg_count": 1,
-        "comment_count": 0,
-        "hot_index": 5,
-        "is_hot": 0,
-        "rank_index": 0.00074648,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "1214292607640664",
-        "user_name": "知了堂",
-        "company": "",
-        "job_title": "IT培训",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/322970f516ff743b7b14ef17e8313fc3~300x300.image",
-        "level": 2,
-        "description": "",
-        "followee_count": 0,
-        "follower_count": 9,
-        "post_article_count": 89,
-        "digg_article_count": 0,
-        "got_digg_count": 62,
-        "got_view_count": 4053,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 102,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6956152323873865764,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:16:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6961691840063995911",
-      "article_info": {
-        "article_id": "6961691840063995911",
-        "user_id": "747323637904519",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java 中的可选参数 | Java Debug 笔记",
-        "brief_content": "问题 如何使用 Java 中的可选参数？可选参数有什么规范么？ 回答 回答 1 一定程度上来讲，varargs （即长度可变的参数）可以做到这一点。除此之外，必须提供方法声明中的所有变量。如果想让变量",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620895218",
-        "mtime": "1620905134",
-        "rtime": "1620905134",
-        "draft_id": "6961691474509430815",
-        "view_count": 374,
-        "collect_count": 1,
-        "digg_count": 2,
-        "comment_count": 1,
-        "hot_index": 21,
-        "is_hot": 0,
-        "rank_index": 0.28459231,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "747323637904519",
-        "user_name": "村雨遥",
-        "company": "村雨遥",
-        "job_title": "公众号",
-        "avatar_large": "https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/6a22ed5f5e7d0900bd846d4189114a26~300x300.image",
-        "level": 2,
-        "description": "主要分享 Java、面试八股文、实用工具等原创文章……",
-        "followee_count": 8,
-        "follower_count": 40,
-        "post_article_count": 59,
-        "digg_article_count": 33,
-        "got_digg_count": 149,
-        "got_view_count": 11941,
-        "post_shortmsg_count": 6,
-        "digg_shortmsg_count": 1,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 268,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6961691840063995911,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:17:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6961641201472634911",
-      "article_info": {
-        "article_id": "6961641201472634911",
-        "user_id": "571401779286072",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640408797167623],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adffe68bbef642a0a796d75a2ee46d0d~tplv-k3u1fbpfcp-watermark.image",
-        "is_gfw": 0,
-        "title": "Java动态获取当前行号｜ Java Debug 笔记",
-        "brief_content": "Q： Java 中是否可以通过反射或一些很棒的 API 动态获取当前行号？就像发生异常时一样，行号会像这样在堆栈跟踪中打印出来： 现在有一种方法可以像下面的代码那样进行打印或记录吗？ 您可能会问，为什",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 3.540840106188556,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620883571",
-        "mtime": "1620891866",
-        "rtime": "1620891866",
-        "draft_id": "6961623133023371301",
-        "view_count": 131,
-        "collect_count": 0,
-        "digg_count": 0,
-        "comment_count": 1,
-        "hot_index": 7,
-        "is_hot": 0,
-        "rank_index": 0.1147456,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "571401779286072",
-        "user_name": "ooooooh灰灰",
-        "company": "厂哥",
-        "job_title": "打工",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/cead46da07b76a84dc1576ed558dce45~300x300.image",
-        "level": 2,
-        "description": "你工人爷爷",
-        "followee_count": 13,
-        "follower_count": 56,
-        "post_article_count": 85,
-        "digg_article_count": 55,
-        "got_digg_count": 198,
-        "got_view_count": 13950,
-        "post_shortmsg_count": 55,
-        "digg_shortmsg_count": 19,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 337,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546527,
-        "tag_id": "6809640408797167623",
-        "tag_name": "后端",
-        "color": "#C679FF",
-        "icon": "https://lc-gold-cdn.xitu.io/d83da9d012ddb7ae85f4.png",
-        "back_ground": "",
-        "show_navi": 1,
-        "ctime": 1435971556,
-        "mtime": 1620965209,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 44013,
-        "concern_user_count": 409492 }],
-
-
-      "user_interact": {
-        "id": 6961641201472634911,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:18:0" },
-
-  {
-    "result_type": 2,
-    "result_model": {
-      "article_id": "6960842221855703053",
-      "article_info": {
-        "article_id": "6960842221855703053",
-        "user_id": "2919920391957614",
-        "category_id": "6809637769959178254",
-        "tag_ids": [
-        6809640445233070094],
-
-        "visible_level": 0,
-        "link_url": "",
-        "cover_image": "",
-        "is_gfw": 0,
-        "title": "Java 8 Stream",
-        "brief_content": "简介 Stream称之为流 流的构成 源(各种集合) 零个或多个中间操作(对集合中元素的修改和操作) 终止操作(输出、求和。。。) 创建流 稍微特殊的流 IntStream 继续体验流 代码释义 再者",
-        "is_english": 0,
-        "is_original": 1,
-        "user_index": 0,
-        "original_type": 0,
-        "original_author": "",
-        "content": "",
-        "ctime": "1620697416",
-        "mtime": "1620714322",
-        "rtime": "1620714322",
-        "draft_id": "6959879047237238814",
-        "view_count": 77,
-        "collect_count": 0,
-        "digg_count": 2,
-        "comment_count": 0,
-        "hot_index": 5,
-        "is_hot": 0,
-        "rank_index": 0.00898179,
-        "status": 2,
-        "verify_status": 1,
-        "audit_status": 2,
-        "mark_content": "" },
-
-      "author_user_info": {
-        "user_id": "2919920391957614",
-        "user_name": "KittyGuy",
-        "company": "",
-        "job_title": "",
-        "avatar_large": "https://sf6-ttcdn-tos.pstatp.com/img/user-avatar/e5649a9ec8fe9ff39c4d5d299cb9ef6b~300x300.image",
-        "level": 2,
-        "description": "很棒",
-        "followee_count": 1,
-        "follower_count": 8,
-        "post_article_count": 186,
-        "digg_article_count": 2,
-        "got_digg_count": 105,
-        "got_view_count": 8293,
-        "post_shortmsg_count": 0,
-        "digg_shortmsg_count": 0,
-        "isfollowed": false,
-        "favorable_author": 0,
-        "power": 187,
-        "study_point": 0,
-        "university": {
-          "university_id": "0",
-          "name": "",
-          "logo": "" },
-
-        "major": {
-          "major_id": "0",
-          "parent_id": "0",
-          "name": "" },
-
-        "student_status": 0,
-        "select_event_count": 0,
-        "select_online_course_count": 0,
-        "identity": 0,
-        "is_select_annual": false,
-        "select_annual_rank": 0,
-        "annual_list_type": 0,
-        "extraMap": {} },
-
-      "category": {
-        "category_id": "6809637769959178254",
-        "category_name": "后端",
-        "category_url": "backend",
-        "rank": 1,
-        "ctime": 1457483880,
-        "mtime": 1432503193,
-        "show_type": 3 },
-
-      "tags": [
-      {
-        "id": 2546553,
-        "tag_id": "6809640445233070094",
-        "tag_name": "Java",
-        "color": "#DD2C2A",
-        "icon": "https://lc-gold-cdn.xitu.io/f8ee3cd45f949a546263.png",
-        "back_ground": "",
-        "show_navi": 0,
-        "ctime": 1436156295,
-        "mtime": 1620965050,
-        "id_type": 9,
-        "tag_alias": "",
-        "post_article_count": 65148,
-        "concern_user_count": 283705 }],
-
-
-      "user_interact": {
-        "id": 6960842221855703053,
-        "omitempty": 2,
-        "user_id": 0,
-        "is_digg": false,
-        "is_follow": false,
-        "is_collect": false },
-
-      "org": {
-        "org_info": null,
-        "org_user": null,
-        "is_followed": false } },
-
-
-    "search_attached_info": "1019330523781862056:19:0" }],
-
-
-  "cursor": "20_2021051412072901020405513529002510",
-  "count": 0,
-  "has_more": true };exports.search = search;var _default =
-
-
-{
-  search: search };exports.default = _default;
-
-/***/ }),
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */
-/*!************************************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/components/u-parse/libs/MpHtmlParser.js ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(uni) {/**
- * html 解析器
- * @tutorial https://github.com/jin-yufeng/Parser
- * @version 20201029
- * @author JinYufeng
- * @listens MIT
- */
-var cfg = __webpack_require__(/*! ./config.js */ 174),
-blankChar = cfg.blankChar,
-CssHandler = __webpack_require__(/*! ./CssHandler.js */ 175),
-windowWidth = uni.getSystemInfoSync().windowWidth;
-var emoji;
-
-function MpHtmlParser(data) {var _this = this;var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  this.attrs = {};
-  this.CssHandler = new CssHandler(options.tagStyle, windowWidth);
-  this.data = data;
-  this.domain = options.domain;
-  this.DOM = [];
-  this.i = this.start = this.audioNum = this.imgNum = this.videoNum = 0;
-  options.prot = (this.domain || '').includes('://') ? this.domain.split('://')[0] : 'http';
-  this.options = options;
-  this.state = this.Text;
-  this.STACK = [];
-  // 工具函数
-  this.bubble = function () {
-    for (var i = _this.STACK.length, item; item = _this.STACK[--i];) {
-      if (cfg.richOnlyTags[item.name]) return false;
-      item.c = 1;
-    }
-    return true;
-  };
-  this.decode = function (val, amp) {
-    var i = -1,
-    j,en;
-    while (1) {
-      if ((i = val.indexOf('&', i + 1)) == -1) break;
-      if ((j = val.indexOf(';', i + 2)) == -1) break;
-      if (val[i + 1] == '#') {
-        en = parseInt((val[i + 2] == 'x' ? '0' : '') + val.substring(i + 2, j));
-        if (!isNaN(en)) val = val.substr(0, i) + String.fromCharCode(en) + val.substr(j + 1);
-      } else {
-        en = val.substring(i + 1, j);
-        if (cfg.entities[en] || en == amp)
-        val = val.substr(0, i) + (cfg.entities[en] || '&') + val.substr(j + 1);
-      }
-    }
-    return val;
-  };
-  this.getUrl = function (url) {
-    if (url[0] == '/') {
-      if (url[1] == '/') url = _this.options.prot + ':' + url;else
-      if (_this.domain) url = _this.domain + url;
-    } else if (_this.domain && url.indexOf('data:') != 0 && !url.includes('://'))
-    url = _this.domain + '/' + url;
-    return url;
-  };
-  this.isClose = function () {return _this.data[_this.i] == '>' || _this.data[_this.i] == '/' && _this.data[_this.i + 1] == '>';};
-  this.section = function () {return _this.data.substring(_this.start, _this.i);};
-  this.parent = function () {return _this.STACK[_this.STACK.length - 1];};
-  this.siblings = function () {return _this.STACK.length ? _this.parent().children : _this.DOM;};
+  return where;
 }
-MpHtmlParser.prototype.parse = function () {
-  if (emoji) this.data = emoji.parseEmoji(this.data);
-  for (var c; c = this.data[this.i]; this.i++) {
-    this.state(c);}
-  if (this.state == this.Text) this.setText();
-  while (this.STACK.length) {this.popNode(this.STACK.pop());}
-  return this.DOM;
+
+/***/ }),
+
+/***/ 75:
+/*!************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, uni, process) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 11));var _uniI18n = __webpack_require__(/*! @dcloudio/uni-i18n */ 78);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e28) {throw _e28;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e29) {didErr = true;err = _e29;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _wrapNativeSuper(Class) {var _cache = typeof Map === "function" ? new Map() : undefined;_wrapNativeSuper = function _wrapNativeSuper(Class) {if (Class === null || !_isNativeFunction(Class)) return Class;if (typeof Class !== "function") {throw new TypeError("Super expression must either be null or a function");}if (typeof _cache !== "undefined") {if (_cache.has(Class)) return _cache.get(Class);_cache.set(Class, Wrapper);}function Wrapper() {return _construct(Class, arguments, _getPrototypeOf(this).constructor);}Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });return _setPrototypeOf(Wrapper, Class);};return _wrapNativeSuper(Class);}function _construct(Parent, args, Class) {if (_isNativeReflectConstruct()) {_construct = Reflect.construct;} else {_construct = function _construct(Parent, args, Class) {var a = [null];a.push.apply(a, args);var Constructor = Function.bind.apply(Parent, a);var instance = new Constructor();if (Class) _setPrototypeOf(instance, Class.prototype);return instance;};}return _construct.apply(null, arguments);}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _isNativeFunction(fn) {return Function.toString.call(fn).indexOf("[native code]") !== -1;}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}"undefined" != typeof globalThis ? globalThis : "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self && self;function t(e) {return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default") ? e.default : e;}function s(e, t, s) {return e(s = { path: t, exports: {}, require: function require(e, t) {return function () {throw new Error("Dynamic requires are not currently supported by @rollup/plugin-commonjs");}(null == t && s.path);} }, s.exports), s.exports;}var n = s(function (e, t) {var s;e.exports = (s = s || function (e, t) {var s = Object.create || function () {function e() {}return function (t) {var s;return e.prototype = t, s = new e(), e.prototype = null, s;};}(),n = {},r = n.lib = {},o = r.Base = { extend: function extend(e) {var t = s(this);return e && t.mixIn(e), t.hasOwnProperty("init") && this.init !== t.init || (t.init = function () {t.$super.init.apply(this, arguments);}), t.init.prototype = t, t.$super = this, t;}, create: function create() {var e = this.extend();return e.init.apply(e, arguments), e;}, init: function init() {}, mixIn: function mixIn(e) {for (var t in e) {e.hasOwnProperty(t) && (this[t] = e[t]);}e.hasOwnProperty("toString") && (this.toString = e.toString);}, clone: function clone() {return this.init.prototype.extend(this);} },i = r.WordArray = o.extend({ init: function init(e, t) {e = this.words = e || [], this.sigBytes = null != t ? t : 4 * e.length;}, toString: function toString(e) {return (e || c).stringify(this);}, concat: function concat(e) {var t = this.words,s = e.words,n = this.sigBytes,r = e.sigBytes;if (this.clamp(), n % 4) for (var o = 0; o < r; o++) {var i = s[o >>> 2] >>> 24 - o % 4 * 8 & 255;t[n + o >>> 2] |= i << 24 - (n + o) % 4 * 8;} else for (o = 0; o < r; o += 4) {t[n + o >>> 2] = s[o >>> 2];}return this.sigBytes += r, this;}, clamp: function clamp() {var t = this.words,s = this.sigBytes;t[s >>> 2] &= 4294967295 << 32 - s % 4 * 8, t.length = e.ceil(s / 4);}, clone: function clone() {var e = o.clone.call(this);return e.words = this.words.slice(0), e;}, random: function random(t) {for (var s, n = [], r = function r(t) {t = t;var s = 987654321,n = 4294967295;return function () {var r = ((s = 36969 * (65535 & s) + (s >> 16) & n) << 16) + (t = 18e3 * (65535 & t) + (t >> 16) & n) & n;return r /= 4294967296, (r += .5) * (e.random() > .5 ? 1 : -1);};}, o = 0; o < t; o += 4) {var a = r(4294967296 * (s || e.random()));s = 987654071 * a(), n.push(4294967296 * a() | 0);}return new i.init(n, t);} }),a = n.enc = {},c = a.Hex = { stringify: function stringify(e) {for (var t = e.words, s = e.sigBytes, n = [], r = 0; r < s; r++) {var o = t[r >>> 2] >>> 24 - r % 4 * 8 & 255;n.push((o >>> 4).toString(16)), n.push((15 & o).toString(16));}return n.join("");}, parse: function parse(e) {for (var t = e.length, s = [], n = 0; n < t; n += 2) {s[n >>> 3] |= parseInt(e.substr(n, 2), 16) << 24 - n % 8 * 4;}return new i.init(s, t / 2);} },u = a.Latin1 = { stringify: function stringify(e) {for (var t = e.words, s = e.sigBytes, n = [], r = 0; r < s; r++) {var o = t[r >>> 2] >>> 24 - r % 4 * 8 & 255;n.push(String.fromCharCode(o));}return n.join("");}, parse: function parse(e) {for (var t = e.length, s = [], n = 0; n < t; n++) {s[n >>> 2] |= (255 & e.charCodeAt(n)) << 24 - n % 4 * 8;}return new i.init(s, t);} },h = a.Utf8 = { stringify: function stringify(e) {try {return decodeURIComponent(escape(u.stringify(e)));} catch (e) {throw new Error("Malformed UTF-8 data");}}, parse: function parse(e) {return u.parse(unescape(encodeURIComponent(e)));} },l = r.BufferedBlockAlgorithm = o.extend({ reset: function reset() {this._data = new i.init(), this._nDataBytes = 0;}, _append: function _append(e) {"string" == typeof e && (e = h.parse(e)), this._data.concat(e), this._nDataBytes += e.sigBytes;}, _process: function _process(t) {var s = this._data,n = s.words,r = s.sigBytes,o = this.blockSize,a = r / (4 * o),c = (a = t ? e.ceil(a) : e.max((0 | a) - this._minBufferSize, 0)) * o,u = e.min(4 * c, r);if (c) {for (var h = 0; h < c; h += o) {this._doProcessBlock(n, h);}var l = n.splice(0, c);s.sigBytes -= u;}return new i.init(l, u);}, clone: function clone() {var e = o.clone.call(this);return e._data = this._data.clone(), e;}, _minBufferSize: 0 }),d = (r.Hasher = l.extend({ cfg: o.extend(), init: function init(e) {this.cfg = this.cfg.extend(e), this.reset();}, reset: function reset() {l.reset.call(this), this._doReset();}, update: function update(e) {return this._append(e), this._process(), this;}, finalize: function finalize(e) {return e && this._append(e), this._doFinalize();}, blockSize: 16, _createHelper: function _createHelper(e) {return function (t, s) {return new e.init(s).finalize(t);};}, _createHmacHelper: function _createHmacHelper(e) {return function (t, s) {return new d.HMAC.init(e, s).finalize(t);};} }), n.algo = {});return n;}(Math), s);}),r = (s(function (e, t) {var s;e.exports = (s = n, function (e) {var t = s,n = t.lib,r = n.WordArray,o = n.Hasher,i = t.algo,a = [];!function () {for (var t = 0; t < 64; t++) {a[t] = 4294967296 * e.abs(e.sin(t + 1)) | 0;}}();var c = i.MD5 = o.extend({ _doReset: function _doReset() {this._hash = new r.init([1732584193, 4023233417, 2562383102, 271733878]);}, _doProcessBlock: function _doProcessBlock(e, t) {for (var s = 0; s < 16; s++) {var n = t + s,r = e[n];e[n] = 16711935 & (r << 8 | r >>> 24) | 4278255360 & (r << 24 | r >>> 8);}var o = this._hash.words,i = e[t + 0],c = e[t + 1],f = e[t + 2],p = e[t + 3],g = e[t + 4],m = e[t + 5],y = e[t + 6],_ = e[t + 7],w = e[t + 8],v = e[t + 9],S = e[t + 10],k = e[t + 11],T = e[t + 12],P = e[t + 13],I = e[t + 14],A = e[t + 15],E = o[0],O = o[1],U = o[2],b = o[3];E = u(E, O, U, b, i, 7, a[0]), b = u(b, E, O, U, c, 12, a[1]), U = u(U, b, E, O, f, 17, a[2]), O = u(O, U, b, E, p, 22, a[3]), E = u(E, O, U, b, g, 7, a[4]), b = u(b, E, O, U, m, 12, a[5]), U = u(U, b, E, O, y, 17, a[6]), O = u(O, U, b, E, _, 22, a[7]), E = u(E, O, U, b, w, 7, a[8]), b = u(b, E, O, U, v, 12, a[9]), U = u(U, b, E, O, S, 17, a[10]), O = u(O, U, b, E, k, 22, a[11]), E = u(E, O, U, b, T, 7, a[12]), b = u(b, E, O, U, P, 12, a[13]), U = u(U, b, E, O, I, 17, a[14]), E = h(E, O = u(O, U, b, E, A, 22, a[15]), U, b, c, 5, a[16]), b = h(b, E, O, U, y, 9, a[17]), U = h(U, b, E, O, k, 14, a[18]), O = h(O, U, b, E, i, 20, a[19]), E = h(E, O, U, b, m, 5, a[20]), b = h(b, E, O, U, S, 9, a[21]), U = h(U, b, E, O, A, 14, a[22]), O = h(O, U, b, E, g, 20, a[23]), E = h(E, O, U, b, v, 5, a[24]), b = h(b, E, O, U, I, 9, a[25]), U = h(U, b, E, O, p, 14, a[26]), O = h(O, U, b, E, w, 20, a[27]), E = h(E, O, U, b, P, 5, a[28]), b = h(b, E, O, U, f, 9, a[29]), U = h(U, b, E, O, _, 14, a[30]), E = l(E, O = h(O, U, b, E, T, 20, a[31]), U, b, m, 4, a[32]), b = l(b, E, O, U, w, 11, a[33]), U = l(U, b, E, O, k, 16, a[34]), O = l(O, U, b, E, I, 23, a[35]), E = l(E, O, U, b, c, 4, a[36]), b = l(b, E, O, U, g, 11, a[37]), U = l(U, b, E, O, _, 16, a[38]), O = l(O, U, b, E, S, 23, a[39]), E = l(E, O, U, b, P, 4, a[40]), b = l(b, E, O, U, i, 11, a[41]), U = l(U, b, E, O, p, 16, a[42]), O = l(O, U, b, E, y, 23, a[43]), E = l(E, O, U, b, v, 4, a[44]), b = l(b, E, O, U, T, 11, a[45]), U = l(U, b, E, O, A, 16, a[46]), E = d(E, O = l(O, U, b, E, f, 23, a[47]), U, b, i, 6, a[48]), b = d(b, E, O, U, _, 10, a[49]), U = d(U, b, E, O, I, 15, a[50]), O = d(O, U, b, E, m, 21, a[51]), E = d(E, O, U, b, T, 6, a[52]), b = d(b, E, O, U, p, 10, a[53]), U = d(U, b, E, O, S, 15, a[54]), O = d(O, U, b, E, c, 21, a[55]), E = d(E, O, U, b, w, 6, a[56]), b = d(b, E, O, U, A, 10, a[57]), U = d(U, b, E, O, y, 15, a[58]), O = d(O, U, b, E, P, 21, a[59]), E = d(E, O, U, b, g, 6, a[60]), b = d(b, E, O, U, k, 10, a[61]), U = d(U, b, E, O, f, 15, a[62]), O = d(O, U, b, E, v, 21, a[63]), o[0] = o[0] + E | 0, o[1] = o[1] + O | 0, o[2] = o[2] + U | 0, o[3] = o[3] + b | 0;}, _doFinalize: function _doFinalize() {var t = this._data,s = t.words,n = 8 * this._nDataBytes,r = 8 * t.sigBytes;s[r >>> 5] |= 128 << 24 - r % 32;var o = e.floor(n / 4294967296),i = n;s[15 + (r + 64 >>> 9 << 4)] = 16711935 & (o << 8 | o >>> 24) | 4278255360 & (o << 24 | o >>> 8), s[14 + (r + 64 >>> 9 << 4)] = 16711935 & (i << 8 | i >>> 24) | 4278255360 & (i << 24 | i >>> 8), t.sigBytes = 4 * (s.length + 1), this._process();for (var a = this._hash, c = a.words, u = 0; u < 4; u++) {var h = c[u];c[u] = 16711935 & (h << 8 | h >>> 24) | 4278255360 & (h << 24 | h >>> 8);}return a;}, clone: function clone() {var e = o.clone.call(this);return e._hash = this._hash.clone(), e;} });function u(e, t, s, n, r, o, i) {var a = e + (t & s | ~t & n) + r + i;return (a << o | a >>> 32 - o) + t;}function h(e, t, s, n, r, o, i) {var a = e + (t & n | s & ~n) + r + i;return (a << o | a >>> 32 - o) + t;}function l(e, t, s, n, r, o, i) {var a = e + (t ^ s ^ n) + r + i;return (a << o | a >>> 32 - o) + t;}function d(e, t, s, n, r, o, i) {var a = e + (s ^ (t | ~n)) + r + i;return (a << o | a >>> 32 - o) + t;}t.MD5 = o._createHelper(c), t.HmacMD5 = o._createHmacHelper(c);}(Math), s.MD5);}), s(function (e, t) {var s, r, o;e.exports = (r = (s = n).lib.Base, o = s.enc.Utf8, void (s.algo.HMAC = r.extend({ init: function init(e, t) {e = this._hasher = new e.init(), "string" == typeof t && (t = o.parse(t));var s = e.blockSize,n = 4 * s;t.sigBytes > n && (t = e.finalize(t)), t.clamp();for (var r = this._oKey = t.clone(), i = this._iKey = t.clone(), a = r.words, c = i.words, u = 0; u < s; u++) {a[u] ^= 1549556828, c[u] ^= 909522486;}r.sigBytes = i.sigBytes = n, this.reset();}, reset: function reset() {var e = this._hasher;e.reset(), e.update(this._iKey);}, update: function update(e) {return this._hasher.update(e), this;}, finalize: function finalize(e) {var t = this._hasher,s = t.finalize(e);return t.reset(), t.finalize(this._oKey.clone().concat(s));} })));}), s(function (e, t) {e.exports = n.HmacMD5;}));function o(e) {return Object.prototype.toString.call(e).slice(8, -1).toLowerCase();}function i(e) {return "object" === o(e);}var a = /*#__PURE__*/function (_Error) {_inherits(a, _Error);var _super = _createSuper(a);function a(e, t) {var _this;_classCallCheck(this, a);_this = _super.call(this, e), _this.code = t;return _this;}return a;}( /*#__PURE__*/_wrapNativeSuper(Error));var c = ["invoke", "success", "fail", "complete"],u = {};function h(e, t) {u[e] || (u[e] = {}), i(t) && Object.keys(t).forEach(function (s) {c.indexOf(s) > -1 && function (e, t, s) {var n = u[e][t];n || (n = u[e][t] = []), -1 === n.indexOf(s) && "function" == typeof s && n.push(s);}(e, s, t[s]);});}function l(e, t) {u[e] || (u[e] = {}), i(t) ? Object.keys(t).forEach(function (s) {c.indexOf(s) > -1 && function (e, t, s) {var n = u[e][t];if (!n) return;var r = n.indexOf(s);r > -1 && n.splice(r, 1);}(e, s, t[s]);}) : delete u[e];}function d(e, t) {return e && 0 !== e.length ? e.reduce(function (e, s) {return e.then(function () {return s(t);});}, Promise.resolve()) : Promise.resolve();}function f(e, t) {return u[e] && u[e][t] || [];}function p(e, t) {return t ? function (s) {var _this2 = this;var n = "callFunction" === t && "DCloud-clientDB" === (s && s.name);var r;r = this.isReady ? Promise.resolve() : this.initUniCloud, s = s || {};var o = r.then(function () {return n ? Promise.resolve() : d(f(t, "invoke"), s);}).then(function () {return e.call(_this2, s);}).then(function (e) {return n ? Promise.resolve(e) : d(f(t, "success"), e).then(function () {return d(f(t, "complete"), e);}).then(function () {return Promise.resolve(e);});}, function (e) {return n ? Promise.reject(e) : d(f(t, "fail"), e).then(function () {return d(f(t, "complete"), e);}).then(function () {return Promise.reject(e);});});if (!(s.success || s.fail || s.complete)) return o;o.then(function (e) {s.success && s.success(e), s.complete && s.complete(e);}).catch(function (e) {s.fail && s.fail(e), s.complete && s.complete(e);});} : function (t) {if (!((t = t || {}).success || t.fail || t.complete)) return e.call(this, t);e.call(this, t).then(function (e) {t.success && t.success(e), t.complete && t.complete(e);}, function (e) {t.fail && t.fail(e), t.complete && t.complete(e);});};}var g = /*#__PURE__*/function (_Error2) {_inherits(g, _Error2);var _super2 = _createSuper(g);function g(e) {var _this3;_classCallCheck(this, g);_this3 = _super2.call(this, e.message), _this3.errMsg = e.message || "", Object.defineProperties(_assertThisInitialized(_this3), { code: { get: function get() {return e.code;} }, requestId: { get: function get() {return e.requestId;} }, message: { get: function get() {return this.errMsg;}, set: function set(e) {this.errMsg = e;} } });return _this3;}return g;}( /*#__PURE__*/_wrapNativeSuper(Error));var _e2 = (0, _uniI18n.initVueI18n)({ "zh-Hans": { "uniCloud.init.paramRequired": "缺少参数：{param}", "uniCloud.uploadFile.fileError": "filePath应为File对象" }, "zh-Hant": { "uniCloud.init.paramRequired": "缺少参数：{param}", "uniCloud.uploadFile.fileError": "filePath应为File对象" }, en: { "uniCloud.init.paramRequired": "{param} required", "uniCloud.uploadFile.fileError": "filePath should be instance of File" }, fr: { "uniCloud.init.paramRequired": "{param} required", "uniCloud.uploadFile.fileError": "filePath should be instance of File" }, es: { "uniCloud.init.paramRequired": "{param} required", "uniCloud.uploadFile.fileError": "filePath should be instance of File" } }, "zh-Hans"),m = _e2.t,y = _e2.setLocale,_ = _e2.getLocale;function w(e) {return e && "string" == typeof e ? JSON.parse(e) : e;}var v = "development" === "development",S = "mp-weixin" || false,k = w({
+    "address": [
+        "127.0.0.1",
+        "192.168.125.115"
+    ],
+    "debugPort": 50249,
+    "initialLaunchType": "local",
+    "servePort": 50266
+}
+),T = w([{"provider":"aliyun","spaceName":"cloud-zm","spaceId":"817c5f2b-52dc-4a02-9b9d-1d6aa691cf5e","clientSecret":"Z1kSYwtpmlnhbo1itZ+KaQ==","endpoint":"https://api.bspapp.com"}]),P = true;var I, A, E;try {I = __webpack_require__(/*! uni-stat-config */ 79).default || __webpack_require__(/*! uni-stat-config */ 79);} catch (e) {I = { appid: "" };}function O() {var e = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 8;var t = "";for (; t.length < e;) {t += Math.random().toString(32).substring(2);}return t.substring(0, e);}function U() {var _uni$getSystemInfoSyn = uni.getSystemInfoSync(),e = _uni$getSystemInfoSyn.deviceId;return { PLATFORM: S, OS: E, APPID: I.appid, LOCALE: _(), DEVICEID: e, CLIENT_SDK_VERSION: "1.0.4" };}function b() {if ("n" === D()) {try {A = plus.runtime.getDCloudId();} catch (e) {A = "";}return A;}return A || (A = O(32), uni.setStorage({ key: "__DC_CLOUD_UUID", data: A })), A;}function D() {var _appPlus$h5$mpWeixi;return (_appPlus$h5$mpWeixi = { "app-plus": "n", h5: "h5", "mp-weixin": "wx" }, _defineProperty(_appPlus$h5$mpWeixi, ["y", "a", "p", "mp-ali"].reverse().join(""), "ali"), _defineProperty(_appPlus$h5$mpWeixi, "mp-baidu", "bd"), _defineProperty(_appPlus$h5$mpWeixi, "mp-toutiao", "tt"), _defineProperty(_appPlus$h5$mpWeixi, "mp-qq", "qq"), _defineProperty(_appPlus$h5$mpWeixi, "quickapp-native", "qn"), _appPlus$h5$mpWeixi)[S];}var C = { sign: function sign(e, t) {var s = "";return Object.keys(e).sort().forEach(function (t) {e[t] && (s = s + "&" + t + "=" + e[t]);}), s = s.slice(1), r(s, t).toString();}, wrappedRequest: function wrappedRequest(e, t) {return new Promise(function (s, n) {t(Object.assign(e, { complete: function complete(e) {e || (e = {}), v && "h5" === S && e.errMsg && 0 === e.errMsg.indexOf("request:fail") && console.warn("发布H5，需要在uniCloud后台操作，绑定安全域名，否则会因为跨域问题而无法访问。教程参考：https://uniapp.dcloud.io/uniCloud/quickstart?id=useinh5");var t = e.data && e.data.header && e.data.header["x-serverless-request-id"] || e.header && e.header["request-id"];if (!e.statusCode || e.statusCode >= 400) return n(new g({ code: "SYS_ERR", message: e.errMsg || "request:fail", requestId: t }));var r = e.data;if (r.error) return n(new g({ code: r.error.code, message: r.error.message, requestId: t }));r.result = r.data, r.requestId = t, delete r.data, s(r);} }));});} };var x = { request: function request(e) {return uni.request(e);}, uploadFile: function uploadFile(e) {return uni.uploadFile(e);}, setStorageSync: function setStorageSync(e, t) {return uni.setStorageSync(e, t);}, getStorageSync: function getStorageSync(e) {return uni.getStorageSync(e);}, removeStorageSync: function removeStorageSync(e) {return uni.removeStorageSync(e);}, clearStorageSync: function clearStorageSync() {return uni.clearStorageSync();} };var q = /*#__PURE__*/function () {function q(e) {_classCallCheck(this, q);["spaceId", "clientSecret"].forEach(function (t) {if (!Object.prototype.hasOwnProperty.call(e, t)) throw new Error(m("uniCloud.init.paramRequired", { param: t }));}), this.config = Object.assign({}, { endpoint: "https://api.bspapp.com" }, e), this.config.provider = "aliyun", this.config.requestUrl = this.config.endpoint + "/client", this.config.envType = this.config.envType || "public", this.config.accessTokenKey = "access_token_" + this.config.spaceId, this.adapter = x, this._getAccessTokenPromise = null, this._getAccessTokenPromiseStatus = null;}_createClass(q, [{ key: "setAccessToken", value: function setAccessToken(e) {this.accessToken = e;} }, { key: "requestWrapped", value: function requestWrapped(e) {return C.wrappedRequest(e, this.adapter.request);} }, { key: "requestAuth", value: function requestAuth(e) {return this.requestWrapped(e);} }, { key: "request", value: function request(e, t) {var _this4 = this;return Promise.resolve().then(function () {return _this4.hasAccessToken ? t ? _this4.requestWrapped(e) : _this4.requestWrapped(e).catch(function (t) {return new Promise(function (e, s) {!t || "GATEWAY_INVALID_TOKEN" !== t.code && "InvalidParameter.InvalidToken" !== t.code ? s(t) : e();}).then(function () {return _this4.getAccessToken();}).then(function () {var t = _this4.rebuildRequest(e);return _this4.request(t, !0);});}) : _this4.getAccessToken().then(function () {var t = _this4.rebuildRequest(e);return _this4.request(t, !0);});});} }, { key: "rebuildRequest", value: function rebuildRequest(e) {var t = Object.assign({}, e);return t.data.token = this.accessToken, t.header["x-basement-token"] = this.accessToken, t.header["x-serverless-sign"] = C.sign(t.data, this.config.clientSecret), t;} }, { key: "setupRequest", value: function setupRequest(e, t) {var s = Object.assign({}, e, { spaceId: this.config.spaceId, timestamp: Date.now() }),n = { "Content-Type": "application/json" };return "auth" !== t && (s.token = this.accessToken, n["x-basement-token"] = this.accessToken), n["x-serverless-sign"] = C.sign(s, this.config.clientSecret), { url: this.config.requestUrl, method: "POST", data: s, dataType: "json", header: n };} }, { key: "getAccessToken", value: function getAccessToken() {var _this5 = this;if ("pending" === this._getAccessTokenPromiseStatus) return this._getAccessTokenPromise;this._getAccessTokenPromiseStatus = "pending";return this._getAccessTokenPromise = this.requestAuth(this.setupRequest({ method: "serverless.auth.user.anonymousAuthorize", params: "{}" }, "auth")).then(function (e) {return new Promise(function (t, s) {e.result && e.result.accessToken ? (_this5.setAccessToken(e.result.accessToken), _this5._getAccessTokenPromiseStatus = "fulfilled", t(_this5.accessToken)) : (_this5._getAccessTokenPromiseStatus = "rejected", s(new g({ code: "AUTH_FAILED", message: "获取accessToken失败" })));});}, function (e) {return _this5._getAccessTokenPromiseStatus = "rejected", Promise.reject(e);}), this._getAccessTokenPromise;} }, { key: "authorize", value: function authorize() {this.getAccessToken();} }, { key: "callFunction", value: function callFunction(e) {var t = { method: "serverless.function.runtime.invoke", params: JSON.stringify({ functionTarget: e.name, functionArgs: e.data || {} }) };return this.request(this.setupRequest(t));} }, { key: "getOSSUploadOptionsFromPath", value: function getOSSUploadOptionsFromPath(e) {var t = { method: "serverless.file.resource.generateProximalSign", params: JSON.stringify(e) };return this.request(this.setupRequest(t));} }, { key: "uploadFileToOSS", value: function uploadFileToOSS(_ref) {var _this6 = this;var e = _ref.url,t = _ref.formData,s = _ref.name,n = _ref.filePath,r = _ref.fileType,o = _ref.onUploadProgress;return new Promise(function (i, a) {var c = _this6.adapter.uploadFile({ url: e, formData: t, name: s, filePath: n, fileType: r, header: { "X-OSS-server-side-encrpytion": "AES256" }, success: function success(e) {e && e.statusCode < 400 ? i(e) : a(new g({ code: "UPLOAD_FAILED", message: "文件上传失败" }));}, fail: function fail(e) {a(new g({ code: e.code || "UPLOAD_FAILED", message: e.message || e.errMsg || "文件上传失败" }));} });"function" == typeof o && c && "function" == typeof c.onProgressUpdate && c.onProgressUpdate(function (e) {o({ loaded: e.totalBytesSent, total: e.totalBytesExpectedToSend });});});} }, { key: "reportOSSUpload", value: function reportOSSUpload(e) {var t = { method: "serverless.file.resource.report", params: JSON.stringify(e) };return this.request(this.setupRequest(t));} }, { key: "uploadFile", value: function uploadFile(_ref2) {var _this7 = this;var e = _ref2.filePath,t = _ref2.cloudPath,_ref2$fileType = _ref2.fileType,s = _ref2$fileType === void 0 ? "image" : _ref2$fileType,n = _ref2.onUploadProgress,r = _ref2.config;if (!t) throw new g({ code: "CLOUDPATH_REQUIRED", message: "cloudPath不可为空" });var o = r && r.envType || this.config.envType;var i, a;return this.getOSSUploadOptionsFromPath({ env: o, filename: t }).then(function (t) {var r = t.result;i = r.id, a = "https://" + r.cdnDomain + "/" + r.ossPath;var o = { url: "https://" + r.host, formData: { "Cache-Control": "max-age=2592000", "Content-Disposition": "attachment", OSSAccessKeyId: r.accessKeyId, Signature: r.signature, host: r.host, id: i, key: r.ossPath, policy: r.policy, success_action_status: 200 }, fileName: "file", name: "file", filePath: e, fileType: s };return _this7.uploadFileToOSS(Object.assign({}, o, { onUploadProgress: n }));}).then(function () {return _this7.reportOSSUpload({ id: i });}).then(function (t) {return new Promise(function (s, n) {t.success ? s({ success: !0, filePath: e, fileID: a }) : n(new g({ code: "UPLOAD_FAILED", message: "文件上传失败" }));});});} }, { key: "deleteFile", value: function deleteFile(_ref3) {var e = _ref3.fileList;var t = { method: "serverless.file.resource.delete", params: JSON.stringify({ id: e[0] }) };return this.request(this.setupRequest(t));} }, { key: "getTempFileURL", value: function getTempFileURL() {var _ref4 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},e = _ref4.fileList;return new Promise(function (t, s) {Array.isArray(e) && 0 !== e.length || s(new g({ code: "INVALID_PARAM", message: "fileList的元素必须是非空的字符串" })), t({ fileList: e.map(function (e) {return { fileID: e, tempFileURL: e };}) });});} }, { key: "hasAccessToken", get: function get() {return !!this.accessToken;} }]);return q;}();var R = { init: function init(e) {var t = new q(e),s = { signInAnonymously: function signInAnonymously() {return t.authorize();}, getLoginState: function getLoginState() {return Promise.resolve(!1);} };return t.auth = function () {return s;}, t.customAuth = t.auth, t;} },F = "undefined" != typeof location && "http:" === location.protocol ? "http:" : "https:",L = "undefined" != typeof process && "e2e" === "development" && "pre" === Object({"NODE_ENV":"development","VUE_APP_NAME":"星星医学助手","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).END_POINT ? "//tcb-pre.tencentcloudapi.com/web" : "//tcb-api.tencentcloudapi.com/web";var N;!function (e) {e.local = "local", e.none = "none", e.session = "session";}(N || (N = {}));var M = function M() {};var j = function j() {var e;if (!Promise) {e = function e() {}, e.promise = {};var _t = function _t() {throw new Error('Your Node runtime does support ES6 Promises. Set "global.Promise" to your preferred implementation of promises.');};return Object.defineProperty(e.promise, "then", { get: _t }), Object.defineProperty(e.promise, "catch", { get: _t }), e;}var t = new Promise(function (t, s) {e = function e(_e3, n) {return _e3 ? s(_e3) : t(n);};});return e.promise = t, e;};function $(e) {return void 0 === e;}function K(e) {return "[object Null]" === Object.prototype.toString.call(e);}var B;function H(e) {var t = (s = e, "[object Array]" === Object.prototype.toString.call(s) ? e : [e]);var s;var _iterator = _createForOfIteratorHelper(t),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var _e4 = _step.value;var _t2 = _e4.isMatch,_s = _e4.genAdapter,_n = _e4.runtime;if (_t2()) return { adapter: _s(), runtime: _n };}} catch (err) {_iterator.e(err);} finally {_iterator.f();}}!function (e) {e.WEB = "web", e.WX_MP = "wx_mp";}(B || (B = {}));var W = { adapter: null, runtime: void 0 },z = ["anonymousUuidKey"];var V = /*#__PURE__*/function (_M) {_inherits(V, _M);var _super3 = _createSuper(V);function V() {var _this8;_classCallCheck(this, V);_this8 = _super3.call(this), W.adapter.root.tcbObject || (W.adapter.root.tcbObject = {});return _this8;}_createClass(V, [{ key: "setItem", value: function setItem(e, t) {W.adapter.root.tcbObject[e] = t;} }, { key: "getItem", value: function getItem(e) {return W.adapter.root.tcbObject[e];} }, { key: "removeItem", value: function removeItem(e) {delete W.adapter.root.tcbObject[e];} }, { key: "clear", value: function clear() {delete W.adapter.root.tcbObject;} }]);return V;}(M);function J(e, t) {switch (e) {case "local":return t.localStorage || new V();case "none":return new V();default:return t.sessionStorage || new V();}}var Y = /*#__PURE__*/function () {function Y(e) {_classCallCheck(this, Y);if (!this._storage) {this._persistence = W.adapter.primaryStorage || e.persistence, this._storage = J(this._persistence, W.adapter);var _t3 = "access_token_" + e.env,_s2 = "access_token_expire_" + e.env,_n2 = "refresh_token_" + e.env,_r = "anonymous_uuid_" + e.env,_o = "login_type_" + e.env,_i = "user_info_" + e.env;this.keys = { accessTokenKey: _t3, accessTokenExpireKey: _s2, refreshTokenKey: _n2, anonymousUuidKey: _r, loginTypeKey: _o, userInfoKey: _i };}}_createClass(Y, [{ key: "updatePersistence", value: function updatePersistence(e) {if (e === this._persistence) return;var t = "local" === this._persistence;this._persistence = e;var s = J(e, W.adapter);for (var _e5 in this.keys) {var _n3 = this.keys[_e5];if (t && z.includes(_e5)) continue;var _r2 = this._storage.getItem(_n3);$(_r2) || K(_r2) || (s.setItem(_n3, _r2), this._storage.removeItem(_n3));}this._storage = s;} }, { key: "setStore", value: function setStore(e, t, s) {if (!this._storage) return;var n = { version: s || "localCachev1", content: t },r = JSON.stringify(n);try {this._storage.setItem(e, r);} catch (e) {throw e;}} }, { key: "getStore", value: function getStore(e, t) {try {if (!this._storage) return;} catch (e) {return "";}t = t || "localCachev1";var s = this._storage.getItem(e);if (!s) return "";if (s.indexOf(t) >= 0) {return JSON.parse(s).content;}return "";} }, { key: "removeStore", value: function removeStore(e) {this._storage.removeItem(e);} }]);return Y;}();var X = {},G = {};function Q(e) {return X[e];}var Z = function Z(e, t) {_classCallCheck(this, Z);this.data = t || null, this.name = e;};var ee = /*#__PURE__*/function (_Z) {_inherits(ee, _Z);var _super4 = _createSuper(ee);function ee(e, t) {var _this9;_classCallCheck(this, ee);_this9 = _super4.call(this, "error", { error: e, data: t }), _this9.error = e;return _this9;}return ee;}(Z);var te = new ( /*#__PURE__*/function () {function _class() {_classCallCheck(this, _class);this._listeners = {};}_createClass(_class, [{ key: "on", value: function on(e, t) {return function (e, t, s) {s[e] = s[e] || [], s[e].push(t);}(e, t, this._listeners), this;} }, { key: "off", value: function off(e, t) {return function (e, t, s) {if (s && s[e]) {var _n4 = s[e].indexOf(t);-1 !== _n4 && s[e].splice(_n4, 1);}}(e, t, this._listeners), this;} }, { key: "fire", value: function fire(e, t) {if (e instanceof ee) return console.error(e.error), this;var s = "string" == typeof e ? new Z(e, t || {}) : e;var n = s.name;if (this._listens(n)) {s.target = this;var _e6 = this._listeners[n] ? _toConsumableArray(this._listeners[n]) : [];var _iterator2 = _createForOfIteratorHelper(_e6),_step2;try {for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {var _t4 = _step2.value;_t4.call(this, s);}} catch (err) {_iterator2.e(err);} finally {_iterator2.f();}}return this;} }, { key: "_listens", value: function _listens(e) {return this._listeners[e] && this._listeners[e].length > 0;} }]);return _class;}())();function se(e, t) {te.on(e, t);}function ne(e) {var t = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};te.fire(e, t);}function re(e, t) {te.off(e, t);}var oe = "loginStateChanged",ie = "loginStateExpire",ae = "loginTypeChanged",ce = "anonymousConverted",ue = "refreshAccessToken";var he;!function (e) {e.ANONYMOUS = "ANONYMOUS", e.WECHAT = "WECHAT", e.WECHAT_PUBLIC = "WECHAT-PUBLIC", e.WECHAT_OPEN = "WECHAT-OPEN", e.CUSTOM = "CUSTOM", e.EMAIL = "EMAIL", e.USERNAME = "USERNAME", e.NULL = "NULL";}(he || (he = {}));var le = ["auth.getJwt", "auth.logout", "auth.signInWithTicket", "auth.signInAnonymously", "auth.signIn", "auth.fetchAccessTokenWithRefreshToken", "auth.signUpWithEmailAndPassword", "auth.activateEndUserMail", "auth.sendPasswordResetEmail", "auth.resetPasswordWithToken", "auth.isUsernameRegistered"],de = { "X-SDK-Version": "1.3.5" };function fe(e, t, s) {var n = e[t];e[t] = function (t) {var r = {},o = {};s.forEach(function (s) {var _s$call = s.call(e, t),n = _s$call.data,i = _s$call.headers;Object.assign(r, n), Object.assign(o, i);});var i = t.data;return i && function () {var e;if (e = i, "[object FormData]" !== Object.prototype.toString.call(e)) t.data = _objectSpread(_objectSpread({}, i), r);else for (var _e7 in r) {i.append(_e7, r[_e7]);}}(), t.headers = _objectSpread(_objectSpread({}, t.headers || {}), o), n.call(e, t);};}function pe() {var e = Math.random().toString(16).slice(2);return { data: { seqId: e }, headers: _objectSpread(_objectSpread({}, de), {}, { "x-seqid": e }) };}var ge = /*#__PURE__*/function () {function ge() {var e = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};_classCallCheck(this, ge);var t;this.config = e, this._reqClass = new W.adapter.reqClass({ timeout: this.config.timeout, timeoutMsg: "\u8BF7\u6C42\u5728".concat(this.config.timeout / 1e3, "s\u5185\u672A\u5B8C\u6210\uFF0C\u5DF2\u4E2D\u65AD"), restrictedMethods: ["post"] }), this._cache = Q(this.config.env), this._localCache = (t = this.config.env, G[t]), fe(this._reqClass, "post", [pe]), fe(this._reqClass, "upload", [pe]), fe(this._reqClass, "download", [pe]);}_createClass(ge, [{ key: "post", value: function () {var _post = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return this._reqClass.post(e);case 2:return _context.abrupt("return", _context.sent);case 3:case "end":return _context.stop();}}}, _callee, this);}));function post(_x) {return _post.apply(this, arguments);}return post;}() }, { key: "upload", value: function () {var _upload = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(e) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return this._reqClass.upload(e);case 2:return _context2.abrupt("return", _context2.sent);case 3:case "end":return _context2.stop();}}}, _callee2, this);}));function upload(_x2) {return _upload.apply(this, arguments);}return upload;}() }, { key: "download", value: function () {var _download = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(e) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return this._reqClass.download(e);case 2:return _context3.abrupt("return", _context3.sent);case 3:case "end":return _context3.stop();}}}, _callee3, this);}));function download(_x3) {return _download.apply(this, arguments);}return download;}() }, { key: "refreshAccessToken", value: function () {var _refreshAccessToken2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var e, t;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:this._refreshAccessTokenPromise || (this._refreshAccessTokenPromise = this._refreshAccessToken());_context4.prev = 1;_context4.next = 4;return this._refreshAccessTokenPromise;case 4:e = _context4.sent;_context4.next = 10;break;case 7:_context4.prev = 7;_context4.t0 = _context4["catch"](1);t = _context4.t0;case 10:if (!(this._refreshAccessTokenPromise = null, this._shouldRefreshAccessTokenHook = null, t)) {_context4.next = 12;break;}throw t;case 12:return _context4.abrupt("return", e);case 13:case "end":return _context4.stop();}}}, _callee4, this, [[1, 7]]);}));function refreshAccessToken() {return _refreshAccessToken2.apply(this, arguments);}return refreshAccessToken;}() }, { key: "_refreshAccessToken", value: function () {var _refreshAccessToken3 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {var _this$_cache$keys, e, t, s, n, r, o, i, a, _e8, _e9, _t5, _n5;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_this$_cache$keys = this._cache.keys, e = _this$_cache$keys.accessTokenKey, t = _this$_cache$keys.accessTokenExpireKey, s = _this$_cache$keys.refreshTokenKey, n = _this$_cache$keys.loginTypeKey, r = _this$_cache$keys.anonymousUuidKey;this._cache.removeStore(e), this._cache.removeStore(t);o = this._cache.getStore(s);if (o) {_context5.next = 5;break;}throw new Error("未登录CloudBase");case 5:i = { refresh_token: o };_context5.next = 8;return this.request("auth.fetchAccessTokenWithRefreshToken", i);case 8:a = _context5.sent;if (!a.data.code) {_context5.next = 21;break;}_e8 = a.data.code;if (!("SIGN_PARAM_INVALID" === _e8 || "REFRESH_TOKEN_EXPIRED" === _e8 || "INVALID_REFRESH_TOKEN" === _e8)) {_context5.next = 20;break;}if (!(this._cache.getStore(n) === he.ANONYMOUS && "INVALID_REFRESH_TOKEN" === _e8)) {_context5.next = 19;break;}_e9 = this._cache.getStore(r);_t5 = this._cache.getStore(s);_context5.next = 17;return this.send("auth.signInAnonymously", { anonymous_uuid: _e9, refresh_token: _t5 });case 17:_n5 = _context5.sent;return _context5.abrupt("return", (this.setRefreshToken(_n5.refresh_token), this._refreshAccessToken()));case 19:ne(ie), this._cache.removeStore(s);case 20:throw new Error("刷新access token失败：" + a.data.code);case 21:if (!a.data.access_token) {_context5.next = 23;break;}return _context5.abrupt("return", (ne(ue), this._cache.setStore(e, a.data.access_token), this._cache.setStore(t, a.data.access_token_expire + Date.now()), { accessToken: a.data.access_token, accessTokenExpire: a.data.access_token_expire }));case 23:a.data.refresh_token && (this._cache.removeStore(s), this._cache.setStore(s, a.data.refresh_token), this._refreshAccessToken());case 24:case "end":return _context5.stop();}}}, _callee5, this);}));function _refreshAccessToken() {return _refreshAccessToken3.apply(this, arguments);}return _refreshAccessToken;}() }, { key: "getAccessToken", value: function () {var _getAccessToken = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6() {var _this$_cache$keys2, e, t, s, n, r, o;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:_this$_cache$keys2 = this._cache.keys, e = _this$_cache$keys2.accessTokenKey, t = _this$_cache$keys2.accessTokenExpireKey, s = _this$_cache$keys2.refreshTokenKey;if (this._cache.getStore(s)) {_context6.next = 3;break;}throw new Error("refresh token不存在，登录状态异常");case 3:n = this._cache.getStore(e), r = this._cache.getStore(t), o = !0;_context6.t0 = this._shouldRefreshAccessTokenHook;if (!_context6.t0) {_context6.next = 9;break;}_context6.next = 8;return this._shouldRefreshAccessTokenHook(n, r);case 8:_context6.t0 = !_context6.sent;case 9:_context6.t1 = _context6.t0;if (!_context6.t1) {_context6.next = 12;break;}o = !1;case 12:return _context6.abrupt("return", (!n || !r || r < Date.now()) && o ? this.refreshAccessToken() : { accessToken: n, accessTokenExpire: r });case 13:case "end":return _context6.stop();}}}, _callee6, this);}));function getAccessToken() {return _getAccessToken.apply(this, arguments);}return getAccessToken;}() }, { key: "request", value: function () {var _request = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee7(e, t, s) {var n, r, o, _e10, i, _e11, _e12, a, c, u, h, l, d, f, p, g;return _regenerator.default.wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:n = "x-tcb-trace_" + this.config.env;r = "application/x-www-form-urlencoded";o = _objectSpread({ action: e, env: this.config.env, dataVersion: "2019-08-16" }, t);if (!(-1 === le.indexOf(e))) {_context7.next = 10;break;}_e10 = this._cache.keys.refreshTokenKey;_context7.t0 = this._cache.getStore(_e10);if (!_context7.t0) {_context7.next = 10;break;}_context7.next = 9;return this.getAccessToken();case 9:o.access_token = _context7.sent.accessToken;case 10:if ("storage.uploadFile" === e) {i = new FormData();for (_e11 in i) {i.hasOwnProperty(_e11) && void 0 !== i[_e11] && i.append(_e11, o[_e11]);}r = "multipart/form-data";} else {r = "application/json;charset=UTF-8", i = {};for (_e12 in o) {void 0 !== o[_e12] && (i[_e12] = o[_e12]);}}a = { headers: { "content-type": r } };s && s.onUploadProgress && (a.onUploadProgress = s.onUploadProgress);c = this._localCache.getStore(n);c && (a.headers["X-TCB-Trace"] = c);u = t.parse, h = t.inQuery, l = t.search;d = { env: this.config.env };u && (d.parse = !0), h && (d = _objectSpread(_objectSpread({}, h), d));f = function (e, t) {var s = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};var n = /\?/.test(t);var r = "";for (var _e13 in s) {"" === r ? !n && (t += "?") : r += "&", r += "".concat(_e13, "=").concat(encodeURIComponent(s[_e13]));}return /^http(s)?\:\/\//.test(t += r) ? t : "".concat(e).concat(t);}(F, L, d);l && (f += l);_context7.next = 22;return this.post(_objectSpread({ url: f, data: i }, a));case 22:p = _context7.sent;g = p.header && p.header["x-tcb-trace"];if (!(g && this._localCache.setStore(n, g), 200 !== Number(p.status) && 200 !== Number(p.statusCode) || !p.data)) {_context7.next = 26;break;}throw new Error("network request error");case 26:return _context7.abrupt("return", p);case 27:case "end":return _context7.stop();}}}, _callee7, this);}));function request(_x4, _x5, _x6) {return _request.apply(this, arguments);}return request;}() }, { key: "send", value: function () {var _send = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee8(e) {var t,s,_s3,_args8 = arguments;return _regenerator.default.wrap(function _callee8$(_context8) {while (1) {switch (_context8.prev = _context8.next) {case 0:t = _args8.length > 1 && _args8[1] !== undefined ? _args8[1] : {};_context8.next = 3;return this.request(e, t, { onUploadProgress: t.onUploadProgress });case 3:s = _context8.sent;if (!("ACCESS_TOKEN_EXPIRED" === s.data.code && -1 === le.indexOf(e))) {_context8.next = 13;break;}_context8.next = 7;return this.refreshAccessToken();case 7:_context8.next = 9;return this.request(e, t, { onUploadProgress: t.onUploadProgress });case 9:_s3 = _context8.sent;if (!_s3.data.code) {_context8.next = 12;break;}throw new Error("[".concat(_s3.data.code, "] ").concat(_s3.data.message));case 12:return _context8.abrupt("return", _s3.data);case 13:if (!s.data.code) {_context8.next = 15;break;}throw new Error("[".concat(s.data.code, "] ").concat(s.data.message));case 15:return _context8.abrupt("return", s.data);case 16:case "end":return _context8.stop();}}}, _callee8, this);}));function send(_x7) {return _send.apply(this, arguments);}return send;}() }, { key: "setRefreshToken", value: function setRefreshToken(e) {var _this$_cache$keys3 = this._cache.keys,t = _this$_cache$keys3.accessTokenKey,s = _this$_cache$keys3.accessTokenExpireKey,n = _this$_cache$keys3.refreshTokenKey;this._cache.removeStore(t), this._cache.removeStore(s), this._cache.setStore(n, e);} }]);return ge;}();var me = {};function ye(e) {return me[e];}var _e = /*#__PURE__*/function () {function _e(e) {_classCallCheck(this, _e);this.config = e, this._cache = Q(e.env), this._request = ye(e.env);}_createClass(_e, [{ key: "setRefreshToken", value: function setRefreshToken(e) {var _this$_cache$keys4 = this._cache.keys,t = _this$_cache$keys4.accessTokenKey,s = _this$_cache$keys4.accessTokenExpireKey,n = _this$_cache$keys4.refreshTokenKey;this._cache.removeStore(t), this._cache.removeStore(s), this._cache.setStore(n, e);} }, { key: "setAccessToken", value: function setAccessToken(e, t) {var _this$_cache$keys5 = this._cache.keys,s = _this$_cache$keys5.accessTokenKey,n = _this$_cache$keys5.accessTokenExpireKey;this._cache.setStore(s, e), this._cache.setStore(n, t);} }, { key: "refreshUserInfo", value: function () {var _refreshUserInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee9() {var _yield$this$_request$, e;return _regenerator.default.wrap(function _callee9$(_context9) {while (1) {switch (_context9.prev = _context9.next) {case 0:_context9.next = 2;return this._request.send("auth.getUserInfo", {});case 2:_yield$this$_request$ = _context9.sent;e = _yield$this$_request$.data;return _context9.abrupt("return", (this.setLocalUserInfo(e), e));case 5:case "end":return _context9.stop();}}}, _callee9, this);}));function refreshUserInfo() {return _refreshUserInfo.apply(this, arguments);}return refreshUserInfo;}() }, { key: "setLocalUserInfo", value: function setLocalUserInfo(e) {var t = this._cache.keys.userInfoKey;this._cache.setStore(t, e);} }]);return _e;}();var we = /*#__PURE__*/function () {function we(e) {_classCallCheck(this, we);if (!e) throw new Error("envId is not defined");this._envId = e, this._cache = Q(this._envId), this._request = ye(this._envId), this.setUserInfo();}_createClass(we, [{ key: "linkWithTicket", value: function linkWithTicket(e) {if ("string" != typeof e) throw new Error("ticket must be string");return this._request.send("auth.linkWithTicket", { ticket: e });} }, { key: "linkWithRedirect", value: function linkWithRedirect(e) {e.signInWithRedirect();} }, { key: "updatePassword", value: function updatePassword(e, t) {return this._request.send("auth.updatePassword", { oldPassword: t, newPassword: e });} }, { key: "updateEmail", value: function updateEmail(e) {return this._request.send("auth.updateEmail", { newEmail: e });} }, { key: "updateUsername", value: function updateUsername(e) {if ("string" != typeof e) throw new Error("username must be a string");return this._request.send("auth.updateUsername", { username: e });} }, { key: "getLinkedUidList", value: function () {var _getLinkedUidList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee10() {var _yield$this$_request$2, e, t, s;return _regenerator.default.wrap(function _callee10$(_context10) {while (1) {switch (_context10.prev = _context10.next) {case 0:_context10.next = 2;return this._request.send("auth.getLinkedUidList", {});case 2:_yield$this$_request$2 = _context10.sent;e = _yield$this$_request$2.data;t = !1;s = e.users;return _context10.abrupt("return", (s.forEach(function (e) {e.wxOpenId && e.wxPublicId && (t = !0);}), { users: s, hasPrimaryUid: t }));case 7:case "end":return _context10.stop();}}}, _callee10, this);}));function getLinkedUidList() {return _getLinkedUidList.apply(this, arguments);}return getLinkedUidList;}() }, { key: "setPrimaryUid", value: function setPrimaryUid(e) {return this._request.send("auth.setPrimaryUid", { uid: e });} }, { key: "unlink", value: function unlink(e) {return this._request.send("auth.unlink", { platform: e });} }, { key: "update", value: function () {var _update = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee11(e) {var t, s, n, r, o, i, _yield$this$_request$3, a;return _regenerator.default.wrap(function _callee11$(_context11) {while (1) {switch (_context11.prev = _context11.next) {case 0:t = e.nickName;s = e.gender;n = e.avatarUrl;r = e.province;o = e.country;i = e.city;_context11.next = 8;return this._request.send("auth.updateUserInfo", { nickName: t, gender: s, avatarUrl: n, province: r, country: o, city: i });case 8:_yield$this$_request$3 = _context11.sent;a = _yield$this$_request$3.data;this.setLocalUserInfo(a);case 11:case "end":return _context11.stop();}}}, _callee11, this);}));function update(_x8) {return _update.apply(this, arguments);}return update;}() }, { key: "refresh", value: function () {var _refresh = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee12() {var _yield$this$_request$4, e;return _regenerator.default.wrap(function _callee12$(_context12) {while (1) {switch (_context12.prev = _context12.next) {case 0:_context12.next = 2;return this._request.send("auth.getUserInfo", {});case 2:_yield$this$_request$4 = _context12.sent;e = _yield$this$_request$4.data;return _context12.abrupt("return", (this.setLocalUserInfo(e), e));case 5:case "end":return _context12.stop();}}}, _callee12, this);}));function refresh() {return _refresh.apply(this, arguments);}return refresh;}() }, { key: "setUserInfo", value: function setUserInfo() {var _this10 = this;var e = this._cache.keys.userInfoKey,t = this._cache.getStore(e);["uid", "loginType", "openid", "wxOpenId", "wxPublicId", "unionId", "qqMiniOpenId", "email", "hasPassword", "customUserId", "nickName", "gender", "avatarUrl"].forEach(function (e) {_this10[e] = t[e];}), this.location = { country: t.country, province: t.province, city: t.city };} }, { key: "setLocalUserInfo", value: function setLocalUserInfo(e) {var t = this._cache.keys.userInfoKey;this._cache.setStore(t, e), this.setUserInfo();} }]);return we;}();var ve = /*#__PURE__*/function () {function ve(e) {_classCallCheck(this, ve);if (!e) throw new Error("envId is not defined");this._cache = Q(e);var _this$_cache$keys6 = this._cache.keys,t = _this$_cache$keys6.refreshTokenKey,s = _this$_cache$keys6.accessTokenKey,n = _this$_cache$keys6.accessTokenExpireKey,r = this._cache.getStore(t),o = this._cache.getStore(s),i = this._cache.getStore(n);this.credential = { refreshToken: r, accessToken: o, accessTokenExpire: i }, this.user = new we(e);}_createClass(ve, [{ key: "isAnonymousAuth", get: function get() {return this.loginType === he.ANONYMOUS;} }, { key: "isCustomAuth", get: function get() {return this.loginType === he.CUSTOM;} }, { key: "isWeixinAuth", get: function get() {return this.loginType === he.WECHAT || this.loginType === he.WECHAT_OPEN || this.loginType === he.WECHAT_PUBLIC;} }, { key: "loginType", get: function get() {return this._cache.getStore(this._cache.keys.loginTypeKey);} }]);return ve;}();var Se = /*#__PURE__*/function (_e14) {_inherits(Se, _e14);var _super5 = _createSuper(Se);function Se() {_classCallCheck(this, Se);return _super5.apply(this, arguments);}_createClass(Se, [{ key: "signIn", value: function () {var _signIn = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee13() {var _this$_cache$keys7, e, t, s, n, r, _e15;return _regenerator.default.wrap(function _callee13$(_context13) {while (1) {switch (_context13.prev = _context13.next) {case 0:this._cache.updatePersistence("local");_this$_cache$keys7 = this._cache.keys;e = _this$_cache$keys7.anonymousUuidKey;t = _this$_cache$keys7.refreshTokenKey;s = this._cache.getStore(e) || void 0;n = this._cache.getStore(t) || void 0;_context13.next = 8;return this._request.send("auth.signInAnonymously", { anonymous_uuid: s, refresh_token: n });case 8:r = _context13.sent;if (!(r.uuid && r.refresh_token)) {_context13.next = 20;break;}this._setAnonymousUUID(r.uuid);this.setRefreshToken(r.refresh_token);_context13.next = 14;return this._request.refreshAccessToken();case 14:ne(oe);ne(ae, { env: this.config.env, loginType: he.ANONYMOUS, persistence: "local" });_e15 = new ve(this.config.env);_context13.next = 19;return _e15.user.refresh();case 19:return _context13.abrupt("return", _e15);case 20:throw new Error("匿名登录失败");case 21:case "end":return _context13.stop();}}}, _callee13, this);}));function signIn() {return _signIn.apply(this, arguments);}return signIn;}() }, { key: "linkAndRetrieveDataWithTicket", value: function () {var _linkAndRetrieveDataWithTicket = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee14(e) {var _this$_cache$keys8, t, s, n, r, o;return _regenerator.default.wrap(function _callee14$(_context14) {while (1) {switch (_context14.prev = _context14.next) {case 0:_this$_cache$keys8 = this._cache.keys;t = _this$_cache$keys8.anonymousUuidKey;s = _this$_cache$keys8.refreshTokenKey;n = this._cache.getStore(t);r = this._cache.getStore(s);_context14.next = 7;return this._request.send("auth.linkAndRetrieveDataWithTicket", { anonymous_uuid: n, refresh_token: r, ticket: e });case 7:o = _context14.sent;if (!o.refresh_token) {_context14.next = 16;break;}this._clearAnonymousUUID();this.setRefreshToken(o.refresh_token);_context14.next = 13;return this._request.refreshAccessToken();case 13:ne(ce, { env: this.config.env });ne(ae, { loginType: he.CUSTOM, persistence: "local" });return _context14.abrupt("return", { credential: { refreshToken: o.refresh_token } });case 16:throw new Error("匿名转化失败");case 17:case "end":return _context14.stop();}}}, _callee14, this);}));function linkAndRetrieveDataWithTicket(_x9) {return _linkAndRetrieveDataWithTicket.apply(this, arguments);}return linkAndRetrieveDataWithTicket;}() }, { key: "_setAnonymousUUID", value: function _setAnonymousUUID(e) {var _this$_cache$keys9 = this._cache.keys,t = _this$_cache$keys9.anonymousUuidKey,s = _this$_cache$keys9.loginTypeKey;this._cache.removeStore(t), this._cache.setStore(t, e), this._cache.setStore(s, he.ANONYMOUS);} }, { key: "_clearAnonymousUUID", value: function _clearAnonymousUUID() {this._cache.removeStore(this._cache.keys.anonymousUuidKey);} }]);return Se;}(_e);var ke = /*#__PURE__*/function (_e16) {_inherits(ke, _e16);var _super6 = _createSuper(ke);function ke() {_classCallCheck(this, ke);return _super6.apply(this, arguments);}_createClass(ke, [{ key: "signIn", value: function () {var _signIn2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee15(e) {var t, s;return _regenerator.default.wrap(function _callee15$(_context15) {while (1) {switch (_context15.prev = _context15.next) {case 0:if (!("string" != typeof e)) {_context15.next = 2;break;}throw new Error("ticket must be a string");case 2:t = this._cache.keys.refreshTokenKey;_context15.next = 5;return this._request.send("auth.signInWithTicket", { ticket: e, refresh_token: this._cache.getStore(t) || "" });case 5:s = _context15.sent;if (!s.refresh_token) {_context15.next = 15;break;}this.setRefreshToken(s.refresh_token);_context15.next = 10;return this._request.refreshAccessToken();case 10:ne(oe);ne(ae, { env: this.config.env, loginType: he.CUSTOM, persistence: this.config.persistence });_context15.next = 14;return this.refreshUserInfo();case 14:return _context15.abrupt("return", new ve(this.config.env));case 15:throw new Error("自定义登录失败");case 16:case "end":return _context15.stop();}}}, _callee15, this);}));function signIn(_x10) {return _signIn2.apply(this, arguments);}return signIn;}() }]);return ke;}(_e);var Te = /*#__PURE__*/function (_e17) {_inherits(Te, _e17);var _super7 = _createSuper(Te);function Te() {_classCallCheck(this, Te);return _super7.apply(this, arguments);}_createClass(Te, [{ key: "signIn", value: function () {var _signIn3 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee16(e, t) {var s, n, r, o, i;return _regenerator.default.wrap(function _callee16$(_context16) {while (1) {switch (_context16.prev = _context16.next) {case 0:if (!("string" != typeof e)) {_context16.next = 2;break;}throw new Error("email must be a string");case 2:s = this._cache.keys.refreshTokenKey;_context16.next = 5;return this._request.send("auth.signIn", { loginType: "EMAIL", email: e, password: t, refresh_token: this._cache.getStore(s) || "" });case 5:n = _context16.sent;r = n.refresh_token;o = n.access_token;i = n.access_token_expire;if (!r) {_context16.next = 22;break;}this.setRefreshToken(r);if (!(o && i)) {_context16.next = 15;break;}this.setAccessToken(o, i);_context16.next = 17;break;case 15:_context16.next = 17;return this._request.refreshAccessToken();case 17:_context16.next = 19;return this.refreshUserInfo();case 19:ne(oe);ne(ae, { env: this.config.env, loginType: he.EMAIL, persistence: this.config.persistence });return _context16.abrupt("return", new ve(this.config.env));case 22:throw n.code ? new Error("\u90AE\u7BB1\u767B\u5F55\u5931\u8D25: [".concat(n.code, "] ").concat(n.message)) : new Error("邮箱登录失败");case 23:case "end":return _context16.stop();}}}, _callee16, this);}));function signIn(_x11, _x12) {return _signIn3.apply(this, arguments);}return signIn;}() }, { key: "activate", value: function () {var _activate = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee17(e) {return _regenerator.default.wrap(function _callee17$(_context17) {while (1) {switch (_context17.prev = _context17.next) {case 0:return _context17.abrupt("return", this._request.send("auth.activateEndUserMail", { token: e }));case 1:case "end":return _context17.stop();}}}, _callee17, this);}));function activate(_x13) {return _activate.apply(this, arguments);}return activate;}() }, { key: "resetPasswordWithToken", value: function () {var _resetPasswordWithToken = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee18(e, t) {return _regenerator.default.wrap(function _callee18$(_context18) {while (1) {switch (_context18.prev = _context18.next) {case 0:return _context18.abrupt("return", this._request.send("auth.resetPasswordWithToken", { token: e, newPassword: t }));case 1:case "end":return _context18.stop();}}}, _callee18, this);}));function resetPasswordWithToken(_x14, _x15) {return _resetPasswordWithToken.apply(this, arguments);}return resetPasswordWithToken;}() }]);return Te;}(_e);var Pe = /*#__PURE__*/function (_e18) {_inherits(Pe, _e18);var _super8 = _createSuper(Pe);function Pe() {_classCallCheck(this, Pe);return _super8.apply(this, arguments);}_createClass(Pe, [{ key: "signIn", value: function () {var _signIn4 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee19(e, t) {var s, n, r, o, i;return _regenerator.default.wrap(function _callee19$(_context19) {while (1) {switch (_context19.prev = _context19.next) {case 0:if (!("string" != typeof e)) {_context19.next = 2;break;}throw new Error("username must be a string");case 2:"string" != typeof t && (t = "", console.warn("password is empty"));s = this._cache.keys.refreshTokenKey;_context19.next = 6;return this._request.send("auth.signIn", { loginType: he.USERNAME, username: e, password: t, refresh_token: this._cache.getStore(s) || "" });case 6:n = _context19.sent;r = n.refresh_token;o = n.access_token_expire;i = n.access_token;if (!r) {_context19.next = 23;break;}this.setRefreshToken(r);if (!(i && o)) {_context19.next = 16;break;}this.setAccessToken(i, o);_context19.next = 18;break;case 16:_context19.next = 18;return this._request.refreshAccessToken();case 18:_context19.next = 20;return this.refreshUserInfo();case 20:ne(oe);ne(ae, { env: this.config.env, loginType: he.USERNAME, persistence: this.config.persistence });return _context19.abrupt("return", new ve(this.config.env));case 23:throw n.code ? new Error("\u7528\u6237\u540D\u5BC6\u7801\u767B\u5F55\u5931\u8D25: [".concat(n.code, "] ").concat(n.message)) : new Error("用户名密码登录失败");case 24:case "end":return _context19.stop();}}}, _callee19, this);}));function signIn(_x16, _x17) {return _signIn4.apply(this, arguments);}return signIn;}() }]);return Pe;}(_e);var Ie = /*#__PURE__*/function () {function Ie(e) {_classCallCheck(this, Ie);this.config = e, this._cache = Q(e.env), this._request = ye(e.env), this._onAnonymousConverted = this._onAnonymousConverted.bind(this), this._onLoginTypeChanged = this._onLoginTypeChanged.bind(this), se(ae, this._onLoginTypeChanged);}_createClass(Ie, [{ key: "anonymousAuthProvider", value: function anonymousAuthProvider() {return new Se(this.config);} }, { key: "customAuthProvider", value: function customAuthProvider() {return new ke(this.config);} }, { key: "emailAuthProvider", value: function emailAuthProvider() {return new Te(this.config);} }, { key: "usernameAuthProvider", value: function usernameAuthProvider() {return new Pe(this.config);} }, { key: "signInAnonymously", value: function () {var _signInAnonymously = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee20() {return _regenerator.default.wrap(function _callee20$(_context20) {while (1) {switch (_context20.prev = _context20.next) {case 0:return _context20.abrupt("return", new Se(this.config).signIn());case 1:case "end":return _context20.stop();}}}, _callee20, this);}));function signInAnonymously() {return _signInAnonymously.apply(this, arguments);}return signInAnonymously;}() }, { key: "signInWithEmailAndPassword", value: function () {var _signInWithEmailAndPassword = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee21(e, t) {return _regenerator.default.wrap(function _callee21$(_context21) {while (1) {switch (_context21.prev = _context21.next) {case 0:return _context21.abrupt("return", new Te(this.config).signIn(e, t));case 1:case "end":return _context21.stop();}}}, _callee21, this);}));function signInWithEmailAndPassword(_x18, _x19) {return _signInWithEmailAndPassword.apply(this, arguments);}return signInWithEmailAndPassword;}() }, { key: "signInWithUsernameAndPassword", value: function signInWithUsernameAndPassword(e, t) {return new Pe(this.config).signIn(e, t);} }, { key: "linkAndRetrieveDataWithTicket", value: function () {var _linkAndRetrieveDataWithTicket2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee22(e) {return _regenerator.default.wrap(function _callee22$(_context22) {while (1) {switch (_context22.prev = _context22.next) {case 0:this._anonymousAuthProvider || (this._anonymousAuthProvider = new Se(this.config)), se(ce, this._onAnonymousConverted);_context22.next = 3;return this._anonymousAuthProvider.linkAndRetrieveDataWithTicket(e);case 3:return _context22.abrupt("return", _context22.sent);case 4:case "end":return _context22.stop();}}}, _callee22, this);}));function linkAndRetrieveDataWithTicket(_x20) {return _linkAndRetrieveDataWithTicket2.apply(this, arguments);}return linkAndRetrieveDataWithTicket;}() }, { key: "signOut", value: function () {var _signOut = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee23() {var _this$_cache$keys10, e, t, s, n, r;return _regenerator.default.wrap(function _callee23$(_context23) {while (1) {switch (_context23.prev = _context23.next) {case 0:if (!(this.loginType === he.ANONYMOUS)) {_context23.next = 2;break;}throw new Error("匿名用户不支持登出操作");case 2:_this$_cache$keys10 = this._cache.keys, e = _this$_cache$keys10.refreshTokenKey, t = _this$_cache$keys10.accessTokenKey, s = _this$_cache$keys10.accessTokenExpireKey, n = this._cache.getStore(e);if (n) {_context23.next = 5;break;}return _context23.abrupt("return");case 5:_context23.next = 7;return this._request.send("auth.logout", { refresh_token: n });case 7:r = _context23.sent;return _context23.abrupt("return", (this._cache.removeStore(e), this._cache.removeStore(t), this._cache.removeStore(s), ne(oe), ne(ae, { env: this.config.env, loginType: he.NULL, persistence: this.config.persistence }), r));case 9:case "end":return _context23.stop();}}}, _callee23, this);}));function signOut() {return _signOut.apply(this, arguments);}return signOut;}() }, { key: "signUpWithEmailAndPassword", value: function () {var _signUpWithEmailAndPassword = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee24(e, t) {return _regenerator.default.wrap(function _callee24$(_context24) {while (1) {switch (_context24.prev = _context24.next) {case 0:return _context24.abrupt("return", this._request.send("auth.signUpWithEmailAndPassword", { email: e, password: t }));case 1:case "end":return _context24.stop();}}}, _callee24, this);}));function signUpWithEmailAndPassword(_x21, _x22) {return _signUpWithEmailAndPassword.apply(this, arguments);}return signUpWithEmailAndPassword;}() }, { key: "sendPasswordResetEmail", value: function () {var _sendPasswordResetEmail = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee25(e) {return _regenerator.default.wrap(function _callee25$(_context25) {while (1) {switch (_context25.prev = _context25.next) {case 0:return _context25.abrupt("return", this._request.send("auth.sendPasswordResetEmail", { email: e }));case 1:case "end":return _context25.stop();}}}, _callee25, this);}));function sendPasswordResetEmail(_x23) {return _sendPasswordResetEmail.apply(this, arguments);}return sendPasswordResetEmail;}() }, { key: "onLoginStateChanged", value: function onLoginStateChanged(e) {var _this11 = this;se(oe, function () {var t = _this11.hasLoginState();e.call(_this11, t);});var t = this.hasLoginState();e.call(this, t);} }, { key: "onLoginStateExpired", value: function onLoginStateExpired(e) {se(ie, e.bind(this));} }, { key: "onAccessTokenRefreshed", value: function onAccessTokenRefreshed(e) {se(ue, e.bind(this));} }, { key: "onAnonymousConverted", value: function onAnonymousConverted(e) {se(ce, e.bind(this));} }, { key: "onLoginTypeChanged", value: function onLoginTypeChanged(e) {var _this12 = this;se(ae, function () {var t = _this12.hasLoginState();e.call(_this12, t);});} }, { key: "getAccessToken", value: function () {var _getAccessToken2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee26() {return _regenerator.default.wrap(function _callee26$(_context26) {while (1) {switch (_context26.prev = _context26.next) {case 0:_context26.next = 2;return this._request.getAccessToken();case 2:_context26.t0 = _context26.sent.accessToken;_context26.t1 = this.config.env;return _context26.abrupt("return", { accessToken: _context26.t0, env: _context26.t1 });case 5:case "end":return _context26.stop();}}}, _callee26, this);}));function getAccessToken() {return _getAccessToken2.apply(this, arguments);}return getAccessToken;}() }, { key: "hasLoginState", value: function hasLoginState() {var e = this._cache.keys.refreshTokenKey;return this._cache.getStore(e) ? new ve(this.config.env) : null;} }, { key: "isUsernameRegistered", value: function () {var _isUsernameRegistered = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee27(e) {var _yield$this$_request$5, t;return _regenerator.default.wrap(function _callee27$(_context27) {while (1) {switch (_context27.prev = _context27.next) {case 0:if (!("string" != typeof e)) {_context27.next = 2;break;}throw new Error("username must be a string");case 2:_context27.next = 4;return this._request.send("auth.isUsernameRegistered", { username: e });case 4:_yield$this$_request$5 = _context27.sent;t = _yield$this$_request$5.data;return _context27.abrupt("return", t && t.isRegistered);case 7:case "end":return _context27.stop();}}}, _callee27, this);}));function isUsernameRegistered(_x24) {return _isUsernameRegistered.apply(this, arguments);}return isUsernameRegistered;}() }, { key: "getLoginState", value: function getLoginState() {return Promise.resolve(this.hasLoginState());} }, { key: "signInWithTicket", value: function () {var _signInWithTicket = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee28(e) {return _regenerator.default.wrap(function _callee28$(_context28) {while (1) {switch (_context28.prev = _context28.next) {case 0:return _context28.abrupt("return", new ke(this.config).signIn(e));case 1:case "end":return _context28.stop();}}}, _callee28, this);}));function signInWithTicket(_x25) {return _signInWithTicket.apply(this, arguments);}return signInWithTicket;}() }, { key: "shouldRefreshAccessToken", value: function shouldRefreshAccessToken(e) {this._request._shouldRefreshAccessTokenHook = e.bind(this);} }, { key: "getUserInfo", value: function getUserInfo() {return this._request.send("auth.getUserInfo", {}).then(function (e) {return e.code ? e : _objectSpread(_objectSpread({}, e.data), {}, { requestId: e.seqId });});} }, { key: "getAuthHeader", value: function getAuthHeader() {var _this$_cache$keys11 = this._cache.keys,e = _this$_cache$keys11.refreshTokenKey,t = _this$_cache$keys11.accessTokenKey,s = this._cache.getStore(e);return { "x-cloudbase-credentials": this._cache.getStore(t) + "/@@/" + s };} }, { key: "_onAnonymousConverted", value: function _onAnonymousConverted(e) {var t = e.data.env;t === this.config.env && this._cache.updatePersistence(this.config.persistence);} }, { key: "_onLoginTypeChanged", value: function _onLoginTypeChanged(e) {var _e$data = e.data,t = _e$data.loginType,s = _e$data.persistence,n = _e$data.env;n === this.config.env && (this._cache.updatePersistence(s), this._cache.setStore(this._cache.keys.loginTypeKey, t));} }, { key: "currentUser", get: function get() {var e = this.hasLoginState();return e && e.user || null;} }, { key: "loginType", get: function get() {return this._cache.getStore(this._cache.keys.loginTypeKey);} }]);return Ie;}();var Ae = function Ae(e, t) {t = t || j();var s = ye(this.config.env),n = e.cloudPath,r = e.filePath,o = e.onUploadProgress,_e$fileType = e.fileType,i = _e$fileType === void 0 ? "image" : _e$fileType;return s.send("storage.getUploadMetadata", { path: n }).then(function (e) {var _e$data2 = e.data,a = _e$data2.url,c = _e$data2.authorization,u = _e$data2.token,h = _e$data2.fileId,l = _e$data2.cosFileId,d = e.requestId,f = { key: n, signature: c, "x-cos-meta-fileid": l, success_action_status: "201", "x-cos-security-token": u };s.upload({ url: a, data: f, file: r, name: n, fileType: i, onUploadProgress: o }).then(function (e) {201 === e.statusCode ? t(null, { fileID: h, requestId: d }) : t(new Error("STORAGE_REQUEST_FAIL: " + e.data));}).catch(function (e) {t(e);});}).catch(function (e) {t(e);}), t.promise;},Ee = function Ee(e, t) {t = t || j();var s = ye(this.config.env),n = e.cloudPath;return s.send("storage.getUploadMetadata", { path: n }).then(function (e) {t(null, e);}).catch(function (e) {t(e);}), t.promise;},Oe = function Oe(_ref5, t) {var e = _ref5.fileList;if (t = t || j(), !e || !Array.isArray(e)) return { code: "INVALID_PARAM", message: "fileList必须是非空的数组" };var _iterator3 = _createForOfIteratorHelper(e),_step3;try {for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {var _t6 = _step3.value;if (!_t6 || "string" != typeof _t6) return { code: "INVALID_PARAM", message: "fileList的元素必须是非空的字符串" };}} catch (err) {_iterator3.e(err);} finally {_iterator3.f();}var s = { fileid_list: e };return ye(this.config.env).send("storage.batchDeleteFile", s).then(function (e) {e.code ? t(null, e) : t(null, { fileList: e.data.delete_list, requestId: e.requestId });}).catch(function (e) {t(e);}), t.promise;},Ue = function Ue(_ref6, t) {var e = _ref6.fileList;t = t || j(), e && Array.isArray(e) || t(null, { code: "INVALID_PARAM", message: "fileList必须是非空的数组" });var s = [];var _iterator4 = _createForOfIteratorHelper(e),_step4;try {for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {var _n6 = _step4.value;"object" == typeof _n6 ? (_n6.hasOwnProperty("fileID") && _n6.hasOwnProperty("maxAge") || t(null, { code: "INVALID_PARAM", message: "fileList的元素必须是包含fileID和maxAge的对象" }), s.push({ fileid: _n6.fileID, max_age: _n6.maxAge })) : "string" == typeof _n6 ? s.push({ fileid: _n6 }) : t(null, { code: "INVALID_PARAM", message: "fileList的元素必须是字符串" });}} catch (err) {_iterator4.e(err);} finally {_iterator4.f();}var n = { file_list: s };return ye(this.config.env).send("storage.batchGetDownloadUrl", n).then(function (e) {e.code ? t(null, e) : t(null, { fileList: e.data.download_list, requestId: e.requestId });}).catch(function (e) {t(e);}), t.promise;},be = /*#__PURE__*/function () {var _ref8 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee29(_ref7, t) {var e, s, n, r;return _regenerator.default.wrap(function _callee29$(_context29) {while (1) {switch (_context29.prev = _context29.next) {case 0:e = _ref7.fileID;_context29.next = 3;return Ue.call(this, { fileList: [{ fileID: e, maxAge: 600 }] });case 3:s = _context29.sent.fileList[0];if (!("SUCCESS" !== s.code)) {_context29.next = 6;break;}return _context29.abrupt("return", t ? t(s) : new Promise(function (e) {e(s);}));case 6:n = ye(this.config.env);r = s.download_url;if (!(r = encodeURI(r), !t)) {_context29.next = 10;break;}return _context29.abrupt("return", n.download({ url: r }));case 10:_context29.t0 = t;_context29.next = 13;return n.download({ url: r });case 13:_context29.t1 = _context29.sent;(0, _context29.t0)(_context29.t1);case 15:case "end":return _context29.stop();}}}, _callee29, this);}));return function be(_x26, _x27) {return _ref8.apply(this, arguments);};}(),De = function De(_ref9, o) {var e = _ref9.name,t = _ref9.data,s = _ref9.query,n = _ref9.parse,r = _ref9.search;var i = o || j();var a;try {a = t ? JSON.stringify(t) : "";} catch (e) {return Promise.reject(e);}if (!e) return Promise.reject(new Error("函数名不能为空"));var c = { inQuery: s, parse: n, search: r, function_name: e, request_data: a };return ye(this.config.env).send("functions.invokeFunction", c).then(function (e) {if (e.code) i(null, e);else {var _t7 = e.data.response_data;if (n) i(null, { result: _t7, requestId: e.requestId });else try {_t7 = JSON.parse(e.data.response_data), i(null, { result: _t7, requestId: e.requestId });} catch (e) {i(new Error("response data must be json"));}}return i.promise;}).catch(function (e) {i(e);}), i.promise;},Ce = { timeout: 15e3, persistence: "session" },xe = {};var qe = /*#__PURE__*/function () {function qe(e) {_classCallCheck(this, qe);this.config = e || this.config, this.authObj = void 0;}_createClass(qe, [{ key: "init", value: function init(e) {switch (W.adapter || (this.requestClient = new W.adapter.reqClass({ timeout: e.timeout || 5e3, timeoutMsg: "\u8BF7\u6C42\u5728".concat((e.timeout || 5e3) / 1e3, "s\u5185\u672A\u5B8C\u6210\uFF0C\u5DF2\u4E2D\u65AD") })), this.config = _objectSpread(_objectSpread({}, Ce), e), !0) {case this.config.timeout > 6e5:console.warn("timeout大于可配置上限[10分钟]，已重置为上限数值"), this.config.timeout = 6e5;break;case this.config.timeout < 100:console.warn("timeout小于可配置下限[100ms]，已重置为下限数值"), this.config.timeout = 100;}return new qe(this.config);} }, { key: "auth", value: function auth() {var _ref10 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},e = _ref10.persistence;if (this.authObj) return this.authObj;var t = e || W.adapter.primaryStorage || Ce.persistence;var s;return t !== this.config.persistence && (this.config.persistence = t), function (e) {var t = e.env;X[t] = new Y(e), G[t] = new Y(_objectSpread(_objectSpread({}, e), {}, { persistence: "local" }));}(this.config), s = this.config, me[s.env] = new ge(s), this.authObj = new Ie(this.config), this.authObj;} }, { key: "on", value: function on(e, t) {return se.apply(this, [e, t]);} }, { key: "off", value: function off(e, t) {return re.apply(this, [e, t]);} }, { key: "callFunction", value: function callFunction(e, t) {return De.apply(this, [e, t]);} }, { key: "deleteFile", value: function deleteFile(e, t) {return Oe.apply(this, [e, t]);} }, { key: "getTempFileURL", value: function getTempFileURL(e, t) {return Ue.apply(this, [e, t]);} }, { key: "downloadFile", value: function downloadFile(e, t) {return be.apply(this, [e, t]);} }, { key: "uploadFile", value: function uploadFile(e, t) {return Ae.apply(this, [e, t]);} }, { key: "getUploadMetadata", value: function getUploadMetadata(e, t) {return Ee.apply(this, [e, t]);} }, { key: "registerExtension", value: function registerExtension(e) {xe[e.name] = e;} }, { key: "invokeExtension", value: function () {var _invokeExtension = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee30(e, t) {var s;return _regenerator.default.wrap(function _callee30$(_context30) {while (1) {switch (_context30.prev = _context30.next) {case 0:s = xe[e];if (s) {_context30.next = 3;break;}throw Error("\u6269\u5C55".concat(e, " \u5FC5\u987B\u5148\u6CE8\u518C"));case 3:_context30.next = 5;return s.invoke(t, this);case 5:return _context30.abrupt("return", _context30.sent);case 6:case "end":return _context30.stop();}}}, _callee30, this);}));function invokeExtension(_x28, _x29) {return _invokeExtension.apply(this, arguments);}return invokeExtension;}() }, { key: "useAdapters", value: function useAdapters(e) {var _ref11 = H(e) || {},t = _ref11.adapter,s = _ref11.runtime;t && (W.adapter = t), s && (W.runtime = s);} }]);return qe;}();var Re = new qe();function Fe(e, t, s) {void 0 === s && (s = {});var n = /\?/.test(t),r = "";for (var o in s) {"" === r ? !n && (t += "?") : r += "&", r += o + "=" + encodeURIComponent(s[o]);}return /^http(s)?:\/\//.test(t += r) ? t : "" + e + t;}var Le = /*#__PURE__*/function () {function Le() {_classCallCheck(this, Le);}_createClass(Le, [{ key: "post", value: function post(e) {var t = e.url,s = e.data,n = e.headers;return new Promise(function (e, r) {x.request({ url: Fe("https:", t), data: s, method: "POST", header: n, success: function success(t) {e(t);}, fail: function fail(e) {r(e);} });});} }, { key: "upload", value: function upload(e) {return new Promise(function (t, s) {var n = e.url,r = e.file,o = e.data,i = e.headers,a = e.fileType,c = x.uploadFile({ url: Fe("https:", n), name: "file", formData: Object.assign({}, o), filePath: r, fileType: a, header: i, success: function success(e) {var s = { statusCode: e.statusCode, data: e.data || {} };200 === e.statusCode && o.success_action_status && (s.statusCode = parseInt(o.success_action_status, 10)), t(s);}, fail: function fail(e) {v && "mp-alipay" === S && console.warn("支付宝小程序开发工具上传腾讯云时无法准确判断是否上传成功，请使用真机测试"), s(new Error(e.errMsg || "uploadFile:fail"));} });"function" == typeof e.onUploadProgress && c && "function" == typeof c.onProgressUpdate && c.onProgressUpdate(function (t) {e.onUploadProgress({ loaded: t.totalBytesSent, total: t.totalBytesExpectedToSend });});});} }]);return Le;}();var Ne = { setItem: function setItem(e, t) {x.setStorageSync(e, t);}, getItem: function getItem(e) {return x.getStorageSync(e);}, removeItem: function removeItem(e) {x.removeStorageSync(e);}, clear: function clear() {x.clearStorageSync();} };var Me = { genAdapter: function genAdapter() {return { root: {}, reqClass: Le, localStorage: Ne, primaryStorage: "local" };}, isMatch: function isMatch() {return !0;}, runtime: "uni_app" };Re.useAdapters(Me);var je = Re,$e = je.init;je.init = function (e) {e.env = e.spaceId;var t = $e.call(this, e);t.config.provider = "tencent", t.config.spaceId = e.spaceId;var s = t.auth;return t.auth = function (e) {var t = s.call(this, e);return ["linkAndRetrieveDataWithTicket", "signInAnonymously", "signOut", "getAccessToken", "getLoginState", "signInWithTicket", "getUserInfo"].forEach(function (e) {t[e] = p(t[e]).bind(t);}), t;}, t.customAuth = t.auth, t;};var Ke = /*#__PURE__*/function (_q) {_inherits(Ke, _q);var _super9 = _createSuper(Ke);function Ke() {_classCallCheck(this, Ke);return _super9.apply(this, arguments);}_createClass(Ke, [{ key: "getAccessToken", value: function getAccessToken() {var _this13 = this;return new Promise(function (e, t) {_this13.setAccessToken("Anonymous_Access_token"), e("Anonymous_Access_token");});} }, { key: "setupRequest", value: function setupRequest(e, t) {var s = Object.assign({}, e, { spaceId: this.config.spaceId, timestamp: Date.now() }),n = { "Content-Type": "application/json" };"auth" !== t && (s.token = this.accessToken, n["x-basement-token"] = this.accessToken), n["x-serverless-sign"] = C.sign(s, this.config.clientSecret);var r = U(),o = r.APPID,i = r.PLATFORM,a = r.DEVICEID,c = r.CLIENT_SDK_VERSION;return n["x-client-platform"] = i, n["x-client-appid"] = o, n["x-client-device-id"] = a, n["x-client-version"] = c, n["x-client-token"] = x.getStorageSync("uni_id_token"), { url: this.config.requestUrl, method: "POST", data: s, dataType: "json", header: JSON.parse(JSON.stringify(n)) };} }, { key: "uploadFileToOSS", value: function uploadFileToOSS(_ref12) {var _this14 = this;var e = _ref12.url,t = _ref12.formData,s = _ref12.name,n = _ref12.filePath,r = _ref12.fileType,o = _ref12.onUploadProgress;return new Promise(function (i, a) {var c = _this14.adapter.uploadFile({ url: e, formData: t, name: s, filePath: n, fileType: r, success: function success(e) {e && e.statusCode < 400 ? i(e) : a(new g({ code: "UPLOAD_FAILED", message: "文件上传失败" }));}, fail: function fail(e) {a(new g({ code: e.code || "UPLOAD_FAILED", message: e.message || e.errMsg || "文件上传失败" }));} });"function" == typeof o && c && "function" == typeof c.onProgressUpdate && c.onProgressUpdate(function (e) {o({ loaded: e.totalBytesSent, total: e.totalBytesExpectedToSend });});});} }, { key: "uploadFile", value: function uploadFile(_ref13) {var _this15 = this;var e = _ref13.filePath,t = _ref13.cloudPath,_ref13$fileType = _ref13.fileType,s = _ref13$fileType === void 0 ? "image" : _ref13$fileType,n = _ref13.onUploadProgress;if (!t) throw new g({ code: "CLOUDPATH_REQUIRED", message: "cloudPath不可为空" });var r;return this.getOSSUploadOptionsFromPath({ cloudPath: t }).then(function (t) {var _t$result = t.result,o = _t$result.url,i = _t$result.formData,a = _t$result.name,c = _t$result.fileUrl;r = c;var u = { url: o, formData: i, name: a, filePath: e, fileType: s };return _this15.uploadFileToOSS(Object.assign({}, u, { onUploadProgress: n }));}).then(function () {return _this15.reportOSSUpload({ cloudPath: t });}).then(function (t) {return new Promise(function (s, n) {t.success ? s({ success: !0, filePath: e, fileID: r }) : n(new g({ code: "UPLOAD_FAILED", message: "文件上传失败" }));});});} }]);return Ke;}(q);var Be = { init: function init(e) {var t = new Ke(e),s = { signInAnonymously: function signInAnonymously() {return t.authorize();}, getLoginState: function getLoginState() {return Promise.resolve(!1);} };return t.auth = function () {return s;}, t.customAuth = t.auth, t;} };var He, We;function ze(_ref14) {var e = _ref14.name,t = _ref14.data,s = _ref14.spaceId,n = _ref14.provider;He || (He = U(), We = { ak: I.appid, p: "android" === E ? "a" : "i", ut: D(), uuid: b() });var r = JSON.parse(JSON.stringify(t || {})),o = e,i = s,a = { tencent: "t", aliyun: "a" }[n];{var _e19 = Object.assign({}, We, { fn: o, sid: i, pvd: a });Object.assign(r, { clientInfo: He, uniCloudClientInfo: encodeURIComponent(JSON.stringify(_e19)) });var _uni$getSystemInfoSyn2 = uni.getSystemInfoSync(),_t8 = _uni$getSystemInfoSyn2.deviceId;r.uniCloudDeviceId = _t8;}if (!r.uniIdToken) {var _e20 = x.getStorageSync("uni_id_token") || x.getStorageSync("uniIdToken");_e20 && (r.uniIdToken = _e20);}return r;}function Ve(_ref15) {var _this16 = this;var e = _ref15.name,t = _ref15.data;var s = this.localAddress,n = this.localPort,r = { aliyun: "aliyun", tencent: "tcb" }[this.config.provider],o = this.config.spaceId,i = "http://".concat(s, ":").concat(n, "/system/check-function"),a = "http://".concat(s, ":").concat(n, "/cloudfunctions/").concat(e);return new Promise(function (t, s) {x.request({ method: "POST", url: i, data: { name: e, platform: S, provider: r, spaceId: o }, timeout: 3e3, success: function success(e) {t(e);}, fail: function fail() {t({ data: { code: "NETWORK_ERROR", message: "连接本地调试服务失败，请检查客户端是否和主机在同一局域网下，自动切换为已部署的云函数。" } });} });}).then(function () {var _ref16 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},e = _ref16.data;var _ref17 = e || {},t = _ref17.code,s = _ref17.message;return { code: 0 === t ? 0 : t || "SYS_ERR", message: s || "SYS_ERR" };}).then(function (_ref18) {var s = _ref18.code,n = _ref18.message;if (0 !== s) {switch (s) {case "MODULE_ENCRYPTED":console.error("\u6B64\u4E91\u51FD\u6570\uFF08".concat(e, "\uFF09\u4F9D\u8D56\u52A0\u5BC6\u516C\u5171\u6A21\u5757\u4E0D\u53EF\u672C\u5730\u8C03\u8BD5\uFF0C\u81EA\u52A8\u5207\u6362\u4E3A\u4E91\u7AEF\u5DF2\u90E8\u7F72\u7684\u4E91\u51FD\u6570"));break;case "FUNCTION_ENCRYPTED":console.error("\u6B64\u4E91\u51FD\u6570\uFF08".concat(e, "\uFF09\u5DF2\u52A0\u5BC6\u4E0D\u53EF\u672C\u5730\u8C03\u8BD5\uFF0C\u81EA\u52A8\u5207\u6362\u4E3A\u4E91\u7AEF\u5DF2\u90E8\u7F72\u7684\u4E91\u51FD\u6570"));break;case "ACTION_ENCRYPTED":console.error(n || "需要访问加密的uni-clientDB-action，自动切换为云端环境");break;case "NETWORK_ERROR":{var _e21 = "连接本地调试服务失败，请检查客户端是否和主机在同一局域网下";throw console.error(_e21), new Error(_e21);}case "SWITCH_TO_CLOUD":break;default:{var _e22 = "\u68C0\u6D4B\u672C\u5730\u8C03\u8BD5\u670D\u52A1\u51FA\u73B0\u9519\u8BEF\uFF1A".concat(n, "\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u73AF\u5883\u6216\u91CD\u542F\u5BA2\u6237\u7AEF\u518D\u8BD5");throw console.error(_e22), new Error(_e22);}}return _this16._originCallFunction({ name: e, data: t });}return new Promise(function (s, n) {var i = ze({ name: e, data: t, provider: _this16.config.provider, spaceId: o });x.request({ method: "POST", url: a, data: { provider: r, platform: S, param: i }, success: function success() {var _ref19 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},e = _ref19.statusCode,t = _ref19.data;return !e || e >= 400 ? n(new g({ code: t.code || "SYS_ERR", message: t.message || "request:fail" })) : s({ result: t });}, fail: function fail(e) {n(new g({ code: e.code || e.errCode || "SYS_ERR", message: e.message || e.errMsg || "request:fail" }));} });});});}var Je = [{ rule: /fc_function_not_found|FUNCTION_NOT_FOUND/, content: "，云函数[{functionName}]在云端不存在，请检查此云函数名称是否正确以及该云函数是否已上传到服务空间", mode: "append" }];var Ye = /[\\^$.*+?()[\]{}|]/g,Xe = RegExp(Ye.source);function Ge(e, t, s) {return e.replace(new RegExp((n = t) && Xe.test(n) ? n.replace(Ye, "\\$&") : n, "g"), s);var n;}function Qe(_ref20) {var e = _ref20.functionName,t = _ref20.result,s = _ref20.logPvd;if (this.config.useDebugFunction && t && t.requestId) {var _n7 = JSON.stringify({ spaceId: this.config.spaceId, functionName: e, requestId: t.requestId });console.log("[".concat(s, "-request]").concat(_n7, "[/").concat(s, "-request]"));}}function Ze(e) {var t = e.callFunction,s = function s(e) {var _this17 = this;var s = e.name;e.data = ze({ name: s, data: e.data, provider: this.config.provider, spaceId: this.config.spaceId });var n = { aliyun: "aliyun", tencent: "tcb" }[this.config.provider];return t.call(this, e).then(function (e) {return Qe.call(_this17, { functionName: s, result: e, logPvd: n }), Promise.resolve(e);}, function (t) {return Qe.call(_this17, { functionName: s, result: t, logPvd: n }), t && t.message && (t.message = function () {var _ref21 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref21$message = _ref21.message,e = _ref21$message === void 0 ? "" : _ref21$message,_ref21$extraInfo = _ref21.extraInfo,t = _ref21$extraInfo === void 0 ? {} : _ref21$extraInfo,_ref21$formatter = _ref21.formatter,s = _ref21$formatter === void 0 ? [] : _ref21$formatter;for (var _n8 = 0; _n8 < s.length; _n8++) {var _s$_n = s[_n8],_r3 = _s$_n.rule,_o2 = _s$_n.content,i = _s$_n.mode,_a = e.match(_r3);if (!_a) continue;var _c = _o2;for (var _e23 = 1; _e23 < _a.length; _e23++) {_c = Ge(_c, "{$".concat(_e23, "}"), _a[_e23]);}for (var _e24 in t) {_c = Ge(_c, "{".concat(_e24, "}"), t[_e24]);}switch (i) {case "replace":return _c;case "append":default:return e + _c;}}return e;}({ message: "[".concat(e.name, "]: ").concat(t.message), formatter: Je, extraInfo: { functionName: s } })), Promise.reject(t);});};e.callFunction = function (t) {var n;return v && e.debugInfo && !e.debugInfo.forceRemote && T ? (e._originCallFunction || (e._originCallFunction = s), n = Ve.call(this, t)) : n = s.call(this, t), Object.defineProperty(n, "result", { get: function get() {return console.warn("当前返回结果为Promise类型，不可直接访问其result属性，详情请参考：https://uniapp.dcloud.net.cn/uniCloud/faq?id=promise"), {};} }), n;};}var et = Symbol("CLIENT_DB_INTERNAL");function tt(e, t) {return e.then = "DoNotReturnProxyWithAFunctionNamedThen", e._internalType = et, new Proxy(e, { get: function get(e, s, n) {return function (e, t) {return Object.prototype.hasOwnProperty.call(e, t);}(e, s) || e[s] || "string" != typeof s ? e[s] : t.get(e, s, n);} });}function st(e) {switch (o(e)) {case "array":return e.map(function (e) {return st(e);});case "object":return e._internalType === et || Object.keys(e).forEach(function (t) {e[t] = st(e[t]);}), e;case "regexp":return { $regexp: { source: e.source, flags: e.flags } };case "date":return { $date: e.toISOString() };default:return e;}}function nt() {var e = x.getStorageSync("uni_id_token") || "",t = e.split(".");if (!e || 3 !== t.length) return { uid: null, role: [], permission: [], tokenExpired: 0 };var s;try {s = JSON.parse((n = t[1], decodeURIComponent(atob(n).split("").map(function (e) {return "%" + ("00" + e.charCodeAt(0).toString(16)).slice(-2);}).join(""))));} catch (e) {throw new Error("获取当前用户信息出错，详细错误信息为：" + e.message);}var n;return s.tokenExpired = 1e3 * s.exp, delete s.exp, delete s.iat, s;}var rt = t(s(function (e, t) {Object.defineProperty(t, "__esModule", { value: !0 });var s = "chooseAndUploadFile:fail";function n(e, t) {return e.tempFiles.forEach(function (e, s) {e.name || (e.name = e.path.substring(e.path.lastIndexOf("/") + 1)), t && (e.fileType = t), e.cloudPath = Date.now() + "_" + s + e.name.substring(e.name.lastIndexOf("."));}), e.tempFilePaths || (e.tempFilePaths = e.tempFiles.map(function (e) {return e.path;})), e;}function r(e, t, _ref22) {var s = _ref22.onChooseFile,n = _ref22.onUploadProgress;return t.then(function (e) {if (s) {var _t9 = s(e);if (void 0 !== _t9) return Promise.resolve(_t9).then(function (t) {return void 0 === t ? e : t;});}return e;}).then(function (t) {return !1 === t ? { errMsg: "chooseAndUploadFile:ok", tempFilePaths: [], tempFiles: [] } : function (e, t) {var s = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 5;var n = arguments.length > 3 ? arguments[3] : undefined;(t = Object.assign({}, t)).errMsg = "chooseAndUploadFile:ok";var r = t.tempFiles,o = r.length;var i = 0;return new Promise(function (a) {for (; i < s;) {c();}function c() {var s = i++;if (s >= o) return void (!r.find(function (e) {return !e.url && !e.errMsg;}) && a(t));var u = r[s];e.uploadFile({ filePath: u.path, cloudPath: u.cloudPath, fileType: u.fileType, onUploadProgress: function onUploadProgress(e) {e.index = s, e.tempFile = u, e.tempFilePath = u.path, n && n(e);} }).then(function (e) {u.url = e.fileID, s < o && c();}).catch(function (e) {u.errMsg = e.errMsg || e.message, s < o && c();});}});}(e, t, 5, n);});}t.initChooseAndUploadFile = function (e) {return function () {var t = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { type: "all" };return "image" === t.type ? r(e, function (e) {var t = e.count,r = e.sizeType,_e$sourceType = e.sourceType,o = _e$sourceType === void 0 ? ["album", "camera"] : _e$sourceType,i = e.extension;return new Promise(function (e, a) {uni.chooseImage({ count: t, sizeType: r, sourceType: o, extension: i, success: function success(t) {e(n(t, "image"));}, fail: function fail(e) {a({ errMsg: e.errMsg.replace("chooseImage:fail", s) });} });});}(t), t) : "video" === t.type ? r(e, function (e) {var t = e.camera,r = e.compressed,o = e.maxDuration,i = e.sourceType,a = e.extension;return new Promise(function (e, c) {uni.chooseVideo({ camera: t, compressed: r, maxDuration: o, sourceType: i, extension: a, success: function success(t) {var s = t.tempFilePath,r = t.duration,o = t.size,i = t.height,a = t.width;e(n({ errMsg: "chooseVideo:ok", tempFilePaths: [s], tempFiles: [{ name: t.tempFile && t.tempFile.name || "", path: s, size: o, type: t.tempFile && t.tempFile.type || "", width: a, height: i, duration: r, fileType: "video", cloudPath: "" }] }, "video"));}, fail: function fail(e) {c({ errMsg: e.errMsg.replace("chooseVideo:fail", s) });} });});}(t), t) : r(e, function (e) {var t = e.count,r = e.extension;return new Promise(function (e, o) {var i = uni.chooseFile;if ("undefined" != typeof wx && "function" == typeof wx.chooseMessageFile && (i = wx.chooseMessageFile), "function" != typeof i) return o({ errMsg: s + " 请指定 type 类型，该平台仅支持选择 image 或 video。" });i({ type: "all", count: t, extension: r, success: function success(t) {e(n(t));}, fail: function fail(e) {o({ errMsg: e.errMsg.replace("chooseFile:fail", s) });} });});}(t), t);};};}));var ot = "manual";function it(e) {return { props: { localdata: { type: Array, default: function _default() {return [];} }, options: { type: [Object, Array], default: function _default() {return {};} }, collection: { type: String, default: "" }, action: { type: String, default: "" }, field: { type: String, default: "" }, orderby: { type: String, default: "" }, where: { type: [String, Object], default: "" }, pageData: { type: String, default: "add" }, pageCurrent: { type: Number, default: 1 }, pageSize: { type: Number, default: 20 }, getcount: { type: [Boolean, String], default: !1 }, gettree: { type: [Boolean, String], default: !1 }, gettreepath: { type: [Boolean, String], default: !1 }, startwith: { type: String, default: "" }, limitlevel: { type: Number, default: 10 }, groupby: { type: String, default: "" }, groupField: { type: String, default: "" }, distinct: { type: [Boolean, String], default: !1 }, foreignKey: { type: String, default: "" }, loadtime: { type: String, default: "auto" }, manual: { type: Boolean, default: !1 } }, data: function data() {return { mixinDatacomLoading: !1, mixinDatacomHasMore: !1, mixinDatacomResData: [], mixinDatacomErrorMessage: "", mixinDatacomPage: {} };}, created: function created() {var _this18 = this;this.mixinDatacomPage = { current: this.pageCurrent, size: this.pageSize, count: 0 }, this.$watch(function () {var e = [];return ["pageCurrent", "pageSize", "localdata", "collection", "action", "field", "orderby", "where", "getont", "getcount", "gettree", "groupby", "groupField", "distinct"].forEach(function (t) {e.push(_this18[t]);}), e;}, function (e, t) {if (_this18.loadtime === ot) return;var s = !1;var n = [];for (var _r4 = 2; _r4 < e.length; _r4++) {e[_r4] !== t[_r4] && (n.push(e[_r4]), s = !0);}e[0] !== t[0] && (_this18.mixinDatacomPage.current = _this18.pageCurrent), _this18.mixinDatacomPage.size = _this18.pageSize, _this18.onMixinDatacomPropsChange(s, n);});}, methods: { onMixinDatacomPropsChange: function onMixinDatacomPropsChange(e, t) {}, mixinDatacomEasyGet: function mixinDatacomEasyGet() {var _this19 = this;var _ref23 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref23$getone = _ref23.getone,e = _ref23$getone === void 0 ? !1 : _ref23$getone,t = _ref23.success,s = _ref23.fail;this.mixinDatacomLoading || (this.mixinDatacomLoading = !0, this.mixinDatacomErrorMessage = "", this.mixinDatacomGet().then(function (s) {_this19.mixinDatacomLoading = !1;var _s$result = s.result,n = _s$result.data,r = _s$result.count;_this19.getcount && (_this19.mixinDatacomPage.count = r), _this19.mixinDatacomHasMore = n.length < _this19.pageSize;var o = e ? n.length ? n[0] : void 0 : n;_this19.mixinDatacomResData = o, t && t(o);}).catch(function (e) {_this19.mixinDatacomLoading = !1, _this19.mixinDatacomErrorMessage = e, s && s(e);}));}, mixinDatacomGet: function mixinDatacomGet() {var t = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var s = e.database();var n = t.action || this.action;n && (s = s.action(n));var r = t.collection || this.collection;s = s.collection(r);var o = t.where || this.where;o && Object.keys(o).length && (s = s.where(o));var i = t.field || this.field;i && (s = s.field(i));var a = t.foreignKey || this.foreignKey;a && (s = s.foreignKey(a));var c = t.groupby || this.groupby;c && (s = s.groupBy(c));var u = t.groupField || this.groupField;u && (s = s.groupField(u));!0 === (void 0 !== t.distinct ? t.distinct : this.distinct) && (s = s.distinct());var h = t.orderby || this.orderby;h && (s = s.orderBy(h));var l = void 0 !== t.pageCurrent ? t.pageCurrent : this.mixinDatacomPage.current,d = void 0 !== t.pageSize ? t.pageSize : this.mixinDatacomPage.size,f = void 0 !== t.getcount ? t.getcount : this.getcount,p = void 0 !== t.gettree ? t.gettree : this.gettree,g = void 0 !== t.gettreepath ? t.gettreepath : this.gettreepath,m = { getCount: f },y = { limitLevel: void 0 !== t.limitlevel ? t.limitlevel : this.limitlevel, startWith: void 0 !== t.startwith ? t.startwith : this.startwith };return p && (m.getTree = y), g && (m.getTreePath = y), s = s.skip(d * (l - 1)).limit(d).get(m), s;} } };}function at(_x30, _x31) {return _at.apply(this, arguments);}function _at() {_at = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee32(e, t) {var s, _e30, n;return _regenerator.default.wrap(function _callee32$(_context32) {while (1) {switch (_context32.prev = _context32.next) {case 0:s = "http://".concat(e, ":").concat(t, "/system/ping");_context32.prev = 1;_context32.next = 4;return n = { url: s, timeout: 500 }, new Promise(function (e, t) {x.request(_objectSpread(_objectSpread({}, n), {}, { success: function success(t) {e(t);}, fail: function fail(e) {t(e);} }));});case 4:_e30 = _context32.sent;return _context32.abrupt("return", !(!_e30.data || 0 !== _e30.data.code));case 8:_context32.prev = 8;_context32.t0 = _context32["catch"](1);return _context32.abrupt("return", !1);case 11:case "end":return _context32.stop();}}}, _callee32, null, [[1, 8]]);}));return _at.apply(this, arguments);}var ct = new ( /*#__PURE__*/function () {function _class2() {_classCallCheck(this, _class2);}_createClass(_class2, [{ key: "init", value: function init(e) {var t = {};var s = !1 !== e.debugFunction && v && ("h5" === S && navigator.userAgent.indexOf("HBuilderX") > 0 || "app-plus" === S);switch (e.provider) {case "tencent":t = je.init(Object.assign(e, { useDebugFunction: s }));break;case "aliyun":t = R.init(Object.assign(e, { useDebugFunction: s }));break;case "private":t = Be.init(Object.assign(e, { useDebugFunction: s }));break;default:throw new Error("未提供正确的provider参数");}var n = k;v && n && !n.code && (t.debugInfo = n), t.isReady = !1;var r = t.auth();t.initUniCloud = r.getLoginState().then(function (e) {return e ? Promise.resolve() : r.signInAnonymously();}).then(function () {if (v && t.debugInfo) {var _t$debugInfo = t.debugInfo,_e25 = _t$debugInfo.address,_s4 = _t$debugInfo.servePort;return function () {var _ref24 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee31(e, t) {var s, _n9, _r5;return _regenerator.default.wrap(function _callee31$(_context31) {while (1) {switch (_context31.prev = _context31.next) {case 0:_n9 = 0;case 1:if (!(_n9 < e.length)) {_context31.next = 11;break;}_r5 = e[_n9];_context31.next = 5;return at(_r5, t);case 5:if (!_context31.sent) {_context31.next = 8;break;}s = _r5;return _context31.abrupt("break", 11);case 8:_n9++;_context31.next = 1;break;case 11:return _context31.abrupt("return", { address: s, port: t });case 12:case "end":return _context31.stop();}}}, _callee31);}));return function (_x32, _x33) {return _ref24.apply(this, arguments);};}()(_e25, _s4);}return Promise.resolve();}).then(function () {var _ref25 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},e = _ref25.address,s = _ref25.port;if (!v) return Promise.resolve();if (e) t.localAddress = e, t.localPort = s;else if (t.debugInfo) {var _e26 = console["app-plus" === S ? "error" : "warn"];"remote" === t.debugInfo.initialLaunchType ? (t.debugInfo.forceRemote = !0, _e26("当前客户端和HBuilderX不在同一局域网下（或其他网络原因无法连接HBuilderX），uniCloud本地调试服务不对当前客户端生效。\n- 如果不使用uniCloud本地调试服务，请直接忽略此信息。\n- 如需使用uniCloud本地调试服务，请将客户端与主机连接到同一局域网下并重新运行到客户端。\n- 如果在HBuilderX开启的状态下切换过网络环境，请重启HBuilderX后再试\n- 检查系统防火墙是否拦截了HBuilderX自带的nodejs")) : _e26("无法连接uniCloud本地调试服务，请检查当前客户端是否与主机在同一局域网下。\n- 如需使用uniCloud本地调试服务，请将客户端与主机连接到同一局域网下并重新运行到客户端。\n- 如果在HBuilderX开启的状态下切换过网络环境，请重启HBuilderX后再试\n- 检查系统防火墙是否拦截了HBuilderX自带的nodejs");}}).then(function () {return function () {if (!v || "h5" !== S) return;if (uni.getStorageSync("__LAST_DCLOUD_APPID") === I.appid) return;uni.setStorageSync("__LAST_DCLOUD_APPID", I.appid), uni.removeStorageSync("uni_id_token") && (console.warn("检测到当前项目与上次运行到此端口的项目不一致，自动清理uni-id保存的token信息（仅开发调试时生效）"), uni.removeStorageSync("uni_id_token"), uni.removeStorageSync("uni_id_token_expired"));}(), new Promise(function (e) {"quickapp-native" === S ? (E = "android", uni.getStorage({ key: "__DC_CLOUD_UUID", success: function success(t) {A = t.data ? t.data : O(32), e();} })) : setTimeout(function () {E = uni.getSystemInfoSync().platform, A = uni.getStorageSync("__DC_CLOUD_UUID") || O(32), e();}, 0);});}).then(function () {t.isReady = !0;}), Ze(t), function (e) {var t = e.uploadFile;e.uploadFile = function (e) {var _this20 = this;var s;return s = this.isReady ? Promise.resolve() : this.initUniCloud, s.then(function () {return t.call(_this20, e);});};}(t), function (e) {e.database = function () {if (this._database) return this._database;var t = {},s = {};var n = /*#__PURE__*/function () {function n(e, t, s) {_classCallCheck(this, n);this.content = e, this.prevStage = t, this.actionName = s;}_createClass(n, [{ key: "toJSON", value: function toJSON() {var e = this;var t = [e.content];for (; e.prevStage;) {e = e.prevStage, t.push(e.content);}return { $db: t.reverse().map(function (e) {return { $method: e.$method, $param: e.$param };}) };} }, { key: "get", value: function get() {return this._send("get", Array.from(arguments));} }, { key: "add", value: function add() {return this._send("add", Array.from(arguments));} }, { key: "remove", value: function remove() {return this._send("remove", Array.from(arguments));} }, { key: "update", value: function update() {return this._send("update", Array.from(arguments));} }, { key: "end", value: function end() {return this._send("end", Array.from(arguments));} }, { key: "set", value: function set() {throw new Error("clientDB禁止使用set方法");} }, { key: "_send", value: function _send(n, r) {var _this21 = this;var o = d(f("database", "invoke")),i = this.toJSON();return i.$db.push({ $method: n, $param: st(r) }), o.then(function () {return e.callFunction({ name: "DCloud-clientDB", data: { action: _this21.actionName, command: i } }).then(function (e) {var _e$result = e.result,n = _e$result.code,r = _e$result.message,o = _e$result.token,i = _e$result.tokenExpired,_e$result$systemInfo = _e$result.systemInfo,c = _e$result$systemInfo === void 0 ? [] : _e$result$systemInfo;if (c) for (var _e27 = 0; _e27 < c.length; _e27++) {var _c$_e = c[_e27],_t10 = _c$_e.level,_s5 = _c$_e.message,_n10 = _c$_e.detail,_r6 = console["app-plus" === S && "warn" === _t10 ? "error" : _t10] || console.log;var _o3 = "[System Info]" + _s5;_n10 && (_o3 = "".concat(_o3, "\n\u8BE6\u7EC6\u4FE1\u606F\uFF1A").concat(_n10)), _r6(_o3);}if (n) return Promise.reject(new a(r, n));o && i && t.refreshToken && t.refreshToken.forEach(function (e) {e({ token: o, tokenExpired: i });}), o && i && s.refreshToken && s.refreshToken.forEach(function (e) {e({ token: o, tokenExpired: i });});var u = e.result.affectedDocs;return "number" == typeof u && Object.defineProperty(e.result, "affectedDocs", { get: function get() {return console.warn("affectedDocs不再推荐使用，请使用inserted/deleted/updated/data.length替代"), u;} }), d(f("database", "success"), e).then(function () {return d(f("database", "complete"), e);}).then(function () {return Promise.resolve(e);});}, function (e) {var t = new a(e.message, e.code || "SYSTEM_ERROR");return s.error && s.error.forEach(function (e) {e(t);}), /fc_function_not_found|FUNCTION_NOT_FOUND/g.test(e.message) && console.warn("clientDB未初始化，请在web控制台保存一次schema以开启clientDB"), d(f("database", "fail"), e).then(function () {return d(f("database", "complete"), e);}).then(function () {return Promise.reject(e);});});});} }, { key: "useAggregate", get: function get() {var e = this,t = !1;for (; e.prevStage;) {e = e.prevStage;var _s6 = e.content.$method;if ("aggregate" === _s6 || "pipeline" === _s6) {t = !0;break;}}return t;} }, { key: "count", get: function get() {if (!this.useAggregate) return function () {return this._send("count", Array.from(arguments));};var e = this;return function () {return i({ $method: "count", $param: st(Array.from(arguments)) }, e, e.actionName);};} }]);return n;}();var r = ["db.Geo", "db.command", "command.aggregate"];function o(e, t) {return r.indexOf("".concat(e, ".").concat(t)) > -1;}function i(e, t, s) {return tt(new n(e, t, s), { get: function get(e, t) {var n = "db";return e && e.content && (n = e.content.$method), o(n, t) ? i({ $method: t }, e, s) : function () {return i({ $method: t, $param: st(Array.from(arguments)) }, e, s);};} });}function c(_ref26) {var e = _ref26.path,t = _ref26.method;return /*#__PURE__*/function () {function _class3() {_classCallCheck(this, _class3);this.param = Array.from(arguments);}_createClass(_class3, [{ key: "toJSON", value: function toJSON() {return { $newDb: [].concat(_toConsumableArray(e.map(function (e) {return { $method: e };})), [{ $method: t, $param: this.param }]) };} }]);return _class3;}();}var u = { auth: { on: function on(e, s) {t[e] = t[e] || [], t[e].indexOf(s) > -1 || t[e].push(s);}, off: function off(e, s) {t[e] = t[e] || [];var n = t[e].indexOf(s);-1 !== n && t[e].splice(n, 1);} }, on: function on(e, t) {s[e] = s[e] || [], s[e].indexOf(t) > -1 || s[e].push(t);}, off: function off(e, t) {s[e] = s[e] || [];var n = s[e].indexOf(t);-1 !== n && s[e].splice(n, 1);}, env: tt({}, { get: function get(e, t) {return { $env: t };} }), action: function action(e) {return tt({}, { get: function get(t, s) {return o("db", s) ? i({ $method: s }, null, e) : function () {return i({ $method: s, $param: st(Array.from(arguments)) }, null, e);};} });}, Geo: tt({}, { get: function get(e, t) {return c({ path: ["Geo"], method: t });} }), getCloudEnv: function getCloudEnv(e) {if ("string" != typeof e || !e.trim()) throw new Error("getCloudEnv参数错误");return { $env: e.replace("$cloudEnv_", "") };}, get serverDate() {return c({ path: [], method: "serverDate" });}, get RegExp() {return c({ path: [], method: "RegExp" });} },h = tt(u, { get: function get(e, t) {return o("db", t) ? i({ $method: t }) : function () {return i({ $method: t, $param: st(Array.from(arguments)) });};} });return this._database = h, h;};}(t), function (e) {e.getCurrentUserInfo = nt, e.chooseAndUploadFile = rt.initChooseAndUploadFile(e), Object.assign(e, { get mixinDatacom() {return it(e);} });}(t);return ["callFunction", "uploadFile", "deleteFile", "getTempFileURL", "downloadFile", "chooseAndUploadFile"].forEach(function (e) {t[e] && (t[e] = p(t[e], e));}), t.init = this.init, t;} }]);return _class2;}())();(function () {{var e = T;var t = {};if (1 === e.length) t = e[0], ct = ct.init(t);else {var _t11 = ["auth", "callFunction", "uploadFile", "deleteFile", "getTempFileURL", "downloadFile", "database", "getCurrentUSerInfo"];var _s7;_s7 = e && e.length > 0 ? "应用有多个服务空间，请通过uniCloud.init方法指定要使用的服务空间" : P ? "应用未关联服务空间，请在uniCloud目录右键关联服务空间" : "uni-app cli项目内使用uniCloud需要使用HBuilderX的运行菜单运行项目，且需要在uniCloud目录关联服务空间", _t11.forEach(function (e) {ct[e] = function () {return console.error(_s7), Promise.reject(new g({ code: "SYS_ERR", message: _s7 }));};});}Object.assign(ct, { get mixinDatacom() {return it(ct);} }), ct.addInterceptor = h, ct.removeInterceptor = l, v && "h5" === S && (window.uniCloud = ct);}})();var ut = ct;var _default2 = ut;exports.default = _default2;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3), __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./../../../../../node-libs-browser/mock/process.js */ 76)))
+
+/***/ }),
+
+/***/ 76:
+/*!********************************************************!*\
+  !*** ./node_modules/node-libs-browser/mock/process.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports.nextTick = function nextTick(fn) {
+    var args = Array.prototype.slice.call(arguments);
+    args.shift();
+    setTimeout(function () {
+        fn.apply(null, args);
+    }, 0);
 };
-// 设置属性
-MpHtmlParser.prototype.setAttr = function () {
-  var name = this.attrName.toLowerCase(),
-  val = this.attrVal;
-  if (cfg.boolAttrs[name]) this.attrs[name] = 'T';else
-  if (val) {
-    if (name == 'src' || name == 'data-src' && !this.attrs.src) this.attrs.src = this.getUrl(this.decode(val, 'amp'));else
-    if (name == 'href' || name == 'style') this.attrs[name] = this.decode(val, 'amp');else
-    if (name.substr(0, 5) != 'data-') this.attrs[name] = val;
-  }
-  this.attrVal = '';
-  while (blankChar[this.data[this.i]]) {this.i++;}
-  if (this.isClose()) this.setNode();else
-  {
-    this.start = this.i;
-    this.state = this.AttrName;
-  }
+
+exports.platform = exports.arch = 
+exports.execPath = exports.title = 'browser';
+exports.pid = 1;
+exports.browser = true;
+exports.env = {};
+exports.argv = [];
+
+exports.binding = function (name) {
+	throw new Error('No such module. (Possibly not yet loaded)')
 };
-// 设置文本节点
-MpHtmlParser.prototype.setText = function () {
-  var back,text = this.section();
-  if (!text) return;
-  text = cfg.onText && cfg.onText(text, function () {return back = true;}) || text;
-  if (back) {
-    this.data = this.data.substr(0, this.start) + text + this.data.substr(this.i);
-    var j = this.start + text.length;
-    for (this.i = this.start; this.i < j; this.i++) {this.state(this.data[this.i]);}
+
+(function () {
+    var cwd = '/';
+    var path;
+    exports.cwd = function () { return cwd };
+    exports.chdir = function (dir) {
+        if (!path) path = __webpack_require__(/*! path */ 77);
+        cwd = path.resolve(dir, cwd);
+    };
+})();
+
+exports.exit = exports.kill = 
+exports.umask = exports.dlopen = 
+exports.uptime = exports.memoryUsage = 
+exports.uvCounters = function() {};
+exports.features = {};
+
+
+/***/ }),
+
+/***/ 77:
+/*!***********************************************!*\
+  !*** ./node_modules/path-browserify/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {// .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
+// backported and transplited with Babel, with backwards-compat fixes
+
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// resolves . and .. elements in a path array with directory names there
+// must be no slashes, empty elements, or device names (c:\) in the array
+// (so also no leading and trailing slashes - it does not distinguish
+// relative and absolute paths)
+function normalizeArray(parts, allowAboveRoot) {
+  // if the path tries to go above the root, `up` ends up > 0
+  var up = 0;
+  for (var i = parts.length - 1; i >= 0; i--) {
+    var last = parts[i];
+    if (last === '.') {
+      parts.splice(i, 1);
+    } else if (last === '..') {
+      parts.splice(i, 1);
+      up++;
+    } else if (up) {
+      parts.splice(i, 1);
+      up--;
+    }
+  }
+
+  // if the path is allowed to go above the root, restore leading ..s
+  if (allowAboveRoot) {
+    for (; up--; up) {
+      parts.unshift('..');
+    }
+  }
+
+  return parts;
+}
+
+// path.resolve([from ...], to)
+// posix version
+exports.resolve = function() {
+  var resolvedPath = '',
+      resolvedAbsolute = false;
+
+  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
+    var path = (i >= 0) ? arguments[i] : process.cwd();
+
+    // Skip empty and invalid entries
+    if (typeof path !== 'string') {
+      throw new TypeError('Arguments to path.resolve must be strings');
+    } else if (!path) {
+      continue;
+    }
+
+    resolvedPath = path + '/' + resolvedPath;
+    resolvedAbsolute = path.charAt(0) === '/';
+  }
+
+  // At this point the path should be resolved to a full absolute path, but
+  // handle relative paths to be safe (might happen when process.cwd() fails)
+
+  // Normalize the path
+  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
+    return !!p;
+  }), !resolvedAbsolute).join('/');
+
+  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+};
+
+// path.normalize(path)
+// posix version
+exports.normalize = function(path) {
+  var isAbsolute = exports.isAbsolute(path),
+      trailingSlash = substr(path, -1) === '/';
+
+  // Normalize the path
+  path = normalizeArray(filter(path.split('/'), function(p) {
+    return !!p;
+  }), !isAbsolute).join('/');
+
+  if (!path && !isAbsolute) {
+    path = '.';
+  }
+  if (path && trailingSlash) {
+    path += '/';
+  }
+
+  return (isAbsolute ? '/' : '') + path;
+};
+
+// posix version
+exports.isAbsolute = function(path) {
+  return path.charAt(0) === '/';
+};
+
+// posix version
+exports.join = function() {
+  var paths = Array.prototype.slice.call(arguments, 0);
+  return exports.normalize(filter(paths, function(p, index) {
+    if (typeof p !== 'string') {
+      throw new TypeError('Arguments to path.join must be strings');
+    }
+    return p;
+  }).join('/'));
+};
+
+
+// path.relative(from, to)
+// posix version
+exports.relative = function(from, to) {
+  from = exports.resolve(from).substr(1);
+  to = exports.resolve(to).substr(1);
+
+  function trim(arr) {
+    var start = 0;
+    for (; start < arr.length; start++) {
+      if (arr[start] !== '') break;
+    }
+
+    var end = arr.length - 1;
+    for (; end >= 0; end--) {
+      if (arr[end] !== '') break;
+    }
+
+    if (start > end) return [];
+    return arr.slice(start, end - start + 1);
+  }
+
+  var fromParts = trim(from.split('/'));
+  var toParts = trim(to.split('/'));
+
+  var length = Math.min(fromParts.length, toParts.length);
+  var samePartsLength = length;
+  for (var i = 0; i < length; i++) {
+    if (fromParts[i] !== toParts[i]) {
+      samePartsLength = i;
+      break;
+    }
+  }
+
+  var outputParts = [];
+  for (var i = samePartsLength; i < fromParts.length; i++) {
+    outputParts.push('..');
+  }
+
+  outputParts = outputParts.concat(toParts.slice(samePartsLength));
+
+  return outputParts.join('/');
+};
+
+exports.sep = '/';
+exports.delimiter = ':';
+
+exports.dirname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  if (path.length === 0) return '.';
+  var code = path.charCodeAt(0);
+  var hasRoot = code === 47 /*/*/;
+  var end = -1;
+  var matchedSlash = true;
+  for (var i = path.length - 1; i >= 1; --i) {
+    code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        if (!matchedSlash) {
+          end = i;
+          break;
+        }
+      } else {
+      // We saw the first non-path separator
+      matchedSlash = false;
+    }
+  }
+
+  if (end === -1) return hasRoot ? '/' : '.';
+  if (hasRoot && end === 1) {
+    // return '//';
+    // Backwards-compat fix:
+    return '/';
+  }
+  return path.slice(0, end);
+};
+
+function basename(path) {
+  if (typeof path !== 'string') path = path + '';
+
+  var start = 0;
+  var end = -1;
+  var matchedSlash = true;
+  var i;
+
+  for (i = path.length - 1; i >= 0; --i) {
+    if (path.charCodeAt(i) === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          start = i + 1;
+          break;
+        }
+      } else if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // path component
+      matchedSlash = false;
+      end = i + 1;
+    }
+  }
+
+  if (end === -1) return '';
+  return path.slice(start, end);
+}
+
+// Uses a mixed approach for backwards-compatibility, as ext behavior changed
+// in new Node.js versions, so only basename() above is backported here
+exports.basename = function (path, ext) {
+  var f = basename(path);
+  if (ext && f.substr(-1 * ext.length) === ext) {
+    f = f.substr(0, f.length - ext.length);
+  }
+  return f;
+};
+
+exports.extname = function (path) {
+  if (typeof path !== 'string') path = path + '';
+  var startDot = -1;
+  var startPart = 0;
+  var end = -1;
+  var matchedSlash = true;
+  // Track the state of characters (if any) we see before our first dot and
+  // after any path separator we find
+  var preDotState = 0;
+  for (var i = path.length - 1; i >= 0; --i) {
+    var code = path.charCodeAt(i);
+    if (code === 47 /*/*/) {
+        // If we reached a path separator that was not part of a set of path
+        // separators at the end of the string, stop now
+        if (!matchedSlash) {
+          startPart = i + 1;
+          break;
+        }
+        continue;
+      }
+    if (end === -1) {
+      // We saw the first non-path separator, mark this as the end of our
+      // extension
+      matchedSlash = false;
+      end = i + 1;
+    }
+    if (code === 46 /*.*/) {
+        // If this is our first dot, mark it as the start of our extension
+        if (startDot === -1)
+          startDot = i;
+        else if (preDotState !== 1)
+          preDotState = 1;
+    } else if (startDot !== -1) {
+      // We saw a non-dot and non-path separator before our dot, so we should
+      // have a good chance at having a non-empty extension
+      preDotState = -1;
+    }
+  }
+
+  if (startDot === -1 || end === -1 ||
+      // We saw a non-dot character immediately before the dot
+      preDotState === 0 ||
+      // The (right-most) trimmed path component is exactly '..'
+      preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+    return '';
+  }
+  return path.slice(startDot, end);
+};
+
+function filter (xs, f) {
+    if (xs.filter) return xs.filter(f);
+    var res = [];
+    for (var i = 0; i < xs.length; i++) {
+        if (f(xs[i], i, xs)) res.push(xs[i]);
+    }
+    return res;
+}
+
+// String.prototype.substr - negative index don't work in IE8
+var substr = 'ab'.substr(-1) === 'b'
+    ? function (str, start, len) { return str.substr(start, len) }
+    : function (str, start, len) {
+        if (start < 0) start = str.length + start;
+        return str.substr(start, len);
+    }
+;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 76)))
+
+/***/ }),
+
+/***/ 78:
+/*!**************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-i18n/dist/uni-i18n.esm.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.initVueI18n = initVueI18n;exports.I18n = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var isObject = function isObject(val) {return val !== null && typeof val === 'object';};var
+BaseFormatter = /*#__PURE__*/function () {
+  function BaseFormatter() {_classCallCheck(this, BaseFormatter);
+    this._caches = Object.create(null);
+  }_createClass(BaseFormatter, [{ key: "interpolate", value: function interpolate(
+    message, values) {
+      if (!values) {
+        return [message];
+      }
+      var tokens = this._caches[message];
+      if (!tokens) {
+        tokens = parse(message);
+        this._caches[message] = tokens;
+      }
+      return compile(tokens, values);
+    } }]);return BaseFormatter;}();
+
+var RE_TOKEN_LIST_VALUE = /^(?:\d)+/;
+var RE_TOKEN_NAMED_VALUE = /^(?:\w)+/;
+function parse(format) {
+  var tokens = [];
+  var position = 0;
+  var text = '';
+  while (position < format.length) {
+    var _char = format[position++];
+    if (_char === '{') {
+      if (text) {
+        tokens.push({ type: 'text', value: text });
+      }
+      text = '';
+      var sub = '';
+      _char = format[position++];
+      while (_char !== undefined && _char !== '}') {
+        sub += _char;
+        _char = format[position++];
+      }
+      var isClosed = _char === '}';
+      var type = RE_TOKEN_LIST_VALUE.test(sub) ?
+      'list' :
+      isClosed && RE_TOKEN_NAMED_VALUE.test(sub) ?
+      'named' :
+      'unknown';
+      tokens.push({ value: sub, type: type });
+    } else
+    if (_char === '%') {
+      // when found rails i18n syntax, skip text capture
+      if (format[position] !== '{') {
+        text += _char;
+      }
+    } else
+    {
+      text += _char;
+    }
+  }
+  text && tokens.push({ type: 'text', value: text });
+  return tokens;
+}
+function compile(tokens, values) {
+  var compiled = [];
+  var index = 0;
+  var mode = Array.isArray(values) ?
+  'list' :
+  isObject(values) ?
+  'named' :
+  'unknown';
+  if (mode === 'unknown') {
+    return compiled;
+  }
+  while (index < tokens.length) {
+    var token = tokens[index];
+    switch (token.type) {
+      case 'text':
+        compiled.push(token.value);
+        break;
+      case 'list':
+        compiled.push(values[parseInt(token.value, 10)]);
+        break;
+      case 'named':
+        if (mode === 'named') {
+          compiled.push(values[token.value]);
+        } else
+        {
+          if (true) {
+            console.warn("Type of token '".concat(token.type, "' and format of value '").concat(mode, "' don't match!"));
+          }
+        }
+        break;
+      case 'unknown':
+        if (true) {
+          console.warn("Detect 'unknown' type of token!");
+        }
+        break;}
+
+    index++;
+  }
+  return compiled;
+}
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var hasOwn = function hasOwn(val, key) {return hasOwnProperty.call(val, key);};
+var defaultFormatter = new BaseFormatter();
+function include(str, parts) {
+  return !!parts.find(function (part) {return str.indexOf(part) !== -1;});
+}
+function startsWith(str, parts) {
+  return parts.find(function (part) {return str.indexOf(part) === 0;});
+}
+function normalizeLocale(locale, messages) {
+  if (!locale) {
     return;
   }
-  if (!this.pre) {
-    // 合并空白符
-    var flag,tmp = [];
-    for (var i = text.length, c; c = text[--i];) {
-      if (!blankChar[c]) {
-        tmp.unshift(c);
-        if (!flag) flag = 1;
-      } else {
-        if (tmp[0] != ' ') tmp.unshift(' ');
-        if (c == '\n' && flag == void 0) flag = 0;
-      }}
-    if (flag == 0) return;
-    text = tmp.join('');
+  locale = locale.trim().replace(/_/g, '-');
+  if (messages[locale]) {
+    return locale;
   }
-  this.siblings().push({
-    type: 'text',
-    text: this.decode(text) });
-
-};
-// 设置元素节点
-MpHtmlParser.prototype.setNode = function () {
-  var node = {
-    name: this.tagName.toLowerCase(),
-    attrs: this.attrs },
-
-  close = cfg.selfClosingTags[node.name];
-  if (this.options.nodes.length) node.type = 'node';
-  this.attrs = {};
-  if (!cfg.ignoreTags[node.name]) {
-    // 处理属性
-    var attrs = node.attrs,
-    style = this.CssHandler.match(node.name, attrs, node) + (attrs.style || ''),
-    styleObj = {};
-    if (attrs.id) {
-      if (this.options.compress & 1) attrs.id = void 0;else
-      if (this.options.useAnchor) this.bubble();
+  locale = locale.toLowerCase();
+  if (locale.indexOf('zh') === 0) {
+    if (locale.indexOf('-hans') !== -1) {
+      return 'zh-Hans';
     }
-    if (this.options.compress & 2 && attrs.class) attrs.class = void 0;
-    switch (node.name) {
-      case 'a':
-      case 'ad':
-
-
-        this.bubble();
-        break;
-      case 'font':
-        if (attrs.color) {
-          styleObj['color'] = attrs.color;
-          attrs.color = void 0;
-        }
-        if (attrs.face) {
-          styleObj['font-family'] = attrs.face;
-          attrs.face = void 0;
-        }
-        if (attrs.size) {
-          var size = parseInt(attrs.size);
-          if (size < 1) size = 1;else
-          if (size > 7) size = 7;
-          var map = ['xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'];
-          styleObj['font-size'] = map[size - 1];
-          attrs.size = void 0;
-        }
-        break;
-      case 'embed':
-
-        var src = node.attrs.src || '',
-        type = node.attrs.type || '';
-        if (type.includes('video') || src.includes('.mp4') || src.includes('.3gp') || src.includes('.m3u8'))
-        node.name = 'video';else
-        if (type.includes('audio') || src.includes('.m4a') || src.includes('.wav') || src.includes('.mp3') || src.includes(
-        '.aac'))
-        node.name = 'audio';else
-        break;
-        if (node.attrs.autostart)
-        node.attrs.autoplay = 'T';
-        node.attrs.controls = 'T';
-
-
-
-
-
-      case 'video':
-      case 'audio':
-        if (!attrs.id) attrs.id = node.name + ++this["".concat(node.name, "Num")];else
-        this["".concat(node.name, "Num")]++;
-        if (node.name == 'video') {
-          if (this.videoNum > 3)
-          node.lazyLoad = 1;
-          if (attrs.width) {
-            styleObj.width = parseFloat(attrs.width) + (attrs.width.includes('%') ? '%' : 'px');
-            attrs.width = void 0;
-          }
-          if (attrs.height) {
-            styleObj.height = parseFloat(attrs.height) + (attrs.height.includes('%') ? '%' : 'px');
-            attrs.height = void 0;
-          }
-        }
-        if (!attrs.controls && !attrs.autoplay) attrs.controls = 'T';
-        attrs.source = [];
-        if (attrs.src) {
-          attrs.source.push(attrs.src);
-          attrs.src = void 0;
-        }
-        this.bubble();
-        break;
-      case 'td':
-      case 'th':
-        if (attrs.colspan || attrs.rowspan)
-        for (var k = this.STACK.length, item; item = this.STACK[--k];) {
-          if (item.name == 'table') {
-            item.flag = 1;
-            break;
-          }}}
-
-    if (attrs.align) {
-      if (node.name == 'table') {
-        if (attrs.align == 'center') styleObj['margin-inline-start'] = styleObj['margin-inline-end'] = 'auto';else
-        styleObj['float'] = attrs.align;
-      } else styleObj['text-align'] = attrs.align;
-      attrs.align = void 0;
+    if (locale.indexOf('-hant') !== -1) {
+      return 'zh-Hant';
     }
-    // 压缩 style
-    var styles = style.split(';');
-    style = '';
-    for (var i = 0, len = styles.length; i < len; i++) {
-      var info = styles[i].split(':');
-      if (info.length < 2) continue;
-      var _key = info[0].trim().toLowerCase(),
-      _value = info.slice(1).join(':').trim();
-      if (_value[0] == '-' || _value.includes('safe'))
-      style += ";".concat(_key, ":").concat(_value);else
-      if (!styleObj[_key] || _value.includes('import') || !styleObj[_key].includes('import'))
-      styleObj[_key] = _value;
+    if (include(locale, ['-tw', '-hk', '-mo', '-cht'])) {
+      return 'zh-Hant';
     }
-    if (node.name == 'img') {
-      if (attrs.src && !attrs.ignore) {
-        if (this.bubble())
-        attrs.i = (this.imgNum++).toString();else
-        attrs.ignore = 'T';
-      }
-      if (attrs.ignore) {
-        style += ';-webkit-touch-callout:none';
-        styleObj['max-width'] = '100%';
-      }
-      var width;
-      if (styleObj.width) width = styleObj.width;else
-      if (attrs.width) width = attrs.width.includes('%') ? attrs.width : parseFloat(attrs.width) + 'px';
-      if (width) {
-        styleObj.width = width;
-        attrs.width = '100%';
-        if (parseInt(width) > windowWidth) {
-          styleObj.height = '';
-          if (attrs.height) attrs.height = void 0;
-        }
-      }
-      if (styleObj.height) {
-        attrs.height = styleObj.height;
-        styleObj.height = '';
-      } else if (attrs.height && !attrs.height.includes('%'))
-      attrs.height = parseFloat(attrs.height) + 'px';
-    }
-    for (var key in styleObj) {
-      var value = styleObj[key];
-      if (!value) continue;
-      if (key.includes('flex') || key == 'order' || key == 'self-align') node.c = 1;
-      // 填充链接
-      if (value.includes('url')) {
-        var j = value.indexOf('(');
-        if (j++ != -1) {
-          while (value[j] == '"' || value[j] == "'" || blankChar[value[j]]) {j++;}
-          value = value.substr(0, j) + this.getUrl(value.substr(j));
-        }
-      }
-      // 转换 rpx
-      else if (value.includes('rpx'))
-        value = value.replace(/[0-9.]+\s*rpx/g, function ($) {return parseFloat($) * windowWidth / 750 + 'px';});else
-        if (key == 'white-space' && value.includes('pre') && !close)
-        this.pre = node.pre = true;
-      style += ";".concat(key, ":").concat(value);
-    }
-    style = style.substr(1);
-    if (style) attrs.style = style;
-    if (!close) {
-      node.children = [];
-      if (node.name == 'pre' && cfg.highlight) {
-        this.remove(node);
-        this.pre = node.pre = true;
-      }
-      this.siblings().push(node);
-      this.STACK.push(node);
-    } else if (!cfg.filter || cfg.filter(node, this) != false)
-    this.siblings().push(node);
-  } else {
-    if (!close) this.remove(node);else
-    if (node.name == 'source') {
-      var parent = this.parent();
-      if (parent && (parent.name == 'video' || parent.name == 'audio') && node.attrs.src)
-      parent.attrs.source.push(node.attrs.src);
-    } else if (node.name == 'base' && !this.domain) this.domain = node.attrs.href;
+    return 'zh-Hans';
   }
-  if (this.data[this.i] == '/') this.i++;
-  this.start = this.i + 1;
-  this.state = this.Text;
-};
-// 移除标签
-MpHtmlParser.prototype.remove = function (node) {var _this2 = this;
-  var name = node.name,
-  j = this.i;
-  // 处理 svg
-  var handleSvg = function handleSvg() {
-    var src = _this2.data.substring(j, _this2.i + 1);
-    node.attrs.xmlns = 'http://www.w3.org/2000/svg';
-    for (var key in node.attrs) {
-      if (key == 'viewbox') src = " viewBox=\"".concat(node.attrs.viewbox, "\"") + src;else
-      if (key != 'style') src = " ".concat(key, "=\"").concat(node.attrs[key], "\"") + src;
-    }
-    src = '<svg' + src;
-    var parent = _this2.parent();
-    if (node.attrs.width == '100%' && parent && (parent.attrs.style || '').includes('inline'))
-    parent.attrs.style = 'width:300px;max-width:100%;' + parent.attrs.style;
-    _this2.siblings().push({
-      name: 'img',
-      attrs: {
-        src: 'data:image/svg+xml;utf8,' + src.replace(/#/g, '%23'),
-        style: node.attrs.style,
-        ignore: 'T' } });
-
-
-  };
-  if (node.name == 'svg' && this.data[j] == '/') return handleSvg(this.i++);
-  while (1) {
-    if ((this.i = this.data.indexOf('</', this.i + 1)) == -1) {
-      if (name == 'pre' || name == 'svg') this.i = j;else
-      this.i = this.data.length;
-      return;
-    }
-    this.start = this.i += 2;
-    while (!blankChar[this.data[this.i]] && !this.isClose()) {this.i++;}
-    if (this.section().toLowerCase() == name) {
-      // 代码块高亮
-      if (name == 'pre') {
-        this.data = this.data.substr(0, j + 1) + cfg.highlight(this.data.substring(j + 1, this.i - 5), node.attrs) + this.data.
-        substr(this.i - 5);
-        return this.i = j;
-      } else if (name == 'style')
-      this.CssHandler.getStyle(this.data.substring(j + 1, this.i - 7));else
-      if (name == 'title')
-      this.DOM.title = this.data.substring(j + 1, this.i - 7);
-      if ((this.i = this.data.indexOf('>', this.i)) == -1) this.i = this.data.length;
-      if (name == 'svg') handleSvg();
-      return;
-    }
+  var lang = startsWith(locale, ['en', 'fr', 'es']);
+  if (lang) {
+    return lang;
   }
-};
-// 节点出栈处理
-MpHtmlParser.prototype.popNode = function (node) {
-  // 空白符处理
-  if (node.pre) {
-    node.pre = this.pre = void 0;
-    for (var i = this.STACK.length; i--;) {
-      if (this.STACK[i].pre)
-      this.pre = true;}
-  }
-  var siblings = this.siblings(),
-  len = siblings.length,
-  childs = node.children;
-  if (node.name == 'head' || cfg.filter && cfg.filter(node, this) == false)
-  return siblings.pop();
-  var attrs = node.attrs;
-  // 替换一些标签名
-  if (cfg.blockTags[node.name]) node.name = 'div';else
-  if (!cfg.trustTags[node.name]) node.name = 'span';
-  // 处理列表
-  if (node.c && (node.name == 'ul' || node.name == 'ol')) {
-    if ((node.attrs.style || '').includes('list-style:none')) {
-      for (var _i = 0, child; child = childs[_i++];) {
-        if (child.name == 'li')
-        child.name = 'div';}
-    } else if (node.name == 'ul') {
-      var floor = 1;
-      for (var _i2 = this.STACK.length; _i2--;) {
-        if (this.STACK[_i2].name == 'ul') floor++;}
-      if (floor != 1)
-      for (var _i3 = childs.length; _i3--;) {
-        childs[_i3].floor = floor;}
-    } else {
-      for (var _i4 = 0, num = 1, _child; _child = childs[_i4++];) {
-        if (_child.name == 'li') {
-          _child.type = 'ol';
-          _child.num = function (num, type) {
-            if (type == 'a') return String.fromCharCode(97 + (num - 1) % 26);
-            if (type == 'A') return String.fromCharCode(65 + (num - 1) % 26);
-            if (type == 'i' || type == 'I') {
-              num = (num - 1) % 99 + 1;
-              var one = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
-              ten = ['X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'],
-              res = (ten[Math.floor(num / 10) - 1] || '') + (one[num % 10 - 1] || '');
-              if (type == 'i') return res.toLowerCase();
-              return res;
-            }
-            return num;
-          }(num++, attrs.type) + '.';
-        }}
+}var
+I18n = /*#__PURE__*/function () {
+  function I18n(_ref) {var locale = _ref.locale,fallbackLocale = _ref.fallbackLocale,messages = _ref.messages,watcher = _ref.watcher,formater = _ref.formater;_classCallCheck(this, I18n);
+    this.locale = 'en';
+    this.fallbackLocale = 'en';
+    this.message = {};
+    this.messages = {};
+    this.watchers = [];
+    if (fallbackLocale) {
+      this.fallbackLocale = fallbackLocale;
     }
-  }
-  // 处理表格
-  if (node.name == 'table') {
-    var padding = parseFloat(attrs.cellpadding),
-    spacing = parseFloat(attrs.cellspacing),
-    border = parseFloat(attrs.border);
-    if (node.c) {
-      if (isNaN(padding)) padding = 2;
-      if (isNaN(spacing)) spacing = 2;
+    this.formater = formater || defaultFormatter;
+    this.messages = messages;
+    this.setLocale(locale);
+    if (watcher) {
+      this.watchLocale(watcher);
     }
-    if (border) attrs.style = "border:".concat(border, "px solid gray;").concat(attrs.style || '');
-    if (node.flag && node.c) {
-      // 有 colspan 或 rowspan 且含有链接的表格转为 grid 布局实现
-      attrs.style = "".concat(attrs.style || '', ";").concat(spacing ? ";grid-gap:".concat(spacing, "px") : ';border-left:0;border-top:0');
-      var row = 1,
-      col = 1,
-      colNum,
-      trs = [],
-      children = [],
-      map = {};
-      (function f(ns) {
-        for (var i = 0; i < ns.length; i++) {
-          if (ns[i].name == 'tr') trs.push(ns[i]);else
-          f(ns[i].children || []);
-        }
-      })(node.children);
-      for (var _i5 = 0; _i5 < trs.length; _i5++) {
-        for (var j = 0, td; td = trs[_i5].children[j]; j++) {
-          if (td.name == 'td' || td.name == 'th') {
-            while (map[row + '.' + col]) {col++;}
-            var cell = {
-              name: 'div',
-              c: 1,
-              attrs: {
-                style: (td.attrs.style || '') + (border ? ";border:".concat(border, "px solid gray") + (spacing ? '' :
-                ';border-right:0;border-bottom:0') : '') + (padding ? ";padding:".concat(padding, "px") : '') },
-
-              children: td.children };
-
-            if (td.attrs.colspan) {
-              cell.attrs.style += ';grid-column-start:' + col + ';grid-column-end:' + (col + parseInt(td.attrs.colspan));
-              if (!td.attrs.rowspan) cell.attrs.style += ';grid-row-start:' + row + ';grid-row-end:' + (row + 1);
-              col += parseInt(td.attrs.colspan) - 1;
-            }
-            if (td.attrs.rowspan) {
-              cell.attrs.style += ';grid-row-start:' + row + ';grid-row-end:' + (row + parseInt(td.attrs.rowspan));
-              if (!td.attrs.colspan) cell.attrs.style += ';grid-column-start:' + col + ';grid-column-end:' + (col + 1);
-              for (var k = 1; k < td.attrs.rowspan; k++) {map[row + k + '.' + col] = 1;}
-            }
-            children.push(cell);
-            col++;
-          }
-        }
-        if (!colNum) {
-          colNum = col - 1;
-          attrs.style += ";grid-template-columns:repeat(".concat(colNum, ",auto)");
-        }
-        col = 1;
-        row++;
-      }
-      node.children = children;
-    } else {
-      attrs.style = "border-spacing:".concat(spacing, "px;").concat(attrs.style || '');
-      if (border || padding)
-      (function f(ns) {
-        for (var i = 0, n; n = ns[i]; i++) {
-          if (n.name == 'th' || n.name == 'td') {
-            if (border) n.attrs.style = "border:".concat(border, "px solid gray;").concat(n.attrs.style || '');
-            if (padding) n.attrs.style = "padding:".concat(padding, "px;").concat(n.attrs.style || '');
-          } else f(n.children || []);
-        }
-      })(childs);
-    }
-    if (this.options.autoscroll) {
-      var table = Object.assign({}, node);
-      node.name = 'div';
-      node.attrs = {
-        style: 'overflow:scroll' };
-
-      node.children = [table];
-    }
-  }
-  this.CssHandler.pop && this.CssHandler.pop(node);
-  // 自动压缩
-  if (node.name == 'div' && !Object.keys(attrs).length && childs.length == 1 && childs[0].name == 'div')
-  siblings[len - 1] = childs[0];
-};
-// 状态机
-MpHtmlParser.prototype.Text = function (c) {
-  if (c == '<') {
-    var next = this.data[this.i + 1],
-    isLetter = function isLetter(c) {return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';};
-    if (isLetter(next)) {
-      this.setText();
-      this.start = this.i + 1;
-      this.state = this.TagName;
-    } else if (next == '/') {
-      this.setText();
-      if (isLetter(this.data[++this.i + 1])) {
-        this.start = this.i + 1;
-        this.state = this.EndTag;
-      } else this.Comment();
-    } else if (next == '!' || next == '?') {
-      this.setText();
-      this.Comment();
-    }
-  }
-};
-MpHtmlParser.prototype.Comment = function () {
-  var key;
-  if (this.data.substring(this.i + 2, this.i + 4) == '--') key = '-->';else
-  if (this.data.substring(this.i + 2, this.i + 9) == '[CDATA[') key = ']]>';else
-  key = '>';
-  if ((this.i = this.data.indexOf(key, this.i + 2)) == -1) this.i = this.data.length;else
-  this.i += key.length - 1;
-  this.start = this.i + 1;
-  this.state = this.Text;
-};
-MpHtmlParser.prototype.TagName = function (c) {
-  if (blankChar[c]) {
-    this.tagName = this.section();
-    while (blankChar[this.data[this.i]]) {this.i++;}
-    if (this.isClose()) this.setNode();else
+  }_createClass(I18n, [{ key: "setLocale", value: function setLocale(
+    locale) {var _this = this;
+      var oldLocale = this.locale;
+      this.locale = normalizeLocale(locale, this.messages) || this.fallbackLocale;
+      this.message = this.messages[this.locale];
+      this.watchers.forEach(function (watcher) {
+        watcher(_this.locale, oldLocale);
+      });
+    } }, { key: "getLocale", value: function getLocale()
     {
-      this.start = this.i;
-      this.state = this.AttrName;
-    }
-  } else if (this.isClose()) {
-    this.tagName = this.section();
-    this.setNode();
-  }
-};
-MpHtmlParser.prototype.AttrName = function (c) {
-  if (c == '=' || blankChar[c] || this.isClose()) {
-    this.attrName = this.section();
-    if (blankChar[c])
-    while (blankChar[this.data[++this.i]]) {;}
-    if (this.data[this.i] == '=') {
-      while (blankChar[this.data[++this.i]]) {;}
-      this.start = this.i--;
-      this.state = this.AttrValue;
-    } else this.setAttr();
-  }
-};
-MpHtmlParser.prototype.AttrValue = function (c) {
-  if (c == '"' || c == "'") {
-    this.start++;
-    if ((this.i = this.data.indexOf(c, this.i + 1)) == -1) return this.i = this.data.length;
-    this.attrVal = this.section();
-    this.i++;
-  } else {
-    for (; !blankChar[this.data[this.i]] && !this.isClose(); this.i++) {;}
-    this.attrVal = this.section();
-  }
-  this.setAttr();
-};
-MpHtmlParser.prototype.EndTag = function (c) {
-  if (blankChar[c] || c == '>' || c == '/') {
-    var name = this.section().toLowerCase();
-    for (var i = this.STACK.length; i--;) {
-      if (this.STACK[i].name == name) break;}
-    if (i != -1) {
-      var node;
-      while ((node = this.STACK.pop()).name != name) {this.popNode(node);}
-      this.popNode(node);
-    } else if (name == 'p' || name == 'br')
-    this.siblings().push({
-      name: name,
-      attrs: {} });
+      return this.locale;
+    } }, { key: "watchLocale", value: function watchLocale(
+    fn) {var _this2 = this;
+      var index = this.watchers.push(fn) - 1;
+      return function () {
+        _this2.watchers.splice(index, 1);
+      };
+    } }, { key: "t", value: function t(
+    key, locale, values) {
+      var message = this.message;
+      if (typeof locale === 'string') {
+        locale = normalizeLocale(locale, this.messages);
+        locale && (message = this.messages[locale]);
+      } else
+      {
+        values = locale;
+      }
+      if (!hasOwn(message, key)) {
+        console.warn("Cannot translate the value of keypath ".concat(key, ". Use the value of keypath as default."));
+        return key;
+      }
+      return this.formater.interpolate(message[key], values).join('');
+    } }]);return I18n;}();exports.I18n = I18n;
 
-    this.i = this.data.indexOf('>', this.i);
-    this.start = this.i + 1;
-    if (this.i == -1) this.i = this.data.length;else
-    this.state = this.Text;
+
+function initLocaleWatcher(appVm, i18n) {
+  appVm.$i18n &&
+  appVm.$i18n.vm.$watch('locale', function (newLocale) {
+    i18n.setLocale(newLocale);
+  }, {
+    immediate: true });
+
+}
+function getDefaultLocale() {
+  if (typeof navigator !== 'undefined') {
+    return navigator.userLanguage || navigator.language;
   }
-};
-module.exports = MpHtmlParser;
+  if (typeof plus !== 'undefined') {
+    // TODO 待调整为最新的获取语言代码
+    return plus.os.language;
+  }
+  return uni.getSystemInfoSync().language;
+}
+function initVueI18n(messages) {var fallbackLocale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'en';var locale = arguments.length > 2 ? arguments[2] : undefined;
+  var i18n = new I18n({
+    locale: locale || fallbackLocale,
+    fallbackLocale: fallbackLocale,
+    messages: messages });
+
+  var _t = function t(key, values) {
+    if (typeof getApp !== 'function') {
+      // app-plus view
+      /* eslint-disable no-func-assign */
+      _t = function t(key, values) {
+        return i18n.t(key, values);
+      };
+    } else
+    {
+      var appVm = getApp().$vm;
+      if (!appVm.$t || !appVm.$i18n) {
+        if (!locale) {
+          i18n.setLocale(getDefaultLocale());
+        }
+        /* eslint-disable no-func-assign */
+        _t = function t(key, values) {
+          return i18n.t(key, values);
+        };
+      } else
+      {
+        initLocaleWatcher(appVm, i18n);
+        /* eslint-disable no-func-assign */
+        _t = function t(key, values) {
+          var $i18n = appVm.$i18n;
+          var silentTranslationWarn = $i18n.silentTranslationWarn;
+          $i18n.silentTranslationWarn = true;
+          var msg = appVm.$t(key, values);
+          $i18n.silentTranslationWarn = silentTranslationWarn;
+          if (msg !== key) {
+            return msg;
+          }
+          return i18n.t(key, $i18n.locale, values);
+        };
+      }
+    }
+    return _t(key, values);
+  };
+  return {
+    t: function t(key, values) {
+      return _t(key, values);
+    },
+    getLocale: function getLocale() {
+      return i18n.getLocale();
+    },
+    setLocale: function setLocale(newLocale) {
+      return i18n.setLocale(newLocale);
+    },
+    mixin: {
+      beforeCreate: function beforeCreate() {var _this3 = this;
+        var unwatch = i18n.watchLocale(function () {
+          _this3.$forceUpdate();
+        });
+        this.$once('hook:beforeDestroy', function () {
+          unwatch();
+        });
+      },
+      methods: {
+        $$t: function $$t(key, values) {
+          return _t(key, values);
+        } } } };
+
+
+
+}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 174 */
-/*!******************************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/components/u-parse/libs/config.js ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
-/* 配置文件 */
-var cfg = {
-  // 出错占位图
-  errorImg: null,
-  // 过滤器函数
-  filter: null,
-  // 代码高亮函数
-  highlight: null,
-  // 文本处理函数
-  onText: null,
-  // 实体编码列表
-  entities: {
-    quot: '"',
-    apos: "'",
-    semi: ';',
-    nbsp: '\xA0',
-    ensp: "\u2002",
-    emsp: "\u2003",
-    ndash: '–',
-    mdash: '—',
-    middot: '·',
-    lsquo: '‘',
-    rsquo: '’',
-    ldquo: '“',
-    rdquo: '”',
-    bull: '•',
-    hellip: '…' },
-
-  blankChar: makeMap(' ,\xA0,\t,\r,\n,\f'),
-  boolAttrs: makeMap('allowfullscreen,autoplay,autostart,controls,ignore,loop,muted'),
-  // 块级标签，将被转为 div
-  blockTags: makeMap('address,article,aside,body,caption,center,cite,footer,header,html,nav,pre,section'),
-  // 将被移除的标签
-  ignoreTags: makeMap('area,base,canvas,frame,iframe,input,link,map,meta,param,script,source,style,svg,textarea,title,track,wbr'),
-  // 只能被 rich-text 显示的标签
-  richOnlyTags: makeMap('a,colgroup,fieldset,legend'),
-  // 自闭合的标签
-  selfClosingTags: makeMap('area,base,br,col,circle,ellipse,embed,frame,hr,img,input,line,link,meta,param,path,polygon,rect,source,track,use,wbr'),
-  // 信任的标签
-  trustTags: makeMap('a,abbr,ad,audio,b,blockquote,br,code,col,colgroup,dd,del,dl,dt,div,em,fieldset,h1,h2,h3,h4,h5,h6,hr,i,img,ins,label,legend,li,ol,p,q,source,span,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,title,ul,video'),
-  // 默认的标签样式
-  userAgentStyles: {
-    address: 'font-style:italic',
-    big: 'display:inline;font-size:1.2em',
-    blockquote: 'background-color:#f6f6f6;border-left:3px solid #dbdbdb;color:#6c6c6c;padding:5px 0 5px 10px',
-    caption: 'display:table-caption;text-align:center',
-    center: 'text-align:center',
-    cite: 'font-style:italic',
-    dd: 'margin-left:40px',
-    mark: 'background-color:yellow',
-    pre: 'font-family:monospace;white-space:pre;overflow:scroll',
-    s: 'text-decoration:line-through',
-    small: 'display:inline;font-size:0.8em',
-    u: 'text-decoration:underline' } };
-
-
-
-function makeMap(str) {
-  var map = Object.create(null),
-  list = str.split(',');
-  for (var i = list.length; i--;) {
-    map[list[i]] = true;}
-  return map;
-}
-
-
-if (wx.canIUse('editor')) {
-  cfg.blockTags.pre = void 0;
-  cfg.ignoreTags.rp = true;
-  Object.assign(cfg.richOnlyTags, makeMap('bdi,bdo,caption,rt,ruby'));
-  Object.assign(cfg.trustTags, makeMap('bdi,bdo,caption,pre,rt,ruby'));
-}
-
-
-
-
-
-
-
-module.exports = cfg;
-
-/***/ }),
-/* 175 */
-/*!**********************************************************************************************************!*\
-  !*** /Users/minzhang/Documents/HBuilderProjects/unapp-tg/uview-ui/components/u-parse/libs/CssHandler.js ***!
-  \**********************************************************************************************************/
+/***/ 79:
+/*!**********************************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/pages.json?{"type":"stat"} ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var cfg = __webpack_require__(/*! ./config.js */ 174),
-isLetter = function isLetter(c) {return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__EBA6A63" };exports.default = _default;
 
-function CssHandler(tagStyle) {
-  var styles = Object.assign(Object.create(null), cfg.userAgentStyles);
-  for (var item in tagStyle) {
-    styles[item] = (styles[item] ? styles[item] + ';' : '') + tagStyle[item];}
-  this.styles = styles;
-}
-CssHandler.prototype.getStyle = function (data) {
-  this.styles = new parser(data, this.styles).parse();
-};
-CssHandler.prototype.match = function (name, attrs) {
-  var tmp,matched = (tmp = this.styles[name]) ? tmp + ';' : '';
-  if (attrs.class) {
-    var items = attrs.class.split(' ');
-    for (var i = 0, item; item = items[i]; i++) {
-      if (tmp = this.styles['.' + item])
-      matched += tmp + ';';}
-  }
-  if (tmp = this.styles['#' + attrs.id])
-  matched += tmp + ';';
-  return matched;
-};
-module.exports = CssHandler;
+/***/ }),
 
-function parser(data, init) {
-  this.data = data;
-  this.floor = 0;
-  this.i = 0;
-  this.list = [];
-  this.res = init;
-  this.state = this.Space;
+/***/ 8:
+/*!*********************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/utils/auth.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.setToken = setToken;exports.getToken = getToken;exports.removeToken = removeToken;exports.setUserInfo = setUserInfo;exports.getUserInfo = getUserInfo;exports.removeUserInfo = removeUserInfo;exports.setConfig = setConfig;exports.getConfig = getConfig;exports.setRecommend = setRecommend;exports.getRecommend = getRecommend;exports.setGoodsData = setGoodsData;exports.getGoodsData = getGoodsData;exports.setAddress = setAddress;exports.getAddress = getAddress;exports.removeAddress = removeAddress;exports.setTbIndex = setTbIndex;exports.getTbIndex = getTbIndex;exports.removeTbIndex = removeTbIndex;exports.setlocation = setlocation;exports.getlocation = getlocation;exports.setCart = setCart;exports.getCart = getCart;exports.removeCart = removeCart;exports.setPickaddress = setPickaddress;exports.getPickaddress = getPickaddress;exports.removePickaddress = removePickaddress;exports.setToaddress = setToaddress;exports.getToaddress = getToaddress;exports.removeToaddress = removeToaddress; // 该文件用来存储localStorage 本地缓存的方法
+/**
+ * 操作用户token
+ */
+function setToken(value) {
+  uni.setStorageSync('token', value);
+  console.log('存储用户信息成功');
 }
-parser.prototype.parse = function () {
-  for (var c; c = this.data[this.i]; this.i++) {
-    this.state(c);}
-  return this.res;
-};
-parser.prototype.section = function () {
-  return this.data.substring(this.start, this.i);
-};
-// 状态机
-parser.prototype.Space = function (c) {
-  if (c == '.' || c == '#' || isLetter(c)) {
-    this.start = this.i;
-    this.state = this.Name;
-  } else if (c == '/' && this.data[this.i + 1] == '*')
-  this.Comment();else
-  if (!cfg.blankChar[c] && c != ';')
-  this.state = this.Ignore;
-};
-parser.prototype.Comment = function () {
-  this.i = this.data.indexOf('*/', this.i) + 1;
-  if (!this.i) this.i = this.data.length;
-  this.state = this.Space;
-};
-parser.prototype.Ignore = function (c) {
-  if (c == '{') this.floor++;else
-  if (c == '}' && ! --this.floor) {
-    this.list = [];
-    this.state = this.Space;
+function getToken() {
+  var token = uni.getStorageSync('token');
+  return token;
+}
+function removeToken() {
+  uni.removeStorageSync('token');
+}
+/**
+   * 操作用户信息
+   */
+
+function setUserInfo(value) {
+  try {
+    var newValue = JSON.stringify(value);
+    uni.setStorageSync('userinfo', newValue);
+    console.log('存储用户信息成功');
+  } catch (e) {
+    return;
   }
-};
-parser.prototype.Name = function (c) {
-  if (cfg.blankChar[c]) {
-    this.list.push(this.section());
-    this.state = this.NameSpace;
-  } else if (c == '{') {
-    this.list.push(this.section());
-    this.Content();
-  } else if (c == ',') {
-    this.list.push(this.section());
-    this.Comma();
-  } else if (!isLetter(c) && (c < '0' || c > '9') && c != '-' && c != '_')
-  this.state = this.Ignore;
-};
-parser.prototype.NameSpace = function (c) {
-  if (c == '{') this.Content();else
-  if (c == ',') this.Comma();else
-  if (!cfg.blankChar[c]) this.state = this.Ignore;
-};
-parser.prototype.Comma = function () {
-  while (cfg.blankChar[this.data[++this.i]]) {;}
-  if (this.data[this.i] == '{') this.Content();else
+}
+function getUserInfo() {
+  var userinfo = uni.getStorageSync('userinfo');
+  console.log('userinfo', userinfo);
+  if (userinfo) {
+    return JSON.parse(userinfo);
+  }
+}
+function removeUserInfo() {
+  uni.removeStorageSync('userinfo');
+}
+/**
+   * 项目主题颜色
+   */
+
+function setConfig(value) {
+  try {
+    var config = JSON.stringify(value);
+    uni.setStorageSync('config', config);
+    console.log('存储主题成功');
+  } catch (e) {
+    return;
+  }
+}
+function getConfig() {
+  var config = uni.getStorageSync('config');
+
+  if (config) {
+    return JSON.parse(config);
+  }
+}
+/**
+   * 获取推荐人id
+   */
+
+function setRecommend(value) {
+  uni.setStorageSync('recommend', value);
+  console.log('recommend', value);
+}
+function getRecommend() {
+  var recommend = uni.getStorageSync('recommend');
+  return recommend;
+}
+/**
+   * 存储商品信息
+   */
+
+function setGoodsData(value) {
+  try {
+    var newValue = JSON.stringify(value);
+    uni.setStorageSync('goodsdata', newValue);
+    console.log('存储商品信息成功');
+  } catch (e) {
+    return;
+  }
+}
+function getGoodsData() {
+  var goodsdata = uni.getStorageSync('goodsdata');
+
+  if (goodsdata) {
+    return JSON.parse(goodsdata);
+  }
+}
+// 存储用户地址
+function setAddress(value) {
+  try {
+    var newValue = JSON.stringify(value);
+    uni.setStorageSync('address', newValue);
+    console.log('存储地址信息成功', newValue);
+  } catch (e) {
+    return;
+  }
+}
+function getAddress() {
+  var address = uni.getStorageSync('address');
+
+  if (address) {
+    return JSON.parse(address);
+  }
+}
+function removeAddress() {
+  uni.removeStorageSync('address');
+} // 设置分类跳转
+
+function setTbIndex(value) {//设置菜单栏选项
+  uni.setStorageSync('tabIndex', value);
+  console.log('tabIndex', value);
+}
+function getTbIndex() {//获取菜单栏选项
+  var tabIndex = uni.getStorageSync('tabIndex');
+  return tabIndex;
+}
+function removeTbIndex() {//移除菜单栏选项
+  uni.removeStorageSync('tabIndex');
+}
+function setlocation(value) {//存储位置信息
+  try {
+    var newValue = JSON.stringify(value);
+    uni.setStorageSync('location', newValue);
+    console.log('存储地址信息成功', newValue);
+  } catch (e) {
+    return;
+  }
+}
+function getlocation() {//获取位置信息
+  var location = uni.getStorageSync('location');
+  if (location) {
+    return JSON.parse(location);
+  }
+}
+function setCart(value) {//模拟存储购物车数据
+  try {
+    var data = getCart() || [];
+    data.push(value);
+    var newValue = JSON.stringify(data);
+    uni.setStorageSync('cart', newValue);
+    console.log('存储购物车数据成功', newValue);
+  } catch (e) {
+    return;
+  }
+}
+function getCart() {//模拟获取购物车数据
+  var cart = uni.getStorageSync('cart');
+  if (cart) {
+    return JSON.parse(cart);
+  }
+}
+function removeCart() {//模拟删除购物车数据
+  uni.removeStorageSync('cart');
+}
+function setPickaddress(value) {//存储收件地址
+  try {
+    var newValue = JSON.stringify(value);
+    uni.setStorageSync('pickaddress', newValue);
+    console.log('存储收件地址信息成功', newValue);
+  } catch (e) {
+    return;
+  }
+}
+function getPickaddress() {//获取收件地址
+  var location = uni.getStorageSync('pickaddress');
+  if (location) {
+    return JSON.parse(location);
+  }
+}
+function removePickaddress() {//删除收件地址
+  uni.removeStorageSync('pickaddress');
+}
+function setToaddress(value) {//存储取件地址
+  try {
+    var newValue = JSON.stringify(value);
+    uni.setStorageSync('toaddress', newValue);
+    console.log('存储取件地址信息成功', newValue);
+  } catch (e) {
+    return;
+  }
+}
+function getToaddress() {//获取取件地址
+  var location = uni.getStorageSync('toaddress');
+  if (location) {
+    return JSON.parse(location);
+  }
+}
+function removeToaddress() {//删除取件地址
+  uni.removeStorageSync('toaddress');
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 9:
+/*!***********************************************************************************!*\
+  !*** /Users/minzhang/Documents/HBuilderProjects/github/uniapp-tg/utils/config.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 本js用来存储项目样式和主题颜色
+var _default = {
+  themeList: [{
+    title: '官方',
+    name: 'default',
+    color: '#fa436a',
+    tabList: ["/static/images/tabBar/home-default.png", "/static/images/tabBar/class-default.png", "/static/images/tabBar/cart-default.png", "/static/images/tabBar/user-default.png"] },
   {
-    this.start = this.i--;
-    this.state = this.Name;
-  }
-};
-parser.prototype.Content = function () {
-  this.start = ++this.i;
-  if ((this.i = this.data.indexOf('}', this.i)) == -1) this.i = this.data.length;
-  var content = this.section();
-  for (var i = 0, item; item = this.list[i++];) {
-    if (this.res[item]) this.res[item] += ';' + content;else
-    this.res[item] = content;}
-  this.list = [];
-  this.state = this.Space;
-};
+    title: '嫣红',
+    name: 'red',
+    color: '#e54d42',
+    tabList: ["/static/images/tabBar/tab-home-red.png", "/static/images/tabBar/tab-cate-red.png", "/static/images/tabBar/tab-cart-red.png", "/static/images/tabBar/tab-user-red.png"] },
+  {
+    title: '桔橙',
+    name: 'orange',
+    color: '#f37b1d',
+    tabList: ["/static/images/tabBar/tab-home-orange.png", "/static/images/tabBar/tab-cate-orange.png", "/static/images/tabBar/tab-cart-orange.png", "/static/images/tabBar/tab-user-orange.png"] },
+  {
+    title: '明黄',
+    name: 'yellow',
+    color: '#fbbd08',
+    tabList: ["/static/images/tabBar/tab-home-yellow.png", "/static/images/tabBar/tab-cate-yellow.png", "/static/images/tabBar/tab-cart-yellow.png", "/static/images/tabBar/tab-user-yellow.png"] },
+  {
+    title: '橄榄',
+    name: 'olive',
+    color: '#8dc63f',
+    tabList: ["/static/images/tabBar/tab-home-olive.png", "/static/images/tabBar/tab-cate-olive.png", "/static/images/tabBar/tab-cart-olive.png", "/static/images/tabBar/tab-user-olive.png"] },
+  {
+    title: '森绿',
+    name: 'green',
+    color: '#39b54a',
+    tabList: ["/static/images/tabBar/tab-home-green.png", "/static/images/tabBar/tab-cate-green.png", "/static/images/tabBar/tab-cart-green.png", "/static/images/tabBar/tab-user-green.png"] },
+  {
+    title: '天青',
+    name: 'cyan',
+    color: '#1cbbb4',
+    tabList: ["/static/images/tabBar/tab-home-cyan.png", "/static/images/tabBar/tab-cate-cyan.png", "/static/images/tabBar/tab-cart-cyan.png", "/static/images/tabBar/tab-user-cyan.png"] },
+  {
+    title: '海蓝',
+    name: 'blue',
+    color: '#0081ff',
+    tabList: ["/static/images/tabBar/tab-home-blue.png", "/static/images/tabBar/tab-cate-blue.png", "/static/images/tabBar/tab-cart-blue.png", "/static/images/tabBar/tab-user-blue.png"] },
+  {
+    title: '姹紫',
+    name: 'purple',
+    color: '#6739b6',
+    tabList: ["/static/images/tabBar/tab-home-purple.png", "/static/images/tabBar/tab-cate-purple.png", "/static/images/tabBar/tab-cart-purple.png", "/static/images/tabBar/tab-user-purple.png"] },
+  {
+    title: '木槿',
+    name: 'mauve',
+    color: '#9c26b0',
+    tabList: ["/static/images/tabBar/tab-home-mauve.png", "/static/images/tabBar/tab-cate-mauve.png", "/static/images/tabBar/tab-cart-mauve.png", "/static/images/tabBar/tab-user-mauve.png"] },
+  {
+    title: '桃粉',
+    name: 'pink',
+    color: '#e03997',
+    tabList: ["/static/images/tabBar/tab-home-pink.png", "/static/images/tabBar/tab-cate-pink.png", "/static/images/tabBar/tab-cart-pink.png", "/static/images/tabBar/tab-user-pink.png"] },
+  {
+    title: '棕褐',
+    name: 'brown',
+    color: '#a5673f',
+    tabList: ["/static/images/tabBar/tab-home-brown.png", "/static/images/tabBar/tab-cate-brown.png", "/static/images/tabBar/tab-cart-brown.png", "/static/images/tabBar/tab-user-brown.png"] },
+  {
+    title: '玄灰',
+    name: 'grey',
+    color: '#8799a3',
+    tabList: ["/static/images/tabBar/tab-home-grey.png", "/static/images/tabBar/tab-cate-grey.png", "/static/images/tabBar/tab-cart-grey.png", "/static/images/tabBar/tab-user-grey.png"] },
+  {
+    title: '墨黑',
+    name: 'black',
+    color: '#333333',
+    tabList: ["/static/images/tabBar/tab-home-black.png", "/static/images/tabBar/tab-cate-black.png", "/static/images/tabBar/tab-cart-black.png", "/static/images/tabBar/tab-user-black.png"] }] };exports.default = _default;
 
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

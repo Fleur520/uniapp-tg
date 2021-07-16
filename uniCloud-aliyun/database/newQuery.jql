@@ -1,0 +1,30 @@
+// 本文件用于，使用JQL语法操作项目关联的uniCloud空间的数据库，方便开发调试和远程数据库管理
+// 编写clientDB的js API（也支持常规js语法，比如var），可以对云数据库进行增删改查操作。不支持uniCloud-db组件写法
+// 可以全部运行，也可以选中部分代码运行。点击工具栏上的运行按钮或者按下【F5】键运行代码
+// 如果文档中存在多条JQL语句，只有最后一条语句生效
+// 如果混写了普通js，最后一条语句需是数据库操作语句
+// 此处代码运行不受DB Schema的权限控制，移植代码到实际业务中注意在schema中配好permission
+// 不支持clientDB的action
+// 数据库查询有最大返回条数限制，详见：https://uniapp.dcloud.net.cn/uniCloud/cf-database?id=limit
+// 详细JQL语法，请参考 https://uniapp.dcloud.net.cn/uniCloud/clientdb?id=jsquery
+
+// 下面示例查询uni-id-users表的所有数据
+ uniCloud.database('cloud-zm-std').
+  db.database('cloud-zm-std')
+db.collection('std-menus').where({
+  parent_id: ''
+}).get()
+
+
+
+
+{"_id":{"$oid":"60ed9ab5a30ce80001e74ea4"},"menu_id":"30","name":"职称考试","icon":"","url":"","sort":30,"parent_id":"","permission":[],"enable":true,"create_date":1626184370669}
+{"_id":{"$oid":"60ed9be6f6a3980001c8102d"},"menu_id":"110","name":"3dBody人体解剖软件","icon":"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/mind/swot.png","url":"www.baidu.com","sort":10,"parent_id":"10","permission":[],"enable":true,"create_date":1626184676143}
+{"_id":{"$oid":"60edc7613b7d3500013f46dd"},"menu_id":"120","name":"丁香园","icon":"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/mind/grow.png","url":"","sort":50,"parent_id":"50","permission":[],"enable":true,"create_date":1626195807340}
+{"_id":{"$oid":"60edc708acc1cf0001548956"},"menu_id":"50","name":"医学社区","icon":"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/mind/swot.png","url":"","sort":50,"parent_id":"","permission":[],"enable":true,"create_date":1626195718341}
+{"_id":{"$oid":"60ed9a649056cd0001379142"},"menu_id":"100","name":"新编全医药学大词典","icon":"https://cloud1-5giwac10c58ce5d6-1306455490.tcloudbaseapp.com/unionapp-tg/mind/swot.png","url":"www.baidu.com","sort":10,"parent_id":"10","permission":[],"enable":true,"create_date":1626184290357}
+{"_id":{"$oid":"60ed9aec5e31f50001a5c8f0"},"menu_id":"40","name":"医学文献","icon":"","url":"","sort":40,"parent_id":"","permission":[],"enable":true,"create_date":1626184426038}
+{"_id":{"$oid":"60ed9a9a9dad850001bca2d7"},"menu_id":"20","name":"学习平台","icon":"","url":"","sort":20,"parent_id":"","permission":[],"enable":true,"create_date":1626184344171}
+{"_id":{"$oid":"60edc6ca827eca0001e39638"},"menu_id":"10","name":"常用工具","icon":"","url":"url","sort":10,"parent_id":"","permission":[],"enable":true,"create_date":1626195656437}
+
+

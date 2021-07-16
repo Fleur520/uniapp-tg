@@ -1,0 +1,1 @@
+<unicloud-db generic:scoped-slots-default="doctorPageIndex-unicloud-db-default" data-vue-generic="scoped" class="vue-ref" vue-id="4e4d9399-1" where="parent_id==''" collection="std-menus" field data-ref="udb" bind:__l="__l" vue-slots="{{['default']}}"></unicloud-db>

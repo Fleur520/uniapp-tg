@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "技术纯干货",
-  "usingComponents": {
-    "u-search": "/uview-ui/components/u-search/u-search",
-    "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper",
-    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
-  }
-}

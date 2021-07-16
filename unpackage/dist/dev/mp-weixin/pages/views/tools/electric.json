@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "电费计算器",
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "u-card": "/uview-ui/components/u-card/u-card",
+    "u-form": "/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uview-ui/components/u-form-item/u-form-item",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-select": "/uview-ui/components/u-select/u-select",
+    "u-toast": "/uview-ui/components/u-toast/u-toast",
+    "item-cell": "/pages/commponent/setting/item-cell"
+  }
+}

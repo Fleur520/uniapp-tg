@@ -1,0 +1,35 @@
+{
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "minified": true,
+    "postcss": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "",
+  "appid": "wx4b5006b2ea32fcde",
+  "projectname": "unapp-tg",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+    }
+  }
+  ,"miniprogramRoot": "./dist/dev/mp-weixin"
+
+}

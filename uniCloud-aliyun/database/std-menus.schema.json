@@ -1,0 +1,105 @@
+{
+  "bsonType": "object",
+  "required": [
+    "name",
+    "menu_id"
+  ],
+  "permission": {
+    "read": true
+  },
+  "properties": {
+    "_id": {
+      "description": "存储文档 ID，系统自动生成"
+    },
+    "menu_id": {
+      "bsonType": "string",
+      "description": "菜单项的ID，不可重复",
+      "trim": "both"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "菜单名称",
+      "trim": "both"
+    },
+    "icon": {
+      "bsonType": "string",
+      "description": "菜单图标",
+      "trim": "both"
+    },
+    "link_url": {
+      "bsonType": "string",
+      "description": "菜单跳转url",
+      "trim": "both"
+    },
+    "sort": {
+      "bsonType": "int",
+      "description": "菜单序号（越大越靠后）"
+    },
+    "parent_id": {
+      "bsonType": "string",
+      "description": "父级菜单Id",
+      "parentKey": "menu_id"
+    },
+    "permission": {
+      "bsonType": "array",
+      "description": "菜单权限列表"
+    },
+    "enable": {
+      "bsonType": "bool",
+      "description": "是否启用菜单，true启用、false禁用"
+    },
+    "create_date": {
+      "bsonType": "timestamp",
+      "description": "菜单创建时间",
+      "forceDefaultValue": {
+        "$env": "now"
+      }
+    },
+	"menu_type": {
+		"bsonType": "int",
+		"title": "菜单类型",
+		"description": "用户性别：1:医生首页导航 2: 问医菜单 3 活动专区 4：我的 5:其他",
+		"defaultValue": 0,
+		"enum": [{
+			"text": "问医菜单",
+			"value": 1
+		}, {
+			"text": "问医菜单",
+			"value": 2
+		}, {
+			"text": "活动专区",
+			"value": 3
+		}, {
+			"text": "我的",
+			"value": 4
+		}, {
+			"text": "其他",
+			"value": 3
+		}]
+	},
+	"link_type": {
+		"bsonType": "int",
+		"title": "跳转链接类型",
+		"description": "跳转链接类型：1:内链 2: 外链 3 小程序 4：APP 5:其他",
+		"defaultValue": 0,
+		"enum": [{
+			"text": "内链",
+			"value": 1
+		}, {
+			"text": "外链",
+			"value": 2
+		}, {
+			"text": "小程序",
+			"value": 3
+		}, {
+			"text": "APP",
+			"value": 4
+		}, {
+			"text": "其他",
+			"value": 5
+		}]
+	}
+	
+	
+  }
+}

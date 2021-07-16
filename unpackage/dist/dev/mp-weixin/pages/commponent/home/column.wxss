@@ -1,0 +1,27 @@
+.column.data-v-9ef65510 {
+  height: 400rpx;
+  width: 94%;
+  overflow: hidden;
+  margin: 0 3%;
+  margin-top: 15rpx;
+}
+.column_left.data-v-9ef65510 {
+  height: 100%;
+  width: 40%;
+  float: left;
+}
+.column_left .left_img.data-v-9ef65510 {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.colum_right.data-v-9ef65510 {
+  float: right;
+  width: 58%;
+}
+.colum_right .right_img.data-v-9ef65510 {
+  width: 100%;
+  height: 196rpx;
+  display: block;
+}
+

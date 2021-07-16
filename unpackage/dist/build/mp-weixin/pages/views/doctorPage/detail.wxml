@@ -1,0 +1,1 @@
+<unicloud-db generic:scoped-slots-default="detail-unicloud-db-default" data-vue-generic="scoped" class="vue-ref" vue-id="13e6b11e-1" options="{{options}}" collection="std-menus" field where="{{queryWhere}}" manual="{{true}}" data-ref="udb" bind:__l="__l" vue-slots="{{['default']}}"></unicloud-db>

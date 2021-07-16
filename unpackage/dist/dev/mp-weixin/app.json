@@ -1,16 +1,30 @@
 {
   "pages": [
-    "pages/views/tabBar/home",
-    "pages/views/tabBar/detail",
-    "pages/views/tabBar/cate",
-    "pages/views/home/tags",
+    "pages/views/tabBar/doctorPageIndex",
+    "pages/std-menus/list",
+    "pages/std-menus/detail",
+    "pages/std-menus/add",
+    "pages/std-menus/edit",
     "pages/login/login",
     "pages/views/setting/about",
     "pages/views/tabBar/user",
     "pages/views/setting/index",
     "pages/views/user/extension",
     "pages/views/home/search",
-    "pages/views/home/h5map"
+    "pages/views/home/h5map",
+    "test/test",
+    "pages/views/tabBar/commonToolNav",
+    "pages/views/tools/ip",
+    "pages/views/tools/electric",
+    "pages/views/tools/font",
+    "pages/views/tools/mobile",
+    "pages/views/tools/idcard",
+    "pages/views/tools/house",
+    "pages/views/tools/bank",
+    "pages/views/tabBar/zoneIndex",
+    "pages/views/zone/card/card",
+    "pages/views/zone/grid/grid",
+    "pages/views/doctorPage/detail"
   ],
   "subPackages": [],
   "window": {
@@ -26,16 +40,22 @@
     "color": "#666666",
     "list": [
       {
-        "pagePath": "pages/views/tabBar/home",
-        "iconPath": "/static/images/tabBar/breath_default.png",
-        "selectedIconPath": "/static/images/tabBar/breath_selected.png",
+        "pagePath": "pages/views/tabBar/doctorPageIndex",
+        "iconPath": "/static/images/tabBar/home.png",
+        "selectedIconPath": "/static/images/tabBar/home.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/views/tabBar/cate",
+        "pagePath": "pages/views/tabBar/zoneIndex",
         "iconPath": "/static/images/tabBar/theme_default.png",
         "selectedIconPath": "/static/images/tabBar/theme_selected.png",
-        "text": "分类"
+        "text": "问医"
+      },
+      {
+        "pagePath": "pages/views/tabBar/commonToolNav",
+        "iconPath": "/static/images/tabBar/breath_default.png",
+        "selectedIconPath": "/static/images/tabBar/breath_selected.png",
+        "text": "活动专区"
       },
       {
         "pagePath": "pages/views/tabBar/user",

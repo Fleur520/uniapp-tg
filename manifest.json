@@ -1,5 +1,5 @@
 {
-    "name" : "unapp-tg",
+    "name" : "星星医学助手",
     "appid" : "__UNI__EBA6A63",
     "description" : "",
     "versionName" : "1.0.0",
@@ -50,7 +50,7 @@
     },
     "quickapp" : {},
     "mp-weixin" : {
-        "appid" : "wx4b5006b2ea32fcde",
+        "appid" : "wx14a4fcd8c20a6aae",
         "setting" : {
             "urlCheck" : false,
             "minified" : true,

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "办公效能助手TG",
-  "usingComponents": {
-    "u-search": "/uview-ui/components/u-search/u-search",
-    "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper",
-    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
-  }
-}

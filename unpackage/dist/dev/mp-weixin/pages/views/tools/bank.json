@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "银行卡查询",
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "usingComponents": {
+    "u-form": "/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uview-ui/components/u-form-item/u-form-item",
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
+    "u-toast": "/uview-ui/components/u-toast/u-toast",
+    "item-cell": "/pages/commponent/setting/item-cell"
+  }
+}
